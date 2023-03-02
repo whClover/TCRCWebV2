@@ -1,0 +1,29 @@
+﻿<%@ Master Language="VB" AutoEventWireup="false" CodeBehind="Report.master.vb" Inherits="TCRCWebV2.Report" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%: Page.Title %></title>
+
+    <asp:PlaceHolder runat="server">
+        <%: Styles.Render("~/Css") %>
+    </asp:PlaceHolder>
+
+    <style>
+        @page {
+              size:auto;
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <asp:ContentPlaceHolder ID="ReportDyn" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+</body>
+</html>

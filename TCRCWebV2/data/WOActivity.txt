@@ -1,0 +1,451 @@
+wono	ComponentName	UnitDescription	Age	LastActivity	ActualLabHour	TargetLabour	
+5329593	Engine	Cat C18 591kVA	45	Waiting Part	152.5		
+6037480	Final Drive	Terex Reedrill SKF-11	329	Assembly	101		
+6117461	Engine	Cat 789C	471	Waiting Completion	1275.5	912	
+6117465	Fan Pulley Brgs	Cat 789C	471	Assembly	19.5	16	
+6223808	Brake	Cat 14M3	416	Waiting Part	20	34	
+6232208	Engine	Cat D8R DWJ	157	Assembly	197	390	
+6232284	Engine	Cat 14M3	160	Waiting Part	184	361	
+6235573	Transmission	Cat 740	295	Waiting Testing	141.5	161	
+6402274	Final Drive	Cat 18M3	85	Waiting Stand	39.5	43	
+6402277	Bevel Gear	Cat 18M3	85	Waiting Part	33	79	
+6430665	Final Drive	Liebherr R9350	162	Assembly	187	220	
+6439521	Swing Box	Liebherr R9250	237	Waiting Part	69.5		
+6451440	Brake	Cat 18M3	227	Waiting Part	20.5	34	
+6459786	Bevel Gear	Cat 785C	220	Waiting Part	36	79.5	
+6465056	Bevel Gear	Cat 16M	216	Waiting Part	38.5	75	
+6465572	Transmission	Cat D10R	216	Waiting Stand	160	162	
+6469793	Final Drive	Cat 16M	212	Assembly	33.5	42	
+6469797	Final Drive	Cat 16M	212	Waiting Part	24	42	
+6473037	Fan Pulley Brgs	Cat D8R	196	Assembly	10	11	
+6473035	Injection Pump	Cat D8R	148	Assembly	33		
+6474195	Torque Convertor	Cat 785C	209	Painted	71	68	
+6478924	Engine	Cat D10R	199	Assembly	455	581.41	
+6478927	Fan Pulley Brgs	Cat D10R	199	Waiting Part		14	
+6478926	Engine	Cat D10R	28	Inspection	98		
+6478928	Fan Pulley Brgs	Cat D10R	28	Waiting Execution		14	
+6486773	Transmission	Cat 834H	198	Waiting Completion	191	180	
+6493933	Engine	Cat 777D	101	Waiting Completion	637.5	639	
+6493946	Fan Pulley Brgs	Cat 777D	142	Waiting Completion	12	14	
+6493934	Engine	Cat 777D	129	Waiting Completion	638	639	
+6493948	Fan Pulley Brgs	Cat 777D	129	Waiting Completion	14	14	
+6493950	Fan Pulley Brgs	Cat 777D	23	Tear Down			
+6493937	Engine	Cat 777D	108	Waiting Completion	640.5	639	
+6493952	Fan Pulley Brgs	Cat 777D	121	Waiting Completion	14	14	
+6493953	Engine	Cat D8R	42	Waiting Part	164	361	
+6493959	Injection Pump	Cat D8R	110	Waiting Part	14		
+6499946	Brake	Cat 14M	188	Waiting Part	17	34	
+6500006	Transmission Pump	Cat 16M	188	Waiting Execution		17	
+6500010	Bevel Gear	Cat 785C	188	Waiting Part	33	79.5	
+6503227	Engine	Cat 789C	185	Waiting Submit Part	518.5	912	
+6507540	Final Drive	Cat 789C	182	Waiting Painting	158	159	
+6507570	Brake	Cat 18M3	125	Waiting Assembly	20.5	34	
+6511857	Engine	Cat 3406C 365kVA	178	Assembly	34		
+6512943	Engine	Cat 773E	66	Waiting Completion	581.5	581	
+6521313	Engine	Cat 785C	141	Waiting Completion	819	823	
+6521314	Engine	Cat 785C	108	Waiting Part	428.5	823	
+6543591	Engine	Godwin HL260	154	Testing	370.5		
+6545747	Cylinder Head Grp	Cat 16M	153	Assembly	36.5		
+6545750	Cylinder Head Grp	Cat 16M	153	Inspection	24		
+6550726	Final Drive	Cat D10T	149	Assembly	58	61	
+6550797	Steering Clutch/Brk	Cat D10T	149	Assembly	21	38	
+6551810	Splitter Box	Liebherr R9250	148	Waiting Part	57	136	
+6561481	Engine	Cat 777E	141	Waiting Part	247.5		
+6561484	Fan Pulley Brgs	Cat 777E	141	Waiting Part	8.5		
+6562601	Transfer Case	Cat 740	140	Waiting Part	44	119	
+6571867	Splitter Box	Liebherr R984C	133	Waiting Part	54	107	
+6571957	Torque Convertor	Cat 773E	133	Waiting Stand	75.5	70	
+6572417	Fan Pulley Brgs	Cat 3406 375kVA	133	Waiting Completion	11		
+6573260	Engine	Cat 785C	127	Waiting Completion	821.5	823	
+6573268	Fan Pulley Brgs	Cat 785C	132	Waiting Completion	15	16	
+6574144	Engine	Cat 16M	131	Waiting Completion	345	350	
+6576799	Fan Pulley Brgs	Cat 3406 375kVA	129	Waiting Completion	12		
+6580614	Engine	Cat 777D	23	Inspection	245.5	639	
+6586769	Final Drive	Cat D9R	121	Assembly	54	63	
+6587245	Engine	Cat 777D	113	Waiting Completion	636.5	639	
+6587246	Fan Pulley Brgs	Cat 777D	121	Waiting Completion	13	14	
+6586813	Engine	Cat 777D	115	Waiting Completion	639.5	639	
+6586821	Fan Pulley Brgs	Cat 777D	115	Assembly	13	14	
+6587924	Engine	Cat 777D	113	MPI	597	639	
+6587930	Fan Pulley Brgs	Cat 777D	113	Waiting Part	8	14	
+6587927	Engine	Cat 777D	86	MPI	469	639	
+6587932	Fan Pulley Brgs	Cat 777D	86	Inspection	8	14	
+6587929	Engine	Cat 777D	86	MPI	393	639	
+6587935	Fan Pulley Brgs	Cat 777D	86	Waiting Part	8	14	
+6587941	Engine	Cat 777D	56	Waiting Part	258	639	
+6587950	Fan Pulley Brgs	Cat 777D	56	Washing	6	14	
+6587943	Engine	Cat 777D	30	Inspection	259.5	639	
+6587951	Fan Pulley Brgs	Cat 777D	30	Inspection	7	14	
+6587945	Engine	Cat 777D	37	Waiting Part	268	639	
+6587953	Fan Pulley Brgs	Cat 777D	37	Tear Down	3	14	
+6587948	Engine	Cat 777D	37	Waiting Part	282.5	639	
+6587956	Fan Pulley Brgs	Cat 777D	37	Waiting Part	8	14	
+6589347	Convertor Scav Pump	Cat 773E	119	Waiting Completion	13	22	
+6589361	Transmission	Cat 773E	119	Waiting Part	102	171	
+6594479	Splitter Box	Liebherr R9250	115	Waiting Part	54	136	
+6594499	Final Drive	Cat 785C	115	Waiting Completion	40	37	
+6594537	Engine	Cat 14M3	115	Waiting Completion	361	361	
+6596079	Fan Pulley Brgs	Cat D9R	114	Assembly	29		
+6597456	Convertor Scav Pump	Cat 785C	113	Waiting Painting	18	22	
+6598602	Engine	Cat 773E	50	Waiting Part	259.5	581	
+6598605	Engine	Cat 773E	30	Inspection	245	581	
+6599189	Wheel Bearing	Cat 773E	112	Waiting Part	31.5		
+6599259	Final Drive	Cat 18M3	112	Waiting Part	30		
+6599305	Fan Pulley Brgs	Cat 773E	50	Waiting Part	5	11	
+6599306	Fan Pulley Brgs	Cat 773E	30	Waiting Execution		11	
+6599314	Engine	Cat 785C	84	Waiting Part	354	823	
+6599327	Fan Pulley Brgs	Cat 785C	108	Inspection	8	16	
+6599316	Engine	Cat 785C	31	Waiting Part	383.5	823	
+6599329	Fan Pulley Brgs	Cat 785C	84	Waiting Part	6		
+6599330	Fan Pulley Brgs	Cat 785C	31	Inspection		16	
+6603499	Splitter Box	Liebherr R9350	108	Waiting Part	58	186	
+6603723	Transmission	Cat D10T	108	Waiting Part	82.5	162	
+6607884	Engine	Cat 16M	105	Assembly	234.5	350	
+6607924	Engine	Cat 16M	105	Waiting Part	138.5	350	
+6607928	Engine	Cat D10T	71	Waiting Completion	581	581.41	
+6607929	Engine	Cat D10T	57	Waiting Completion	589		
+6607932	Engine	Cat D10T	16	Inspection	218.5	581.41	
+6608605	Engine	Cat D8R	105	Waiting Completion	365.5		
+6609916	Circle Drive Box	Cat 14M	104	Waiting Completion	35	35	
+6613417	Engine	Cat 777D	101	Waiting Completion	661		
+6613421	Transmission	Cat 14M	101	Waiting Completion	161		
+6613422	Transmission Pump	Cat 14M	101	Waiting Execution			
+6617208	Engine	Cat 16M	98	Waiting Execution		350	
+6619798	Wheel Bearing	Cat 785C	96	Waiting Part	14	35	
+6623261	Engine	Cat 740	93	Painted	379	380	
+6625475	Injection Pump	Cat D9R	92	Waiting Execution			
+6627095	Final Drive	Cat 777E	91	Waiting Completion	52.5		
+6627099	Final Drive	Cat 777E	91	Waiting Part	16.5		
+6612740	Engine	Cat C18 591kVA	91	Waiting Completion	31.5		
+6627103	Torque Convertor	Cat 777D	91	Waiting Part	33.5		
+6627105	Convertor Scav Pump	Cat 777D	91	Washing	3	26.5	
+6627107	Pump Drive Box	Cat 777D	91	Waiting Painting	25	26	
+6627112	Bevel Gear	Cat 785C	90	Waiting Part	34	79.5	
+6627121	Wheel Bearing	Cat 785C	85	Waiting Completion	62.5	47	
+6627125	Wheel Bearing	Cat 785C	90	Waiting Part	28	47	
+6627132	Bevel Gear	Cat 785C	90	Waiting Part	37	79.5	
+6627138	Final Drive	Cat 777D	90	Waiting Part	32	54	
+6631126	Torque Convertor	Cat 740	87	Waiting Part	29	66	
+6631142	Transmission Pump	Cat 740	87	Waiting Testing	15.5	23	
+6632653	Final Drive	Cat 785C	86	Waiting Completion	47.5	37	
+6632695	Transmission	Cat 785C	86	Waiting Part	91.5	179	
+6633147	Bevel Gear	Cat 14M3	86	Waiting Part	43.5	86	
+6633149	Final Drive	Cat 14M3	86	Testing	37	45	
+6633152	Final Drive	Cat 14M3	86	Painted	42.5	45	
+6634448	Transmission	Cat 785C	85	Waiting Part	92.5	179	
+6634453	Transmission	Cat 785C	85	Waiting Part	93	179	
+6635798	Wheel Bearing	Cat 785C	84	Painted	35.5	35	
+6635885	Engine	Sykes HH220iSS	84	Waiting Part	121.5	350	
+6636051	Fan Pulley Brgs	Sykes HH220iSS	84	Waiting Part	2		
+6637254	Final Drive	Cat 740	83	Waiting Part	31.5		
+6637261	Pump Drive Box	Cat 777D	83	Waiting Painting	24.5	26	
+6637279	Brake	Cat 14M	83	Waiting Part	16	34	
+6640900	Engine	Sykes XH150	58	Waiting Completion	384		
+6642512	Final Drive	Cat 777D	79	Waiting Part	19	27	
+6642761	Final Drive	Cat 740	79	Waiting Part	29	66	
+6644303	Engine	Sykes XH150	78	Waiting Part	144		
+6644309	Fan Pulley Brgs	Sykes XH150	78	Waiting Part	7		
+6644317	Injection Pump	Sykes XH150	78	Waiting Part	25		
+6644328	Engine	Cat D10T	78	Waiting Part	278.5	581.41	
+6652867	Torque Convertor	Cat 777E	72	Waiting Painting	69.5		
+6652879	Convertor Scav Pump	Cat 777E	72	Waiting Part	10		
+6652745	Steering Clutch/Brk	Cat D8R	71	Waiting Part	11	38	
+6652764	Wheel Bearing	Cat 785C	71	Waiting Completion	50	47	
+6652792	Wheel Bearing	Cat 777D	71	Testing	36	41	
+6653731	Wheel Bearing	Cat 777D	71	Waiting Painting	20	21	
+6655116	Wheel Bearing	Cat 777D	70	Waiting Part	31.5		
+6655119	Bevel Gear	Cat 16M	70	Waiting Part	31	75	
+6655121	Final Drive	Cat 16M	70	Waiting Part	21.5	42	
+6655128	Final Drive	Cat 16M	70	Waiting Stand	37	42	
+6655228	Final Drive	Cat 785C	70	Waiting Completion	88.5		
+6655400	Brake	Cat 16M	70	Waiting Part	25		
+6655411	Brake	Cat 16M	70	Testing	30	33	
+6655416	Brake	Cat 16M	70	Waiting Part	18	33	
+6655801	Wheel Bearing	Cat 777D	70	Waiting Completion	21	21	
+6655816	Final Drive	Cat 777D	70	Waiting Completion	38.5	39	
+6657208	Final Drive	Cat 777D	69	Painted	38.5	39	
+6657211	Final Drive	Cat 777E	69	Waiting Part	15		
+6657215	Final Drive	Cat 777D	69	Waiting Completion	63	54	
+6657222	Final Drive	Cat 777E	69	Painted	27.5		
+6657231	Final Drive	Cat 777D	69	Waiting Completion	39	39	
+6657232	Final Drive	Cat 777D	69	Waiting Part	17	27	
+6657240	Transmission	Cat 740B	69	Waiting Part	88	161	
+6657244	Torque Convertor	Cat 740B	69	Waiting Testing	52.5	66	
+6657247	Transmission Pump	Cat 740B	69	Waiting Testing	14		
+6657368	Steering Clutch/Brk	Cat D8R	69	Waiting Part	12	38	
+6660265	Transmission	Cat D8R	66	Inspection	64.5		
+6660273	Final Drive	Cat 777D	66	Waiting Part	36	54	
+6660282	Final Drive	Cat 777D	66	Assembly	28	39	
+6660296	Bevel Gear	Cat 777D	66	Painted	69.5		
+6660299	Transmission	Cat 777D	66	Waiting Execution			
+6662332	Engine	Cat D8R	65	Waiting Part	180		
+6662328	Engine	Cat D10T	65	Painted	587		
+6664430	Bevel Gear	Cat 14M	63	Assembly	49	73	
+6664468	Final Drive	Cat 777D	63	Waiting Part	18	39	
+6664469	Final Drive	Cat 777D	63	Waiting Part	17	27	
+6664477	Final Drive	Cat 773E	63	Testing	97.5	96	
+6665019	Transmission	Cat 777D	63	Testing	171.5		
+6665085	Wheel Bearing	Cat 773E	63	Waiting Execution			
+6665112	Transmission	Cat 777D	63	Testing	158.5	160	
+6666271	Bevel Gear	Cat 980H	62	Assembly	46.5		
+6666276	Final Drive	Cat 980H	62	Waiting Stand	47.5		
+6666278	Final Drive	Cat 980H	62	Waiting Stand	54.5		
+6655810	Final Drive	Cat 777D	59	Waiting Part	32	54	
+6671839	Final Drive	Cat 988G	58	Testing	53		
+6675946	Bevel Gear	Cat 988G	55	Waiting Part	67.5		
+6675950	Final Drive	Cat 988G	55	Waiting Testing	43		
+6676162	Circle Drive Box	Cat 16M	55	Waiting Part	15	34	
+6676169	Transmission	Cat D8R	55	Waiting Painting	123	125	
+6676200	Final Drive	Cat 785C	55	Waiting Completion	79.5	69	
+6676202	Final Drive	Cat 785C	55	Waiting Completion	48.5	48	
+6676206	Final Drive	Cat 785C	55	Waiting Completion	80.5	69	
+6676207	Final Drive	Cat 785C	55	Waiting Painting	44.5	48	
+6676210	Bevel Gear	Cat 745	55	Waiting Part	23	58	
+6676212	Transmission	Cat 785C	55	Waiting Part	93.5	179	
+6676176	Wheel Bearing	Cat 785C	55	Waiting Completion	35	35	
+6676188	Wheel Bearing	Cat 785C	55	Waiting Painting	45	47	
+6676193	Wheel Bearing	Cat 785C	55	Assembly	24	35	
+6676196	Transmission	Cat 777D	55	Waiting Part	86	160	
+6680810	Transmission	Cat D10T	51	Waiting Part	91		
+6680854	Circle Drive Box	Cat 18M3	51	Waiting Completion	31.5	35	
+6680857	Final Drive	Cat 777D	51	Waiting Part	32.5	54	
+6680860	Final Drive	Cat 777D	51	Waiting Part	17.5	39	
+6680864	Bevel Gear	Cat 777D	51	Waiting Stand	38	45	
+6680865	Bevel Gear	Cat 777D	51	Waiting Painting	19	21	
+6680878	Final Drive	Cat 777D	51	Waiting Completion	61.5	54	
+6680881	Final Drive	Cat 777D	51	Waiting Part	18	39	
+6680884	Final Drive	Cat 777D	51	Waiting Completion	26	27	
+6680919	Final Drive	Cat D8R	51	Waiting Part	33	60	
+6680930	Final Drive	Cat D10T	51	Waiting Part	32	61	
+6681108	Fuel Pump	Cat 777D	51	Waiting Execution			
+6682237	Transfer Case	Cat 740	50	Waiting Execution		119	
+6683464	Torque Convertor	Cat 785C	49	Waiting Testing	53	68	
+6683472	Convertor Scav Pump	Cat 785C	49	Waiting Part	8.5	22	
+6683476	Final Drive	Liebherr R9350	49	Waiting Part	151	220	
+6683479	Final Drive	Cat 785C	49	Waiting Part	43	69	
+6683482	Final Drive	Cat 785C	49	Waiting Completion	48	48	
+6683486	Final Drive	Cat 785C	49	Waiting Completion	36	37	
+6655822	Final Drive	Cat 777D	49	Waiting Part	17	39	
+6655825	Final Drive	Cat 777D	49	Waiting Part	18	27	
+6684800	Wheel Bearing	Cat 777D	48	Waiting Completion	49	41	
+6684804	Wheel Bearing	Cat 777D	48	Waiting Part	10	21	
+6684808	Brake	Cat 18M3	48	Waiting Part	16	34	
+6684809	Brake	Cat 18M3	48	Waiting Stand	33	34	
+6684827	Brake	Cat 18M3	48	Waiting Part	16	34	
+6684829	Brake	Cat 18M3	48	Waiting Part	17	34	
+6684833	Transmission	Cat 18M3	48	Waiting Part	85.5	151	
+6684839	Transmission Pump	Cat 18M3	48	Waiting Part	10	23	
+6688117	Transmission	Cat D9R	45	Waiting Part	64.5	146	
+6688182	Final Drive	Cat D10R	45	Waiting Execution			
+6688674	Fan Pulley Brgs	CAT C18 635kVA	45	Waiting Part	3		
+6691969	Circle Drive Box	Cat 16M	43	Waiting Part	14.5	34	
+6691981	Engine	Cat C18 591kVA	43	Inspection	158.5		
+6691984	Fan Pulley Brgs	CAT C18 635kVA	43	Waiting Execution			
+6692536	Pump Drive Box	Cat 785C	42	Waiting Part	8	19	
+6692554	Final Drive	Cat 785C	42	Inspection	30	69	
+6692570	Final Drive	Cat D10T	42	Waiting Part	32	61	
+6692610	Bevel Gear	Cat 785C	42	Waiting Part	36.5	79.5	
+6693389	Engine	Cat D9R	42	Waiting Part	207.5	437.01	
+6693392	Fan Pulley Brgs	Cat D9R	42	Waiting Execution		11	
+6693396	Injection Pump	Cat D9R	42	Waiting Execution			
+6694202	Steering Clutch/Brk	Cat D10T	41	Waiting Part	20.5		
+6694212	Bevel Gear	Cat 785C	41	Waiting Part	31	79.5	
+6694215	Torque Convertor	Cat D9R	41	Waiting Part	19	55	
+6694219	Wheel Bearing	Cat 785C	41	Tear Down	3	47	
+6694222	Wheel Bearing	Cat 785C	41	Waiting Execution		35	
+6694225	Pump Drive Box	Cat 785C	36	Waiting Completion	18	19	
+6694229	Torque Convertor	Cat D9R	41	Waiting Execution			
+6694232	Steering Clutch/Brk	Cat D9R	41	Waiting Part	14	39	
+6694278	Final Drive	Cat 785C	41	Waiting Part	45.5	69	
+6694281	Final Drive	Cat 785C	41	Testing	41	48	
+6694283	Final Drive	Cat 785C	41	Waiting Assembly	25	37	
+6694285	Final Drive	Cat 777D	41	Waiting Inspection	15	54	
+6694288	Final Drive	Cat 777D	41	Waiting Inspection	9	39	
+6694289	Final Drive	Cat 777D	41	Waiting Inspection	8.5	27	
+6699051	Final Drive	Cat 785C	37	Waiting Completion	37		
+6699598	Final Drive	Cat 785C	37	Waiting Completion	81	69	
+6699601	Final Drive	Cat 785C	37	Waiting Completion	48	48	
+6699603	Final Drive	Cat 785C	37	Assembly	35	37	
+6702566	Transmission	Cat D10T	35	Waiting Part	83		
+6703312	Wheel Bearing	Cat 785C	34	MPI	25	47	
+6703317	Wheel Bearing	Cat 785C	34	Waiting Part	14	35	
+6703324	Transmission	Cat D8R	34	Waiting Part	58.5	125	
+6703349	Wheel Bearing	Cat 785C	34	Waiting Submit Part	27	47	
+6703350	Wheel Bearing	Cat 785C	34	Waiting Part	14	35	
+6703695	Torque Convertor	Cat 773E	34	Waiting Part	31	70	
+6703699	Convertor Scav Pump	Cat 773E	34	Waiting Part	8	22	
+6703706	Bevel Gear	Cat 777D	34	Waiting MPI	11	45	
+6703710	Bevel Gear	Cat 777D	34	Waiting MPI	10.5	21	
+6703856	Wheel Bearing	Cat 785C	34	Waiting Execution		47	
+6703860	Wheel Bearing	Cat 785C	34	Waiting Execution		35	
+6703864	Final Drive	Cat 785C	34	Waiting MPI	27.5	69	
+6703869	Final Drive	Cat 785C	34	Waiting Part	17	48	
+6703871	Final Drive	Cat 785C	34	Waiting MPI	15	37	
+6703874	Final Drive	Cat 777D	34	Waiting Execution		54	
+6703877	Final Drive	Cat 777D	34	Waiting Execution		39	
+6703882	Final Drive	Cat 777D	34	Waiting Execution		27	
+6703898	Circle Drive Box	Cat 16M	34	Waiting Execution			
+6703902	Final Drive	Cat 785C	33	Waiting Execution		69	
+6703905	Final Drive	Cat 785C	33	Waiting Execution		48	
+6703910	Final Drive	Cat 785C	33	Waiting Execution		37	
+6703913	Wheel Bearing	Cat 785C	33	Waiting Part	31.5	47	
+6703916	Wheel Bearing	Cat 785C	33	Waiting Part	15	35	
+6703919	Wheel Bearing	Cat 785C	33	Waiting Part	28	47	
+6703921	Wheel Bearing	Cat 785C	33	Waiting Part	18		
+6703936	Brake	Cat 14M	33	Waiting Part	18	34	
+6703938	Bevel Gear	Cat 785C	33	Waiting MPI	27	79.5	
+6703947	Final Drive	Cat 777D	33	Waiting Part	33	54	
+6703950	Final Drive	Cat 777D	33	Waiting Part	17	39	
+6703951	Final Drive	Cat 777D	33	Waiting Part	17.5	27	
+6703954	Final Drive	Cat 777D	33	Waiting Part	33	54	
+6703955	Final Drive	Cat 777D	33	Waiting Part	18	39	
+6703958	Final Drive	Cat 777D	33	Waiting Part	18.5	27	
+6704565	Engine	Cat D8R	33	Inspection	161	361	
+6704566	Injection Pump	Cat D8R	33	Waiting Execution			
+6704569	Fan Pulley Brgs	Cat D8R	33	Inspection	7	11	
+6704573	Engine	Sykes HH220iSS	33	Waiting Part	125	350	
+6704574	Fan Pulley Brgs	Sykes HH220iSS	33	Inspection	7		
+6707591	Engine	Cat 785C	31	Washing	25		
+6707986	Bevel Gear	Cat 785C	31	Waiting Part	31	79.5	
+6708037	Torque Convertor	Cat D9R	31	Waiting Execution			
+6708084	Transmission	Cat 785C	31	MPI	79.5	179	
+6708129	Torque Convertor	Cat 773E	31	Waiting Submit Part	31	70	
+6708149	Convertor Scav Pump	Cat 773E	31	Inspection	8.5	22	
+6708225	Brake	Cat 16M	31	Waiting Part	15	33	
+6708199	Transmission	Cat 777D	31	Waiting Part	86	160	
+6708180	Transmission	Cat 777D	31	Waiting Part	86	160	
+6708253	Final Drive	Cat 785C	31	Waiting MPI	43	69	
+6708263	Final Drive	Cat 785C	31	Waiting Part	17	48	
+6708266	Final Drive	Cat 785C	31	Waiting Part	19	37	
+6709257	Circle Drive Box	Cat 14M	30	Waiting Part	18.5	35	
+6709299	Final Drive	Cat 773E	30	Waiting Part	62.5	96	
+6709368	Bevel Gear	Cat 777D	30	Waiting Part	16	21	
+6709331	Bevel Gear	Cat 777D	30	Waiting Part	24	45	
+6711096	Bevel Gear	Cat 777D	29	Waiting Part	22.5	45	
+6711133	Bevel Gear	Cat 777D	29	Waiting Part	15.5	21	
+6711152	Bevel Gear	Cat 777D	29	Waiting Part	24	45	
+6711162	Bevel Gear	Cat 777D	29	Waiting Part	17	21	
+6711175	Transmission	Cat D8R	29	Waiting Execution			
+6711185	Final Drive	Cat 785C	29	Waiting Part	44.5	69	
+6711200	Final Drive	Cat 785C	29	Waiting Part	17	48	
+6711206	Final Drive	Cat 785C	29	Waiting Part	19.5	37	
+6712405	Transmission	Cat 777D	28	Waiting Part	86.5	160	
+6715718	Final Drive	Cat 777D	24	Waiting Part	17	39	
+6715720	Final Drive	Cat 777D	24	Waiting Part	17	27	
+6715942	Transmission	Cat 777E	24	Waiting Part	85	160	
+6715957	Torque Convertor	Cat D10T	24	Waiting Part	23	58	
+6715962	Bevel Gear	Cat 777D	24	Waiting Part	23	45	
+6715986	Bevel Gear	Cat 777D	24	Waiting Part	14	21	
+6715998	Bevel Gear	Cat 777D	24	Waiting Part	23	45	
+6716036	Bevel Gear	Cat 777D	24	Waiting Part	14	21	
+6716042	Final Drive	Cat 777D	24	Waiting Part	34	54	
+6716049	Final Drive	Cat 777D	24	Waiting Part	17	39	
+6716059	Final Drive	Cat 777D	24	Waiting Part	17	27	
+6716071	Torque Convertor	Cat 785C	24	Waiting Part	32	68	
+6716093	Convertor Scav Pump	Cat 785C	24	Waiting Part	9	22	
+6716114	Torque Convertor	Cat 785C	24	Waiting Part	31	68	
+6716129	Convertor Scav Pump	Cat 785C	24	Waiting Part	8	22	
+6716144	Wheel Bearing	Cat 777D	24	Waiting Execution			
+6716189	Wheel Bearing	Cat 777D	24	Waiting Execution			
+6716195	Wheel Bearing	Cat 777D	24	Waiting Execution			
+6716203	Pump Drive Box	Cat 777D	24	Waiting Part	13	26	
+6716206	Transmission	Cat D8R	24	Waiting Submit Part	59.5	125	
+6716212	Pump Drive Box	Cat 777D	24	Waiting MPI	11	26	
+6716214	Transmission	Cat D8R	24	Waiting Part	57	125	
+6716220	Pump Drive Box	Cat 777D	24	Waiting MPI	11.5	26	
+6716224	Pump Drive Box	Cat 785C	24	Waiting Part	9	19	
+6716227	Final Drive	Cat 745	24	Waiting Part	30.5	68	
+6718132	Cylinder Head Grp	Cat C18, 591kVA	22	Waiting Execution			
+6718310	Engine	Cat D10T	22	Waiting Execution			
+6719705	Transmission	Cat 777D	21	Waiting Part	86	160	
+6719731	Transmission	Cat 777D	21	Waiting Execution		160	
+6719739	Torque Convertor	Cat 777D	21	Waiting Submit Part	31.5	68	
+6719743	Convertor Scav Pump	Cat 777D	21	Waiting Part	8.5	26.5	
+6719752	Torque Convertor	Cat 777D	21	Waiting Part	31	68	
+6719756	Convertor Scav Pump	Cat 777D	21	Waiting Part	8.5	26.5	
+6719759	Torque Convertor	Cat 777D	21	Waiting Part	31	68	
+6719763	Convertor Scav Pump	Cat 777D	21	Waiting Part	10	26.5	
+6719765	Transmission	Cat 777D	21	Waiting Submit Part	87	160	
+6719792	Wheel Bearing	Cat 777D	21	Waiting Part	26	41	
+6719805	Wheel Bearing	Cat 777D	21	Waiting Part	10	21	
+6719824	Wheel Bearing	Cat 777D	21	Waiting Part	26	41	
+6719828	Wheel Bearing	Cat 777D	21	Waiting Part	10	21	
+6720728	Torque Convertor	Cat 777D	20	Waiting Part	28.5		
+6720742	Convertor Scav Pump	Cat 777D	20	Waiting Part	8.5	26.5	
+6720755	Transmission	Cat D10T	20	Tear Down	6		
+6720791	Transfer Case	Cat 745	20	Waiting Execution		127	
+6720814	Steering Clutch/Brk	Cat D8R	20	Waiting Execution		38	
+6720850	Bevel Gear	Cat 16M	20	Waiting Part	31	75	
+6720865	Final Drive	Cat 16M	20	Waiting Part	22	42	
+6720881	Final Drive	Cat 16M	20	Waiting Part	21	42	
+6720884	Torque Convertor	Cat 785C	20	Waiting Submit Part	31	68	
+6723465	Bevel Gear	Cat 777D	17	Waiting Part	21	45	
+6723477	Bevel Gear	Cat 777D	17	Waiting Part	12	21	
+6723538	Engine	Cat 745	17	Inspection	146		
+6724755	Engine	Cat 773E	16	Waiting Completion	18		
+6727487	Transmission	Cat 16M	14	Waiting Part	86	150	
+6727503	Transmission Pump	Cat 16M	14	Waiting Part	8		
+6727507	Final Drive	Cat 773E	14	Waiting MPI	47.5	96	
+6727514	Transmission	Cat D8R	14	Waiting Part	57	125	
+6727647	Engine	Cat D8R	14	Tear Down	36.5	361	
+6727659	Engine	Cat D8R	14	Waiting Execution		361	
+6727664	Engine	Cat D8R	14	Waiting Execution		361	
+6729945	Circle Drive Box	Cat 16M	13	Waiting Execution			
+6729965	Engine	Cat D8R	13	Waiting Execution		361	
+6733785	Transmission	Cat 777D	10	Waiting Execution		160	
+6733803	Transmission	Cat 785C	10	Waiting Execution		179	
+6733809	Transmission	Cat 785C	10	Waiting Execution		179	
+6733837	Bevel Gear	Cat 745	10	Waiting Submit Part	34	58	
+6733849	Bevel Gear	Cat 773E	10	Waiting MPI	25.5	59	
+6733858	Bevel Gear	Cat 777D	10	Waiting Submit Part	22	45	
+6733912	Engine	Terex Reedrill SKF-11	10	Inspection	188.5	380.02	
+6733961	Bevel Gear	Cat 777D	10	Waiting Submit Part	14.5	21	
+6733970	Bevel Gear	Cat 777D	10	Waiting Part	23	45	
+6733982	Bevel Gear	Cat 777D	10	Waiting Part	14	21	
+6737138	Engine	Multiflo MFVC420	8	Inspection	230		
+6737161	Engine	Multiflo MF420E	8	Waiting Execution			
+6737199	Engine	Cat D8R	8	Waiting Execution			
+6737276	Final Drive	Cat 785C	8	Waiting Part	17.5	48	
+6737279	Final Drive	Cat 785C	8	Waiting Inspection	8	37	
+6738641	Torque Convertor	Cat 785C	7	Waiting Submit Part	30.5	68	
+6738679	Torque Convertor	Cat 785C	7	Waiting MPI	29	68	
+6738697	Torque Convertor	Cat 785C	7	Waiting MPI	29	68	
+6738743	Transmission	Cat 773E	7	Waiting Execution		171	
+6738767	Wheel Bearing	Cat 785C	7	Waiting Execution		47	
+6738772	Wheel Bearing	Cat 785C	7	Waiting Execution		35	
+6738800	Bevel Gear	Cat 773E	7	Waiting Execution		59	
+6738818	Pump Drive Box	Cat 789C	7	Waiting Execution		21	
+6738899	Transmission	Cat 777D	7	Waiting Inspection	25	160	
+6719690	Transmission	Cat 777D	7	Inspection	19.5		
+6740149	Engine	Cat 988G	6	Tear Down	52		
+6740160	Transmission	Cat 988G	6	Waiting Execution			
+6740187	Circle Drive Box	Liebherr R9350	6	Waiting Execution			
+6715937	Wheel Bearing	Cat 777D	6	Waiting Execution		41	
+6743396	Brake	Cat 777D	3	Waiting Execution			
+6743432	Wheel Bearing	Cat 777D	3	Waiting Execution		41	
+6743443	Brake	Cat 777D	3	Waiting Execution			
+6743457	Wheel Bearing	Cat 785C	3	Waiting Execution		47	
+6743481	Brake	Cat 785C	3	Waiting Execution			
+6743494	Wheel Bearing	Cat 777D	3	Waiting Execution		41	
+6743500	Brake	Cat 777D	3	Waiting Execution			
+6743515	Final Drive	Cat 777D	3	Waiting Execution		54	
+6743529	Brake	Cat 777D	3	Waiting Execution			
+6743542	Final Drive	Cat 777D	3	Waiting Execution		27	
+6743558	Engine	Cat D8R	3	Waiting Execution			
+6743560	Final Drive	Cat 785C	3	Waiting Execution		69	
+6743563	Brake	Cat 785C	3	Waiting Execution			
+6743570	Final Drive	Cat 785C	3	Waiting Execution		37	
+6743589	Final Drive	Cat 785C	3	Inspection	19	69	
+6743597	Brake	Cat 785C	3	Waiting Inspection	8.5		
+6743602	Final Drive	Cat 785C	3	Waiting Inspection	8	37	
+6743613	Transmission	Cat D8R	3	Waiting Execution			
+6743635	Brake	Cat 14M	3	Waiting Execution		34	
+6744976	Engine	Multiflo MFVC420	2	Waiting Execution			
+6744983	Engine	Multiflo MFVC420	2	Waiting Execution			
+6744990	Fan Pulley Brgs	Multiflo MFVC420	2	Waiting Execution			
+6745012	Fan Pulley Brgs	Cat D8R	2	Tear Down	3.5		
+6745068	Transmission	Cat D8R	2	Waiting Execution			
+6745088	Final Drive	Cat D8R	2	Waiting Execution			
+6745097	Final Drive	Cat D8R	2	Waiting Execution			
+6745106	Steering Clutch/Brk	Cat D8R	2	Waiting Execution			
+6745116	Steering Clutch/Brk	Cat D8R	2	Waiting Execution			

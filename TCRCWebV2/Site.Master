@@ -1,0 +1,106 @@
+﻿<%@ Master Language="VB" AutoEventWireup="false" CodeBehind="Site.master.vb" Inherits="TCRCWebV2.Site" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%: Page.Title %></title>
+
+    <asp:PlaceHolder runat="server">
+        <%: Styles.Render("~/Css") %>
+    </asp:PlaceHolder>
+
+    <asp:PlaceHolder runat="server">
+        <%= Scripts.Render("~/buatmodal") %>
+    </asp:PlaceHolder>
+
+    <asp:PlaceHolder runat="server">
+        <%= Scripts.Render("~/summernote") %>
+    </asp:PlaceHolder>
+
+</head>
+<body data-layout="horizontal">
+    <form runat="server">
+        <div id="layout-wrapper">
+            <header id="page-topbar">
+                <div class="navbar-header">
+                    <div class="d-flex">
+                        <!-- LOGO -->
+                        <div class="navbar-brand-box">
+                            <a href="#" class="logo logo-dark">
+                                <span class="logo-lg">
+                                    <img src="~/assets/images/logo/thiess.png" runat="server" class="img-responsive" height="22">
+                                </span>
+                            </a>
+                        </div>
+
+                        <button type="button" class="btn btn-sm px-3 font-size-16 d-lg-none header-item" data-bs-toggle="collapse" data-bs-target="#topnav-menu-content">
+                            <i class="fa fa-fw fa-bars"></i>
+                        </button>
+                    </div>
+
+                    <div class="d-flex">
+                        <div class="dropdown d-inline-block">
+                            <button type="button" class="btn header-item user text-start d-flex align-items-center" id="page-header-user-dropdown"
+                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <img class="rounded-circle header-profile-user" runat="server" src="~/assets/images/users/avatar-1.jpg" alt="Header Avatar">
+                                <span class="ms-2 d-none d-sm-block user-item-desc">
+                                    <span class="user-name" id="sFullName" runat="server">~</span>
+                                    <span class="user-sub-title" id="sEmail" runat="server">~</span>
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            
+                <!-- Menu Bar -->
+                <asp:ContentPlaceHolder ID="MenuContent" runat="server"></asp:ContentPlaceHolder>
+                <!-- End Menu Bar -->
+            </header>
+
+
+            <!-- ============================================================== -->
+            <!-- Start right Content here -->
+            <!-- ============================================================== -->
+            <div class="main-content">
+
+                <div class="page-content">
+                    <div class="container-fluid">
+
+
+                        <!-- Dynamic Content -->
+                        <asp:ContentPlaceHolder ID="MainContent" runat="server"></asp:ContentPlaceHolder>
+                        <!-- End Dynamic Content -->
+
+                    </div> <!-- container-fluid -->
+                </div>
+                <!-- End Page-content -->
+                
+                <footer class="footer">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <script>document.write(new Date().getFullYear())</script> &copy; Dashonic.
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="text-sm-end d-none d-sm-block">
+                                    Crafted with <i class="mdi mdi-heart text-danger"></i> by <a href="https://Pichforest.com/" target="_blank" class="text-reset">Pichforest</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+            <!-- end main content-->
+        </div>
+        <!-- END layout-wrapper -->
+    </form>
+
+<asp:PlaceHolder runat="server">
+    <%= Scripts.Render("~/Scripts") %>
+</asp:PlaceHolder>
+
+</body>
+</html>
