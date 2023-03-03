@@ -1,5 +1,7 @@
 ﻿Imports TCRCWebV2.SQLFunction
 Imports TCRCWebV2.Utility
+Imports System.IO
+
 Public Class ComponentRel
     Inherits System.Web.UI.Page
 
@@ -121,9 +123,9 @@ Public Class ComponentRel
             End If
 
             InspBy.Text = "Inspect By: " & CheckDBNull(dt.Rows(0)("RegisterBy"))
-                InspDate.Text = "Date: " & CheckDBNull(dt.Rows(0)("RegisterDate"))
+            InspDate.Text = "Date: " & CheckDBNull(dt.Rows(0)("RegisterDate"))
 
-                utility.ModalV2("Panel1")
-            End If
+            utility.ModalV2("Panel1")
+        End If
     End Sub
 End Class

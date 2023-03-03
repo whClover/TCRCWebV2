@@ -2,7 +2,6 @@
 <%@ Register Src="~/Views/Shared/MenuTCRC.ascx" TagPrefix="uc1" TagName="MenuTCRC" %>
 <%@ Register Src="~/Views/TCRC/Workshop/Other/ComponentRelEdit.ascx" TagPrefix="uc1" TagName="ComponentRelEdit" %>
 
-
 <asp:Content runat="server" ContentPlaceHolderID="MenuContent">
     <uc1:MenuTCRC runat="server" ID="MenuTCRC" />
 </asp:Content>
@@ -37,6 +36,9 @@
                                 <ItemTemplate>
                                     <asp:LinkButton runat="server" ID="bEdit" CssClass="btn btn-link btn-sm text-purple" CommandArgument='<%# Eval("WONo") %>' OnClick="bEdit_Click">
                                         Edit
+                                    </asp:LinkButton>
+                                    <asp:LinkButton runat="server" ID="bSendJP" CssClass="btn btn-link btn-sm text-purple" CommandArgument='<%# Eval("WONo") %>' OnClick="bSendJP_Click">
+                                        Send To JP
                                     </asp:LinkButton>
                                 </ItemTemplate>
                             </asp:TemplateField>
