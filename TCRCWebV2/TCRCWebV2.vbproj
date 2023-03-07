@@ -68,6 +68,9 @@
     <Reference Include="Irony, Version=1.0.11.0, Culture=neutral, PublicKeyToken=ca48ace7223ead47, processorArchitecture=MSIL">
       <HintPath>..\packages\Irony.NetCore.1.0.11\lib\net461\Irony.dll</HintPath>
     </Reference>
+    <Reference Include="itextsharp, Version=5.5.13.3, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTextSharp.5.5.13.3\lib\itextsharp.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.AspNet.FriendlyUrls, Version=1.0.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.FriendlyUrls.Core.1.0.2\lib\net45\Microsoft.AspNet.FriendlyUrls.dll</HintPath>
     </Reference>
@@ -228,6 +231,7 @@
     <Content Include="assets\costume\multiselect\chosen.css" />
     <Content Include="assets\costume\multiselect\chosen.jquery.min.js" />
     <Content Include="assets\costume\multiselect\chosen.min.css" />
+    <Content Include="assets\costume\papercss\paper.min.css" />
     <Content Include="assets\costume\summernote\popper.min.js" />
     <Content Include="assets\costume\summernote\summernote-bs4.min.css" />
     <Content Include="assets\costume\summernote\summernote-bs4.min.js" />
@@ -1651,6 +1655,8 @@
     <Content Include="Views\Shared\MenuTMRP.aspx" />
     <Content Include="Views\TCRC\index.aspx" />
     <Content Include="Views\TCRC\Office\index.aspx" />
+    <Content Include="Views\TCRC\Reports\CompRelFooter.aspx" />
+    <Content Include="Views\TCRC\Reports\CompRelForm.aspx" />
     <Content Include="Views\TCRC\Reports\MeaInspection.aspx" />
     <Content Include="Views\TCRC\Workshop\indexWS.aspx" />
     <Content Include="Views\TCRC\Workshop\Inspection\MeaInspBeforeAdd.ascx" />
@@ -1789,6 +1795,20 @@
     <Compile Include="Views\TCRC\Office\index.aspx.vb">
       <DependentUpon>index.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Views\TCRC\Reports\CompRelFooter.aspx.designer.vb">
+      <DependentUpon>CompRelFooter.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TCRC\Reports\CompRelFooter.aspx.vb">
+      <DependentUpon>CompRelFooter.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Views\TCRC\Reports\CompRelForm.aspx.designer.vb">
+      <DependentUpon>CompRelForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TCRC\Reports\CompRelForm.aspx.vb">
+      <DependentUpon>CompRelForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Views\TCRC\Reports\MeaInspection.aspx.designer.vb">
       <DependentUpon>MeaInspection.aspx</DependentUpon>
