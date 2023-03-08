@@ -113,7 +113,7 @@
                                 </tr>
                                 <tr style="background-color:#DAE4EA">
                                     <td>•	Test performance Component Report</td>
-                                    <td class="text-center"><asp:CheckBox ID="chkTstPerfrom" runat="server" /></td>
+                                    <td class="text-center"><asp:CheckBox ID="chkTstPerform" runat="server" /></td>
                                 </tr>
                                 <tr style="background-color:#DAE4EA">
                                     <td>•	Photos of the component on different position</td>
@@ -142,7 +142,7 @@
                                 <tr>
                                     <td class="text-center" style="background-color:#B5C9D6">7</td>
                                     <td>Ensure installation checklist attached on component</td>
-                                    <td class="text-center"><asp:CheckBox ID="chkEnInstChk" runat="server" /></td>
+                                    <td class="text-center"><asp:CheckBox ID="chkInstChk" runat="server" /></td>
                                 </tr>
                                 <tr>
                                     <td style="background-color:#B5C9D6" colspan="3">Remarks / Finding</td>
@@ -171,12 +171,12 @@
                                 </tr>
                                 <tr style="background-color:#B5C9D6">
                                     <td colspan="3">
-                                        <asp:label ID="lInspBy" runat="server" Text="Inspect By:"></asp:label>
+                                        <asp:label ID="InspBy" runat="server" Text="Inspect By:"></asp:label>
                                     </td>
                                 </tr>
                                 <tr style="background-color:#B5C9D6">
                                     <td colspan="3">
-                                        <asp:label ID="lDate" runat="server" Text="Date:"></asp:label>
+                                        <asp:label ID="InspDate" runat="server" Text="Date:"></asp:label>
                                     </td>
                                 </tr>
                             </tbody>

@@ -5,6 +5,7 @@
     Public shared server As String = "bpnaps07"
     Public Shared PictSTG As String = "\\" & server & "\Database\Plant_Component\PictInspection\"
     Public Shared MeaInspPict As String = PictSTG & "InspectionTemplate\"
+    Public Shared JobPck As String = "\\" & server & "\Database\Plant_Component\JobPackage\"
     '=============
 
     'variabel untuk link web-nya,
@@ -31,5 +32,6 @@
     'TCRC: Other Module
     Public Shared urlOtherModule As String = urlTCRCWorkshop & "Other/"
     Public Shared urlComponentRelease As String = urlOtherModule & "ComponentRel.aspx"
+    Public Shared urlComponentReleaseForm As String = urlPrint & "CompRelForm.aspx"
     'END
 End Class

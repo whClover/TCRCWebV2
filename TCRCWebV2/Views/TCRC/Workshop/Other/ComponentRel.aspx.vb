@@ -1,5 +1,6 @@
 ﻿Imports TCRCWebV2.SQLFunction
 Imports TCRCWebV2.Utility
+Imports TCRCWebV2.GlobalString
 Imports System.IO
 Imports DocumentFormat.OpenXml.Office2016.Excel
 Imports Org.BouncyCastle.Asn1.Ocsp
@@ -14,14 +15,7 @@ Public Class ComponentRel
     Dim utility As New Utility(Me)
     Dim tempfilter As String = ""
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-        If Not IsPostBack Then
-            ' Render halaman ascx ke HtmlTextWriter
-            Dim ascxPage As Control = Page.LoadControl("~/Views/TCRC/Reports/CompRelForm.ascx")
-            Dim stringWriter As New StringWriter()
-            Dim htmlTextWriter As New HtmlTextWriter(stringWriter)
-            ascxPage.RenderControl(htmlTextWriter)
-            ViewState("HtmlContent") = stringWriter.ToString()
-        End If
+
     End Sub
 
     Sub generatedata()
@@ -143,34 +137,39 @@ Public Class ComponentRel
     End Sub
 
     Protected Sub bSendJP_Click(sender As Object, e As EventArgs)
-        PrintPage()
+        Dim dt As New DataTable
+        Dim ewo As String = CType(sender, LinkButton).CommandArgument
+        Dim namafile, savepath As String
+
+        'check status
+        Dim qry_chk As String = "select * from v_TCRCReleaseForm where wono=" & evar(ewo, 1)
+        dt = GetDataTable(qry_chk)
+        If dt.Rows.Count > 0 Then
+            If CheckDBNull(dt.Rows(0)("JobID")) = String.Empty Then
+                showAlert("warning", "Please submit data to form, before send to JP")
+                Exit Sub
+            End If
+
+            savepath = JobPck & ewo & "\30\"
+            If Not System.IO.Directory.Exists(savepath) Then
+                System.IO.Directory.CreateDirectory(savepath)
+            End If
+
+            Dim fs = CreateObject("Scripting.FileSystemObject")
+            namafile = JobPck & ewo & "\30\" & ewo & "_CompRelForm_30.pdf"
+            Dim p As Process = New Process()
+            p.StartInfo.FileName = "C:\webroot\TCRC Web\wkhtmltopdf.exe"
+            p.StartInfo.Arguments = "http://bpnaps07:9191/Views/TCRC/Reports/CompRelForm.aspx?wo=" & ewo & " " & "--footer-left http://bpnaps07:9191/Views/TCRC/Reports/CompRelFooter.aspx" & " " & namafile
+            p.Start()
+        End If
+
+        'print
+        Response.Redirect(urlComponentReleaseForm & "?wo=" & ewo)
     End Sub
 
-    Private Sub PrintPage()
-        ' Buat instance Document dan PdfWriter
-        Dim document As New Document()
-        Dim output As New MemoryStream()
-        Dim writer As PdfWriter = PdfWriter.GetInstance(document, output)
-
-        ' Buka dokumen
-        document.Open()
-
-        ' Ambil html dari ViewState
-        Dim htmlContent As String = ViewState("HtmlContent").ToString()
-
-        ' Konversi html ke pdf
-        Dim htmlParser As New HTMLWorker(document)
-        htmlParser.Parse(New StringReader(htmlContent))
-
-        ' Tutup dokumen dan output stream
-        document.Close()
-        output.Close()
-
-        ' Set response header untuk download file pdf
-        Response.ContentType = "application/pdf"
-        Response.AddHeader("Content-Disposition", "attachment;filename=YourFileName.pdf")
-        Response.BinaryWrite(output.ToArray())
-        Response.Flush()
-        Response.End()
+    Sub showAlert(ByVal type As String, ByVal msg As String)
+        Dim script As String
+        script = "toastr[""" & type & """](""" & msg & """);"
+        ScriptManager.RegisterStartupScript(Me, Me.GetType(), "toastrMessage", script, True)
     End Sub
 End Class

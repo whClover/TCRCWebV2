@@ -11,8 +11,7 @@ Public Class BundleConfig
             "~/assets/libs/flatpickr/flatpickr.min.css",
             "~/assets/costume/alertify/css/alertify.min.css",
             "~/assets/costume/toast/toastr.min.css",
-            "~/assets/costume/summernote/summernote-bs4.min.css",
-            "~/assets/costume/papercss/paper.min.css"
+            "~/assets/costume/summernote/summernote-bs4.min.css"
         ))
 
         bundles.Add(New ScriptBundle("~/Scripts").Include(

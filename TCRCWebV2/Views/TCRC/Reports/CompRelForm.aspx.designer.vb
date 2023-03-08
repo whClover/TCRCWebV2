@@ -140,13 +140,13 @@ Partial Public Class CompRelForm
     Protected WithEvents chkAsmChk As Global.System.Web.UI.WebControls.CheckBox
 
     '''<summary>
-    '''chkTstPerfrom control.
+    '''chkTstPerform control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents chkTstPerfrom As Global.System.Web.UI.WebControls.CheckBox
+    Protected WithEvents chkTstPerform As Global.System.Web.UI.WebControls.CheckBox
 
     '''<summary>
     '''chkPhotoComp control.
@@ -194,13 +194,13 @@ Partial Public Class CompRelForm
     Protected WithEvents chkEnSealIns As Global.System.Web.UI.WebControls.CheckBox
 
     '''<summary>
-    '''chkEnInstChk control.
+    '''chkInstChk control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents chkEnInstChk As Global.System.Web.UI.WebControls.CheckBox
+    Protected WithEvents chkInstChk As Global.System.Web.UI.WebControls.CheckBox
 
     '''<summary>
     '''tRemarks control.
@@ -230,20 +230,20 @@ Partial Public Class CompRelForm
     Protected WithEvents chkStatRjt As Global.System.Web.UI.WebControls.CheckBox
 
     '''<summary>
-    '''lInspBy control.
+    '''InspBy control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents lInspBy As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents InspBy As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''lDate control.
+    '''InspDate control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents lDate As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents InspDate As Global.System.Web.UI.WebControls.Label
 End Class
