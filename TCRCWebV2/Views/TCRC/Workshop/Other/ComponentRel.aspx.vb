@@ -1,6 +1,12 @@
 ﻿Imports TCRCWebV2.SQLFunction
 Imports TCRCWebV2.Utility
 Imports System.IO
+Imports DocumentFormat.OpenXml.Office2016.Excel
+Imports Org.BouncyCastle.Asn1.Ocsp
+Imports System.Drawing
+Imports iTextSharp.text.html.simpleparser
+Imports iTextSharp.text.pdf
+Imports iTextSharp.text
 
 Public Class ComponentRel
     Inherits System.Web.UI.Page
@@ -8,7 +14,14 @@ Public Class ComponentRel
     Dim utility As New Utility(Me)
     Dim tempfilter As String = ""
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-
+        If Not IsPostBack Then
+            ' Render halaman ascx ke HtmlTextWriter
+            Dim ascxPage As Control = Page.LoadControl("~/Views/TCRC/Reports/CompRelForm.ascx")
+            Dim stringWriter As New StringWriter()
+            Dim htmlTextWriter As New HtmlTextWriter(stringWriter)
+            ascxPage.RenderControl(htmlTextWriter)
+            ViewState("HtmlContent") = stringWriter.ToString()
+        End If
     End Sub
 
     Sub generatedata()
@@ -127,5 +140,37 @@ Public Class ComponentRel
 
             utility.ModalV2("Panel1")
         End If
+    End Sub
+
+    Protected Sub bSendJP_Click(sender As Object, e As EventArgs)
+        PrintPage()
+    End Sub
+
+    Private Sub PrintPage()
+        ' Buat instance Document dan PdfWriter
+        Dim document As New Document()
+        Dim output As New MemoryStream()
+        Dim writer As PdfWriter = PdfWriter.GetInstance(document, output)
+
+        ' Buka dokumen
+        document.Open()
+
+        ' Ambil html dari ViewState
+        Dim htmlContent As String = ViewState("HtmlContent").ToString()
+
+        ' Konversi html ke pdf
+        Dim htmlParser As New HTMLWorker(document)
+        htmlParser.Parse(New StringReader(htmlContent))
+
+        ' Tutup dokumen dan output stream
+        document.Close()
+        output.Close()
+
+        ' Set response header untuk download file pdf
+        Response.ContentType = "application/pdf"
+        Response.AddHeader("Content-Disposition", "attachment;filename=YourFileName.pdf")
+        Response.BinaryWrite(output.ToArray())
+        Response.Flush()
+        Response.End()
     End Sub
 End Class
