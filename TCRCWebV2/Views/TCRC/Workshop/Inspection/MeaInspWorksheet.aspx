@@ -71,7 +71,7 @@
                                                         <asp:TemplateField ItemStyle-CssClass="text-center">
                                                             <ItemTemplate>
                                                                 <asp:LinkButton runat="server" ID="bDetailsTemp" CssClass="btn btn-link btn-sm text-purple" 
-                                                                    CommandArgument='<%# Eval("WONo") %>' OnClick="bDetailsTemp_Click">
+                                                                    name="0" CommandArgument='<%# Eval("WONo") %>' OnClick="bDetailsTemp_Click">
                                                                     Details
                                                                 </asp:LinkButton>
                                                             </ItemTemplate>
@@ -126,7 +126,7 @@
                                                         <asp:TemplateField ItemStyle-CssClass="text-center">
                                                             <ItemTemplate>
                                                                 <asp:LinkButton runat="server" ID="bDetailsTemp" CssClass="btn btn-link btn-sm text-purple" 
-                                                                    CommandArgument='<%# Eval("WONo") %>' OnClick="bDetailsTemp_Click">
+                                                                    name="1" CommandArgument='<%# Eval("WONo") %>' OnClick="bDetailsTemp_Click">
                                                                     Details
                                                                 </asp:LinkButton>
                                                             </ItemTemplate>

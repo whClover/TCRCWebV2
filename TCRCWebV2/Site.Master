@@ -21,7 +21,7 @@
     </asp:PlaceHolder>
 
 </head>
-<body data-layout="horizontal">
+<body data-layout="horizontal" data-topbar="dark">
     <form runat="server">
         <div id="layout-wrapper">
             <header id="page-topbar">
@@ -29,9 +29,9 @@
                     <div class="d-flex">
                         <!-- LOGO -->
                         <div class="navbar-brand-box">
-                            <a href="#" class="logo logo-dark">
+                            <a href="#" class="">
                                 <span class="logo-lg">
-                                    <img src="~/assets/images/logo/thiess.png" runat="server" class="img-responsive" height="22">
+                                    <img src="~/assets/images/logo/thiess_white.png" runat="server" class="img-responsive" height="200">
                                 </span>
                             </a>
                         </div>
@@ -82,11 +82,11 @@
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-sm-6">
-                                <script>document.write(new Date().getFullYear())</script> &copy; Dashonic.
+                                <script>document.write(new Date().getFullYear())</script> &copy; Data Analyst.
                             </div>
                             <div class="col-sm-6">
                                 <div class="text-sm-end d-none d-sm-block">
-                                    Crafted with <i class="mdi mdi-heart text-danger"></i> by <a href="https://Pichforest.com/" target="_blank" class="text-reset">Pichforest</a>
+                                    Crafted with <i class="mdi mdi-heart text-danger"></i> by Indra
                                 </div>
                             </div>
                         </div>

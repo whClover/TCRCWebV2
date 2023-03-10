@@ -1,4 +1,5 @@
 ﻿Imports System.Web.DynamicData
+Imports Org.BouncyCastle.Asn1.Cms
 Imports TCRCWebV2.GlobalString
 Imports TCRCWebV2.SQLFunction
 Imports TCRCWebV2.Utility
@@ -48,8 +49,9 @@ Public Class MeaInspWorksheet
 
     Protected Sub bDetailsTemp_Click(sender As Object, e As EventArgs)
         Dim linkedbutton As LinkButton = TryCast(sender, LinkButton)
+        Dim etype As String = DirectCast(sender, LinkButton).Attributes("name")
         Dim ewo As String = linkedbutton.CommandArgument
-        Response.Redirect(urlMeasureWorksheetDetails & "?wo=" & ewo)
+        Response.Redirect(urlMeasureWorksheetDetails & "?wo=" & ewo & "&type=" & etype)
     End Sub
 
     Sub filteringAft()

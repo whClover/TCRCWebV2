@@ -38,13 +38,18 @@
                                         Edit
                                     </asp:LinkButton>
                                     <asp:LinkButton runat="server" ID="bSendJP" CssClass="btn btn-link btn-sm text-purple" CommandArgument='<%# Eval("WONo") %>' OnClick="bSendJP_Click">
-                                        Send To JP
+                                        Upload To JP
                                     </asp:LinkButton>
                                 </ItemTemplate>
                             </asp:TemplateField>
                             <asp:BoundField HeaderText="WONo" HeaderStyle-CssClass="bg-soft-purple text-purple" DataField="WONo" />
                             <asp:BoundField HeaderText="WoDesc" HeaderStyle-CssClass="bg-soft-purple text-purple" DataField="WODesc" />
                             <asp:BoundField HeaderText="Current Activity" HeaderStyle-CssClass="bg-soft-purple text-purple" DataField="LastActivity" />
+                            <asp:TemplateField HeaderText="Status" ItemStyle-CssClass="text-center" HeaderStyle-cssclass="bg-soft-purple text-purple text-center">
+                                <ItemTemplate>
+                                    <span class="text-purple"><%# Eval("JP") %></span>
+                                </ItemTemplate>
+                            </asp:TemplateField>
                         </Columns>
                     </asp:GridView>
                 </div>

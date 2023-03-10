@@ -281,6 +281,7 @@
     <Content Include="assets\images\logo\logo-tcrc.png" />
     <Content Include="assets\images\logo\logo-tcrc2.png" />
     <Content Include="assets\images\logo\Thiess.png" />
+    <Content Include="assets\images\logo\thiess_white.png" />
     <Content Include="assets\images\maintenance.png" />
     <Content Include="assets\images\NoPicture.png" />
     <Content Include="assets\images\profile-bg.jpg" />

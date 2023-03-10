@@ -138,6 +138,7 @@ Public Class ComponentRel
 
     Protected Sub bSendJP_Click(sender As Object, e As EventArgs)
         Dim dt As New DataTable
+        Dim dt2 As New DataTable
         Dim ewo As String = CType(sender, LinkButton).CommandArgument
         Dim namafile, savepath As String
 
@@ -150,21 +151,27 @@ Public Class ComponentRel
                 Exit Sub
             End If
 
-            savepath = JobPck & ewo & "\30\"
+            savepath = JobPck & ewo & "\17\"
             If Not System.IO.Directory.Exists(savepath) Then
                 System.IO.Directory.CreateDirectory(savepath)
             End If
 
             Dim fs = CreateObject("Scripting.FileSystemObject")
-            namafile = JobPck & ewo & "\30\" & ewo & "_CompRelForm_30.pdf"
+            namafile = JobPck & ewo & "\17\" & ewo & "_CompRelForm_17.pdf"
             Dim p As Process = New Process()
-            p.StartInfo.FileName = "C:\webroot\TCRC Web\wkhtmltopdf.exe"
-            p.StartInfo.Arguments = "http://bpnaps07:9191/Views/TCRC/Reports/CompRelForm.aspx?wo=" & ewo & " " & "--footer-left http://bpnaps07:9191/Views/TCRC/Reports/CompRelFooter.aspx" & " " & namafile
+            p.StartInfo.FileName = "C:\webroot\TCRCWebV2\Rotativa\wkhtmltopdf.exe"
+            'p.StartInfo.FileName = "C:\Rotativa\wkhtmltopdf.exe"
+            p.StartInfo.Arguments = "http://bpnaps07:9191/Views/TCRC/Reports/CompRelForm.aspx?wo=" & ewo & " " & "--footer-html http://bpnaps07:9191/Views/TCRC/Reports/CompRelFooter.aspx" & " " & namafile
             p.Start()
-        End If
 
+            Dim qry_sub = "exec dbo.SubmitJobAttachment " & evar(ewo, 1) & ",17," & evar(namafile, 1) & "," & eByName()
+            executeQuery(qry_sub)
+
+        End If
+        showAlert("success", "Component Release Form Has Been Uploaded !")
+        generatedata()
         'print
-        Response.Redirect(urlComponentReleaseForm & "?wo=" & ewo)
+        'Response.Redirect(urlComponentReleaseForm & "?wo=" & ewo)
     End Sub
 
     Sub showAlert(ByVal type As String, ByVal msg As String)

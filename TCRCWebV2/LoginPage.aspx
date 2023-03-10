@@ -23,19 +23,11 @@
                             <div class="py-5">
                                 <div class="card auth-cover-card overflow-hidden">
                                     <div class="row g-0">
-                                        <div class="col-lg-6">
-                                            <div class="auth-img"></div>                                            
-                                        </div><!-- end col -->
-                                        <div class="col-lg-6">
-                                            <div class="p-4 p-lg-5 bg-primary h-100 d-flex align-items-center justify-content-center">
+                                        <div class="col-lg-12">
+                                            <div class="p-4 p-lg-5 bg-dark h-100 d-flex align-items-center justify-content-center">
                                                 <div class="w-100">
-                                                    <div class="mb-4 mb-md-5">
-                                                        <a href="index.html" class="d-block auth-logo">
-                                                            <img src="assets/images/logo-light.png" alt="" />
-                                                        </a>
-                                                    </div>
                                                     <div class="text-white-50 mb-4">
-                                                        <h5 class="text-white">Sign In</h5>
+                                                        <h5 class="text-white text-center">Sign In</h5>
                                                     </div>
                                                     <div class="form-floating form-floating-custom mb-3">                                                       
                                                         <asp:TextBox runat="server" CssClass="form-control" ReadOnly="true" Text="TCRC" ID="webapp"></asp:TextBox>
@@ -62,7 +54,7 @@
                                                         <p runat="server" id="eTxtNofif"></p>
                                                     </div>
                                                     <div class="mt-3">
-                                                        <asp:LinkButton runat="server" CssClass="btn btn-info w-100" ID="bLogin" OnClick="bLogin_Click">Log In</asp:LinkButton>
+                                                        <asp:LinkButton runat="server" CssClass="btn btn-warning w-100" ID="bLogin" OnClick="bLogin_Click"><span style="color:black;font-weight:bold">Continue</span></asp:LinkButton>
                                                     </div>
                                                     <div class="mt-4 text-center">
                                                         <a href="~/" runat="server" class="text-white-50 text-decoration-underline">Back To Main Menu</a>
@@ -79,7 +71,7 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="text-center text-muted p-4">
-                                <p class="mb-0">&copy; <script>document.write(new Date().getFullYear())</script> Dashonic. Crafted with <i class="mdi mdi-heart text-danger"></i> by Pichforest</p>
+                                <p class="mb-0">&copy; <script>document.write(new Date().getFullYear())</script> Data Analyst. Crafted with <i class="mdi mdi-heart text-danger"></i> by Indra</p>
                             </div>
                         </div><!-- end col -->
                     </div><!-- end row -->
