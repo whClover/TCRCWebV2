@@ -32,6 +32,7 @@
                             <a href="#" class="">
                                 <span class="logo-lg">
                                     <img src="~/assets/images/logo/thiess_white.png" runat="server" class="img-responsive" height="200">
+                                    <img src="~/assets/images/logo/tcrc_white.png" runat="server" class="img-responsive" height="45">
                                 </span>
                             </a>
                         </div>

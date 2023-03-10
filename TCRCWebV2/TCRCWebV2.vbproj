@@ -280,6 +280,7 @@
     <Content Include="assets\images\logo-sm.png" />
     <Content Include="assets\images\logo\logo-tcrc.png" />
     <Content Include="assets\images\logo\logo-tcrc2.png" />
+    <Content Include="assets\images\logo\tcrc_white.png" />
     <Content Include="assets\images\logo\Thiess.png" />
     <Content Include="assets\images\logo\thiess_white.png" />
     <Content Include="assets\images\maintenance.png" />
