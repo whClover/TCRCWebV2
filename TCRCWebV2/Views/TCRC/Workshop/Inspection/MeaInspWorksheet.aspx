@@ -133,7 +133,6 @@
                                                         </asp:TemplateField>
                                                         <asp:BoundField DataField="WONo" HeaderText="WONo" />
                                                         <asp:BoundField DataField="WODesc" HeaderText="Work Order Descriptions" />
-                                                        <asp:BoundField DataField="SectionName" HeaderText="Unit Descriptions" />
                                                     </Columns>
                                                 </asp:GridView>
                                             </div>

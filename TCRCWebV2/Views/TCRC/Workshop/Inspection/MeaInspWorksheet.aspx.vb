@@ -72,7 +72,7 @@ Public Class MeaInspWorksheet
         Try
             filteringAft()
             Dim dt As New DataTable
-            Dim query As String = "select * from v_InspListInputAft" & tempfilter & " order by wono,SeqSection"
+            Dim query As String = "select * from v_InspListInputAft" & tempfilter & " order by wono"
             dt = GetDataTable(query)
             gvInspAft.DataSource = dt
             gvInspAft.DataBind()

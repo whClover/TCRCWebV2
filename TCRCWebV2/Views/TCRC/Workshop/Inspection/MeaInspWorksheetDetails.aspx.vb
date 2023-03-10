@@ -19,7 +19,8 @@ Public Class MeaInspWorksheetDetails
     Sub first_load()
         Dim ewo As String = Request.QueryString("wo")
         Dim etype As String = Request.QueryString("type")
-        Dim query As String = "select distinct top 1(SectionName),SeqSection,PictureSection from v_InspDetail where wono=" & evar(ewo, 1) & " order by SeqSection"
+        Dim query As String = "select distinct top 1(SectionName),SeqSection,PictureSection from 
+        v_InspDetail where wono=" & evar(ewo, 1) & " and AftInput=" & etype & " order by SeqSection"
         Dim dt As New DataTable
         dt = GetDataTable(query)
         If dt.Rows.Count > 0 Then
@@ -99,7 +100,7 @@ Public Class MeaInspWorksheetDetails
         End If
 
         'Dim query As String = "select dbo.CheckInspCompletion(" & evar(eid, 1) & ") as progWO"
-        Dim query As String = "select * from tblv_InspSectionProgress(" & evar(eid, 1) & ")"
+        Dim query As String = "select * from tblv_InspSectionProgress(" & evar(eid, 1) & "," & evar(etype, 0) & ")"
         dt = GetDataTable(Query)
         If dt.Rows.Count > 0 Then
             rptProgress.DataSource = dt
