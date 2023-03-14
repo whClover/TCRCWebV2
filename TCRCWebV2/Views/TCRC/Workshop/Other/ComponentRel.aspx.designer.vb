@@ -23,6 +23,15 @@ Partial Public Class ComponentRel
     Protected WithEvents MenuTCRC As Global.TCRCWebV2.MenuTCRC1
 
     '''<summary>
+    '''lalert control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lalert As Global.System.Web.UI.HtmlControls.HtmlGenericControl
+
+    '''<summary>
     '''tWONo control.
     '''</summary>
     '''<remarks>
@@ -30,6 +39,15 @@ Partial Public Class ComponentRel
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents tWONo As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''ddWS control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents ddWS As Global.System.Web.UI.WebControls.DropDownList
 
     '''<summary>
     '''bSearch control.

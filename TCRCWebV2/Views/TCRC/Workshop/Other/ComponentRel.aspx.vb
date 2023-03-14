@@ -15,7 +15,7 @@ Public Class ComponentRel
     Dim utility As New Utility(Me)
     Dim tempfilter As String = ""
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-
+        lalert.Visible = False
     End Sub
 
     Sub generatedata()
@@ -33,6 +33,7 @@ Public Class ComponentRel
     Sub filtering()
         Try
             If tWONo.Text <> String.Empty Then tempfilter = " and WONo like " & evar(tWONo.Text, 11) & tempfilter
+            If ddWS.SelectedValue <> String.Empty Then tempfilter = " and Workshop=" & evar(ddWS.SelectedValue, 1) & tempfilter
 
             If Len(tempfilter) <= 0 Then
                 tempfilter = ""
@@ -147,7 +148,9 @@ Public Class ComponentRel
         dt = GetDataTable(qry_chk)
         If dt.Rows.Count > 0 Then
             If CheckDBNull(dt.Rows(0)("JobID")) = String.Empty Then
-                showAlert("warning", "Please submit data to form, before send to JP")
+                'showAlert("warning", "Please submit data to form, before send to JP")
+                lalert.Visible = True
+                lalert.InnerText = "Please submit data to form, before send to JP"
                 Exit Sub
             End If
 

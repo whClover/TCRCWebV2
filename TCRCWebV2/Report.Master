@@ -18,7 +18,7 @@
     </style>
 </head>
 <body>
-    <form id="form1" runat="server" style="font-family: Georgia, 'Times New Roman', Times, serif">
+    <form id="form1" runat="server" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">
         <div>
             <asp:ContentPlaceHolder ID="ReportDyn" runat="server">
             </asp:ContentPlaceHolder>

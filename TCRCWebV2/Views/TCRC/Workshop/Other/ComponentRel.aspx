@@ -13,11 +13,26 @@
                 <h4 class="card-title text-purple">Component Release Form</h4>       
             </div><!-- end card header -->
             <div class="card-body">
+                <div id="lalert" runat="server" class="alert alert-warning alert-dismissible fade show" role="alert">
+                    <i class="uil uil-exclamation-triangle me-2"></i>
+                    A simple warning alert—check it out!
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
                 <div class="row">
                     <div class="col-md-4">
                         <div class="mb-3">
                             <label for="tWONo">WONo</label>
                             <asp:TextBox runat="server" CssClass="form-control" ID="tWONo" AutoCompleteType="Disabled"></asp:TextBox>
+                        </div>                                
+                    </div>
+                    <div class="col-md-4">
+                        <div class="mb-3">
+                            <label for="tWS">Workshop</label>
+                            <asp:DropDownList runat="server" CssClass="form-control" ID="ddWS">
+                                <asp:ListItem Text="" Value=""></asp:ListItem>
+                                <asp:ListItem Text="Powertrain" Value="Powertrain"></asp:ListItem>
+                                <asp:ListItem Text="Engine" Value="Engine"></asp:ListItem>
+                            </asp:DropDownList>
                         </div>                                
                     </div>
                 </div>
@@ -37,7 +52,7 @@
                                     <asp:LinkButton runat="server" ID="bEdit" CssClass="btn btn-link btn-sm text-purple" CommandArgument='<%# Eval("WONo") %>' OnClick="bEdit_Click">
                                         Edit
                                     </asp:LinkButton>
-                                    <asp:LinkButton runat="server" ID="bSendJP" CssClass="btn btn-link btn-sm text-purple" CommandArgument='<%# Eval("WONo") %>' OnClick="bSendJP_Click">
+                                    <asp:LinkButton OnClientClick="return confirm('Are you sure?');" runat="server" ID="bSendJP" CssClass="btn btn-link btn-sm text-purple" CommandArgument='<%# Eval("WONo") %>' OnClick="bSendJP_Click">
                                         Upload To JP
                                     </asp:LinkButton>
                                 </ItemTemplate>
