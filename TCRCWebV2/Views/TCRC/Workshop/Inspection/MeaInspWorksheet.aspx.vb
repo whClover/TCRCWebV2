@@ -44,7 +44,8 @@ Public Class MeaInspWorksheet
     End Sub
 
     Protected Sub bAddInsp_Click(sender As Object, e As EventArgs)
-        utility.ModalV2("MainContent_MeaInspBeforeAdd_Panel1")
+        'utility.ModalV2("MainContent_MeaInspBeforeAdd_Panel1")
+        Response.Redirect(urlInspection & "MeaInspBeforeAdd.aspx")
     End Sub
 
     Protected Sub bDetailsTemp_Click(sender As Object, e As EventArgs)

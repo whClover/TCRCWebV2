@@ -39,7 +39,7 @@ Public Class MeaInspTemplate
         Try
             filtering()
             Dim dt As New DataTable
-            dt = GetDataTable("select * from v_InspTemplateList" & tempfilter)
+            dt = GetDataTable("select * from v_InspTemplateList" & tempfilter & " Order By IDGroup")
             Me.gvInsp.DataSource = dt
             Me.gvInsp.DataBind()
         Catch ex As Exception

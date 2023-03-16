@@ -161,7 +161,6 @@ Public Class MeaTemplateSecUpload
                 Dim tempstring = "exec dbo.InspUploadTemplate " & eid & "," & esectionname & "," & esubsectionname _
                                     & "," & eitemdesc & "," & eloopcount & "," & evaltype & "," & eSeqSection & "," & eSeqSubSection _
                                     & "," & eSeqItem & "," & eCostumColumn & "," & eByName()
-                MsgBox(tempstring)
 
                 Try
                     executeQuery(tempstring)
@@ -181,5 +180,6 @@ skipp:
         'Catch ex As Exception
         'err_handler(GetCurrentPageName(), GetCurrentMethodName, ex.Message)
         'End Try
+        DirectCast(Page, MeaTemplateSecDetails).BindingData()
     End Sub
 End Class

@@ -11,6 +11,7 @@
     <asp:PlaceHolder runat="server">
         <%: Styles.Render("~/Css") %>
     </asp:PlaceHolder>
+
 </head>
 <body>
     <form id="form1" runat="server">
@@ -27,7 +28,7 @@
                                             <div class="p-4 p-lg-5 bg-dark h-100 d-flex align-items-center justify-content-center">
                                                 <div class="w-100">
                                                     <div class="text-white-50 mb-4 text-cen">
-                                                        <img src="~/assets/images/logo/tcrc_white.png" runat="server" class="img-responsive" height="50">
+                                                        <img src="~/assets/images/logo/tcrc_white.png" runat="server" class="img-responsive" height="50" />
                                                         <h5 class="text-white text-center">Sign In</h5>
                                                     </div>
                                                     <div class="form-floating form-floating-custom mb-3">                                                       

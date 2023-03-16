@@ -30,6 +30,7 @@
                         <label class="col-md-2 col-form-label">After Inspection</label>
                         <div classc="col-md-4">
                             <asp:DropDownList runat="server" ID="ddAftInsp" CssClass="form-control">
+                                <asp:ListItem Value="" Text=""></asp:ListItem>
                                 <asp:ListItem Value="0" Text="False"></asp:ListItem>
                                 <asp:ListItem Value="1" Text="True"></asp:ListItem>                              
                             </asp:DropDownList>

@@ -76,8 +76,10 @@ Public Class MeaInspTemplateSec
 
         If aftinsp = "False" Then
             eaftinsp.SelectedValue = "0"
-        Else
+        ElseIf aftinsp = "True" Then
             eaftinsp.SelectedValue = "1"
+        Else
+            eaftinsp.SelectedValue = ""
         End If
 
         'eaftinsp.SelectedValue = aftinsp

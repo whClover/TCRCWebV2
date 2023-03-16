@@ -72,11 +72,16 @@ Public Class Utility
     Public Shared Sub BindDataDropDown(ByVal ObjName As DropDownList, ByVal query As String, ByVal ObjText As String, ByVal ObjVal As String)
         Dim dt As New DataTable
         dt = SQLFunction.GetDataTable(query)
-        ObjName.DataSource = dt
-        ObjName.DataTextField = ObjText
-        ObjName.DataValueField = ObjVal
-        ObjName.DataBind()
-        ObjName.Items.Insert(0, New ListItem(""))
+        If dt.Rows.Count = 0 Then
+            ObjName.Items.Insert(0, New ListItem("No Data Available !"))
+        Else
+            ObjName.DataSource = dt
+            ObjName.DataTextField = ObjText
+            ObjName.DataValueField = ObjVal
+            ObjName.DataBind()
+            ObjName.Items.Insert(0, New ListItem(""))
+        End If
+
     End Sub
 
     Public Shared Sub BindDataListBox(ByVal ObjName As ListBox, ByVal query As String, ByVal ObjText As String, ByVal ObjVal As String)

@@ -11,25 +11,16 @@ Option Strict On
 Option Explicit On
 
 
-Partial Public Class MeaInspBeforeAdd
+Partial Public Class MeaInspBeforeAdd1
 
     '''<summary>
-    '''Panel1 control.
+    '''MenuTCRC control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents Panel1 As Global.System.Web.UI.HtmlControls.HtmlGenericControl
-
-    '''<summary>
-    '''ScriptManager1 control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents ScriptManager1 As Global.System.Web.UI.ScriptManager
+    Protected WithEvents MenuTCRC As Global.TCRCWebV2.MenuTCRC1
 
     '''<summary>
     '''two control.
@@ -50,22 +41,13 @@ Partial Public Class MeaInspBeforeAdd
     Protected WithEvents twodesc As Global.System.Web.UI.HtmlControls.HtmlGenericControl
 
     '''<summary>
-    '''bSearch control.
+    '''bsearch control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents bSearch As Global.System.Web.UI.WebControls.LinkButton
-
-    '''<summary>
-    '''UpdatePanel2 control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents UpdatePanel2 As Global.System.Web.UI.UpdatePanel
+    Protected WithEvents bsearch As Global.System.Web.UI.WebControls.LinkButton
 
     '''<summary>
     '''ddInspTemp control.
@@ -86,11 +68,11 @@ Partial Public Class MeaInspBeforeAdd
     Protected WithEvents bSave As Global.System.Web.UI.WebControls.Button
 
     '''<summary>
-    '''Button1 control.
+    '''bClose control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents Button1 As Global.System.Web.UI.WebControls.Button
+    Protected WithEvents bClose As Global.System.Web.UI.WebControls.Button
 End Class

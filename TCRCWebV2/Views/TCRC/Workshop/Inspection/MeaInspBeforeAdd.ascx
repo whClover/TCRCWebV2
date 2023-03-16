@@ -1,7 +1,7 @@
 ﻿<%@ Control Language="vb" AutoEventWireup="false" CodeBehind="MeaInspBeforeAdd.ascx.vb" Inherits="TCRCWebV2.MeaInspBeforeAdd" %>
 
 <div id="Panel1" runat="server" class="modal fade" role="dialog" aria-hidden="true">
-    <div class="modal-dialog modal-xl">
+    <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title">Add Inspection</h5>
@@ -14,15 +14,17 @@
                             <div class="mb-3">
                                 <label class="form-label" for="ddWONo">Work Order Number</label>
                                 <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
-                                <asp:UpdatePanel ID="UpdatePanel1" runat="server">
-                                    <ContentTemplate>
-                                        <asp:DropDownList data-trigger runat="server" ID="ddWONo" CssClass="form-control" 
-                                            OnSelectedIndexChanged="ddWONo_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
-                                    </ContentTemplate>
-                                    <Triggers>
-                                        <asp:AsyncPostBackTrigger ControlID="ddWONo" EventName="SelectedIndexChanged" />
-                                    </Triggers>
-                                </asp:UpdatePanel>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <asp:TextBox runat="server" CssClass="form-control" ID="two"></asp:TextBox>
+                                        <small runat="server" id="twodesc">-</small>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <asp:LinkButton runat="server" CssClass="btn btn-soft-purple" ID="bSearch" OnClick="bSearch_Click">
+                                            <i class="fa fa-search"></i>
+                                        </asp:LinkButton>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

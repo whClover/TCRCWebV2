@@ -312,12 +312,9 @@ Public Class MeaTemplateSecDetails
         Dim esubsection As String = linkbutton.Attributes("subsection")
 
         If CheckGroup(45) = True Then
-            Try
-                Dim query As String = "Update tbl_InspTemplateDetailRev set [Active]=0 where SubSectionName=" & evar(esubsection, 1) & " and IDGroup=" & eid
-                BindingData()
-            Catch ex As Exception
-                err_handler(GetCurrentPageName(), GetCurrentMethodName, ex.Message)
-            End Try
+            Dim query As String = "Update tbl_InspTemplateDetailRev set [Active]=0 where SubSectionName=" & evar(esubsection, 1) & " and IDGroup=" & eid
+            executeQuery(query)
+            BindingData()
         Else
             utility.showAlert(
                 templateNotif(1, 45)
@@ -387,6 +384,7 @@ Public Class MeaTemplateSecDetails
         If CheckGroup(45) = True Then
             Try
                 Dim query As String = "Update tbl_InspTemplateDetailRev set [Active]=0 where IDDetail=" & eIDDetails
+                executeQuery(query)
                 BindingData()
             Catch ex As Exception
                 err_handler(GetCurrentPageName(), GetCurrentMethodName, ex.Message)

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Measure Inspection Template Section" MasterPageFile="~/Site.Master" Language="vb" AutoEventWireup="false" CodeBehind="MeaInspTemplateSec.aspx.vb" Inherits="TCRCWebV2.MeaInspTemplateSec" %>
+﻿  <%@ Page Title="Measure Inspection Template Section" MasterPageFile="~/Site.Master" Language="vb" AutoEventWireup="false" CodeBehind="MeaInspTemplateSec.aspx.vb" Inherits="TCRCWebV2.MeaInspTemplateSec" %>
 
 <%@ Register Src="~/Views/TCRC/Workshop/Inspection/MeaTemplateSecEdit.ascx" TagPrefix="uc1" TagName="MeaTemplateSecEdit" %>
 <%@ Register Src="~/Views/TCRC/Workshop/Inspection/MeaTemplateSecUpload.ascx" TagPrefix="uc1" TagName="MeaTemplateSecUpload" %>
