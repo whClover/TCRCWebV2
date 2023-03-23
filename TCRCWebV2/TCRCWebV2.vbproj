@@ -1567,7 +1567,9 @@
     <Content Include="Views\Shared\MenuTCRC.ascx" />
     <Content Include="Views\Shared\MenuTMRP.aspx" />
     <Content Include="Views\TCRC\index.aspx" />
+    <Content Include="Views\TCRC\Office\Administration\UploadWO.ascx" />
     <Content Include="Views\TCRC\Office\index.aspx" />
+    <Content Include="Views\TCRC\Office\Administration\ListWO.aspx" />
     <Content Include="Views\TCRC\Reports\CompRelFooter.aspx" />
     <Content Include="Views\TCRC\Reports\CompRelForm.aspx" />
     <Content Include="Views\TCRC\Reports\MeaInspection.aspx" />
@@ -1703,11 +1705,25 @@
       <DependentUpon>index.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
+    <Compile Include="Views\TCRC\Office\Administration\UploadWO.ascx.designer.vb">
+      <DependentUpon>UploadWO.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TCRC\Office\Administration\UploadWO.ascx.vb">
+      <DependentUpon>UploadWO.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="Views\TCRC\Office\index.aspx.designer.vb">
       <DependentUpon>index.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\TCRC\Office\index.aspx.vb">
       <DependentUpon>index.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Views\TCRC\Office\Administration\ListWO.aspx.designer.vb">
+      <DependentUpon>ListWO.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TCRC\Office\Administration\ListWO.aspx.vb">
+      <DependentUpon>ListWO.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="Views\TCRC\Reports\CompRelFooter.aspx.designer.vb">

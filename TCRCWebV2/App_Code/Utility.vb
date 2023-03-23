@@ -195,7 +195,7 @@ Public Class Utility
     End Function
 
     Public Shared Function eByName() As String
-        Dim isDebug As String = "1"
+        Dim isDebug As String = "0"
 
         If IsSessionExist("ss_userid") Then
             eByName = evar(HttpContext.Current.Session("ss_username").ToString, 1)

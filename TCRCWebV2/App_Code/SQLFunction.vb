@@ -3,6 +3,7 @@ Imports System.Data.SqlClient
 Imports System.IO
 Imports System.Web
 Imports DocumentFormat.OpenXml.Office.Word
+Imports DocumentFormat.OpenXml.Spreadsheet
 Imports TCRCWebV2.GlobalString
 Imports TCRCWebV2.Utility
 
@@ -34,6 +35,25 @@ Public Class SQLFunction
         Catch ex As Exception
             err_handler(clsname & "-" & GetCurrentPageName(), GetCurrentMethodName, ex.Message)
         End Try
+
+        Return dt
+    End Function
+
+    Public Shared Function GetDataTableV2(pageIndex As Integer, pageSize As Integer, ByVal Query As String, ByVal OrderBy As String) As DataTable
+        Dim dt As New DataTable
+        Dim cn As New SqlConnection(connString)
+        Dim cmd As New SqlCommand()
+        Dim da As New SqlDataAdapter()
+        cn.Open()
+        cmd.Connection = cn
+        cmd.CommandType = CommandType.Text
+        cmd.CommandText = Query & " ORDER BY " & OrderBy & " OFFSET (@PageIndex * @PageSize) ROWS FETCH NEXT @PageSize ROWS ONLY"
+        cmd.Parameters.AddWithValue("@PageIndex", pageIndex)
+        cmd.Parameters.AddWithValue("@PageSize", pageSize)
+
+        Using reader As SqlDataReader = cmd.ExecuteReader()
+            dt.Load(reader)
+        End Using
 
         Return dt
     End Function

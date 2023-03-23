@@ -180,6 +180,6 @@ skipp:
         'Catch ex As Exception
         'err_handler(GetCurrentPageName(), GetCurrentMethodName, ex.Message)
         'End Try
-        DirectCast(Page, MeaTemplateSecDetails).BindingData()
+        DirectCast(Page, MeaInspTemplateSec).bindingData()
     End Sub
 End Class
