@@ -26,6 +26,7 @@
     Public Shared urlMeasureTemplateSecDetails As String = urlInspection & "MeaTemplateSecDetails.aspx"
     Public Shared urlMeasureTemplateShow As String = urlInspection & "MeaTemplateShow.aspx"
     Public Shared urlMeasureWorksheet As String = urlInspection & "MeaInspWorksheet.aspx"
+    Public Shared urlMeasureWorksheetRev As String = urlInspection & "MeaInspWorksheetRev.aspx"
     Public Shared urlMeasureWorksheetDetails As String = urlInspection & "MeaInspWorksheetDetails.aspx"
     Public Shared urlMeasurePrint As String = urlPrint & "MeaInspection.aspx"
 

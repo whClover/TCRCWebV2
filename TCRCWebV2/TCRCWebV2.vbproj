@@ -1582,6 +1582,7 @@
     <Content Include="Views\TCRC\Workshop\Inspection\MeaInspTemplateSec.aspx" />
     <Content Include="Views\TCRC\Workshop\Inspection\MeaInspWorksheet.aspx" />
     <Content Include="Views\TCRC\Workshop\Inspection\MeaInspWorksheetDetails.aspx" />
+    <Content Include="Views\TCRC\Workshop\Inspection\MeaInspWorksheetRev.aspx" />
     <Content Include="Views\TCRC\Workshop\Inspection\MeaTemplateEdit.ascx" />
     <Content Include="Views\TCRC\Workshop\Inspection\MeaTemplatePicUpload.ascx" />
     <Content Include="Views\TCRC\Workshop\Inspection\MeaTemplateSecDetails.aspx" />
@@ -1809,6 +1810,13 @@
     <Compile Include="Views\TCRC\Workshop\Inspection\MeaInspWorksheetDetails.aspx.vb">
       <DependentUpon>MeaInspWorksheetDetails.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\TCRC\Workshop\Inspection\MeaInspWorksheetRev.aspx.designer.vb">
+      <DependentUpon>MeaInspWorksheetRev.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TCRC\Workshop\Inspection\MeaInspWorksheetRev.aspx.vb">
+      <DependentUpon>MeaInspWorksheetRev.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="Views\TCRC\Workshop\Inspection\MeaTemplateEdit.ascx.designer.vb">
       <DependentUpon>MeaTemplateEdit.ascx</DependentUpon>
