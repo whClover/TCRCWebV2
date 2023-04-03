@@ -52,7 +52,8 @@ Public Class MeaInspWorksheet
         Dim linkedbutton As LinkButton = TryCast(sender, LinkButton)
         Dim etype As String = DirectCast(sender, LinkButton).Attributes("name")
         Dim ewo As String = linkedbutton.CommandArgument
-        Response.Redirect(urlMeasureWorksheetDetails & "?wo=" & ewo & "&type=" & etype)
+        'Response.Redirect(urlMeasureWorksheetDetails & "?wo=" & ewo & "&type=" & etype)
+        Response.Redirect(urlMeasureWorksheetRev & "?wo=" & ewo & "&type=" & etype)
     End Sub
 
     Sub filteringAft()

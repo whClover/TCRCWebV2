@@ -10,12 +10,7 @@ Public Class MeaInspWorksheetRev
         If Not IsPostBack = True Then
             LoadSection()
             LoadUI()
-            firstload()
         End If
-    End Sub
-
-    Sub firstload()
-        MainDiv.Style("display") = "None"
     End Sub
 
     Sub LoadSection()
@@ -38,11 +33,31 @@ Public Class MeaInspWorksheetRev
         Dim esection As String = Request.QueryString("section")
         Dim esubsection As String = Request.QueryString("subsection")
         If ewo = String.Empty Then Exit Sub
+        If esubsection = String.Empty Then Exit Sub
 
         'Load Dynamic Table Header !!!
         LoadItemHeader(esection, esubsection)
         LoadItemBody(esection, esubsection)
+
+        'next-load
         MainDiv.Style("display") = "Block"
+        lSectionName.InnerText = "Section: " & esection
+        lSubSection.InnerText = "Sub-Section: " & esubsection
+
+        lhWO.InnerText = "WO." & ewo
+        Dim dt As New DataTable()
+        dt = GetDataTable("select WODesc from v_IntJobDetailRev3 where wono=" & evar(ewo, 1))
+        If dt.Rows.Count > 0 Then
+            lWODesc.InnerText = dt.Rows(0)("WODesc")
+        End If
+
+        Dim dt_img As New DataTable()
+        Dim query As String = "select PictureSection from v_InspDetail where wono=" & evar(ewo, 1) & " 
+        and SectionName=" & evar(esection, 1) & " and SubSectionName=" & evar(esubsection, 1)
+        dt_img = GetDataTable(query)
+        If dt_img.Rows.Count > 0 Then
+            imgSection.Src = dt_img.Rows(0)("PictureSection")
+        End If
     End Sub
 
     Sub LoadItemHeader(ByVal sectionName As String, ByVal subsectionName As String)

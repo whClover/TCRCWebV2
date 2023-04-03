@@ -68,6 +68,33 @@ Partial Public Class MeaInspWorksheetRev
     Protected WithEvents MainDiv As Global.System.Web.UI.HtmlControls.HtmlGenericControl
 
     '''<summary>
+    '''lSectionName control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lSectionName As Global.System.Web.UI.HtmlControls.HtmlGenericControl
+
+    '''<summary>
+    '''lSubSection control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lSubSection As Global.System.Web.UI.HtmlControls.HtmlGenericControl
+
+    '''<summary>
+    '''imgSection control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents imgSection As Global.System.Web.UI.HtmlControls.HtmlImage
+
+    '''<summary>
     '''rptHeader control.
     '''</summary>
     '''<remarks>

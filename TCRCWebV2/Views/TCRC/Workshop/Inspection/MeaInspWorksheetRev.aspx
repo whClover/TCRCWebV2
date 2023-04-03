@@ -7,6 +7,7 @@
 </asp:Content>
 
 <asp:Content runat="server" ContentPlaceHolderID="MainContent">
+
     <!-- start page title -->
     <div class="row">
         <div class="col-12">
@@ -39,6 +40,11 @@
                 <hr />
                 <div id="sidebar-menu">
                     <ul class="metismenu list-unstyled" id="side-menu">
+                        <li class="menu-title" data-key="t-dashboards">Overall Progress : 100%
+                            <div class="progress progress-xl animated-progess mb-4 custom-progress">
+                                <div class="progress-bar bg-info" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </li>
                         <li class="menu-title" data-key="t-dashboards">Inspection Section :</li>
                         <asp:Repeater runat="server" ID="rpt_section" OnItemDataBound="rpt_section_ItemDataBound">
                             <ItemTemplate>
@@ -67,13 +73,13 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-8" runat="server" id="MainDiv">
+        <div class="col-md-8" runat="server" id="MainDiv" style="display:none">
             <div class="card">
                 <div class="card-header">
                     <div class="row mb-3">
                         <div class="col-lg-4 col-sm-6">
-                            <h5 class="card-title">Section: Section A</h5>
-                            <small>Sub-Section: Sub-Section A.1</small>
+                            <h5 class="card-title" runat="server" id="lSectionName">Section: Section A</h5>
+                            <small runat="server" id="lSubSection">Sub-Section: Sub-Section A.1</small>
                         </div>
                         <div class="col-lg-8 col-sm-6">
                             <div class="mt-4 mt-sm-0 d-flex align-items-center justify-content-sm-end">
@@ -81,14 +87,15 @@
                                     <i class="fa fa-save"></i> Save Data
                                 </a>
                                 <asp:LinkButton runat="server" CssClass="btn btn-soft-primary">
-                                    <i class="fa fa-edit"></i> Edit Remark
+                                    <i class="fa fa-edit"></i> Edit Section Remark
                                 </asp:LinkButton> 
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="card-body">
-                    <img src="../../../../images/NoPicture.png" class="img-fluid" style="display: block; margin-left:auto; margin-right:auto; Position:Static;" />
+                    <img src="../../../../images/NoPicture.png" runat="server" id="imgSection" 
+                        class="img-fluid" style="display: block; margin-left:auto; margin-right:auto; Position:Static;" />
                     <hr />
                     <div class="table-responsive d-flex justify-content-center">
                         <table class="table table-bordered table-striped w-auto">
