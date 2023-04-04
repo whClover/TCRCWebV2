@@ -50,6 +50,24 @@ Partial Public Class MeaInspWorksheetRev
     Protected WithEvents lWODesc As Global.System.Web.UI.HtmlControls.HtmlGenericControl
 
     '''<summary>
+    '''lOPb control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lOPb As Global.System.Web.UI.HtmlControls.HtmlGenericControl
+
+    '''<summary>
+    '''pBar control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents pBar As Global.System.Web.UI.HtmlControls.HtmlGenericControl
+
+    '''<summary>
     '''rpt_section control.
     '''</summary>
     '''<remarks>
@@ -102,6 +120,15 @@ Partial Public Class MeaInspWorksheetRev
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents bEditRemark As Global.System.Web.UI.WebControls.LinkButton
+
+    '''<summary>
+    '''bBack control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents bBack As Global.System.Web.UI.WebControls.LinkButton
 
     '''<summary>
     '''imgSection control.

@@ -40,9 +40,10 @@
                 <hr />
                 <div id="sidebar-menu">
                     <ul class="metismenu list-unstyled" id="side-menu">
-                        <li class="menu-title" data-key="t-dashboards">Overall Progress : 100%
-                            <div class="progress progress-xl animated-progess mb-4 custom-progress">
-                                <div class="progress-bar bg-info" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                        <li class="menu-title" data-key="t-dashboards">
+                            <small class="text-muted" runat="server" id="lOPb">Overall Progress : 100%</small>
+                            <div class="progress progress-xl animated-progess mb-1 custom-progress">
+                                <div runat="server" id="pBar" class="progress-bar bg-info" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
                             </div>
                         </li>
                         <li class="menu-title" data-key="t-dashboards">Inspection Section :</li>
@@ -89,7 +90,10 @@
                                 </a>
                                 <asp:LinkButton runat="server" CssClass="btn btn-soft-primary" ID="bEditRemark" OnClick="bEditRemark_Click">
                                     <i class="fa fa-edit"></i> Edit Section Remark
-                                </asp:LinkButton> 
+                                </asp:LinkButton>
+                                <asp:LinkButton runat="server" CssClass="btn btn-soft-primary" ID="bBack" OnClick="bBack_Click">
+                                    <i class="fa fa-backspace"></i> Back
+                                </asp:LinkButton>
                             </div>
                         </div>
                     </div>

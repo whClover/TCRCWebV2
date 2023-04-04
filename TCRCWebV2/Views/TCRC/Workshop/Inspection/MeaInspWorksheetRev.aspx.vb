@@ -68,6 +68,23 @@ Public Class MeaInspWorksheetRev
         If dt_remark.Rows.Count > 0 Then
             lSectionRemark.InnerHtml = CheckDBNull(dt_remark.Rows(0)("Remark"))
         End If
+
+        'Load Progress Bar
+        Dim dt_pbar As New DataTable
+        Dim query_pbar As String = "select 
+	                    dbo.PercentCalc(
+	                    sum(case when InspValue is null then 0 else 1 end),
+	                    count(*)) as ComplPerc
+                    from 
+	                    v_InspDetail 
+                    where 
+	                    wono=" & evar(ewo, 1)
+        dt_pbar = GetDataTable(query_pbar)
+        If dt_pbar.Rows.Count > 0 Then
+            lOPb.InnerText = "Overall Progress: " & CheckDBNull(dt_pbar.Rows(0)("ComplPerc")) & "%"
+            pBar.Attributes("style") = "width: " & CheckDBNull(dt_pbar.Rows(0)("ComplPerc")) & "%"
+        End If
+        'End: Progress Bar
     End Sub
 
     Sub LoadItemHeader(ByVal sectionName As String, ByVal subsectionName As String)
@@ -216,5 +233,9 @@ Public Class MeaInspWorksheetRev
 
         utility.ModalV2("MainContent_MeaInspRemark_panel1")
         LoadUI()
+    End Sub
+
+    Protected Sub bBack_Click(sender As Object, e As EventArgs)
+        Response.Redirect(urlMeasureWorksheet)
     End Sub
 End Class
