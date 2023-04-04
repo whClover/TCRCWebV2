@@ -68,6 +68,15 @@ Partial Public Class MeaInspWorksheetRev
     Protected WithEvents MainDiv As Global.System.Web.UI.HtmlControls.HtmlGenericControl
 
     '''<summary>
+    '''MeaInspRemark control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents MeaInspRemark As Global.TCRCWebV2.MeaInspRemark
+
+    '''<summary>
     '''lSectionName control.
     '''</summary>
     '''<remarks>
@@ -86,6 +95,15 @@ Partial Public Class MeaInspWorksheetRev
     Protected WithEvents lSubSection As Global.System.Web.UI.HtmlControls.HtmlGenericControl
 
     '''<summary>
+    '''bEditRemark control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents bEditRemark As Global.System.Web.UI.WebControls.LinkButton
+
+    '''<summary>
     '''imgSection control.
     '''</summary>
     '''<remarks>
@@ -93,6 +111,15 @@ Partial Public Class MeaInspWorksheetRev
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents imgSection As Global.System.Web.UI.HtmlControls.HtmlImage
+
+    '''<summary>
+    '''lSectionRemark control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lSectionRemark As Global.System.Web.UI.HtmlControls.HtmlGenericControl
 
     '''<summary>
     '''rptHeader control.

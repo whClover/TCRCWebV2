@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="Measure Inspection Worksheet" MasterPageFile="~/Site.Master" Language="vb" AutoEventWireup="false" CodeBehind="MeaInspWorksheetRev.aspx.vb" Inherits="TCRCWebV2.MeaInspWorksheetRev" %>
 <%@ Register Src="~/Views/Shared/MenuTCRC.ascx" TagPrefix="uc1" TagName="MenuTCRC" %>
-
+<%@ Register Src="~/Views/TCRC/Workshop/Inspection/MeaInspRemark.ascx" TagPrefix="uc1" TagName="MeaInspRemark" %>
 
 <asp:Content runat="server" ContentPlaceHolderID="MenuContent">
     <uc1:MenuTCRC runat="server" ID="MenuTCRC" />
@@ -26,7 +26,7 @@
     </div>
     <!-- end page title -->
 
-    <div class="row">
+    <div class="row">       
         <div class="col-md-4">
             <div class="card card-h-100">
                 <div class="card-header border-bottom-0">
@@ -75,6 +75,7 @@
         </div>
         <div class="col-md-8" runat="server" id="MainDiv" style="display:none">
             <div class="card">
+                <uc1:MeaInspRemark runat="server" id="MeaInspRemark" />
                 <div class="card-header">
                     <div class="row mb-3">
                         <div class="col-lg-4 col-sm-6">
@@ -86,7 +87,7 @@
                                 <a class="btn btn-soft-primary" ID="bSave" OnClick="javascript:saveValues()">
                                     <i class="fa fa-save"></i> Save Data
                                 </a>
-                                <asp:LinkButton runat="server" CssClass="btn btn-soft-primary">
+                                <asp:LinkButton runat="server" CssClass="btn btn-soft-primary" ID="bEditRemark" OnClick="bEditRemark_Click">
                                     <i class="fa fa-edit"></i> Edit Section Remark
                                 </asp:LinkButton> 
                             </div>
@@ -98,7 +99,7 @@
                         class="img-fluid" style="display: block; margin-left:auto; margin-right:auto; Position:Static;" />
                     <hr />
                     <p class="text-muted mb-2">Section Remark:</p>
-                    <h6>Test</h6>
+                    <h6 runat="server" id="lSectionRemark">Test</h6>
                     <hr />
                     <div class="table-responsive d-flex justify-content-center">
                         <table class="table table-bordered table-striped w-auto">

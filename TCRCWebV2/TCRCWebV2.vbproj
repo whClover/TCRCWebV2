@@ -1576,6 +1576,7 @@
     <Content Include="Views\TCRC\Workshop\indexWS.aspx" />
     <Content Include="Views\TCRC\Workshop\Inspection\MeaInspBeforeAdd.ascx" />
     <Content Include="Views\TCRC\Workshop\Inspection\MeaInspBeforeAdd.aspx" />
+    <Content Include="Views\TCRC\Workshop\Inspection\MeaInspRemark.ascx" />
     <Content Include="Views\TCRC\Workshop\Inspection\MeaInspTemplate.aspx" />
     <Content Include="Views\TCRC\Workshop\Inspection\MeaInspTemplateAddEdit.aspx" />
     <Content Include="Views\TCRC\Workshop\Inspection\MeaInspTemplateRef.ascx" />
@@ -1768,6 +1769,13 @@
     <Compile Include="Views\TCRC\Workshop\Inspection\MeaInspBeforeAdd.aspx.vb">
       <DependentUpon>MeaInspBeforeAdd.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Views\TCRC\Workshop\Inspection\MeaInspRemark.ascx.designer.vb">
+      <DependentUpon>MeaInspRemark.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TCRC\Workshop\Inspection\MeaInspRemark.ascx.vb">
+      <DependentUpon>MeaInspRemark.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Views\TCRC\Workshop\Inspection\MeaInspTemplate.aspx.designer.vb">
       <DependentUpon>MeaInspTemplate.aspx</DependentUpon>

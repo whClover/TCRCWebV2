@@ -6,6 +6,7 @@ Imports DocumentFormat.OpenXml.Office2013.Excel
 Public Class MeaInspWorksheetRev
     Inherits System.Web.UI.Page
 
+    Dim utility As New Utility(Me)
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         If Not IsPostBack = True Then
             LoadSection()
@@ -63,7 +64,10 @@ Public Class MeaInspWorksheetRev
 
         'Load Section Remark 
         Dim dt_remark As New DataTable
-        dt_remark = GetDataTable("")
+        dt_remark = GetDataTable("select * from v_InspRemark where wono=" & evar(ewo, 1) & " and InspSection=" & evar(esection, 1))
+        If dt_remark.Rows.Count > 0 Then
+            lSectionRemark.InnerHtml = CheckDBNull(dt_remark.Rows(0)("Remark"))
+        End If
     End Sub
 
     Sub LoadItemHeader(ByVal sectionName As String, ByVal subsectionName As String)
@@ -198,4 +202,19 @@ Public Class MeaInspWorksheetRev
 
         Return 0
     End Function
+
+    Protected Sub bEditRemark_Click(sender As Object, e As EventArgs)
+        Dim ewo As String = Request.QueryString("wo")
+        Dim esection As String = Request.QueryString("section")
+
+        Dim dt As New DataTable
+        dt = GetDataTable("select Remark from v_InspRemark where wono=" & evar(ewo, 1) & " and InspSection=" & evar(esection, 1))
+        If dt.Rows.Count > 0 Then
+            Dim eRemark As HtmlTextArea = DirectCast(MeaInspRemark.FindControl("summernote"), HtmlTextArea)
+            eRemark.Value = CheckDBNull(dt.Rows(0)("Remark"))
+        End If
+
+        utility.ModalV2("MainContent_MeaInspRemark_panel1")
+        LoadUI()
+    End Sub
 End Class
