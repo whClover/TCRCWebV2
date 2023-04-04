@@ -82,7 +82,7 @@
                             <small runat="server" id="lSubSection">Sub-Section: Sub-Section A.1</small>
                         </div>
                         <div class="col-lg-8 col-sm-6">
-                            <div class="mt-4 mt-sm-0 d-flex align-items-center justify-content-sm-end">
+                            <div class="mt-4 mt-sm-0 d-flex align-items-center justify-content-sm-end gap-2">
                                 <a class="btn btn-soft-primary" ID="bSave" OnClick="javascript:saveValues()">
                                     <i class="fa fa-save"></i> Save Data
                                 </a>
@@ -96,6 +96,9 @@
                 <div class="card-body">
                     <img src="../../../../images/NoPicture.png" runat="server" id="imgSection" 
                         class="img-fluid" style="display: block; margin-left:auto; margin-right:auto; Position:Static;" />
+                    <hr />
+                    <p class="text-muted mb-2">Section Remark:</p>
+                    <h6>Test</h6>
                     <hr />
                     <div class="table-responsive d-flex justify-content-center">
                         <table class="table table-bordered table-striped w-auto">

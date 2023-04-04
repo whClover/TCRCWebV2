@@ -44,6 +44,7 @@ Public Class MeaInspWorksheetRev
         lSectionName.InnerText = "Section: " & esection
         lSubSection.InnerText = "Sub-Section: " & esubsection
 
+        'Load WO & WO Desc
         lhWO.InnerText = "WO." & ewo
         Dim dt As New DataTable()
         dt = GetDataTable("select WODesc from v_IntJobDetailRev3 where wono=" & evar(ewo, 1))
@@ -51,6 +52,7 @@ Public Class MeaInspWorksheetRev
             lWODesc.InnerText = dt.Rows(0)("WODesc")
         End If
 
+        'Load Section Image
         Dim dt_img As New DataTable()
         Dim query As String = "select PictureSection from v_InspDetail where wono=" & evar(ewo, 1) & " 
         and SectionName=" & evar(esection, 1) & " and SubSectionName=" & evar(esubsection, 1)
@@ -58,6 +60,10 @@ Public Class MeaInspWorksheetRev
         If dt_img.Rows.Count > 0 Then
             imgSection.Src = dt_img.Rows(0)("PictureSection")
         End If
+
+        'Load Section Remark 
+        Dim dt_remark As New DataTable
+        dt_remark = GetDataTable("")
     End Sub
 
     Sub LoadItemHeader(ByVal sectionName As String, ByVal subsectionName As String)
