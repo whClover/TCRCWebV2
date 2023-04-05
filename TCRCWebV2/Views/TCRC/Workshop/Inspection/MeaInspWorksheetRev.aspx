@@ -97,13 +97,28 @@
                             </div>
                         </div>
                     </div>
+                    <div class="d-grid">
+                        <asp:LinkButton Visible="false" runat="server" CssClass="btn btn-soft-success btn-sm" ID="bLHApv" OnClick="bLHApv_Click"
+                            OnClientClick="return confirmLHApv();">
+                            <i class="fas fa-check-square"></i> LH Approve
+                        </asp:LinkButton>
+                    </div>
                 </div>
                 <div class="card-body">
                     <img src="../../../../images/NoPicture.png" runat="server" id="imgSection" 
                         class="img-fluid" style="display: block; margin-left:auto; margin-right:auto; Position:Static;" />
                     <hr />
-                    <p class="text-muted mb-2">Section Remark:</p>
-                    <h6 runat="server" id="lSectionRemark">Test</h6>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p class="text-muted mb-2">Section Remark:</p>
+                            <h6 runat="server" id="lSectionRemark">Test</h6>
+                        </div>
+                        <div class="col-md-6">
+                            <p class="text-muted mb-2">Section Approval:</p>
+                            <h6 runat="server" id="lSectionApproval">Test</h6>
+                        </div>
+                    </div>
+                    
                     <hr />
                     <div class="table-responsive d-flex justify-content-center">
                         <table class="table table-bordered table-striped w-auto">
@@ -166,6 +181,15 @@
                                     
                                     }
                                     toastr["success"]("Saved !");
+                                }
+
+                                function confirmLHApv() {
+                                    var result = confirm("Are you sure to approve this section?");
+                                    if (result === true) {
+                                        return true; // Allow the code-behind event to execute
+                                    } else {
+                                        return false; // Cancel the code-behind event
+                                    }
                                 }
                             </script>
                         </table>

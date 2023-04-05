@@ -69,6 +69,18 @@ Public Class MeaInspWorksheetRev
             lSectionRemark.InnerHtml = CheckDBNull(dt_remark.Rows(0)("Remark"))
         End If
 
+        'Load Section Approval
+        Dim dt_apv As New DataTable
+        dt_apv = GetDataTable("select * from v_InspApproval where wono=" & evar(ewo, 1) & " and InspSection=" & evar(esection, 1))
+        If dt_apv.Rows.Count > 0 Then
+            lSectionApproval.InnerHtml = "<strong>Leading Hand: </strong>" & CheckDBNull(dt_apv.Rows(0)("LHApprovedBy"))
+            If CheckDBNull(dt_apv.Rows(0)("LHApprovedBy")) = "-" Then
+                bLHApv.Visible = True
+            Else
+                bLHApv.Visible = False
+            End If
+        End If
+
         'Load Progress Bar
         Dim dt_pbar As New DataTable
         Dim query_pbar As String = "select 
@@ -237,5 +249,41 @@ Public Class MeaInspWorksheetRev
 
     Protected Sub bBack_Click(sender As Object, e As EventArgs)
         Response.Redirect(urlMeasureWorksheet)
+    End Sub
+
+    Protected Sub bLHApv_Click(sender As Object, e As EventArgs)
+        Dim ewo As String = Request.QueryString("wo")
+        Dim esection As String = Request.QueryString("section")
+
+        Dim qry_chk As String = "select 
+	                    dbo.PercentCalc(
+	                    sum(case when InspValue is null then 0 else 1 end),
+	                    count(*)) as ComplPerc
+                    from 
+	                    v_InspDetail 
+                    where 
+	                    wono=" & evar(ewo, 1) & " and SectionName=" & evar(esection, 1)
+        Dim dt As New DataTable
+        dt = GetDataTable(qry_chk)
+        If dt.Rows.Count > 0 Then
+            Dim perc As Integer = dt.Rows(0)("ComplPerc")
+            Select Case perc
+                Case <> 100
+                    showAlert("warning", "Please Complete This Section Before LH Approval")
+                    Exit Sub
+            End Select
+        End If
+
+        Dim query As String = "update tbl_InspSectionApproval set LHApprovedBy=" & eByName() & ",LHApprovedDate=GetDate()
+                where IDInspApv=(select IDInspApv from v_InspApproval where wono=" & evar(ewo, 1) & "
+                and InspSection=" & evar(esection, 1) & ")"
+        executeQuery(query)
+        LoadUI()
+    End Sub
+
+    Sub showAlert(ByVal type As String, ByVal msg As String)
+        Dim script As String
+        script = "toastr[""" & type & """](""" & msg & """);"
+        ScriptManager.RegisterStartupScript(Me, Me.GetType(), "toamsg", script, True)
     End Sub
 End Class

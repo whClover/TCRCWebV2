@@ -214,7 +214,7 @@ Public Class Utility
 
     Public Shared Function CheckDBNull(ByVal value As Object) As String
         If value Is DBNull.Value OrElse value Is Nothing Then
-            Return ""
+            Return "-"
         Else
             Return value
         End If

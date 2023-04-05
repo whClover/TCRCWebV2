@@ -131,6 +131,15 @@ Partial Public Class MeaInspWorksheetRev
     Protected WithEvents bBack As Global.System.Web.UI.WebControls.LinkButton
 
     '''<summary>
+    '''bLHApv control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents bLHApv As Global.System.Web.UI.WebControls.LinkButton
+
+    '''<summary>
     '''imgSection control.
     '''</summary>
     '''<remarks>
@@ -147,6 +156,15 @@ Partial Public Class MeaInspWorksheetRev
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents lSectionRemark As Global.System.Web.UI.HtmlControls.HtmlGenericControl
+
+    '''<summary>
+    '''lSectionApproval control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lSectionApproval As Global.System.Web.UI.HtmlControls.HtmlGenericControl
 
     '''<summary>
     '''rptHeader control.
