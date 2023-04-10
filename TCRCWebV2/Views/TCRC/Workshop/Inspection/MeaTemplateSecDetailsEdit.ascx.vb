@@ -9,7 +9,9 @@ Public Class MeaTemplateSecDetailsEdit
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         'lNotif.Visible = False
-
+        If Session("ss_userid") = "" Then
+            Response.Redirect(urlTCRCLogin)
+        End If
     End Sub
 
     Protected Sub bSave_Click(sender As Object, e As EventArgs)

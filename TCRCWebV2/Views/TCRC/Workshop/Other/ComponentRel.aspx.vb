@@ -31,18 +31,43 @@ Public Class ComponentRel
     End Sub
 
     Sub filtering()
-        Try
-            If tWONo.Text <> String.Empty Then tempfilter = " and WONo like " & evar(tWONo.Text, 11) & tempfilter
-            If ddWS.SelectedValue <> String.Empty Then tempfilter = " and Workshop=" & evar(ddWS.SelectedValue, 1) & tempfilter
+        'Try
+        If tWONo.Text <> String.Empty Then tempfilter = " and WONo like " & evar(tWONo.Text, 11) & tempfilter
+        If ddWS.SelectedValue <> String.Empty Then tempfilter = " and Workshop=" & evar(ddWS.SelectedValue, 1) & tempfilter
 
-            If Len(tempfilter) <= 0 Then
-                tempfilter = ""
-            Else
-                tempfilter = " where  " & Right(tempfilter, Len(tempfilter) - 4)
-            End If
-        Catch ex As Exception
-            err_handler(GetCurrentPageName(), GetCurrentMethodName, ex.Message)
-        End Try
+        Select Case ddStatus.SelectedValue
+            Case "inprogress"
+                tempfilter = " and JobStatusID Not in('C','O','X')" & tempfilter
+            Case "complete"
+                tempfilter = " and JobStatusID in('C')" & tempfilter
+            Case Else
+                tempfilter = " and JobStatusID Not in('C','O','X')" & tempfilter
+        End Select
+
+        Select Case ddFI.SelectedValue
+            Case "-"
+                tempfilter = " and JP='-'" & tempfilter
+            Case Else
+                tempfilter = tempfilter
+        End Select
+
+        Select Case ddYear.SelectedValue
+            Case ">2023"
+                tempfilter = " and DocDate >= '2023-01-01'" & tempfilter
+            Case "<2023"
+                tempfilter = " and DocDate < '2023-01-01'" & tempfilter
+            Case Else
+                tempfilter = tempfilter
+        End Select
+
+        If Len(tempfilter) <= 0 Then
+            tempfilter = ""
+        Else
+            tempfilter = " where  " & Right(tempfilter, Len(tempfilter) - 4)
+        End If
+        'Catch ex As Exception
+        'err_handler(GetCurrentPageName(), GetCurrentMethodName, ex.Message)
+        'End Try
     End Sub
 
     Protected Sub bSearch_Click(sender As Object, e As EventArgs)

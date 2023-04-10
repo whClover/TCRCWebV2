@@ -50,6 +50,33 @@ Partial Public Class ComponentRel
     Protected WithEvents ddWS As Global.System.Web.UI.WebControls.DropDownList
 
     '''<summary>
+    '''ddStatus control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents ddStatus As Global.System.Web.UI.WebControls.DropDownList
+
+    '''<summary>
+    '''ddFI control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents ddFI As Global.System.Web.UI.WebControls.DropDownList
+
+    '''<summary>
+    '''ddYear control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents ddYear As Global.System.Web.UI.WebControls.DropDownList
+
+    '''<summary>
     '''bSearch control.
     '''</summary>
     '''<remarks>

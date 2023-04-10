@@ -2,12 +2,15 @@
 Imports DocumentFormat.OpenXml.Wordprocessing
 Imports TCRCWebV2.SQLFunction
 Imports TCRCWebV2.Utility
+Imports TCRCWebV2.GlobalString
 
 Public Class MeaTemplateSecUpload
     Inherits System.Web.UI.UserControl
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-
+        If Session("ss_userid") = "" Then
+            Response.Redirect(urlTCRCLogin)
+        End If
     End Sub
 
     Protected Sub bUpload_Click(sender As Object, e As EventArgs)

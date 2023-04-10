@@ -8,6 +8,10 @@ Public Class MeaInspWorksheetRev
 
     Dim utility As New Utility(Me)
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+        If Session("ss_userid") = "" Then
+            Response.Redirect(urlTCRCLogin)
+        End If
+
         If Not IsPostBack = True Then
             LoadSection()
             LoadUI()
@@ -203,9 +207,9 @@ Public Class MeaInspWorksheetRev
                     If row("ValType") = "1" Then
                         erow.Append("<td><button type=""button"" class=""btn btn-soft-primary"" value=""ok""/></td>")
                     ElseIf row("ValType") = "2" Then
-                        erow.Append("<td><input id=""" & row("IDInsp") & """ runat=""server"" name=""txtValue"" type=""number"" Class=""form-control"" value=""" & row("InspValue") & """ /></td>")
+                        erow.Append("<td><input id=""" & row("IDInsp") & """ runat=""server"" name=""txtValue"" type=""number"" Class=""form-control form-control-sm"" value=""" & row("InspValue") & """ /></td>")
                     ElseIf row("ValType") = "3" Then
-                        erow.Append("<td><input id=""" & row("IDInsp") & """ runat=""server"" name=""txtValue"" class=""form-control"" value=""" & row("InspValue") & """ /></td>")
+                        erow.Append("<td><input id=""" & row("IDInsp") & """ runat=""server"" name=""txtValue"" class=""form-control form-control-sm"" value=""" & row("InspValue") & """ /></td>")
                     End If
                 Next
                 Dim placeholder As PlaceHolder = DirectCast(e.Item.FindControl("placeholder1"), PlaceHolder) ' Ganti placeholder1 dengan ID placeholder Anda

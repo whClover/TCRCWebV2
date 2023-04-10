@@ -9,7 +9,9 @@ Public Class MeaInspWorksheet
     Dim utility As New Utility(Me)
     Dim tempfilter As String
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-
+        If Session("ss_userid") = "" Then
+            Response.Redirect(urlTCRCLogin)
+        End If
     End Sub
 
     Protected Sub bSearch_Click(sender As Object, e As EventArgs)

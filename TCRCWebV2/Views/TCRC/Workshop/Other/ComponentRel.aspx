@@ -19,13 +19,13 @@
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
                 <div class="row">
-                    <div class="col-md-4">
+                    <div class="col-md-2">
                         <div class="mb-3">
                             <label for="tWONo">WONo</label>
                             <asp:TextBox runat="server" CssClass="form-control" ID="tWONo" AutoCompleteType="Disabled"></asp:TextBox>
                         </div>                                
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-3">
                         <div class="mb-3">
                             <label for="tWS">Workshop</label>
                             <asp:DropDownList runat="server" CssClass="form-control" ID="ddWS">
@@ -34,6 +34,36 @@
                                 <asp:ListItem Text="Engine" Value="Engine"></asp:ListItem>
                             </asp:DropDownList>
                         </div>                                
+                    </div>
+                    <div class="col-md-3">
+                        <div class="mb-3">
+                            <label for="tWS">Job Status</label>
+                            <asp:DropDownList runat="server" CssClass="form-control" ID="ddStatus">
+                                <asp:ListItem Text="" Value=""></asp:ListItem>
+                                <asp:ListItem Value="inprogress">Inprogress</asp:ListItem>
+                                <asp:ListItem Value="complete">Complete</asp:ListItem>
+                            </asp:DropDownList>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="mb-3">
+                            <label for="tWS">FI Status</label>
+                            <asp:DropDownList runat="server" CssClass="form-control" ID="ddFI">
+                                <asp:ListItem Text="" Value=""></asp:ListItem>
+                                <asp:ListItem Value="-">-</asp:ListItem>
+                                <asp:ListItem Value="Done">Done</asp:ListItem>
+                            </asp:DropDownList>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="mb-3">
+                            <label for="tWS">WO Year</label>
+                            <asp:DropDownList runat="server" CssClass="form-control" ID="ddYear">
+                                <asp:ListItem Text="" Value=""></asp:ListItem>
+                                <asp:ListItem Text=">2023" Value=">2023"></asp:ListItem>
+                                <asp:ListItem Value="<2023"><2023</asp:ListItem>
+                            </asp:DropDownList>
+                        </div>
                     </div>
                 </div>
                 <div class="btn-group mt-4 mt-md-0" role="group" aria-label="Basic example">

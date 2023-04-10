@@ -276,5 +276,22 @@ Public Class Utility
         Return 0
     End Function
 
+    Public Shared Function IsLoggedIn(ByVal session As HttpSessionState, ByVal user As System.Security.Principal.IPrincipal) As Boolean
+        'Check if session variable is set
+        If session("UserID") IsNot Nothing AndAlso session("UserName") IsNot Nothing Then
+            Return True
+        End If
+
+        'If session variable is not set, check if user is already authenticated
+        If user.Identity.IsAuthenticated Then
+            'Set session variables
+            session("UserID") = user.Identity.Name
+            session("UserName") = user.Identity.Name
+            Return True
+        End If
+
+        Return False
+    End Function
+
 
 End Class

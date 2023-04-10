@@ -9,6 +9,10 @@ Public Class MeaTemplateSecDetails
     Dim utility As New Utility(Me)
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+        If Session("ss_userid") = "" Then
+            Response.Redirect(urlTCRCLogin)
+        End If
+
         If IsPostBack = False Then
             bindingHeader()
             GenerateSubSection()

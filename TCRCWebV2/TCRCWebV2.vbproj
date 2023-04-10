@@ -1498,6 +1498,7 @@
     <Content Include="Content\alertifyjs\themes\semantic.rtl.min.css" />
     <Content Include="data\WOActivity.txt" />
     <Content Include="Default.aspx" />
+    <Content Include="Files\tes.html" />
     <Content Include="fonts\boxicons.svg" />
     <Content Include="fonts\fa-brands-400.svg" />
     <Content Include="fonts\fa-regular-400.svg" />
@@ -1573,6 +1574,7 @@
     <Content Include="Views\TCRC\Reports\CompRelFooter.aspx" />
     <Content Include="Views\TCRC\Reports\CompRelForm.aspx" />
     <Content Include="Views\TCRC\Reports\MeaInspection.aspx" />
+    <Content Include="Views\TCRC\Reports\MeaInspectionRev.aspx" />
     <Content Include="Views\TCRC\Workshop\indexWS.aspx" />
     <Content Include="Views\TCRC\Workshop\Inspection\MeaInspBeforeAdd.ascx" />
     <Content Include="Views\TCRC\Workshop\Inspection\MeaInspBeforeAdd.aspx" />
@@ -1748,6 +1750,13 @@
     <Compile Include="Views\TCRC\Reports\MeaInspection.aspx.vb">
       <DependentUpon>MeaInspection.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\TCRC\Reports\MeaInspectionRev.aspx.designer.vb">
+      <DependentUpon>MeaInspectionRev.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TCRC\Reports\MeaInspectionRev.aspx.vb">
+      <DependentUpon>MeaInspectionRev.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="Views\TCRC\Workshop\indexWS.aspx.designer.vb">
       <DependentUpon>indexWS.aspx</DependentUpon>

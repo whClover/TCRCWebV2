@@ -27,7 +27,7 @@
     <!-- end page title -->
 
     <div class="row">       
-        <div class="col-md-4">
+        <div class="col-md-3">
             <div class="card card-h-100">
                 <div class="card-header border-bottom-0">
                     <div class="d-flex align-items-start">
@@ -74,7 +74,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-8" runat="server" id="MainDiv" style="display:none">
+        <div class="col-md-9" runat="server" id="MainDiv" style="display:none">
             <div class="card">
                 <uc1:MeaInspRemark runat="server" id="MeaInspRemark" />
                 <div class="card-header">
@@ -106,7 +106,7 @@
                 </div>
                 <div class="card-body">
                     <img src="../../../../images/NoPicture.png" runat="server" id="imgSection" 
-                        class="img-fluid" style="display: block; margin-left:auto; margin-right:auto; Position:Static;" />
+                        class="img-fluid" style="display: block; margin-left:auto; margin-right:auto; Position:Static; height:70%" />
                     <hr />
                     <div class="row">
                         <div class="col-md-6">
@@ -121,7 +121,7 @@
                     
                     <hr />
                     <div class="table-responsive d-flex justify-content-center">
-                        <table class="table table-bordered table-striped w-auto">
+                        <table class="table table-bordered table-striped w-100 gridview" style="font-size:80%">
 
                            <%--Start:Table Header--%>
                             <asp:Repeater ID="rptHeader" runat="server">
