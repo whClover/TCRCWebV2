@@ -6,6 +6,8 @@
     End Sub
 
     Protected Sub bUpload_Click(sender As Object, e As EventArgs)
-        ScriptManager.RegisterStartupScript(Me, Me.GetType(), "updateProgress", "updateProgressBar();", True)
+        ScriptManager.RegisterStartupScript(Me, Me.GetType(), "updateProgress", "updateProgBar('pbar',80);", True)
     End Sub
+
+
 End Class

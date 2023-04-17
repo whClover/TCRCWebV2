@@ -1549,6 +1549,7 @@
     <Content Include="images\small\img-7.jpg" />
     <Content Include="images\small\img-8.jpg" />
     <Content Include="images\small\img-9.jpg" />
+    <Content Include="images\Spinner.gif" />
     <Content Include="images\users\avatar-1.jpg" />
     <Content Include="images\users\avatar-10.jpg" />
     <Content Include="images\users\avatar-2.jpg" />
@@ -1569,6 +1570,7 @@
     <Content Include="Views\Shared\MenuTMRP.aspx" />
     <Content Include="Views\TCRC\index.aspx" />
     <Content Include="Views\TCRC\Office\Administration\UploadWO.ascx" />
+    <Content Include="Views\TCRC\Office\Administration\UploadWO.aspx" />
     <Content Include="Views\TCRC\Office\index.aspx" />
     <Content Include="Views\TCRC\Office\Administration\ListWO.aspx" />
     <Content Include="Views\TCRC\Reports\CompRelFooter.aspx" />
@@ -1715,6 +1717,13 @@
     <Compile Include="Views\TCRC\Office\Administration\UploadWO.ascx.vb">
       <DependentUpon>UploadWO.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\TCRC\Office\Administration\UploadWO.aspx.designer.vb">
+      <DependentUpon>UploadWO.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TCRC\Office\Administration\UploadWO.aspx.vb">
+      <DependentUpon>UploadWO.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="Views\TCRC\Office\index.aspx.designer.vb">
       <DependentUpon>index.aspx</DependentUpon>

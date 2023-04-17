@@ -20,6 +20,20 @@
         <%= Scripts.Render("~/summernote") %>
     </asp:PlaceHolder>
 
+    <script type="text/javascript">
+        function updateProgBar(id, widthPercentage) {
+            const progressBar = document.getElementById(id);
+            if (progressBar) {
+                progressBar.style.width = `${widthPercentage}%`;
+                progressBar.textContent = `${widthPercentage}%`;
+                progressBar.setAttribute('aria-valuenow', widthPercentage);
+                console.log('success');
+            } else {
+                console.error(`Progress bar element with ID "${id}" not found!`);
+            }
+        }
+    </script>
+
 </head>
 <body data-layout="horizontal" data-topbar="dark">
     <form runat="server">

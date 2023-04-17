@@ -20,25 +20,36 @@
                 </div>
                 <div class="col-md-12 mb-3">
                     <label class="form-label" for="title">Upload Here...</label><br />
-                    <asp:FileUpload runat="server" ID="dUpload" />
+                    <asp:FileUpload runat="server" ID="dUpload" CssClass="mb-3" />
                     <div class="progress">
-                        <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
+                        <div id="pbar" class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
                     </div>
                 </div>
             </div>
             <div class="card-footer">
                 <asp:Label runat="server" ID="lerror" CssClass="badge badge-soft-warning" style="text-align:left !important"></asp:Label>
                 <div class="d-flex flex-wrap gap-2">
-                    <asp:Button runat="server" CssClass="btn btn-soft-purple" ID="bUpload" OnClick="bUpload_Click" Text="Upload" />
-                    <button type="button" class="btn btn-soft-purple" id="bTest" onclick="updateProgBar(80)">Test</button>
+                    <asp:Button Visible="false" runat="server" CssClass="btn btn-soft-purple" ID="bUpload" OnClick="bUpload_Click" Text="Upload" />
+                    <button type="button" class="btn btn-soft-purple" id="bTest" onclick="tesUpload()">Test</button>
                     <asp:Button runat="server" CssClass="btn btn-soft-purple" ID="bClose" data-dismiss="modal" Text="Close" />
 
                     <script type="text/javascript">
-                        function updateProgBar(widthPercentage) {
-                            const progressBar = document.querySelector('.progres-bar');
-                            progressBar.style.width = `${widthPercentage}%`;
-                            progressBar.textContent = `${widthPercentage}%`;
-                            progressBar.setAttribute('aria-valuenow', widthPercentage);
+                        function tesUpload() {
+                            $.ajax({
+                                type: "POST",
+                                url: "ListWO.aspx/ProgressUpload",
+                                data: "{}",
+                                contentType: "application/json; charset=utf-8",
+                                dataType: "json",
+                                async: "false",
+                                success: function (response) {
+                                    //location.reload();
+                                    //console.log("IDInsp:" + inputid + ",Value:" + inputVal);
+                                },
+                                error: function (request, status, error) {
+                                    alert(request.responseText);
+                                }
+                            });
                         }
                     </script>
                 </div>
