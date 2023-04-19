@@ -56,52 +56,58 @@
         </HeaderTemplate>
         <ItemTemplate>
             <%--section--%>
-            <h5 class="card-title text-primary fw-bold" style="text-align:left">
-                Section: <%# Eval("SectionName").ToString() %>
-            </h5>
-            <img class="mb-2" runat="server" src='<%# Eval("PictureSection").ToString() %>' style="display: block; margin-left:auto; margin-right:auto; Position:Static;"/>
+            <div id="sectionhead" style="page-break-inside: avoid !important">
+                <h5 class="card-title text-primary fw-bold" style="text-align:left">
+                    Section: <%# Eval("SectionName").ToString() %>
+                </h5>
+                <img class="mb-2" runat="server" src='<%# Eval("PictureSection").ToString() %>' 
+                    style="display: block; margin-left:auto; margin-right:auto; Position:Static;"/>
+            </div>
+            
             <%--end: section--%>
 
             <%--subsection--%>
             <asp:Repeater runat="server" ID="rpt_subsection" OnItemDataBound="rpt_subsection_ItemDataBound">
                 <HeaderTemplate>
-                    <div style="text-align: center">
+                    <div>
                 </HeaderTemplate>
                 
                 <ItemTemplate>
-                    <small class="text-center fw-bold"><mark>Sub-Section: <%# Eval("SubSectionName").ToString() %></mark></small>
-                    
-                    <table class="table table-bordered table-striped w-100 gridview">
-                    <asp:Repeater runat="server" ID="rpt_ItemHead">
-                        <HeaderTemplate>
-                                <thead>
-                                    <tr>
-                        </HeaderTemplate>
-                        <ItemTemplate>
-                            <th><%# Eval("ItemDesc") %></th>
-                        </ItemTemplate>
-                        <FooterTemplate>
-                                    </tr>
-                                </thead>
-                            
-                        </FooterTemplate>
-                    </asp:Repeater>
+                    <div id="tblval" style="page-break-inside: avoid !important">
+                        <div style="text-align: center">
+                            <small class="text-center fw-bold"><mark>Sub-Section: <%# Eval("SubSectionName").ToString() %></mark></small>
+                        </div>
+                        <table class="table table-bordered table-striped w-100 gridview">
+                        <asp:Repeater runat="server" ID="rpt_ItemHead">
+                            <HeaderTemplate>
+                                    <thead>
+                                        <tr>
+                            </HeaderTemplate>
+                            <ItemTemplate>
+                                <th style="vertical-align:middle;text-align:left;background-color:#FAD5A5"><%# Eval("ItemDesc") %></th>
+                            </ItemTemplate>
+                            <FooterTemplate>
+                                        </tr>
+                                    </thead>                            
+                            </FooterTemplate>
+                        </asp:Repeater>
 
-                    <asp:Repeater runat="server" ID="rpt_ItemBody" OnItemDataBound="rpt_ItemBody_ItemDataBound">
-                        <HeaderTemplate>
-                            <tbody>
-                        </HeaderTemplate>
-                        <ItemTemplate>
-                            <tr>
-                                <td><%# Eval("StepDesc") %></td>
-                                <asp:PlaceHolder ID="ph" runat="server"></asp:PlaceHolder>
-                            </tr>
-                        </ItemTemplate>
-                        <FooterTemplate>
-                            </tbody>
-                        </FooterTemplate>
-                    </asp:Repeater>
-                    </table>
+                        <asp:Repeater runat="server" ID="rpt_ItemBody" OnItemDataBound="rpt_ItemBody_ItemDataBound">
+                            <HeaderTemplate>
+                                <tbody>
+                            </HeaderTemplate>
+                            <ItemTemplate>
+                                <tr>
+                                    <td style="text-align:right; vertical-align:middle;background-color:#FAD5A5;font-weight:bold;"><%# Eval("StepDesc") %></td>
+                                    <asp:PlaceHolder ID="ph" runat="server"></asp:PlaceHolder>
+                                </tr>
+                            </ItemTemplate>
+                            <FooterTemplate>
+                                </tbody>
+                            </FooterTemplate>
+                        </asp:Repeater>
+                        </table>
+                    </div>                  
                 </ItemTemplate>
 
                 <FooterTemplate>
@@ -109,6 +115,16 @@
                 </FooterTemplate>
             </asp:Repeater>
             <%--end: subsection--%>
+
+            <div id="sectionrmk" class="mb-3" style="page-break-inside: avoid !important">
+                <small class="fw-bold">Section Remark</small>
+                <%--<textarea class="form-control" runat="server" id="tSectionRmk" style="height:200px"></textarea>--%>
+                <div id="tSectionRmk" runat="server"></div>
+            </div>
+            <div id="sectionapv" class="mb-3" style="page-break-inside: avoid !important;">
+                <small class="fw-bold">Section Approval</small><br />
+                <asp:Label runat="server" ID="lLHApv" CssClass="form-label"></asp:Label>
+            </div>
         </ItemTemplate>
         <FooterTemplate>
             </div>

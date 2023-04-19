@@ -1,4 +1,5 @@
 ﻿Imports System.IO
+Imports DocumentFormat.OpenXml.Office2019.Excel.RichData2
 Imports Org.BouncyCastle.Crypto.Agreement
 Imports TCRCWebV2.GlobalString
 Imports TCRCWebV2.SQLFunction
@@ -11,6 +12,7 @@ Public Class MeaInspectionRev
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         ewo = Request.QueryString("wo")
         If ewo = String.Empty Then Exit Sub
+
         loadSection()
         loadHeader()
     End Sub
@@ -43,6 +45,8 @@ Public Class MeaInspectionRev
         If e.Item.ItemType = ListItemType.Item OrElse e.Item.ItemType = ListItemType.AlternatingItem Then
             Dim SectionName As String = DirectCast(e.Item.DataItem, DataRowView)("SectionName").ToString()
             Dim subsection As Repeater = DirectCast(e.Item.FindControl("rpt_subsection"), Repeater)
+            Dim tremark As HtmlGenericControl = DirectCast(e.Item.FindControl("tSectionRmk"), HtmlGenericControl)
+            Dim lLHApv As Label = DirectCast(e.Item.FindControl("lLHApv"), Label)
             Session("ss_Section") = SectionName
 
             Dim dt As New DataTable
@@ -52,6 +56,22 @@ Public Class MeaInspectionRev
             If dt.Rows.Count > 0 Then
                 subsection.DataSource = dt
                 subsection.DataBind()
+            End If
+
+            'load section remark
+            Dim dt2 As New DataTable
+            Dim query2 As String = "Select * from v_InspRemark where wono=" & evar(ewo, 1) & " And InspSection=" & evar(SectionName, 1)
+            dt2 = GetDataTable(query2)
+            If dt2.Rows.Count > 0 Then
+                tremark.InnerHtml = CheckDBNull(dt2.Rows(0)("Remark"))
+            End If
+
+            'load section approval
+            Dim dt3 As New DataTable
+            Dim query3 As String = "select *,convert(varchar, LHApprovedDate, 103) as LHApvDate from v_InspApproval where wono=" & evar(ewo, 1) & " and InspSection=" & evar(SectionName, 1)
+            dt3 = GetDataTable(query3)
+            If dt3.Rows.Count > 0 Then
+                lLHApv.Text = "Leading Hand: " & CheckDBNull(dt3.Rows(0)("LHApprovedBy")) & ", On: " & CheckDBNull(dt3.Rows(0)("LHApvDate"))
             End If
         End If
     End Sub
@@ -66,7 +86,7 @@ Public Class MeaInspectionRev
 
             Dim dt As New DataTable
             Dim query As String = "select distinct(ItemDesc),SeqItem,ValType from v_InspDetail 
-					where wono=" & evar(ewo, 1) & " and SectionName=" & evar(sectionName, 1) & " and SubSectionName=" & evar(subsectionName, 1) & " and valType not in(0)
+					where wono=" & evar(ewo, 1) & " and SectionName=" & evar(sectionname, 1) & " and SubSectionName=" & evar(subsectionname, 1) & " and valType not in(0)
                     and AftInput=0 Order By SeqItem"
             dt = GetDataTable(query)
 
@@ -104,10 +124,10 @@ Public Class MeaInspectionRev
             Dim sectionname As String = Session("ss_Section")
             Dim subsectionname As String = Session("ss_SubSection")
 
-            Dim query As String = "select IDInsp,StepDesc,ItemDesc,InspValue,ValType from v_InspDetail 
+            Dim query As String = "select IDInsp,StepDesc,ItemDesc,InspValue,ValType,ModBy,convert(varchar,ModDate,103) as ModDate from v_InspDetail 
                 where wono=" & evar(ewo, 1) & " and SectionName=" & evar(sectionname, 1) & " and SubSectionName=" & evar(subsectionname, 1) & " and StepDesc=" & evar(stepdesc, 1) & " and valType not in(0)
                 and AftInput=0
-                group by StepDesc,ItemDesc,StepDesc,InspValue,IDInsp,ValType"
+                group by StepDesc,ItemDesc,StepDesc,InspValue,IDInsp,ValType,ModBy,ModDate"
             Dim dt As New DataTable
             dt = GetDataTable(query)
             If dt.Rows.Count > 0 Then
@@ -116,9 +136,15 @@ Public Class MeaInspectionRev
                     If row("ValType") = "1" Then
                         erow.Append("<td><button type=""button"" class=""btn btn-soft-primary"" value=""ok""/></td>")
                     ElseIf row("ValType") = "2" Then
-                        erow.Append("<td><input id=""" & row("IDInsp") & """ runat=""server"" name=""txtValue"" type=""number"" Class=""form-control form-control-sm"" value=""" & row("InspValue") & """ /></td>")
+                        erow.Append("<td>
+                                        <input id=""" & row("IDInsp") & """ runat=""server"" name=""txtValue"" type=""number"" Class=""form-control form-control-sm"" value=""" & row("InspValue") & """ />
+                                        <small class=""form-label text-primary"" style=""text-align:left;font-style:italic"">Input By: " & CheckDBNull(dt.Rows(0)("ModBy")) & "<br /> On: " & CheckDBNull(dt.Rows(0)("ModDate")) & "</small>
+                                    </td>")
                     ElseIf row("ValType") = "3" Then
-                        erow.Append("<td><input id=""" & row("IDInsp") & """ runat=""server"" name=""txtValue"" class=""form-control form-control-sm"" value=""" & row("InspValue") & """ /></td>")
+                        erow.Append("<td>
+                                        <input id=""" & row("IDInsp") & """ runat=""server"" name=""txtValue"" class=""form-control form-control-sm"" value=""" & row("InspValue") & """ />
+                                        <small class=""form-label text-primary"" style=""text-align:left;font-style:italic"">Input By: " & CheckDBNull(dt.Rows(0)("ModBy")) & "<br /> On: " & CheckDBNull(dt.Rows(0)("ModDate")) & "</small>
+                                    </td>")
                     End If
                 Next
                 placeholder.Controls.Add(New Literal() With {
@@ -127,4 +153,5 @@ Public Class MeaInspectionRev
             End If
         End If
     End Sub
+
 End Class
