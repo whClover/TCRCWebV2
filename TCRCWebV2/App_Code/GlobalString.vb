@@ -8,6 +8,10 @@
     Public Shared JobPck As String = "\\" & server & "\Database\Plant_Component\JobPackage\"
     '=============
 
+    'DataPath
+    Public Shared DataLabourAvg As String = "..\..\..\data\LabourAvg.txt"
+    '==============================================================
+
     'variabel untuk link web-nya,
     Public Shared urlMainMenu As String = "~/"
     Public Shared urlError As String = "~/Views/Shared/ErrorPage.aspx"
@@ -29,6 +33,11 @@
     Public Shared urlMeasureWorksheetRev As String = urlInspection & "MeaInspWorksheetRev.aspx"
     Public Shared urlMeasureWorksheetDetails As String = urlInspection & "MeaInspWorksheetDetails.aspx"
     Public Shared urlMeasurePrint As String = urlPrint & "MeaInspection.aspx"
+
+    'TCRC: Assembly Module
+    Public Shared urlAssembly As String = urlTCRCWorkshop & "/AssemblyMod/"
+    Public Shared urlAssemblyList As String = urlAssembly & "AssemblyList.aspx"
+    Public Shared urlAssemblyMea As String = urlAssembly & "AssemblyMea.aspx"
 
     'TCRC: Other Module
     Public Shared urlOtherModule As String = urlTCRCWorkshop & "Other/"

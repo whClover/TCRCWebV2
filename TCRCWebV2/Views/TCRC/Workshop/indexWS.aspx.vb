@@ -35,4 +35,8 @@ Public Class IndexWS
     Protected Sub bCompRelease_Click(sender As Object, e As EventArgs)
         Response.Redirect(urlComponentRelease)
     End Sub
+
+    Protected Sub bassm_Click(sender As Object, e As EventArgs)
+        Response.Redirect(urlAssemblyList)
+    End Sub
 End Class

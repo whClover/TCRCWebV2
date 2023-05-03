@@ -39,6 +39,33 @@ Public Class SQLFunction
         Return dt
     End Function
 
+    Public Shared Function DataTableToTxt(ByVal query As String, ByVal fullpath As String) As Boolean
+        Dim dt As New DataTable()
+        Dim sb As New StringBuilder()
+
+        dt = GetDataTable(query)
+        If dt.Rows.Count > 0 Then
+            For Each col As DataColumn In dt.Columns
+                sb.Append(col.ColumnName)
+                sb.Append(vbTab)
+            Next
+            sb.AppendLine()
+
+            For Each row As DataRow In dt.Rows
+                For Each col As DataColumn In dt.Columns
+                    sb.Append(row(col))
+                    sb.Append(vbTab)
+                Next
+                sb.AppendLine()
+            Next
+            File.WriteAllText(fullpath, sb.ToString())
+            Return True
+        Else
+            Return False
+        End If
+
+    End Function
+
     Public Shared Function GetDataTableV2(pageIndex As Integer, pageSize As Integer, ByVal Query As String, ByVal OrderBy As String) As DataTable
         Dim dt As New DataTable
         Dim cn As New SqlConnection(connString)

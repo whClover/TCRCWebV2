@@ -11,7 +11,7 @@ Option Strict On
 Option Explicit On
 
 
-Partial Public Class indexWS
+Partial Public Class AssemblyList
 
     '''<summary>
     '''MenuTCRC control.
@@ -23,56 +23,56 @@ Partial Public Class indexWS
     Protected WithEvents MenuTCRC As Global.TCRCWebV2.MenuTCRC1
 
     '''<summary>
-    '''bMeaWorksheet control.
+    '''tWONo control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents bMeaWorksheet As Global.System.Web.UI.WebControls.LinkButton
+    Protected WithEvents tWONo As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
-    '''bMeaTemplate control.
+    '''ddWs control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents bMeaTemplate As Global.System.Web.UI.WebControls.LinkButton
+    Protected WithEvents ddWs As Global.System.Web.UI.WebControls.DropDownList
 
     '''<summary>
-    '''bPrelimWorksheet control.
+    '''ddStatus control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents bPrelimWorksheet As Global.System.Web.UI.WebControls.LinkButton
+    Protected WithEvents ddStatus As Global.System.Web.UI.WebControls.DropDownList
 
     '''<summary>
-    '''bPrelimTemplate control.
+    '''ddYear control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents bPrelimTemplate As Global.System.Web.UI.WebControls.LinkButton
+    Protected WithEvents ddYear As Global.System.Web.UI.WebControls.DropDownList
 
     '''<summary>
-    '''bassm control.
+    '''bSearch control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents bassm As Global.System.Web.UI.WebControls.LinkButton
+    Protected WithEvents bSearch As Global.System.Web.UI.WebControls.LinkButton
 
     '''<summary>
-    '''bCompRelease control.
+    '''gv_asm control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents bCompRelease As Global.System.Web.UI.WebControls.LinkButton
+    Protected WithEvents gv_asm As Global.System.Web.UI.WebControls.GridView
 End Class

@@ -30,7 +30,7 @@
         <div class="col-md-3">
             <div class="card card-h-100">
                 <div class="card-header border-bottom-0">
-                    <div class="d-flex align-items-start">
+                    <div class="justify-content-between d-flex align-items-center">
                         <div class="flex-grow-1">
                             <h5 class="card-title" runat="server" id="lhWO">WO.</h5>
                             <small runat="server" id="lWODesc">tes</small>
@@ -38,12 +38,21 @@
                     </div>
                 </div>
                 <hr />
-                <div id="sidebar-menu">
+                <div class="d-grid gap-2">
+                    <asp:Button runat="server" CssClass="btn btn-info btn-sm" Text="Send To Job Package" Enabled="false" ID="btnJP" OnClick="btnJP_Click" />
+                </div>
+                <div id="sidebar-menu">                    
                     <ul class="metismenu list-unstyled" id="side-menu">
                         <li class="menu-title" data-key="t-dashboards">
                             <small class="text-muted" runat="server" id="lOPb">Overall Progress : 100%</small>
                             <div class="progress progress-xl animated-progess mb-1 custom-progress">
                                 <div runat="server" id="pBar" class="progress-bar bg-info" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </li>
+                        <li class="menu-title" data-key="t-dashboards">
+                            <small class="text-muted" runat="server" id="lOPLH">Leading Hand Approval : 100%</small>
+                            <div class="progress progress-xl animated-progess mb-1 custom-progress">
+                                <div runat="server" id="pBar2" class="progress-bar bg-warning" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
                             </div>
                         </li>
                         <li class="menu-title" data-key="t-dashboards">Inspection Section :</li>

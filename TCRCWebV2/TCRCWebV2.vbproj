@@ -234,6 +234,8 @@
     <Content Include="assets\costume\multiselect\chosen.jquery.min.js" />
     <Content Include="assets\costume\multiselect\chosen.min.css" />
     <Content Include="assets\costume\papercss\paper.min.css" />
+    <Content Include="assets\costume\Select2\select2.min.css" />
+    <Content Include="assets\costume\Select2\select2.min.js" />
     <Content Include="assets\costume\summernote\popper.min.js" />
     <Content Include="assets\costume\summernote\summernote-bs4.min.css" />
     <Content Include="assets\costume\summernote\summernote-bs4.min.js" />
@@ -260,6 +262,7 @@
     <Content Include="assets\images\brands\github.png" />
     <Content Include="assets\images\brands\mail_chimp.png" />
     <Content Include="assets\images\brands\slack.png" />
+    <Content Include="assets\images\cover1.jpg" />
     <Content Include="assets\images\error.png" />
     <Content Include="assets\images\error2.png" />
     <Content Include="assets\images\favicon.ico" />
@@ -1496,6 +1499,7 @@
     <Content Include="Content\alertifyjs\themes\semantic.min.css" />
     <Content Include="Content\alertifyjs\themes\semantic.rtl.css" />
     <Content Include="Content\alertifyjs\themes\semantic.rtl.min.css" />
+    <Content Include="data\DataLabourAvg.txt" />
     <Content Include="data\WOActivity.txt" />
     <Content Include="Default.aspx" />
     <Content Include="Files\tes.html" />
@@ -1575,8 +1579,13 @@
     <Content Include="Views\TCRC\Office\Administration\ListWO.aspx" />
     <Content Include="Views\TCRC\Reports\CompRelFooter.aspx" />
     <Content Include="Views\TCRC\Reports\CompRelForm.aspx" />
+    <Content Include="Views\TCRC\Reports\CoverPage.ascx" />
     <Content Include="Views\TCRC\Reports\MeaInspection.aspx" />
     <Content Include="Views\TCRC\Reports\MeaInspectionRev.aspx" />
+    <Content Include="Views\TCRC\Reports\test.aspx" />
+    <Content Include="Views\TCRC\Workshop\AssemblyMod\AssemblyList.aspx" />
+    <Content Include="Views\TCRC\Workshop\AssemblyMod\AssemblyMea.ascx" />
+    <Content Include="Views\TCRC\Workshop\AssemblyMod\AssemblyMea.aspx" />
     <Content Include="Views\TCRC\Workshop\indexWS.aspx" />
     <Content Include="Views\TCRC\Workshop\Inspection\MeaInspBeforeAdd.ascx" />
     <Content Include="Views\TCRC\Workshop\Inspection\MeaInspBeforeAdd.aspx" />
@@ -1597,6 +1606,7 @@
     <Content Include="Views\TCRC\Workshop\Inspection\MeaTemplateShow.aspx" />
     <Content Include="Views\TCRC\Workshop\Other\ComponentRel.aspx" />
     <Content Include="Views\TCRC\Workshop\Other\ComponentRelEdit.ascx" />
+    <Content Include="Views\TCRC\Workshop\Other\LabourHours.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -1753,6 +1763,13 @@
       <DependentUpon>CompRelForm.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="Views\TCRC\Reports\CoverPage.ascx.designer.vb">
+      <DependentUpon>CoverPage.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TCRC\Reports\CoverPage.ascx.vb">
+      <DependentUpon>CoverPage.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="Views\TCRC\Reports\MeaInspection.aspx.designer.vb">
       <DependentUpon>MeaInspection.aspx</DependentUpon>
     </Compile>
@@ -1765,6 +1782,34 @@
     </Compile>
     <Compile Include="Views\TCRC\Reports\MeaInspectionRev.aspx.vb">
       <DependentUpon>MeaInspectionRev.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Views\TCRC\Reports\test.aspx.designer.vb">
+      <DependentUpon>test.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TCRC\Reports\test.aspx.vb">
+      <DependentUpon>test.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Views\TCRC\Workshop\AssemblyMod\AssemblyList.aspx.designer.vb">
+      <DependentUpon>AssemblyList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TCRC\Workshop\AssemblyMod\AssemblyList.aspx.vb">
+      <DependentUpon>AssemblyList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\TCRC\Workshop\AssemblyMod\AssemblyMea.ascx.designer.vb">
+      <DependentUpon>AssemblyMea.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TCRC\Workshop\AssemblyMod\AssemblyMea.ascx.vb">
+      <DependentUpon>AssemblyMea.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\TCRC\Workshop\AssemblyMod\AssemblyMea.aspx.designer.vb">
+      <DependentUpon>AssemblyMea.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TCRC\Workshop\AssemblyMod\AssemblyMea.aspx.vb">
+      <DependentUpon>AssemblyMea.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="Views\TCRC\Workshop\indexWS.aspx.designer.vb">
@@ -1905,6 +1950,13 @@
     </Compile>
     <Compile Include="Views\TCRC\Workshop\Other\ComponentRelEdit.ascx.vb">
       <DependentUpon>ComponentRelEdit.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\TCRC\Workshop\Other\LabourHours.aspx.designer.vb">
+      <DependentUpon>LabourHours.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TCRC\Workshop\Other\LabourHours.aspx.vb">
+      <DependentUpon>LabourHours.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
   </ItemGroup>
@@ -2050,7 +2102,6 @@
   <ItemGroup>
     <Folder Include="Views\Fabshop\" />
     <Folder Include="Views\PER\" />
-    <Folder Include="Views\TCRC\Workshop\Assembly\" />
     <Folder Include="Views\TCRC\Workshop\Timesheet\" />
     <Folder Include="Views\TMRP\" />
   </ItemGroup>

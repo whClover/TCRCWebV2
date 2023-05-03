@@ -9,9 +9,12 @@ Public Class MeaInspectionRev
     Inherits System.Web.UI.Page
 
     Dim ewo As String
+    Dim aftinput As String
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         ewo = Request.QueryString("wo")
+        aftinput = Request.QueryString("aftinput")
         If ewo = String.Empty Then Exit Sub
+        If aftinput = String.Empty Then Exit Sub
 
         loadSection()
         loadHeader()
@@ -33,7 +36,7 @@ Public Class MeaInspectionRev
     Sub loadSection()
         Dim dt As New DataTable
         Dim query As String = "select distinct(SectionName),PictureSection,SeqSection 
-        from v_InspDetail where wono=" & evar(ewo, 1) & " and AftInput=0 order by SeqSection"
+        from v_InspDetail where wono=" & evar(ewo, 1) & " and AftInput=" & aftinput & " order by SeqSection"
         dt = GetDataTable(query)
         If dt.Rows.Count > 0 Then
             rpt_section.DataSource = dt
@@ -51,7 +54,7 @@ Public Class MeaInspectionRev
 
             Dim dt As New DataTable
             Dim query As String = "select distinct(SubSectionName),SeqSubSection from v_InspDetail where wono=" & evar(ewo, 1) & " 
-                                and SectionName=" & evar(SectionName, 1) & " and AftInput=0 Order By SeqSubSection"
+                                and SectionName=" & evar(SectionName, 1) & " and AftInput=" & aftinput & " Order By SeqSubSection"
             dt = GetDataTable(query)
             If dt.Rows.Count > 0 Then
                 subsection.DataSource = dt
@@ -87,7 +90,7 @@ Public Class MeaInspectionRev
             Dim dt As New DataTable
             Dim query As String = "select distinct(ItemDesc),SeqItem,ValType from v_InspDetail 
 					where wono=" & evar(ewo, 1) & " and SectionName=" & evar(sectionname, 1) & " and SubSectionName=" & evar(subsectionname, 1) & " and valType not in(0)
-                    and AftInput=0 Order By SeqItem"
+                    and AftInput=" & aftinput & " Order By SeqItem"
             dt = GetDataTable(query)
 
             'Add Null Value into Header
@@ -106,7 +109,7 @@ Public Class MeaInspectionRev
             Dim dt2 As New DataTable
             Dim query2 As String = "select distinct StepDesc,dbo.SequenceNum(StepDesc) from v_InspDetail 
                         where wono=" & evar(ewo, 1) & " and SectionName=" & evar(sectionname, 1) & " and SubSectionName=" & evar(subsectionname, 1) & " and valType not in(0)
-                        and AftInput=0
+                        and AftInput=" & aftinput & "
                         group by StepDesc,ItemDesc,StepDesc,InspValue,IDInsp
                         order by dbo.SequenceNum(StepDesc)"
             dt2 = GetDataTable(query2)
@@ -126,7 +129,7 @@ Public Class MeaInspectionRev
 
             Dim query As String = "select IDInsp,StepDesc,ItemDesc,InspValue,ValType,ModBy,convert(varchar,ModDate,103) as ModDate from v_InspDetail 
                 where wono=" & evar(ewo, 1) & " and SectionName=" & evar(sectionname, 1) & " and SubSectionName=" & evar(subsectionname, 1) & " and StepDesc=" & evar(stepdesc, 1) & " and valType not in(0)
-                and AftInput=0
+                and AftInput=" & aftinput & "
                 group by StepDesc,ItemDesc,StepDesc,InspValue,IDInsp,ValType,ModBy,ModDate"
             Dim dt As New DataTable
             dt = GetDataTable(query)

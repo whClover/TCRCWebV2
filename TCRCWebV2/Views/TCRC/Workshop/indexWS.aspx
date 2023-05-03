@@ -96,7 +96,7 @@
                     <div class="mb-4">
                         <ul class="list-unstyled categories-list">
                             <li>
-                                <asp:LinkButton runat="server" CssClass="text-body bg-light d-flex align-items-center" OnClick="comingsoon">
+                                <asp:LinkButton runat="server" CssClass="text-body bg-light d-flex align-items-center" ID="bassm" OnClick="bassm_Click">
                                     <i class="fas fa-angle-double-right font-size-13 me-2 text-danger"></i> <span class="me-auto">Assembly Worksheet</span> 
                                 </asp:LinkButton>
                             </li>

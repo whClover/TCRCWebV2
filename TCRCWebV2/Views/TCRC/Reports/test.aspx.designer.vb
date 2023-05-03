@@ -11,5 +11,5 @@ Option Strict On
 Option Explicit On
 
 
-Partial Public Class UploadWO1
+Partial Public Class test
 End Class

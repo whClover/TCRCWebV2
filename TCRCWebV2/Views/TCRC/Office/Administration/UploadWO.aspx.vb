@@ -12,18 +12,15 @@ Public Class UploadWO1
     Inherits System.Web.UI.Page
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-        ScriptManager1.RegisterAsyncPostBackControl(btnStart)
+
     End Sub
 
-    Protected Sub btnStart_Click(sender As Object, e As EventArgs)
-        updProgress.Visible = True
-        divResults.InnerHtml = ""
+    <WebMethod>
+    Public Shared Function GetSomeData() As String
+        'Melakukan pengolahan data
+        Dim result As String = "Data yang dikembalikan dari server"
 
-
-        'Simulate a long process.
-        Thread.Sleep(5000)
-
-        divResults.InnerHtml = "Long process completed."
-        updProgress.Visible = False
-    End Sub
+        'Mengembalikan nilai ke JavaScript
+        Return result
+    End Function
 End Class

@@ -24,7 +24,6 @@ Public Class BundleConfig
             "~/assets/js/app.js",
             "~/assets/costume/multiselect/chosen.jquery.min.js",
             "~/assets/libs/choices.js/public/assets/scripts/choices.min.js",
-            "~/assets/libs/flatpickr/flatpickr.min.js",
             "~/assets/js/pages/form-advanced.init.js",
             "~/assets/costume/js/marquee.js",
             "~/assets/costume/js/myjs.js",

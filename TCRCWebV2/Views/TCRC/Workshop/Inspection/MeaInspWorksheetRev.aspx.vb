@@ -13,9 +13,56 @@ Public Class MeaInspWorksheetRev
         End If
 
         If Not IsPostBack = True Then
+            loadProgress()
             LoadSection()
             LoadUI()
         End If
+    End Sub
+
+    Sub loadProgress()
+        Dim ewo As String = Request.QueryString("wo")
+        'Load Progress Bar - Overall
+        Dim dt_pbar As New DataTable
+        Dim query_pbar As String = "select 
+	                                    dbo.PercentCalc(
+	                                    sum(case when InspValue is null then 0 else 1 end),
+	                                    count(*)) as ComplPerc
+                                    from 
+	                                    v_InspDetail 
+                                    where 
+	                                    wono=" & evar(ewo, 1)
+        dt_pbar = GetDataTable(query_pbar)
+        If dt_pbar.Rows.Count > 0 Then
+            lOPb.InnerText = "Overall Progress: " & CheckDBNull(dt_pbar.Rows(0)("ComplPerc")) & "%"
+            pBar.Attributes("style") = "width: " & CheckDBNull(dt_pbar.Rows(0)("ComplPerc")) & "%"
+        End If
+        'End: Progress Bar - Overall
+
+        'Load Progress Bar - Leading Hand
+        Dim dt_pLHApv As New DataTable
+        Dim query_LHApv As String = "select
+	                                    dbo.PercentCalc(
+	                                    sum(case when LHApprovedDate is null then 0 else 1 end),
+	                                    count(*)) as LHComp
+                                    from 
+	                                    v_InspApproval 
+                                    where 
+	                                    wono=" & evar(ewo, 1)
+        dt_pLHApv = GetDataTable(query_LHApv)
+        If dt_pLHApv.Rows.Count > 0 Then
+            lOPLH.InnerText = "Leading Hand Approval: " & CheckDBNull(dt_pLHApv.Rows(0)("LHComp")) & "%"
+            pBar2.Attributes("style") = "width: " & CheckDBNull(dt_pLHApv.Rows(0)("LHComp")) & "%"
+        End If
+
+        Dim progress_overall As Integer = dt_pbar.Rows(0)("ComplPerc")
+        Dim progress_LHApproval As Integer = dt_pLHApv.Rows(0)("LHComp")
+        If progress_overall < 100 And progress_LHApproval < 100 Then
+            btnJP.Enabled = False
+        Else
+            btnJP.Enabled = True
+        End If
+
+        'End: Progress Bar - Leading Hand
     End Sub
 
     Sub LoadSection()
@@ -85,22 +132,7 @@ Public Class MeaInspWorksheetRev
             End If
         End If
 
-        'Load Progress Bar
-        Dim dt_pbar As New DataTable
-        Dim query_pbar As String = "select 
-	                    dbo.PercentCalc(
-	                    sum(case when InspValue is null then 0 else 1 end),
-	                    count(*)) as ComplPerc
-                    from 
-	                    v_InspDetail 
-                    where 
-	                    wono=" & evar(ewo, 1)
-        dt_pbar = GetDataTable(query_pbar)
-        If dt_pbar.Rows.Count > 0 Then
-            lOPb.InnerText = "Overall Progress: " & CheckDBNull(dt_pbar.Rows(0)("ComplPerc")) & "%"
-            pBar.Attributes("style") = "width: " & CheckDBNull(dt_pbar.Rows(0)("ComplPerc")) & "%"
-        End If
-        'End: Progress Bar
+        loadProgress()
     End Sub
 
     Sub LoadItemHeader(ByVal sectionName As String, ByVal subsectionName As String)
@@ -289,5 +321,29 @@ Public Class MeaInspWorksheetRev
         Dim script As String
         script = "toastr[""" & type & """](""" & msg & """);"
         ScriptManager.RegisterStartupScript(Me, Me.GetType(), "toamsg", script, True)
+    End Sub
+
+    Protected Sub btnJP_Click(sender As Object, e As EventArgs)
+        Dim ewo As String = Request.QueryString("wo")
+        If ewo = String.Empty Then Exit Sub
+
+        Dim fs = CreateObject("Scripting.FileSystemObject")
+        Dim savepath As String = JobPck & ewo & "\9\"
+
+        If Not System.IO.Directory.Exists(savepath) Then
+            System.IO.Directory.CreateDirectory(savepath)
+        End If
+
+        Dim namafile As String = savepath & ewo & "_9_MeaInspection.pdf"
+        Dim p As Process = New Process()
+        p.StartInfo.FileName = "C:\webroot\TCRC Web\Rotativa\wkhtmltopdf.exe"
+        'p.StartInfo.FileName = "C:\Rotativa\wkhtmltopdf.exe"
+        p.StartInfo.Arguments = "http://bpnaps07:9191/Views/TCRC/Reports/MeaInspectionRev.aspx?wo=" & ewo & "&aftinput=0" & " " & namafile & ""
+        p.Start()
+
+        Dim query As String = "exec dbo.SubmitJobAttachment " & evar(ewo, 1) & ",9," & evar(namafile, 1) & "," & eByName()
+        executeQuery(query)
+
+        showAlert("success", "Inspection Sheet Has Been Sent to Job Package !")
     End Sub
 End Class
