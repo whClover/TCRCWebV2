@@ -23,13 +23,58 @@ Partial Public Class UploadWO
     Protected WithEvents Panel1 As Global.System.Web.UI.HtmlControls.HtmlGenericControl
 
     '''<summary>
-    '''dUpload control.
+    '''scriptmanager1 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents dUpload As Global.System.Web.UI.WebControls.FileUpload
+    Protected WithEvents scriptmanager1 As Global.System.Web.UI.ScriptManager
+
+    '''<summary>
+    '''updatepanel1 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents updatepanel1 As Global.System.Web.UI.UpdatePanel
+
+    '''<summary>
+    '''uploadfiles1 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents uploadfiles1 As Global.System.Web.UI.WebControls.FileUpload
+
+    '''<summary>
+    '''btnUpload control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents btnUpload As Global.System.Web.UI.WebControls.Button
+
+    '''<summary>
+    '''lblMsg control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblMsg As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''UpdateProgress control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents UpdateProgress As Global.System.Web.UI.UpdateProgress
 
     '''<summary>
     '''lerror control.
@@ -39,15 +84,6 @@ Partial Public Class UploadWO
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents lerror As Global.System.Web.UI.WebControls.Label
-
-    '''<summary>
-    '''bUpload control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents bUpload As Global.System.Web.UI.WebControls.Button
 
     '''<summary>
     '''bClose control.

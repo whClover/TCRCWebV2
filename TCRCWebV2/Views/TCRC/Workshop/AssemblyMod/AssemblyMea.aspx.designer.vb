@@ -41,6 +41,33 @@ Partial Public Class AssemblyMea
     Protected WithEvents AssemblyMea As Global.TCRCWebV2.AssemblyMea1
 
     '''<summary>
+    '''AssemblyGallery control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents AssemblyGallery As Global.TCRCWebV2.AssemblyGallery
+
+    '''<summary>
+    '''lwono control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lwono As Global.System.Web.UI.HtmlControls.HtmlGenericControl
+
+    '''<summary>
+    '''lwodesc control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lwodesc As Global.System.Web.UI.HtmlControls.HtmlGenericControl
+
+    '''<summary>
     '''n1 control.
     '''</summary>
     '''<remarks>
@@ -120,6 +147,78 @@ Partial Public Class AssemblyMea
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents n9 As Global.System.Web.UI.WebControls.LinkButton
+
+    '''<summary>
+    '''bgallery control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents bgallery As Global.System.Web.UI.WebControls.LinkButton
+
+    '''<summary>
+    '''bswp control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents bswp As Global.System.Web.UI.WebControls.LinkButton
+
+    '''<summary>
+    '''lSectionProg control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lSectionProg As Global.System.Web.UI.HtmlControls.HtmlGenericControl
+
+    '''<summary>
+    '''pSectionProg control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents pSectionProg As Global.System.Web.UI.HtmlControls.HtmlGenericControl
+
+    '''<summary>
+    '''lSectionLH control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lSectionLH As Global.System.Web.UI.HtmlControls.HtmlGenericControl
+
+    '''<summary>
+    '''pSectionLH control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents pSectionLH As Global.System.Web.UI.HtmlControls.HtmlGenericControl
+
+    '''<summary>
+    '''ddsection control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents ddsection As Global.System.Web.UI.WebControls.DropDownList
+
+    '''<summary>
+    '''lsection control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lsection As Global.System.Web.UI.HtmlControls.HtmlGenericControl
 
     '''<summary>
     '''imgGp control.

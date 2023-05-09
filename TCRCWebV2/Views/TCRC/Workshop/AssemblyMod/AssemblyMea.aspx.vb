@@ -2,6 +2,7 @@
 Imports TCRCWebV2.Utility
 Imports TCRCWebV2.GlobalString
 Imports DocumentFormat.OpenXml.Spreadsheet
+Imports Org.BouncyCastle.Tsp
 
 Public Class AssemblyMea
     Inherits System.Web.UI.Page
@@ -14,7 +15,11 @@ Public Class AssemblyMea
         End If
 
         ewo = Request.QueryString("wo")
-        load_data()
+        If IsPostBack = False Then
+            load_head()
+            load_data()
+            Bindingsection()
+        End If
     End Sub
 
     Protected Sub Page_PreRenderComplete(sender As Object, e As EventArgs) Handles Me.PreRenderComplete
@@ -22,16 +27,37 @@ Public Class AssemblyMea
             Dim scrollPosition As Integer = Integer.Parse(Session("ScrollPosition"))
             ScriptManager.RegisterStartupScript(Me, Me.GetType(), "setScrollPosition", "setTimeout(function() { window.scrollTo(0, " & scrollPosition & "); }, 100);", True)
         End If
+
+        getProgress(1)
+        getProgress(2)
+    End Sub
+
+    Sub load_head()
+        lwono.InnerText = "WO." & ewo
+
+        Dim query As String = "select WODesc from v_IntJobDetailRev3 where wono=" & evar(ewo, 1)
+        Dim dt As New DataTable
+        dt = GetDataTable(query)
+        If dt.Rows.Count > 0 Then
+            lwodesc.InnerText = dt.Rows(0)("WODesc")
+        End If
+    End Sub
+
+    Sub Bindingsection()
+        Dim query As String = "select distinct(AssemblySection) from v_AssemblySectionPicture where wono=" & evar(ewo, 1)
+        BindDataDropDown(ddsection, query, "AssemblySection", "AssemblySection")
     End Sub
 
     Sub load_data()
         Dim dt2 As New DataTable
         Dim esection As String = String.Empty
-        Dim query2 As String = "select Distinct top 1 AssemblySection, case when('../' + dbo.RemapPicW(PicturePath)) is null then '' else ('../' + dbo.RemapPicW(PicturePath)) end as PicturePathGroup " _
+        Dim query2 As String = "select Distinct top 1 AssemblySection, case when('../../../../' + dbo.RemapPicW(PicturePath)) is null then '' else ('../../../../' + dbo.RemapPicW(PicturePath)) end as PicturePathGroup " _
                                 & "from v_AssemblySectionPicture where wono=" & evar(ewo, 1)
         dt2 = GetDataTable(query2)
         If dt2.Rows.Count > 0 Then
             esection = dt2.Rows(0)("AssemblySection")
+            ddsection.Text = esection
+            lsection.InnerText = esection
             imgGp.Src = dt2.Rows(0)("PicturePathGroup")
         End If
 
@@ -193,5 +219,139 @@ Public Class AssemblyMea
         'open modal and get position
         utility.ModalV2("MainContent_AssemblyMea_Panel1")
         getcurrentScrollPos()
+    End Sub
+
+    Protected Sub ddsection_SelectedIndexChanged(sender As Object, e As EventArgs)
+        Dim esection As String = ddsection.Text
+        lsection.InnerText = esection
+        If esection = String.Empty Then
+            Exit Sub
+        End If
+        Session("ScrollPosition") = Integer.Parse("0")
+
+        load_section(esection)
+    End Sub
+
+    Sub load_section(ByVal esection As String)
+        If esection = String.Empty Then
+            Exit Sub
+        End If
+
+        'load picture group
+        Dim dt As New DataTable
+        Dim query As String = "select case when('../../../../' + dbo.RemapPicW(PicturePath)) is null then '' else ('../../../../' + dbo.RemapPicW(PicturePath)) end as PicturePathGroup
+        from v_AssemblySectionPicture where wono=" & evar(ewo, 1) & " and AssemblySection=" & evar(esection, 1)
+        dt = GetDataTable(query)
+        If dt.Rows.Count > 0 Then
+            imgGp.Src = dt.Rows(0)("PicturePathGroup")
+        End If
+
+        'load section data
+        Dim dt2 As New DataTable
+        Dim ecol As String = "IDAssemblyInput,[Sequence],Replace(AssemblyDesc,CHAR(13)+CHAR(10),'<br />') as AssemblyDesc,case when UnitType=1 then 'Metric' else 'US' end as UnitTypeDesc,ValType,Unit,IDAssemblyInput,UnitType,
+                            isnull((isnull(convert(varchar(10),Spec),'') + ' ± ' + isnull(convert(varchar(10),Tolerance),'') + ' ' + convert(varchar(10), Unit)),'-') as SpecFull,
+                            case when AssemblyVal is null then '-' else isnull((AssemblyVal + ' ' + Unit),AssemblyVal) end as AssemblyVal,isnull(ModBy,'-') as ModBy,isnull(convert(varchar, ModDate,103),'-') as ModDate,isnull(ApprovedBy,'-') as ApprovedBy,InstructionType"
+        Dim query2 As String = "select " & ecol & " from v_AssemblyDetailInputRev2 where wono=" & evar(ewo, 1) & " and AssemblySection=" & evar(esection, 1) & "
+                                order by AssemblySection, dbo.SequenceNum(Sequence),dbo.SequenceAlpha(Sequence),dbo.getsortval(Sequence,30,10)"
+        dt2 = GetDataTable(query2)
+        If dt2.Rows.Count > 0 Then
+            rpt_mea.DataSource = dt2
+            rpt_mea.DataBind()
+        End If
+
+        getProgress(1)
+        getProgress(2)
+    End Sub
+
+    Sub getProgress(ByVal type As Integer)
+        Dim query As String = String.Empty
+        Dim dt As New DataTable
+
+        If type = 1 Then
+            query = "select " _
+                + "AssemblySection, " _
+                + "dbo.PercentCalc(SUM(CASE WHEN AssemblyVal IS NOT NULL THEN 1 ELSE 0 END), COUNT(IDAssemblyInput)) as Perc " _
+                + "from v_AssemblyDetailInputRev2 Group By WONO, AssemblySection " _
+                + "Having wono=" & evar(ewo, 1) & " and AssemblySection=" & evar(ddsection.Text, 1)
+
+            dt = GetDataTable(query)
+            If dt.Rows.Count > 0 Then
+                pSectionProg.Style("width") = dt.Rows(0)("Perc") & "%"
+                lSectionProg.InnerText = "Section Progress (" & dt.Rows(0)("Perc") & "%)"
+            End If
+        ElseIf type = 2 Then
+            query = "select " _
+                + "AssemblySection, " _
+                + "dbo.PercentCalc(SUM(CASE WHEN ApprovedBy IS NOT NULL THEN 1 ELSE 0 END), COUNT(IDAssemblyInput)) as Perc " _
+                + "from v_AssemblyDetailInputRev2 Group By WONO, AssemblySection " _
+                + "Having wono=" & evar(ewo, 1) & " and AssemblySection=" & evar(ddsection.Text, 1)
+
+            dt = GetDataTable(query)
+            If dt.Rows.Count > 0 Then
+                pSectionLH.Style("width") = dt.Rows(0)("Perc") & "%"
+                lSectionLH.InnerText = "Leading Hand Approval Progress (" & dt.Rows(0)("Perc") & "%)"
+            End If
+        End If
+    End Sub
+
+    Protected Sub bLH_Click(sender As Object, e As EventArgs)
+        Dim eid As String = CType(sender, LinkButton).CommandArgument
+        Dim query As String = "update tbl_AssemblyInput set ApprovedBy=" & eByName() & " where IDAssemblyInput=" & eid
+        executeQuery(query)
+        showAlert("success", "ID: " & eid & " has been approved")
+    End Sub
+
+    Protected Sub bgallery_Click(sender As Object, e As EventArgs)
+        Dim hwono As HiddenField = DirectCast(AssemblyGallery.FindControl("hwono"), HiddenField)
+        hwono.Value = ewo
+
+        utility.ModalV2("MainContent_AssemblyGallery_Panel1")
+    End Sub
+
+    Protected Sub bswp_Click(sender As Object, e As EventArgs)
+        Dim ewo As String = Request.QueryString("wo")
+        If ewo = String.Empty Then Exit Sub
+
+        Dim eunitid As String = String.Empty
+        Dim query As String = "select UnitDescription,Left(MaintType,5) as MaintType from v_IntJobDetailRev3 where wono=" & evar(ewo, 1)
+        Dim dt As New DataTable
+        dt = GetDataTable(query)
+        If dt.Rows.Count > 0 Then
+            Dim eunitdesc As String = dt.Rows(0)("UnitDescription")
+            Dim emainttype As String = dt.Rows(0)("MaintType")
+
+            Dim query2 As String = "select unitDescID from tbl_UnitDesc where UnitDesc=" & evar(eunitdesc, 1)
+            Dim dt2 As DataTable
+            dt2 = GetDataTable(query2)
+            If dt2.Rows.Count > 0 Then
+                eunitid = dt2.Rows(0)("unitDescID")
+            Else
+                showAlert("warning", "Module SWP/WI Not Found !, Please Contact Team QC")
+                Exit Sub
+            End If
+
+            Dim elinkfile As String
+            Dim query3 As String = "select LinkFile from tbl_GeneralFiles where UnitID=" & eunitid & " and ModuleID=2 and MaintType=" & evar(emainttype, 1)
+            MsgBox(query3)
+            Dim dt3 As DataTable
+            dt3 = GetDataTable(query3)
+            If dt3.Rows.Count > 0 Then
+                elinkfile = dt3.Rows(0)("LinkFile")
+            Else
+                MsgBox("B")
+                Exit Sub
+            End If
+            Dim filePath As String = elinkfile
+
+            Response.Clear()
+            Response.ContentType = "application/pdf"
+            Response.AddHeader("Content-Disposition", "inline; filename=" & elinkfile)
+            Response.WriteFile(filePath)
+            Response.Flush()
+            Response.End()
+
+            Dim script As String = "window.open('" & filePath & "', '_blank');"
+            ScriptManager.RegisterStartupScript(Me.Page, Me.Page.GetType(), "OpenPDF", script, True)
+        End If
     End Sub
 End Class

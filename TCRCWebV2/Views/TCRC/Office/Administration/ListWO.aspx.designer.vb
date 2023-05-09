@@ -23,15 +23,6 @@ Partial Public Class ListWO
     Protected WithEvents MenuTCRC As Global.TCRCWebV2.MenuTCRC1
 
     '''<summary>
-    '''UploadWO control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents UploadWO As Global.TCRCWebV2.UploadWO
-
-    '''<summary>
     '''tWONo control.
     '''</summary>
     '''<remarks>
@@ -50,24 +41,6 @@ Partial Public Class ListWO
     Protected WithEvents bSearch As Global.System.Web.UI.WebControls.LinkButton
 
     '''<summary>
-    '''bUpload control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents bUpload As Global.System.Web.UI.WebControls.LinkButton
-
-    '''<summary>
-    '''bUpdate control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents bUpdate As Global.System.Web.UI.WebControls.LinkButton
-
-    '''<summary>
     '''lcount control.
     '''</summary>
     '''<remarks>
@@ -77,31 +50,22 @@ Partial Public Class ListWO
     Protected WithEvents lcount As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''ScriptManager1 control.
+    '''pLastDate control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents ScriptManager1 As Global.System.Web.UI.ScriptManager
+    Protected WithEvents pLastDate As Global.System.Web.UI.HtmlControls.HtmlGenericControl
 
     '''<summary>
-    '''UpdatePanel1 control.
+    '''pLastBy control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents UpdatePanel1 As Global.System.Web.UI.UpdatePanel
-
-    '''<summary>
-    '''bProg control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents bProg As Global.System.Web.UI.HtmlControls.HtmlGenericControl
+    Protected WithEvents pLastBy As Global.System.Web.UI.HtmlControls.HtmlGenericControl
 
     '''<summary>
     '''bPrev control.
@@ -129,4 +93,49 @@ Partial Public Class ListWO
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents gv_wodetails As Global.System.Web.UI.WebControls.GridView
+
+    '''<summary>
+    '''scriptmanager1 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents scriptmanager1 As Global.System.Web.UI.ScriptManager
+
+    '''<summary>
+    '''updatepanel1 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents updatepanel1 As Global.System.Web.UI.UpdatePanel
+
+    '''<summary>
+    '''uploadfiles1 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents uploadfiles1 As Global.System.Web.UI.WebControls.FileUpload
+
+    '''<summary>
+    '''btnUpload control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents btnUpload As Global.System.Web.UI.WebControls.LinkButton
+
+    '''<summary>
+    '''UpdateProgress control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents UpdateProgress As Global.System.Web.UI.UpdateProgress
 End Class

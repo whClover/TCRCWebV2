@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Component Release Form" MasterPageFile="~/Report.Master" Language="vb" AutoEventWireup="false" CodeBehind="MeaInspectionRev.aspx.vb" Inherits="TCRCWebV2.MeaInspectionRev" %>
+﻿<%@ Page Title="Measure Inspection Form" MasterPageFile="~/Report.Master" Language="vb" AutoEventWireup="false" CodeBehind="MeaInspectionRev.aspx.vb" Inherits="TCRCWebV2.MeaInspectionRev" %>
 
 <asp:Content runat="server" ContentPlaceHolderID="ReportDyn">
     <div class="row">

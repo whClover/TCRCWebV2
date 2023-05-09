@@ -43,7 +43,7 @@
                     <div class="d-flex">
                         <!-- LOGO -->
                         <div class="navbar-brand-box">
-                            <a href="#" class="">
+                            <a class="logo logo-light" style="z-index:-1">
                                 <span class="logo-lg">
                                     <img src="~/assets/images/logo/thiess_white.png" runat="server" class="img-responsive" height="200">
                                     <img src="~/assets/images/logo/tcrc_white.png" runat="server" class="img-responsive" height="45">

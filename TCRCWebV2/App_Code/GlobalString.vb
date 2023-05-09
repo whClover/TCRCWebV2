@@ -6,6 +6,7 @@
     Public Shared PictSTG As String = "\\" & server & "\Database\Plant_Component\PictInspection\"
     Public Shared MeaInspPict As String = PictSTG & "InspectionTemplate\"
     Public Shared JobPck As String = "\\" & server & "\Database\Plant_Component\JobPackage\"
+    Public Shared asmpict As String = PictSTG & "AssemblyPicture\"
     '=============
 
     'DataPath
@@ -22,6 +23,9 @@
     Public Shared urlTCRCIx As String = urlTCRC & "Index.aspx"
     Public Shared urlTCRCWorkshop As String = urlTCRC & "Workshop/"
     Public Shared urlTCRCWorkshopIx As String = urlTCRCWorkshop & "IndexWS.aspx"
+    Public Shared urlTCRCOffice As String = urlTCRC & "Office/"
+    Public Shared urlTCRCOfficeIx As String = urlTCRCOffice & "Index.aspx"
+    Public Shared urlTCRCOfficeAdm As String = urlTCRCOffice & "Administration/"
 
     'TCRC: Measurement Inspection Module
     Public Shared urlInspection As String = urlTCRCWorkshop & "/Inspection/"
@@ -43,5 +47,8 @@
     Public Shared urlOtherModule As String = urlTCRCWorkshop & "Other/"
     Public Shared urlComponentRelease As String = urlOtherModule & "ComponentRel.aspx"
     Public Shared urlComponentReleaseForm As String = urlPrint & "CompRelForm.aspx"
+
+    'TCRC: Administration Module
+    Public Shared urlWODetails As String = urlTCRCOfficeAdm & "ListWO.aspx"
     'END
 End Class

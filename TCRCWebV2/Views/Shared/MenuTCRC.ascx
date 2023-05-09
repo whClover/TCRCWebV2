@@ -3,7 +3,7 @@
 <div class="topnav" runat="server" >
     <div class="container-fluid">
         <nav class="navbar navbar-expand-lg topnav-menu">
-            <div class="collapse navbar-collapse" id="topnav-menu-content">
+            <div class="collapse navbar-collapse" id="topnav-menu-content" style="z-index:1">
                 <ul class="navbar-nav">
                     <li class="nav-item dropdown">
                         <a class="nav-link" href="~/Views/TCRC/Index.aspx" runat="server">

@@ -1553,7 +1553,12 @@
     <Content Include="images\small\img-7.jpg" />
     <Content Include="images\small\img-8.jpg" />
     <Content Include="images\small\img-9.jpg" />
-    <Content Include="images\Spinner.gif" />
+    <Content Include="images\Spinner2.gif" />
+    <Content Include="images\tes\IMG_1586[1].JPG" />
+    <Content Include="images\tes\IMG_1587[1].JPG" />
+    <Content Include="images\tes\IMG_1588[1].JPG" />
+    <Content Include="images\tes\IMG_1589[1].JPG" />
+    <Content Include="images\tes\IMG_1590[1].JPG" />
     <Content Include="images\users\avatar-1.jpg" />
     <Content Include="images\users\avatar-10.jpg" />
     <Content Include="images\users\avatar-2.jpg" />
@@ -1577,12 +1582,14 @@
     <Content Include="Views\TCRC\Office\Administration\UploadWO.aspx" />
     <Content Include="Views\TCRC\Office\index.aspx" />
     <Content Include="Views\TCRC\Office\Administration\ListWO.aspx" />
+    <Content Include="Views\TCRC\Reports\AssemblyMea.aspx" />
     <Content Include="Views\TCRC\Reports\CompRelFooter.aspx" />
     <Content Include="Views\TCRC\Reports\CompRelForm.aspx" />
     <Content Include="Views\TCRC\Reports\CoverPage.ascx" />
     <Content Include="Views\TCRC\Reports\MeaInspection.aspx" />
     <Content Include="Views\TCRC\Reports\MeaInspectionRev.aspx" />
     <Content Include="Views\TCRC\Reports\test.aspx" />
+    <Content Include="Views\TCRC\Workshop\AssemblyMod\AssemblyGallery.ascx" />
     <Content Include="Views\TCRC\Workshop\AssemblyMod\AssemblyList.aspx" />
     <Content Include="Views\TCRC\Workshop\AssemblyMod\AssemblyMea.ascx" />
     <Content Include="Views\TCRC\Workshop\AssemblyMod\AssemblyMea.aspx" />
@@ -1749,6 +1756,13 @@
       <DependentUpon>ListWO.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
+    <Compile Include="Views\TCRC\Reports\AssemblyMea.aspx.designer.vb">
+      <DependentUpon>AssemblyMea.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TCRC\Reports\AssemblyMea.aspx.vb">
+      <DependentUpon>AssemblyMea.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
     <Compile Include="Views\TCRC\Reports\CompRelFooter.aspx.designer.vb">
       <DependentUpon>CompRelFooter.aspx</DependentUpon>
     </Compile>
@@ -1790,6 +1804,13 @@
     <Compile Include="Views\TCRC\Reports\test.aspx.vb">
       <DependentUpon>test.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Views\TCRC\Workshop\AssemblyMod\AssemblyGallery.ascx.designer.vb">
+      <DependentUpon>AssemblyGallery.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TCRC\Workshop\AssemblyMod\AssemblyGallery.ascx.vb">
+      <DependentUpon>AssemblyGallery.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Views\TCRC\Workshop\AssemblyMod\AssemblyList.aspx.designer.vb">
       <DependentUpon>AssemblyList.aspx</DependentUpon>
@@ -2100,6 +2121,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="uploads\" />
     <Folder Include="Views\Fabshop\" />
     <Folder Include="Views\PER\" />
     <Folder Include="Views\TCRC\Workshop\Timesheet\" />

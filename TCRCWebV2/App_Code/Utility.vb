@@ -243,7 +243,13 @@ Public Class Utility
             username = evar(HttpContext.Current.Session("ss_username").ToString, 1)
         End If
 
+        If username = "'sys'" Then
+            CheckGroup = True
+            Exit Function
+        End If
+
         query = "select ID,EmailTypeDesc from vw_UserPrivilegesEmailNotif where username=" & username & " and EmailTypeID=" & evar(EmailTypeID, 1) & ""
+
         Dim dt As New DataTable
         dt = GetDataTable(query)
         If dt.Rows.Count > 0 Then

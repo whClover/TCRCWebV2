@@ -18,6 +18,6 @@ Public Class MenuTCRC1
     End Sub
 
     Protected Sub bOffice_Click(sender As Object, e As EventArgs)
-        Response.Redirect(urlTCRCWorkshopIx)
+        Response.Redirect(urlTCRCOfficeIx)
     End Sub
 End Class
