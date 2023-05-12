@@ -1593,6 +1593,7 @@
     <Content Include="Views\TCRC\Reports\test.aspx" />
     <Content Include="Views\TCRC\Workshop\AssemblyMod\AssemblyChk.aspx" />
     <Content Include="Views\TCRC\Workshop\AssemblyMod\AssemblyGallery.ascx" />
+    <Content Include="Views\TCRC\Workshop\AssemblyMod\AssemblyLinerProj.aspx" />
     <Content Include="Views\TCRC\Workshop\AssemblyMod\AssemblyList.aspx" />
     <Content Include="Views\TCRC\Workshop\AssemblyMod\AssemblyMea.ascx" />
     <Content Include="Views\TCRC\Workshop\AssemblyMod\AssemblyMea.aspx" />
@@ -1829,6 +1830,13 @@
     <Compile Include="Views\TCRC\Workshop\AssemblyMod\AssemblyGallery.ascx.vb">
       <DependentUpon>AssemblyGallery.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\TCRC\Workshop\AssemblyMod\AssemblyLinerProj.aspx.designer.vb">
+      <DependentUpon>AssemblyLinerProj.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TCRC\Workshop\AssemblyMod\AssemblyLinerProj.aspx.vb">
+      <DependentUpon>AssemblyLinerProj.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="Views\TCRC\Workshop\AssemblyMod\AssemblyList.aspx.designer.vb">
       <DependentUpon>AssemblyList.aspx</DependentUpon>
