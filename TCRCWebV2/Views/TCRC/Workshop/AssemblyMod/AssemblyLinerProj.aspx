@@ -53,6 +53,20 @@
                                                 </div>
                                                 <div class="col-md-3">
                                                     <div class="mb-1">
+                                                        <label class="form-label font-size-10" for="formrow-firstname-input" >Sum A-D:</label>
+                                                        <input type="number" class="form-control form-control-sm" readonly="readonly">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="mb-1">
+                                                        <label class="form-label font-size-10" for="formrow-firstname-input" >Avg A-D:</label>
+                                                        <input type="number" class="form-control form-control-sm" readonly="readonly">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-3">
+                                                    <div class="mb-1">
                                                         <label class="form-label font-size-10" for="formrow-firstname-input">C</label>
                                                         <input type="number" class="form-control form-control-sm">
                                                     </div>
@@ -61,20 +75,6 @@
                                                     <div class="mb-1">
                                                         <label class="form-label font-size-10" for="formrow-firstname-input">D</label>
                                                         <input type="number" class="form-control form-control-sm">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-3">
-                                                    <div class="mb-1">
-                                                        <label class="form-label font-size-10" for="formrow-firstname-input">Sum A-D:</label>
-                                                        <input type="number" class="form-control form-control-sm" readonly="readonly">
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-3">
-                                                    <div class="mb-1">
-                                                        <label class="form-label font-size-10" for="formrow-firstname-input">Avg A-D:</label>
-                                                        <input type="number" class="form-control form-control-sm" readonly="readonly">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-3">
@@ -90,15 +90,100 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="mb-1">
-                                                <label class="form-label font-size-10" for="formrow-firstname-input">Variation:</label>
-                                                <input type="number" class="form-control form-control-sm" readonly="readonly">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="d-grid gap-2 mt-3">
+                                                        <asp:LinkButton CssClass="btn btn-soft-primary btn-sm btn-block mb-1" runat="server">
+                                                            <i class="fa fa-save"></i> Save
+                                                        </asp:LinkButton>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="mb-1">
+                                                        <label class="form-label font-size-10" for="formrow-firstname-input">Variation:</label>
+                                                        <input type="number" class="form-control form-control-sm" readonly="readonly">
+                                                    </div>
+                                                </div>
+                                            </div>   
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="card">
+                                        <div class="card-header bg-soft-primary">
+                                            <h5 class="card-title">Cylinder No.1</h5>
+                                            <small class="card-title-desc">
+                                                Spesifications: 0.001inch - 0.006inch | 0.025mm - 0.152mm
+                                            </small>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col-md-3">
+                                                    <div class="mb-1">
+                                                        <label class="form-label font-size-10" for="formrow-firstname-input">A</label>
+                                                        <input type="number" class="form-control form-control-sm">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="mb-1">
+                                                        <label class="form-label font-size-10" for="formrow-firstname-input">B</label>
+                                                        <input type="number" class="form-control form-control-sm">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="mb-1">
+                                                        <label class="form-label font-size-10" for="formrow-firstname-input" >Sum A-D:</label>
+                                                        <input type="number" class="form-control form-control-sm" readonly="readonly">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="mb-1">
+                                                        <label class="form-label font-size-10" for="formrow-firstname-input" >Avg A-D:</label>
+                                                        <input type="number" class="form-control form-control-sm" readonly="readonly">
+                                                    </div>
+                                                </div>
                                             </div>
-                                            <div class="d-grid gap-2 mt-3">
-                                                <asp:LinkButton CssClass="btn btn-soft-primary btn-sm btn-block mb-1" runat="server">
-                                                    <i class="fa fa-save"></i> Save
-                                                </asp:LinkButton>
-                                            </div>      
+                                            <div class="row">
+                                                <div class="col-md-3">
+                                                    <div class="mb-1">
+                                                        <label class="form-label font-size-10" for="formrow-firstname-input">C</label>
+                                                        <input type="number" class="form-control form-control-sm">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="mb-1">
+                                                        <label class="form-label font-size-10" for="formrow-firstname-input">D</label>
+                                                        <input type="number" class="form-control form-control-sm">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="mb-1">
+                                                        <label class="form-label font-size-10" for="formrow-firstname-input">Max A-D:</label>
+                                                        <input type="number" class="form-control form-control-sm" readonly="readonly">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="mb-1">
+                                                        <label class="form-label font-size-10" for="formrow-firstname-input">Min A-D:</label>
+                                                        <input type="number" class="form-control form-control-sm" readonly="readonly">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="d-grid gap-2 mt-3">
+                                                        <asp:LinkButton CssClass="btn btn-soft-primary btn-sm btn-block mb-1" runat="server">
+                                                            <i class="fa fa-save"></i> Save
+                                                        </asp:LinkButton>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="mb-1">
+                                                        <label class="form-label font-size-10" for="formrow-firstname-input">Variation:</label>
+                                                        <input type="number" class="form-control form-control-sm" readonly="readonly">
+                                                    </div>
+                                                </div>
+                                            </div>   
                                         </div>
                                     </div>
                                 </div>
