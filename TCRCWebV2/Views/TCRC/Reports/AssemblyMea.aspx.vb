@@ -7,6 +7,7 @@ Public Class AssemblyMea2
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         load_data()
+        getHeader()
     End Sub
 
     Sub load_data()
@@ -14,11 +15,28 @@ Public Class AssemblyMea2
         If ewo = String.Empty Then Exit Sub
 
         Dim dt As New DataTable
-        Dim query As String = "select distinct(AssemblySection) from v_AssemblySectionPicture where wono=" & evar(ewo, 1)
+        Dim query As String = "select distinct(AssemblySection),case when('../../../../' + dbo.RemapPicW(PicturePath)) is null then '~/images/NoPicture.png' else ('../../../../' + dbo.RemapPicW(PicturePath)) end as PicturePathGroup
+                from v_AssemblySectionPicture where wono=" & evar(ewo, 1)
         dt = GetDataTable(query)
         If dt.Rows.Count > 0 Then
             rpt_section.DataSource = dt
             rpt_section.DataBind()
+        End If
+    End Sub
+
+    Sub getHeader()
+        Dim ewo As String = Request.QueryString("wo")
+        If ewo = String.Empty Then Exit Sub
+
+        Dim dt As New DataTable
+        Dim query As String = "select * from v_IntJobDetailRev3 where wono=" & evar(ewo, 1)
+        dt = GetDataTable(query)
+        If dt.Rows.Count > 0 Then
+            lwono.Text = CheckDBNull(dt.Rows(0)("WONo"))
+            lunitno.Text = CheckDBNull(dt.Rows(0)("UnitNumber"))
+            lwodesc.Text = CheckDBNull(dt.Rows(0)("WODesc"))
+            lunitdesc.Text = CheckDBNull(dt.Rows(0)("UnitDescription"))
+            lcomp.Text = CheckDBNull(dt.Rows(0)("ComponentGroup"))
         End If
     End Sub
 
@@ -68,4 +86,50 @@ Public Class AssemblyMea2
             End Select
         End If
     End Sub
+
+    Protected Function GetSupvNameDate(ByVal SectionName As String, ByVal type As String)
+        Dim ewo As String = Request.QueryString("wo")
+        If ewo = String.Empty Then Exit Function
+
+        Dim res As String = ""
+        Dim dt As New DataTable
+        Dim query As String = "select SupvApprovedBy,convert(varchar,SupvApprovedDate,103) SupvApprovedDate from tbl_AssemblySectionApproval where wono=" & evar(ewo, 1) & " and AssemblySection=" & evar(SectionName, 1)
+        dt = GetDataTable(query)
+
+        If dt.Rows.Count > 0 Then
+            Select Case type
+                Case "1"
+                    res = CheckDBNull(dt.Rows(0)("SupvApprovedBy"))
+                Case "2"
+                    res = CheckDBNull(dt.Rows(0)("SupvApprovedDate"))
+            End Select
+        Else
+            res = "#"
+        End If
+
+        Return res
+    End Function
+
+    Protected Function GetMechNameDate(ByVal SectionName As String, ByVal type As String)
+        Dim ewo As String = Request.QueryString("wo")
+        If ewo = String.Empty Then Exit Function
+
+        Dim res As String = ""
+        Dim dt As New DataTable
+        Dim query As String = "select top 1 ModBy,convert(varchar,ModDate,103) ModDate from v_AssemblyDetailInputRev2 where wono=" & evar(ewo, 1) & " and AssemblySection=" & evar(SectionName, 1) & " Order By ModDate Desc"
+        dt = GetDataTable(query)
+
+        If dt.Rows.Count > 0 Then
+            Select Case type
+                Case "1"
+                    res = CheckDBNull(dt.Rows(0)("ModBy"))
+                Case "2"
+                    res = CheckDBNull(dt.Rows(0)("ModDate"))
+            End Select
+        Else
+            res = "#"
+        End If
+
+        Return res
+    End Function
 End Class

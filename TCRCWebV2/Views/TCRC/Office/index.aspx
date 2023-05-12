@@ -25,7 +25,7 @@
         <div class="col-4">
             <div class="card">
                 <div class="card-header">
-                    <h5 class="card-title">Administration</h5>
+                    <h5 class="card-title fw-bold">Administration</h5>
                 </div>
                 <div>
                     <ul class="list-group list-group-flush">
@@ -34,12 +34,12 @@
                                 <div class="flex-shrink-0 me-3">
                                     <div class="avatar-sm">
                                         <div class="avatar-title rounded font-size-12">
-                                            <i class="fas fa-user"></i>
+                                            <i class="fas fa-table fa-2x"></i>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="flex-grow-1">
-                                    <asp:LinkButton runat="server" CssClass="text-primary mb-1" ID="bWODetails" OnClick="bWODetails_Click">WO Detail</asp:LinkButton><br />
+                                    <asp:LinkButton runat="server" CssClass="text-primary mb-1" ID="bWODetails" OnClick="bWODetails_Click">WO Detail</asp:LinkButton>
                                     <div class="text-danger" runat="server" id="tagWODetails">
                                         <i class="fa fa-lock"></i> Locked
                                     </div>

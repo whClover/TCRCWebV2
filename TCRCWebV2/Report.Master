@@ -19,6 +19,10 @@
         table, tr, td, th, tbody, thead, tfoot {
             page-break-inside: avoid !important;
         }
+
+        .cover {
+            page-break-after: always !important;
+        }
     </style>
 </head>
 <body>

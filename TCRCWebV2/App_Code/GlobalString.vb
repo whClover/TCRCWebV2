@@ -13,6 +13,8 @@
     Public Shared DataLabourAvg As String = "..\..\..\data\LabourAvg.txt"
     '==============================================================
 
+
+
     'variabel untuk link web-nya,
     Public Shared urlMainMenu As String = "~/"
     Public Shared urlError As String = "~/Views/Shared/ErrorPage.aspx"
@@ -42,6 +44,7 @@
     Public Shared urlAssembly As String = urlTCRCWorkshop & "/AssemblyMod/"
     Public Shared urlAssemblyList As String = urlAssembly & "AssemblyList.aspx"
     Public Shared urlAssemblyMea As String = urlAssembly & "AssemblyMea.aspx"
+    Public Shared urlAssemblyChk As String = urlAssembly & "AssemblyChk.aspx"
 
     'TCRC: Other Module
     Public Shared urlOtherModule As String = urlTCRCWorkshop & "Other/"
@@ -50,5 +53,9 @@
 
     'TCRC: Administration Module
     Public Shared urlWODetails As String = urlTCRCOfficeAdm & "ListWO.aspx"
+
+    'ReportsPath
+    Public Shared RptAssemblyMea As String = urlPrint & "AssemblyMea.aspx"
+
     'END
 End Class

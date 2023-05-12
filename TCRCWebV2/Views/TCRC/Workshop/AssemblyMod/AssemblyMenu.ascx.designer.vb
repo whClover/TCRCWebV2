@@ -11,68 +11,86 @@ Option Strict On
 Option Explicit On
 
 
-Partial Public Class AssemblyMea2
+Partial Public Class AssemblyMenu
 
     '''<summary>
-    '''CoverPage control.
+    '''n1 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents CoverPage As Global.TCRCWebV2.CoverPage
+    Protected WithEvents n1 As Global.System.Web.UI.WebControls.LinkButton
 
     '''<summary>
-    '''lwono control.
+    '''n2 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents lwono As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents n2 As Global.System.Web.UI.WebControls.LinkButton
 
     '''<summary>
-    '''lunitno control.
+    '''n3 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents lunitno As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents n3 As Global.System.Web.UI.WebControls.LinkButton
 
     '''<summary>
-    '''lwodesc control.
+    '''n4 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents lwodesc As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents n4 As Global.System.Web.UI.WebControls.LinkButton
 
     '''<summary>
-    '''lunitdesc control.
+    '''n5 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents lunitdesc As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents n5 As Global.System.Web.UI.WebControls.LinkButton
 
     '''<summary>
-    '''lcomp control.
+    '''n6 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents lcomp As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents n6 As Global.System.Web.UI.WebControls.LinkButton
 
     '''<summary>
-    '''rpt_section control.
+    '''n7 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents rpt_section As Global.System.Web.UI.WebControls.Repeater
+    Protected WithEvents n7 As Global.System.Web.UI.WebControls.LinkButton
+
+    '''<summary>
+    '''n8 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents n8 As Global.System.Web.UI.WebControls.LinkButton
+
+    '''<summary>
+    '''n9 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents n9 As Global.System.Web.UI.WebControls.LinkButton
 End Class

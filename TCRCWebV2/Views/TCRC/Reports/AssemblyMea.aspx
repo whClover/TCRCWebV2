@@ -1,6 +1,8 @@
 ﻿<%@ Page Title="Assembly Measure Form" MasterPageFile="~/Report.Master" Language="vb" AutoEventWireup="false" CodeBehind="AssemblyMea.aspx.vb" Inherits="TCRCWebV2.AssemblyMea2" %>
+<%@ Register Src="~/Views/TCRC/Reports/CoverPage.ascx" TagPrefix="uc1" TagName="CoverPage" %>
 
 <asp:Content runat="server" ContentPlaceHolderID="ReportDyn">
+    <uc1:CoverPage runat="server" ID="CoverPage" />
     <div class="row">
         <div class="col-sm-12">
             <div class="page-title-box mb-3">
@@ -59,8 +61,7 @@
                 <h5 class="card-title text-primary fw-bold" style="text-align:center">
                     Section: <%# Eval("AssemblySection").ToString() %>
                 </h5>
-                <img class="mb-2" runat="server" src="~/images/NoPicture.png" 
-                    style="display: block; margin-left:auto; margin-right:auto; Position:Static;"/>
+                <img class="mb-2" src='<%# Eval("PicturePathGroup") %>' style="display: block; margin-left:auto; margin-right:auto; Position:Static;"/>
             </div>
 
             <asp:GridView runat="server" ID="gv_table" AutoGenerateColumns="false" CssClass="table table-bordered table-striped w-100" OnRowDataBound="gv_table_RowDataBound">
@@ -74,6 +75,27 @@
                     <asp:BoundField HeaderStyle-CssClass="text-center" HeaderText="LH" DataField="ApprovedBy" />
                 </Columns>
             </asp:GridView>
+
+            <table class="table table-bordered">
+                <tbody>
+                    <tr>
+                        <td></td>
+                        <td>Approved By</td>
+                        <td>Approved Date</td>
+                    </tr>
+                    <tr>
+                        <td>Mechanic</td>
+                        <td><%# GetMechNameDate(Eval("AssemblySection"), "1") %></td>
+                        <td><%# GetMechNameDate(Eval("AssemblySection"), "2") %></td>
+                    </tr>
+                    <tr>
+                        <td>Supervisor</td>
+                        <td><%# GetSupvNameDate(Eval("AssemblySection"), "1") %></td>
+                        <td><%# GetSupvNameDate(Eval("AssemblySection"), "2") %></td>
+                    </tr>
+                </tbody>
+            </table>
+
         </ItemTemplate>
         <FooterTemplate>
             </div>

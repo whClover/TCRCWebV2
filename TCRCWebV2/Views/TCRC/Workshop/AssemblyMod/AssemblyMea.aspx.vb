@@ -3,6 +3,7 @@ Imports TCRCWebV2.Utility
 Imports TCRCWebV2.GlobalString
 Imports DocumentFormat.OpenXml.Spreadsheet
 Imports Org.BouncyCastle.Tsp
+Imports DocumentFormat.OpenXml.Wordprocessing
 
 Public Class AssemblyMea
     Inherits System.Web.UI.Page
@@ -15,10 +16,22 @@ Public Class AssemblyMea
         End If
 
         ewo = Request.QueryString("wo")
+        Session("ss_assembly") = "n1"
         If IsPostBack = False Then
             load_head()
             load_data()
             Bindingsection()
+            load_supvSection()
+        End If
+    End Sub
+
+    Sub load_supvSection()
+        Dim query As String = "select * from v_AssemblySectionApproval where wono=" & evar(ewo, 1)
+        Dim dt As New DataTable
+        dt = GetDataTable(query)
+        If dt.Rows.Count > 0 Then
+            gv_supv.DataSource = dt
+            gv_supv.DataBind()
         End If
     End Sub
 
@@ -44,8 +57,9 @@ Public Class AssemblyMea
     End Sub
 
     Sub Bindingsection()
-        Dim query As String = "select distinct(AssemblySection) from v_AssemblySectionPicture where wono=" & evar(ewo, 1)
-        BindDataDropDown(ddsection, query, "AssemblySection", "AssemblySection")
+        Dim query As String = "select AssemblySection,(AssemblySection + ' (Progress: ' + Try_CAST(Perc as varchar) + '%,LH: ' + Try_Cast(PercApproval as varchar) + '%)') as AssemblyDesc, 
+                    Perc, PercApproval,SupvApprovedBy from v_AssemblySectionApproval where wono=" & evar(ewo, 1) & " order by AssemblySection"
+        BindDataDropDown(ddsection, query, "AssemblyDesc", "AssemblySection")
     End Sub
 
     Sub load_data()
@@ -151,8 +165,26 @@ Public Class AssemblyMea
     End Sub
 
     Sub showAlert(ByVal type As String, ByVal msg As String)
+        Dim optsc As String = "toastr.options = {
+          ""closeButton"": false,
+          ""debug"": false,
+          ""newestOnTop"": false,
+          ""progressBar"": false,
+          ""positionClass"": ""toast-top-center"",
+          ""preventDuplicates"": false,
+          ""onclick"": null,
+          ""showDuration"": ""300"",
+          ""hideDuration"": ""1000"",
+          ""timeOut"": ""5000"",
+          ""extendedTimeOut"": ""1000"",
+          ""showEasing"": ""swing"",
+          ""hideEasing"": ""linear"",
+          ""showMethod"": ""fadeIn"",
+          ""hideMethod"": ""fadeOut""
+        };"
+
         Dim script As String
-        script = "toastr[""" & type & """](""" & msg & """);"
+        script = optsc & "toastr[""" & type & """](""" & msg & """);"
         ScriptManager.RegisterStartupScript(Me, Me.GetType(), "toastrMessage", script, True)
     End Sub
 
@@ -332,13 +364,11 @@ Public Class AssemblyMea
 
             Dim elinkfile As String
             Dim query3 As String = "select LinkFile from tbl_GeneralFiles where UnitID=" & eunitid & " and ModuleID=2 and MaintType=" & evar(emainttype, 1)
-            MsgBox(query3)
             Dim dt3 As DataTable
             dt3 = GetDataTable(query3)
             If dt3.Rows.Count > 0 Then
                 elinkfile = dt3.Rows(0)("LinkFile")
             Else
-                MsgBox("B")
                 Exit Sub
             End If
             Dim filePath As String = elinkfile
@@ -353,5 +383,114 @@ Public Class AssemblyMea
             Dim script As String = "window.open('" & filePath & "', '_blank');"
             ScriptManager.RegisterStartupScript(Me.Page, Me.Page.GetType(), "OpenPDF", script, True)
         End If
+    End Sub
+
+    Protected Sub bprint_Click(sender As Object, e As EventArgs)
+        Dim ewo As String = Request.QueryString("wo")
+        If ewo = String.Empty Then Exit Sub
+
+        Dim query As String = "select * from v_AssemblySectionApproval where wono=" & evar(ewo, 1) & " and Perc=100 and PercApproval=100 and SupvApprovedBy is not null"
+        Dim dt As New DataTable
+        dt = GetDataTable(query)
+        If Not dt.Rows.Count > 0 Then
+            showAlert("warning", "Please Complete Assembly Checksheet Before Printing Process !")
+            Exit Sub
+        End If
+
+        Dim fs = CreateObject("Scripting.FileSystemObject")
+        Dim savepath As String = Server.MapPath("~/temp/")
+
+        If Not System.IO.Directory.Exists(savepath) Then
+            System.IO.Directory.CreateDirectory(savepath)
+        End If
+
+        Dim namafile As String = savepath & "AssemblyMea_" & ewo & ".pdf"
+        Dim p As Process = New Process()
+        p.StartInfo.FileName = "C:\webroot\TCRC Web\Rotativa\wkhtmltopdf.exe"
+        'p.StartInfo.FileName = "C:\Rotativa\wkhtmltopdf.exe"
+        p.StartInfo.Arguments = "http://bpnaps07:9191/Views/TCRC/Reports/AssemblyMea.aspx?wo=" & ewo & " " & namafile & ""
+        p.Start()
+        p.WaitForExit()
+
+        ' System.Threading.Thread.Sleep(5000)
+
+        Dim filepath As String = namafile
+
+        'Response.Redirect(RptAssemblyMea & "?wo=" & ewo)
+        Response.Clear()
+        Response.ContentType = "application/pdf"
+        Response.AddHeader("Content-Disposition", "inline; filename=" & filepath)
+        Response.WriteFile(filepath)
+        Response.Flush()
+        Response.End()
+
+        Dim script As String = "window.open('" & filepath & "', '_blank');"
+        ScriptManager.RegisterStartupScript(Me.Page, Me.Page.GetType(), "OpenPDF", script, True)
+
+    End Sub
+
+    Protected Sub gv_supv_RowDataBound(sender As Object, e As GridViewRowEventArgs)
+        If e.Row.RowType = DataControlRowType.DataRow Then
+            Dim dataItem As DataRowView = CType(e.Row.DataItem, DataRowView)
+            Dim bapv As LinkButton = CType(e.Row.FindControl("bApv"), LinkButton)
+            Dim lApv As Label = CType(e.Row.FindControl("lApv"), Label)
+            Dim ddSupv As DropDownList = CType(e.Row.FindControl("ddSupv"), DropDownList)
+
+            Dim asectionValue As String = DataBinder.Eval(e.Row.DataItem, "AssemblySection").ToString()
+            ddSupv.Attributes("asection") = asectionValue
+            bapv.Attributes("asection") = asectionValue
+
+            Dim esupvby As String = CheckDBNull(dataItem("SupvApprovedBy"))
+
+            Dim qry_supv As String = "select * from vw_UserPrivilegesEmailNotif where EmailTypeDesc='Supervisory' and EmailTypeID=43 and ActiveStatus=-1 order by FullName"
+            BindDataDropDown(ddSupv, qry_supv, "FullName", "UserName")
+
+            lApv.Text = esupvby
+            If esupvby = "-" Then
+                lApv.Visible = False
+                bapv.Visible = True
+            Else
+                ddSupv.SelectedValue = esupvby
+                ddSupv.Enabled = False
+                bapv.Visible = False
+                lApv.Visible = True
+            End If
+        End If
+    End Sub
+
+    Protected Sub ddSupv_SelectedIndexChanged(sender As Object, e As EventArgs)
+
+        If CheckGroup(44) = False Then
+            showAlert("warning", "You dont have access supervisor approval")
+            Exit Sub
+        End If
+
+        Dim ddl As DropDownList = DirectCast(sender, DropDownList)
+
+        Dim esection As String = ddl.Attributes("asection")
+        Dim query As String = "update tbl_AssemblySectionApproval set AssignedTo=" & eByName() & "
+                AssignedDate=GetDate() where AssemblySection=" & evar(esection, 1) & " and wono=" & evar(ewo, 1)
+        executeQuery(query)
+        load_supvSection()
+    End Sub
+
+    Protected Sub bApv_Click(sender As Object, e As EventArgs)
+
+        If CheckGroup(43) = False Then
+            showAlert("warning", "You dont have access supervisor approval")
+            Exit Sub
+        End If
+
+        Dim bapv As LinkButton = DirectCast(sender, LinkButton)
+
+        Dim esection As String = bapv.Attributes("asection")
+        Dim query As String = "update tbl_AssemblySectionApproval set SupvApprovedBy=" & eByName() & "
+                SupvApprovedDate=GetDate() where AssemblySection=" & evar(esection, 1) & " and wono=" & evar(ewo, 1)
+        executeQuery(query)
+        load_supvSection()
+    End Sub
+
+    Protected Sub bBack_Click(sender As Object, e As EventArgs)
+        Response.Redirect(urlAssemblyList)
     End Sub
 End Class
