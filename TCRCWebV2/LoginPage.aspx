@@ -73,7 +73,7 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="text-center text-muted p-4">
-                                <p class="mb-0">&copy; <script>document.write(new Date().getFullYear())</script> Data Analyst. Crafted with <i class="mdi mdi-heart text-danger"></i> by Indra</p>
+                                <p class="mb-0">&copy; <script>document.write(new Date().getFullYear())</script> Data Analyst. Crafted with <i class="mdi mdi-heart text-danger"></i> by Plant System</p>
                             </div>
                         </div><!-- end col -->
                     </div><!-- end row -->

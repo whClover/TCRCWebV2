@@ -4,7 +4,7 @@
     <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
         <asp:LinkButton runat="server" CssClass="nav-link active" ID="n1" OnClick="n1_Click">Measurement</asp:LinkButton>
         <asp:LinkButton runat="server" CssClass="nav-link" ID="n2" OnClick="n2_Click">Checksheet</asp:LinkButton>
-        <asp:LinkButton runat="server" CssClass="nav-link" ID="n3">Liner Projection</asp:LinkButton>
+        <asp:LinkButton runat="server" CssClass="nav-link" ID="n3" OnClick="n3_Click">Liner Projection</asp:LinkButton>
         <asp:LinkButton runat="server" CssClass="nav-link" ID="n4">Upper Liner Bore</asp:LinkButton>
         <asp:LinkButton runat="server" CssClass="nav-link" ID="n5">Pin Pistion Clearance</asp:LinkButton>
         <asp:LinkButton runat="server" CssClass="nav-link" ID="n6">Valve Lash Adjustment</asp:LinkButton>

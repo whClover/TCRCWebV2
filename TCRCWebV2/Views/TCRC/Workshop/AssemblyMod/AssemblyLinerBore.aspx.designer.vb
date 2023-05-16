@@ -11,7 +11,7 @@ Option Strict On
 Option Explicit On
 
 
-Partial Public Class AssemblyLinerProj
+Partial Public Class AssemblyLinerBore
 
     '''<summary>
     '''MenuTCRC control.
@@ -75,31 +75,4 @@ Partial Public Class AssemblyLinerProj
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents pSectionProg As Global.System.Web.UI.HtmlControls.HtmlGenericControl
-
-    '''<summary>
-    '''rpt_liner control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents rpt_liner As Global.System.Web.UI.WebControls.Repeater
-
-    '''<summary>
-    '''ph1 control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents ph1 As Global.System.Web.UI.WebControls.PlaceHolder
-
-    '''<summary>
-    '''ph control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents ph As Global.System.Web.UI.WebControls.PlaceHolder
 End Class
