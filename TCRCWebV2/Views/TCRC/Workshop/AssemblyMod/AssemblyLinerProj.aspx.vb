@@ -13,10 +13,22 @@ Public Class AssemblyLinerProj
 		ewo = Request.QueryString("wo")
 
 		If IsPostBack = False Then
+			load_head()
 			load_1()
 			load_2()
 			load_3()
 			load_progress()
+		End If
+	End Sub
+
+	Sub load_head()
+		lwono.InnerText = "WO." & ewo
+
+		Dim query As String = "select WODesc from v_IntJobDetailRev3 where wono=" & evar(ewo, 1)
+		Dim dt As New DataTable
+		dt = GetDataTable(query)
+		If dt.Rows.Count > 0 Then
+			lwodesc.InnerText = dt.Rows(0)("WODesc")
 		End If
 	End Sub
 

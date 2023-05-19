@@ -31,6 +31,10 @@ Public Class AssemblyMenu
             n2.CssClass = eactive
         ElseIf linkb = "n3" Then
             n3.CssClass = eactive
+        ElseIf linkb = "n4" Then
+            n4.CssClass = eactive
+        ElseIf linkb = "n5" Then
+            n5.CssClass = eactive
         End If
     End Sub
 
@@ -76,6 +80,14 @@ Public Class AssemblyMenu
         reactive_nav(n3)
     End Sub
 
+    Protected Sub n4_Click(sender As Object, e As EventArgs)
+        reactive_nav(n4)
+    End Sub
+
+    Protected Sub n5_Click(sender As Object, e As EventArgs)
+        reactive_nav(n5)
+    End Sub
+
     Sub reactive_nav(ByVal linkb As LinkButton)
         Dim eactive = "nav-link active"
         Dim enonactive = "nav-link"
@@ -103,9 +115,13 @@ Public Class AssemblyMenu
             Session("ss_assembly") = "n3"
             Response.Redirect(urlAssemblyLinerProj & "?wo=" & ewo)
         ElseIf linkb Is n4 Then
-            n4.CssClass = eactive
+            'n4.CssClass = eactive
+            Session("ss_assembly") = "n4"
+            Response.Redirect(urlAssemblyUpperLiner & "?wo=" & ewo)
         ElseIf linkb Is n5 Then
-            n5.CssClass = eactive
+            'n5.CssClass = eactive
+            Session("ss_assembly") = "n5"
+            Response.Redirect(urlAssemblyPinPiston & "?wo=" & ewo)
         ElseIf linkb Is n6 Then
             n6.CssClass = eactive
         ElseIf linkb Is n7 Then
@@ -116,6 +132,4 @@ Public Class AssemblyMenu
             n9.CssClass = eactive
         End If
     End Sub
-
-
 End Class

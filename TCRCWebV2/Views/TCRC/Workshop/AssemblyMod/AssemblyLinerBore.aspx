@@ -35,6 +35,45 @@
                                 </div>
                             </div>
                             <hr />
+                            <div class="row">
+                                <div class="text-md-start mt-4 mt-md-0">
+
+                                    <asp:Repeater runat="server" ID="rpt_linerBore" OnItemDataBound="rpt_linerBore_ItemDataBound" OnItemCommand="rpt_linerBore_ItemCommand">
+                                        <ItemTemplate>
+                                            <ul class="list-inline main-chart mb-0">
+                                                <li class="list-inline-item chart-border-left me-0 border-0">
+                                                    <h4 class="text-primary my-1" runat="server" id="pNo">Piston No.<span class="text-muted fw-normal font-size-22 ms-2">#1</span></h4>
+                                                </li>
+                                                <li class="list-inline-item chart-border-left me-0">
+                                                    <div class="mb-1">
+                                                        <label class="form-label font-size-13" for="formrow-firstname-input">Recommendation</label>
+                                                        <asp:DropDownList runat="server" ID="ddRec" CssClass="form-control form-control-sm">
+                                                            <asp:ListItem Value="" Text=""></asp:ListItem>
+                                                            <asp:ListItem Value="Insert" Text="Insert"></asp:ListItem>
+                                                            <asp:ListItem Value="Original" Text="Original"></asp:ListItem>
+                                                        </asp:DropDownList>
+                                                    </div>
+                                                </li>
+                                                <li class="list-inline-item chart-border-left me-0">
+                                                    <div class="mb-1">
+                                                        <label class="form-label font-size-13" for="formrow-firstname-input">Recommendation By</label><br />
+                                                        <asp:Label runat="server" CssClass="form-label" Text="Indra" ID="lRecBy"></asp:Label>
+                                                    </div>
+                                                </li>
+                                                <li class="list-inline-item chart-border-left me-0">
+                                                    <div class="mb-1">
+                                                        <asp:LinkButton runat="server" CssClass="btn btn-soft-primary" CommandName="Update" CommandArgument='<%# Eval("CylinderNo") %>'>
+                                                            <i class="fa fa-save"></i> Save
+                                                        </asp:LinkButton>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                            <hr />
+                                        </ItemTemplate>
+                                    </asp:Repeater>
+                                    
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

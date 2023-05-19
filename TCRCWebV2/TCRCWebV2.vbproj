@@ -1599,6 +1599,7 @@
     <Content Include="Views\TCRC\Workshop\AssemblyMod\AssemblyMea.ascx" />
     <Content Include="Views\TCRC\Workshop\AssemblyMod\AssemblyMea.aspx" />
     <Content Include="Views\TCRC\Workshop\AssemblyMod\AssemblyMenu.ascx" />
+    <Content Include="Views\TCRC\Workshop\AssemblyMod\AssemblyPinPiston.aspx" />
     <Content Include="Views\TCRC\Workshop\indexWS.aspx" />
     <Content Include="Views\TCRC\Workshop\Inspection\MeaInspBeforeAdd.ascx" />
     <Content Include="Views\TCRC\Workshop\Inspection\MeaInspBeforeAdd.aspx" />
@@ -1873,6 +1874,13 @@
     <Compile Include="Views\TCRC\Workshop\AssemblyMod\AssemblyMenu.ascx.vb">
       <DependentUpon>AssemblyMenu.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\TCRC\Workshop\AssemblyMod\AssemblyPinPiston.aspx.designer.vb">
+      <DependentUpon>AssemblyPinPiston.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TCRC\Workshop\AssemblyMod\AssemblyPinPiston.aspx.vb">
+      <DependentUpon>AssemblyPinPiston.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="Views\TCRC\Workshop\indexWS.aspx.designer.vb">
       <DependentUpon>indexWS.aspx</DependentUpon>

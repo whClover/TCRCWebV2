@@ -105,4 +105,16 @@ Public Class SQLFunction
 
         Return "0"
     End Function
+
+    Public Shared Function dat_UpperLinerBore() As DataTable
+        Dim dt As New DataTable
+        Dim dr As DataRow = dt.NewRow()
+        dt.Columns.Add("Col1")
+
+        dr = dt.NewRow()
+        dr("Col1") = "Insert"
+        dr("Col1") = "Original"
+
+        Return dt
+    End Function
 End Class

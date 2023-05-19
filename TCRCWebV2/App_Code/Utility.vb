@@ -81,7 +81,18 @@ Public Class Utility
             ObjName.DataBind()
             ObjName.Items.Insert(0, New ListItem(""))
         End If
+    End Sub
 
+    Public Shared Sub BindDataDropDownV2(ByVal ObjName As DropDownList, ByVal dt As DataTable, ByVal ObjText As String, ByVal ObjVal As String)
+        If dt.Rows.Count = 0 Then
+            ObjName.Items.Insert(0, New ListItem("No Data Available !"))
+        Else
+            ObjName.DataSource = dt
+            ObjName.DataTextField = ObjText
+            ObjName.DataValueField = ObjVal
+            ObjName.DataBind()
+            ObjName.Items.Insert(0, New ListItem(""))
+        End If
     End Sub
 
     Public Shared Sub BindDataListBox(ByVal ObjName As ListBox, ByVal query As String, ByVal ObjText As String, ByVal ObjVal As String)

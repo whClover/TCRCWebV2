@@ -11,7 +11,7 @@ Option Strict On
 Option Explicit On
 
 
-Partial Public Class AssemblyLinerBore
+Partial Public Class AssemblyPinPiston
 
     '''<summary>
     '''MenuTCRC control.
@@ -77,11 +77,11 @@ Partial Public Class AssemblyLinerBore
     Protected WithEvents pSectionProg As Global.System.Web.UI.HtmlControls.HtmlGenericControl
 
     '''<summary>
-    '''rpt_linerBore control.
+    '''rpt_Pin control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents rpt_linerBore As Global.System.Web.UI.WebControls.Repeater
+    Protected WithEvents rpt_Pin As Global.System.Web.UI.WebControls.Repeater
 End Class
