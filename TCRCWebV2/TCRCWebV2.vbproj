@@ -1592,6 +1592,7 @@
     <Content Include="Views\TCRC\Reports\MeaInspectionRev.aspx" />
     <Content Include="Views\TCRC\Reports\test.aspx" />
     <Content Include="Views\TCRC\Workshop\AssemblyMod\AssemblyChk.aspx" />
+    <Content Include="Views\TCRC\Workshop\AssemblyMod\AssemblyFuelCode.aspx" />
     <Content Include="Views\TCRC\Workshop\AssemblyMod\AssemblyGallery.ascx" />
     <Content Include="Views\TCRC\Workshop\AssemblyMod\AssemblyLinerBore.aspx" />
     <Content Include="Views\TCRC\Workshop\AssemblyMod\AssemblyLinerProj.aspx" />
@@ -1600,6 +1601,8 @@
     <Content Include="Views\TCRC\Workshop\AssemblyMod\AssemblyMea.aspx" />
     <Content Include="Views\TCRC\Workshop\AssemblyMod\AssemblyMenu.ascx" />
     <Content Include="Views\TCRC\Workshop\AssemblyMod\AssemblyPinPiston.aspx" />
+    <Content Include="Views\TCRC\Workshop\AssemblyMod\AssemblyPistonRec.aspx" />
+    <Content Include="Views\TCRC\Workshop\AssemblyMod\AssemblyValLashAdj.aspx" />
     <Content Include="Views\TCRC\Workshop\indexWS.aspx" />
     <Content Include="Views\TCRC\Workshop\Inspection\MeaInspBeforeAdd.ascx" />
     <Content Include="Views\TCRC\Workshop\Inspection\MeaInspBeforeAdd.aspx" />
@@ -1826,6 +1829,13 @@
       <DependentUpon>AssemblyChk.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
+    <Compile Include="Views\TCRC\Workshop\AssemblyMod\AssemblyFuelCode.aspx.designer.vb">
+      <DependentUpon>AssemblyFuelCode.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TCRC\Workshop\AssemblyMod\AssemblyFuelCode.aspx.vb">
+      <DependentUpon>AssemblyFuelCode.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
     <Compile Include="Views\TCRC\Workshop\AssemblyMod\AssemblyGallery.ascx.designer.vb">
       <DependentUpon>AssemblyGallery.ascx</DependentUpon>
     </Compile>
@@ -1880,6 +1890,20 @@
     </Compile>
     <Compile Include="Views\TCRC\Workshop\AssemblyMod\AssemblyPinPiston.aspx.vb">
       <DependentUpon>AssemblyPinPiston.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Views\TCRC\Workshop\AssemblyMod\AssemblyPistonRec.aspx.designer.vb">
+      <DependentUpon>AssemblyPistonRec.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TCRC\Workshop\AssemblyMod\AssemblyPistonRec.aspx.vb">
+      <DependentUpon>AssemblyPistonRec.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Views\TCRC\Workshop\AssemblyMod\AssemblyValLashAdj.aspx.designer.vb">
+      <DependentUpon>AssemblyValLashAdj.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TCRC\Workshop\AssemblyMod\AssemblyValLashAdj.aspx.vb">
+      <DependentUpon>AssemblyValLashAdj.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="Views\TCRC\Workshop\indexWS.aspx.designer.vb">

@@ -7,9 +7,9 @@
         <asp:LinkButton runat="server" CssClass="nav-link" ID="n3" OnClick="n3_Click">Liner Projection</asp:LinkButton>
         <asp:LinkButton runat="server" CssClass="nav-link" ID="n4" OnClick="n4_Click">Upper Liner Bore</asp:LinkButton>
         <asp:LinkButton runat="server" CssClass="nav-link" ID="n5" OnClick="n5_Click">Pin Piston Clearance</asp:LinkButton>
-        <asp:LinkButton runat="server" CssClass="nav-link" ID="n6">Valve Lash Adjustment</asp:LinkButton>
-        <asp:LinkButton runat="server" CssClass="nav-link" ID="n7">Fuel Inj. Trim Code</asp:LinkButton>
-        <asp:LinkButton runat="server" CssClass="nav-link" ID="n8">Piston Recommendation</asp:LinkButton>
+        <asp:LinkButton runat="server" CssClass="nav-link" ID="n6" OnClick="n6_Click">Valve Lash Adjustment</asp:LinkButton>
+        <asp:LinkButton runat="server" CssClass="nav-link" ID="n7" OnClick="n7_Click">Fuel Inj. Trim Code</asp:LinkButton>
+        <asp:LinkButton runat="server" CssClass="nav-link" ID="n8" OnClick="n8_Click">Piston Recommendation</asp:LinkButton>
         <asp:LinkButton runat="server" CssClass="nav-link" ID="n9">Cylinder Head</asp:LinkButton>
     </div>
 </div>
