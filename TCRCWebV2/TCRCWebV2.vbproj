@@ -1592,6 +1592,7 @@
     <Content Include="Views\TCRC\Reports\MeaInspectionRev.aspx" />
     <Content Include="Views\TCRC\Reports\test.aspx" />
     <Content Include="Views\TCRC\Workshop\AssemblyMod\AssemblyChk.aspx" />
+    <Content Include="Views\TCRC\Workshop\AssemblyMod\AssemblyCylHead.aspx" />
     <Content Include="Views\TCRC\Workshop\AssemblyMod\AssemblyFuelCode.aspx" />
     <Content Include="Views\TCRC\Workshop\AssemblyMod\AssemblyGallery.ascx" />
     <Content Include="Views\TCRC\Workshop\AssemblyMod\AssemblyLinerBore.aspx" />
@@ -1827,6 +1828,13 @@
     </Compile>
     <Compile Include="Views\TCRC\Workshop\AssemblyMod\AssemblyChk.aspx.vb">
       <DependentUpon>AssemblyChk.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Views\TCRC\Workshop\AssemblyMod\AssemblyCylHead.aspx.designer.vb">
+      <DependentUpon>AssemblyCylHead.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TCRC\Workshop\AssemblyMod\AssemblyCylHead.aspx.vb">
+      <DependentUpon>AssemblyCylHead.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="Views\TCRC\Workshop\AssemblyMod\AssemblyFuelCode.aspx.designer.vb">

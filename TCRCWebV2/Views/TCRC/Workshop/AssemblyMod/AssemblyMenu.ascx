@@ -10,6 +10,6 @@
         <asp:LinkButton runat="server" CssClass="nav-link" ID="n6" OnClick="n6_Click">Valve Lash Adjustment</asp:LinkButton>
         <asp:LinkButton runat="server" CssClass="nav-link" ID="n7" OnClick="n7_Click">Fuel Inj. Trim Code</asp:LinkButton>
         <asp:LinkButton runat="server" CssClass="nav-link" ID="n8" OnClick="n8_Click">Piston Recommendation</asp:LinkButton>
-        <asp:LinkButton runat="server" CssClass="nav-link" ID="n9">Cylinder Head</asp:LinkButton>
+        <asp:LinkButton runat="server" CssClass="nav-link" ID="n9" OnClick="n9_Click">Cylinder Head</asp:LinkButton>
     </div>
 </div>
