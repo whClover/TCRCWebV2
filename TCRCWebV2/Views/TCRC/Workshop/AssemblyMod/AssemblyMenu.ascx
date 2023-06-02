@@ -1,7 +1,7 @@
 ﻿<%@ Control Language="vb" AutoEventWireup="false" CodeBehind="AssemblyMenu.ascx.vb" Inherits="TCRCWebV2.AssemblyMenu" %>
 
-<div class="col-md-3">
-    <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+<div class="col-md-12 mb-3">
+    <div class="nav nav-pills nav-justified bg-light" role="tablist">
         <asp:LinkButton runat="server" CssClass="nav-link active" ID="n1" OnClick="n1_Click">Measurement</asp:LinkButton>
         <asp:LinkButton runat="server" CssClass="nav-link" ID="n2" OnClick="n2_Click">Checksheet</asp:LinkButton>
         <asp:LinkButton runat="server" CssClass="nav-link" ID="n3" OnClick="n3_Click">Liner Projection</asp:LinkButton>

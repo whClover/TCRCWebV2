@@ -17,6 +17,20 @@ Public Class AssemblyCylHead
         End If
     End Sub
 
+    Protected Sub Page_PreRenderComplete(sender As Object, e As EventArgs) Handles Me.PreRenderComplete
+        If Session("ScrollPosition") IsNot Nothing Then
+            Dim scrollPosition As Integer = Integer.Parse(Session("ScrollPosition"))
+            ScriptManager.RegisterStartupScript(Me, Me.GetType(), "setScrollPosition", "setTimeout(function() { window.scrollTo(0, " & scrollPosition & "); }, 100);", True)
+        End If
+
+        load_progress()
+    End Sub
+
+    Sub getcurrentScrollPos()
+        Dim currentScrollPosition As Integer = Integer.Parse(ScrollPosition.Value)
+        Session("ScrollPosition") = currentScrollPosition
+    End Sub
+
     Sub load_head()
         lwono.InnerText = "WO." & ewo
 
@@ -126,6 +140,7 @@ Public Class AssemblyCylHead
 
             load_data()
             load_progress()
+            getcurrentScrollPos()
         End If
     End Sub
 

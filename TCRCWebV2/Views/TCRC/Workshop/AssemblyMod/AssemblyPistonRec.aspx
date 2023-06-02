@@ -18,7 +18,7 @@
                 <div class="card-body">
                     <div class="row">
                         <uc1:AssemblyMenu runat="server" id="AssemblyMenu" />
-                        <div class="col-md-9">
+                        <div class="col-md-12">
                             <div class="d-flex flex-wrap gap-2 mb-2 fw-bold">
                                 <u>Piston Recommendation</u>
                             </div>

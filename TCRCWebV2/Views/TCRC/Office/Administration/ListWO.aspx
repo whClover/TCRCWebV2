@@ -19,6 +19,53 @@
             opacity: 0.6;
             -moz-opacity: 0.8;
         }
+
+        .btn-block {
+                width: 100%
+        }
+        .table span {
+            border: none!important;
+            border-radius: 30px!important;
+            margin: 0 5px;
+            min-width: 32px;
+            height: 32px;
+            padding: 0;
+            text-align: center;
+            line-height: 32px;
+            color: #fff;
+            display:inline-block;
+            background-color: #038edc;
+        }
+        .table table a {
+            border: none!important;
+            border-radius: 30px!important;
+            margin: 0 5px;
+            min-width: 32px;
+            height: 32px;
+            padding: 0;
+            text-align: center;
+            line-height: 32px;
+            display:inline-block;
+        }
+            
+        .table table a:hover {
+            border: none!important;
+            border-radius: 30px!important;
+            margin: 0 5px;
+            min-width: 32px;
+            height: 32px;
+            padding: 0;
+            text-align: center;
+            line-height: 32px;
+            display:inline-block;
+            background-color: #b4e4ff;
+            color: #038edc;
+        }
+
+        .table-with-textbox th{
+            vertical-align: top;
+            padding: 0px
+        }
     </style>
     <script type="text/javascript">
         function showProgress() {
@@ -101,10 +148,10 @@
                         </div>
                         
                         <hr />
-                        <asp:LinkButton runat="server" CssClass="btn btn-soft-primary btn-sm mb-2" ID="bPrev" OnClick="bPrev_Click"><</asp:LinkButton>
-                        <asp:LinkButton runat="server" CssClass="btn btn-soft-primary btn-sm mb-2" ID="bNext" OnClick="bNext_Click">></asp:LinkButton>
+                        <asp:label ID="totalRecords" runat="server" CssClass="text-muted"></asp:label>
                         <div class="table-responsive">
-                            <asp:GridView runat="server" ID="gv_wodetails" AutoGenerateColumns="false" CssClass="table table-bordered gridview" AllowPaging="True" PageSize="30">
+                            <asp:GridView runat="server" ShowHeaderWhenEmpty="true" ID="gv_wodetails" AutoGenerateColumns="false" CssClass="table table-bordered gridview" AllowPaging="True" PageSize="10" OnPageIndexChanging="OnPageIndexChanging">
+                                <PagerSettings FirstPageText="First" LastPageText="Last" Mode="NumericFirstLast" NextPageText="Next" PreviousPageText="Previous" />
                                 <Columns>
                                     <asp:TemplateField ItemStyle-CssClass="text-center" HeaderStyle-CssClass="bg-soft-primary text-primary">
                                         <ItemTemplate>

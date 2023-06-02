@@ -34,12 +34,34 @@
         }
     </script>
 
+    <script type="text/javascript">
+        // Check session status every 5 seconds
+        setInterval(function () {
+            $.ajax({
+                type: "POST",
+                url: window.location.pathname + "/CheckSessionStatus",
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                data: "{}",
+                success: function (response) {
+                    if (response.d === "session_expired") {
+                        // Session has expired, redirect to lock screen or login page
+                        window.location.href = "Lock.aspx";
+                    }
+                },
+                error: function (xhr, status, error) {
+                    console.log("Error checking session status: " + error);
+                }
+            });
+        }, 5000); // Check every 5 seconds
+    </script>
+
 </head>
 <body data-layout="horizontal" data-topbar="dark">
     <form runat="server">
         <div id="layout-wrapper">
             <header id="page-topbar">
-                <div class="navbar-header">
+                <div class="navbar-header" style="max-width:100%">
                     <div class="d-flex">
                         <!-- LOGO -->
                         <div class="navbar-brand-box">
@@ -75,21 +97,14 @@
                 <!-- End Menu Bar -->
             </header>
 
-
             <!-- ============================================================== -->
             <!-- Start right Content here -->
             <!-- ============================================================== -->
             <div class="main-content">
-
                 <div class="page-content">
-                    <div class="container-fluid">
-
-
-                        <!-- Dynamic Content -->
-                        <asp:ContentPlaceHolder ID="MainContent" runat="server"></asp:ContentPlaceHolder>
-                        <!-- End Dynamic Content -->
-
-                    </div> <!-- container-fluid -->
+                    <!-- Dynamic Content -->
+                    <asp:ContentPlaceHolder ID="MainContent" runat="server"></asp:ContentPlaceHolder>
+                    <!-- End Dynamic Content -->
                 </div>
                 <!-- End Page-content -->
                 

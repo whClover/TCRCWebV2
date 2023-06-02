@@ -132,4 +132,32 @@ Public Class MeaInspTemplateSec
 
         Response.Redirect(urlMeasureTemplateShow & "?id=" & eid)
     End Sub
+
+    Sub showAlertPage()
+        showAlert("success", "Saved")
+    End Sub
+
+    Sub showAlert(ByVal type As String, ByVal msg As String)
+        Dim optsc As String = "toastr.options = {
+          ""closeButton"": false,
+          ""debug"": false,
+          ""newestOnTop"": false,
+          ""progressBar"": false,
+          ""positionClass"": ""toast-top-center"",
+          ""preventDuplicates"": false,
+          ""onclick"": null,
+          ""showDuration"": ""300"",
+          ""hideDuration"": ""1000"",
+          ""timeOut"": ""5000"",
+          ""extendedTimeOut"": ""1000"",
+          ""showEasing"": ""swing"",
+          ""hideEasing"": ""linear"",
+          ""showMethod"": ""fadeIn"",
+          ""hideMethod"": ""fadeOut""
+        };"
+
+        Dim script As String
+        script = optsc & "toastr[""" & type & """](""" & msg & """);"
+        ScriptManager.RegisterStartupScript(Me, Me.GetType(), "toastrMessage", script, True)
+    End Sub
 End Class

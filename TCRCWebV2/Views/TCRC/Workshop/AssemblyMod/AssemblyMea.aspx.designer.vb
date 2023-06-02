@@ -176,13 +176,13 @@ Partial Public Class AssemblyMea
     Protected WithEvents imgGp As Global.System.Web.UI.HtmlControls.HtmlImage
 
     '''<summary>
-    '''rpt_mea control.
+    '''rpt_mea2 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents rpt_mea As Global.System.Web.UI.WebControls.Repeater
+    Protected WithEvents rpt_mea2 As Global.System.Web.UI.WebControls.Repeater
 
     '''<summary>
     '''gv_supv control.

@@ -1570,6 +1570,7 @@
     <Content Include="images\users\avatar-7.jpg" />
     <Content Include="images\users\avatar-8.jpg" />
     <Content Include="images\users\avatar-9.jpg" />
+    <Content Include="Lock.aspx" />
     <Content Include="Views\Sample\summernote.aspx" />
     <Content Include="Views\Sample\tes.aspx" />
     <Content Include="Views\Sample\Users.aspx" />
@@ -1580,8 +1581,6 @@
     <Content Include="Views\Shared\MenuTCRC.ascx" />
     <Content Include="Views\Shared\MenuTMRP.aspx" />
     <Content Include="Views\TCRC\index.aspx" />
-    <Content Include="Views\TCRC\Office\Administration\UploadWO.ascx" />
-    <Content Include="Views\TCRC\Office\Administration\UploadWO.aspx" />
     <Content Include="Views\TCRC\Office\index.aspx" />
     <Content Include="Views\TCRC\Office\Administration\ListWO.aspx" />
     <Content Include="Views\TCRC\Reports\AssemblyMea.aspx" />
@@ -1639,6 +1638,13 @@
     </Compile>
     <Compile Include="Global.asax.vb">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Lock.aspx.designer.vb">
+      <DependentUpon>Lock.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Lock.aspx.vb">
+      <DependentUpon>Lock.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="Report.Master.designer.vb">
       <DependentUpon>Report.Master</DependentUpon>
@@ -1744,20 +1750,6 @@
     </Compile>
     <Compile Include="Views\TCRC\index.aspx.vb">
       <DependentUpon>index.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
-    </Compile>
-    <Compile Include="Views\TCRC\Office\Administration\UploadWO.ascx.designer.vb">
-      <DependentUpon>UploadWO.ascx</DependentUpon>
-    </Compile>
-    <Compile Include="Views\TCRC\Office\Administration\UploadWO.ascx.vb">
-      <DependentUpon>UploadWO.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Views\TCRC\Office\Administration\UploadWO.aspx.designer.vb">
-      <DependentUpon>UploadWO.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Views\TCRC\Office\Administration\UploadWO.aspx.vb">
-      <DependentUpon>UploadWO.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="Views\TCRC\Office\index.aspx.designer.vb">

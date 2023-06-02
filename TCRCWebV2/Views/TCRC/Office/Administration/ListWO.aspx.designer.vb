@@ -68,22 +68,13 @@ Partial Public Class ListWO
     Protected WithEvents pLastBy As Global.System.Web.UI.HtmlControls.HtmlGenericControl
 
     '''<summary>
-    '''bPrev control.
+    '''totalRecords control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents bPrev As Global.System.Web.UI.WebControls.LinkButton
-
-    '''<summary>
-    '''bNext control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents bNext As Global.System.Web.UI.WebControls.LinkButton
+    Protected WithEvents totalRecords As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
     '''gv_wodetails control.

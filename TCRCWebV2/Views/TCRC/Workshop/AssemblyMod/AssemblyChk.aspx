@@ -17,7 +17,7 @@
                 <div class="card-body">
                     <div class="row">
                         <uc1:AssemblyMenu runat="server" ID="AssemblyMenu" />
-                        <div class="col-md-9">
+                        <div class="col-md-12">
                             <div class="mt-3 mb-3">
                                 <p class="text-muted font-size-13 mb-1" runat="server" id="lSectionProg">Overall Progress (50%)</p>
                                 <div class="progress animated-progess custom-progress">
@@ -35,7 +35,7 @@
                                 <h5 class="text-muted" runat="server" id="lsection">Section Name</h5>
                             </div>
                             <img src="../../../../images/NoPicture.png" class="img-fluid mb-3" 
-                                style="display: block; margin-left:auto; margin-right:auto; Position:Static;"/>
+                                style="display: block; margin-left:auto; margin-right:auto; Position:Static;" id="imgGp" runat="server"/>
                             <div class="mb-3 text-center">
                                 <asp:LinkButton runat="server" CssClass="btn btn-rounded btn-soft-primary" ID="bchk" OnClick="bchk_Click">
                                     <i class="fa fa-check-circle"></i> Check

@@ -45,6 +45,7 @@ Public Class MeaTemplateSecEdit
         Dim query As String = "exec dbo.InspSubmitTemplateSec " & eid & "," & eseq & "," & ecursection & "," & esection & "," & eaftinsp & "," & eByName()
         executeQuery(query)
         DirectCast(Page, MeaInspTemplateSec).bindingData()
+        DirectCast(Page, MeaInspTemplateSec).showAlertPage()
     End Sub
 
     Sub showAlertv2(ByVal type As String, ByVal msg As String)

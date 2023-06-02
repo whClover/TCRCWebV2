@@ -32,20 +32,19 @@ Public Class ListWO
 
     Private Sub LoadData()
         filtering()
-        'Set the page size to 30
-        Dim pageSize As Integer = 30
 
         'Retrieve the data for the current page
         Dim query As String = "select * from v_WODetailRev" & tempfilter
-        Dim dt As DataTable = GetDataTableV2(ViewState("PageIndex"), pageSize, query, "wono")
+        Dim dt As DataTable = GetDataTable(query)
 
         'Bind the data to the GridView control
+        totalRecords.Text = dt.Rows.Count & "Record(s) Found"
         gv_wodetails.DataSource = dt
         gv_wodetails.DataBind()
 
         'Enable or disable the "Previous" and "Next" buttons as appropriate
-        bPrev.Enabled = (ViewState("PageIndex") > 0)
-        bNext.Enabled = (dt.Rows.Count = pageSize)
+        'bPrev.Enabled = (ViewState("PageIndex") > 0)
+        'bNext.Enabled = (dt.Rows.Count = pageSize)
     End Sub
 
     Private Sub filtering()
@@ -59,22 +58,6 @@ Public Class ListWO
 
     Protected Sub bSearch_Click(sender As Object, e As EventArgs)
         filtering()
-        LoadData()
-    End Sub
-
-    Protected Sub bNext_Click(sender As Object, e As EventArgs)
-        'Increment the page index
-        ViewState("PageIndex") = ViewState("PageIndex") + 1
-
-        'Load the data for the new page
-        LoadData()
-    End Sub
-
-    Protected Sub bPrev_Click(sender As Object, e As EventArgs)
-        'Decrement the page index
-        ViewState("PageIndex") = ViewState("PageIndex") - 1
-
-        'Load the data for the new page
         LoadData()
     End Sub
 
@@ -221,7 +204,6 @@ Public Class ListWO
         Dim savepath As String = Environ("temp") + "\Insp" + curtime + ".txt"
 
         If uploadfiles1.HasFile = False Then
-            MsgBox("a")
             Exit Sub
         Else
             uploadfiles1.SaveAs(savepath)
@@ -229,9 +211,6 @@ Public Class ListWO
 
         FileOpen(filenum, savepath, OpenMode.Input)
         Dim i As Integer = 0
-
-
-
         Dim eLineInput As String = String.Empty
         Dim eLa As String = String.Empty
 
@@ -353,7 +332,6 @@ Public Class ListWO
                 eUnitDesc = evar(data(kUnitNumber), 1)
 
                 If Trim(data(kWONo)) = "" Then
-                    MsgBox("b")
                     GoTo gotonext
                 Else
                     eWONo = evar(data(kWONo), 1)
@@ -468,5 +446,23 @@ gotonext:
         Dim script As String
         script = optsc & "toastr[""" & type & """](""" & msg & """);"
         ScriptManager.RegisterStartupScript(Me, Me.GetType(), "toastrMessage", script, True)
+    End Sub
+
+    Protected Sub OnPageIndexChanging(sender As Object, e As GridViewPageEventArgs)
+        gv_wodetails.PageIndex = e.NewPageIndex
+        LoadData()
+    End Sub
+
+    Protected Sub CheckSessionStatus()
+        If Session("ss_username") Is Nothing Then
+            ' Save current page link and session username into cookies
+            Response.Cookies("last_page").Value = Request.Url.AbsoluteUri
+            Response.Cookies("last_page").Expires = DateTime.Now.AddHours(1)
+            Response.Cookies("last_session").Value = Session.SessionID.ToString()
+            Response.Cookies("last_session").Expires = DateTime.Now.AddHours(1)
+
+            ' Redirect to lock screen or login page
+            Response.Redirect("Lock.aspx")
+        End If
     End Sub
 End Class

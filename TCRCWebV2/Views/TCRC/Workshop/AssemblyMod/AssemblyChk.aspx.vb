@@ -29,6 +29,16 @@ Public Class AssemblyChk
 
     Sub loaddata()
         Dim firstSection As String = getfirst_Section()
+
+        Dim dt2 As New DataTable
+        Dim esection As String = String.Empty
+        Dim query2 As String = "select SectionPart, case when('../../../../' + dbo.RemapPicW(PicturePath)) is null then '' else ('../../../../' + dbo.RemapPicW(PicturePath)) end as PicturePathGroup " _
+                                & "from v_AssemblyCheckList where wono=" & evar(ewo, 1) & " and SectionPart=" & evar(firstSection, 1)
+        dt2 = GetDataTable(query2)
+        If dt2.Rows.Count > 0 Then
+            imgGp.Src = dt2.Rows(0)("PicturePathGroup")
+        End If
+
         lsection.InnerText = firstSection
         Dim dt As New DataTable
         Dim query As String = "select * from v_AssemblyCheckList where wono=" & evar(ewo, 1) & " and SectionPart=" & evar(firstSection, 1)
@@ -41,8 +51,19 @@ Public Class AssemblyChk
     End Sub
 
     Sub loadSection(ByVal sectionPart As String)
-        Dim dt As New DataTable
         lsection.InnerText = sectionPart
+
+        'load picture group
+        Dim dt_pict As New DataTable
+        Dim querypict As String = "select case when('../../../../' + dbo.RemapPicW(PicturePath)) is null then '' else ('../../../../' + dbo.RemapPicW(PicturePath)) end as PicturePathGroup
+        from v_AssemblyCheckList where wono=" & evar(ewo, 1) & " and SectionPart=" & evar(sectionPart, 1)
+        dt_pict = GetDataTable(querypict)
+        If dt_pict.Rows.Count > 0 Then
+            imgGp.Src = dt_pict.Rows(0)("PicturePathGroup")
+        End If
+
+        Dim dt As New DataTable
+
         Dim query As String = "select * from v_AssemblyCheckList where wono=" & evar(ewo, 1) & " and SectionPart=" & evar(sectionPart, 1)
         dt = GetDataTable(query)
         If dt.Rows.Count > 0 Then

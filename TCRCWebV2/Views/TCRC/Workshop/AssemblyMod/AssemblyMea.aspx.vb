@@ -11,9 +11,9 @@ Public Class AssemblyMea
     Dim ewo As String
     Dim utility As New Utility(Me)
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-        If Session("ss_userid") = "" Then
-            Response.Redirect(urlTCRCLogin)
-        End If
+        'If Session("ss_userid") = "" Then
+        '    Response.Redirect(urlTCRCLogin)
+        'End If
 
         ewo = Request.QueryString("wo")
         Session("ss_assembly") = "n1"
@@ -76,87 +76,113 @@ Public Class AssemblyMea
         End If
 
         Dim dt As New DataTable
-        Dim ecol As String = "IDAssemblyInput,[Sequence],Replace(AssemblyDesc,CHAR(13)+CHAR(10),'<br />') as AssemblyDesc,case when UnitType=1 then 'Metric' else 'US' end as UnitTypeDesc,ValType,Unit,IDAssemblyInput,UnitType,
+        Dim ecol As String = "IDAssemblyInput,[Sequence],Replace(AssemblyDesc,CHAR(13)+CHAR(10),'<br />') as AssemblyDesc,case when UnitType=1 then 'Metric' else 'US' end as UnitTypeDesc,ValType,Unit,IDAssemblyInput,UnitType,Spec,Tolerance,
                             isnull((isnull(convert(varchar(10),Spec),'') + ' ± ' + isnull(convert(varchar(10),Tolerance),'') + ' ' + convert(varchar(10), Unit)),'-') as SpecFull,
-                            case when AssemblyVal is null then '-' else isnull((AssemblyVal + ' ' + Unit),AssemblyVal) end as AssemblyVal,isnull(ModBy,'-') as ModBy,isnull(convert(varchar, ModDate,103),'-') as ModDate,isnull(ApprovedBy,'-') as ApprovedBy,InstructionType"
+                            case when AssemblyVal is null then '-' else isnull((AssemblyVal + ' ' + Unit),AssemblyVal) end as AssemblyValFull,AssemblyVal,isnull(ModBy,'-') as ModBy,isnull(convert(varchar, ModDate,103),'-') as ModDate,isnull(ApprovedBy,'-') as ApprovedBy,InstructionType"
         Dim query As String = "select " & ecol & " from v_AssemblyDetailInputRev2 where wono=" & evar(ewo, 1) & " and AssemblySection=" & evar(esection, 1) & "
                                 order by AssemblySection, dbo.SequenceNum(Sequence),dbo.SequenceAlpha(Sequence),dbo.getsortval(Sequence,30,10)"
         dt = GetDataTable(query)
         If dt.Rows.Count > 0 Then
-            rpt_mea.DataSource = dt
-            rpt_mea.DataBind()
+            rpt_mea2.DataSource = dt
+            rpt_mea2.DataBind()
         End If
     End Sub
 
-    Protected Sub rpt_mea_ItemDataBound(sender As Object, e As RepeaterItemEventArgs)
+    Protected Sub rpt_mea2_ItemDataBound(sender As Object, e As RepeaterItemEventArgs)
         If e.Item.ItemType = ListItemType.Item OrElse e.Item.ItemType = ListItemType.AlternatingItem Then
-            'Buat ngambil datanya...
             Dim dataItem As DataRowView = CType(e.Item.DataItem, DataRowView)
 
-            'Deklarasi Objectnya...
             Dim pSeq As HtmlGenericControl = CType(e.Item.FindControl("pSeq"), HtmlGenericControl)
-            Dim pDesc As HtmlGenericControl = CType(e.Item.FindControl("pDesc"), HtmlGenericControl)
-            Dim pSpec As HtmlGenericControl = CType(e.Item.FindControl("pSpec"), HtmlGenericControl)
-            Dim pMeaType As HtmlGenericControl = CType(e.Item.FindControl("pMeaType"), HtmlGenericControl)
-            Dim pVal As HtmlGenericControl = CType(e.Item.FindControl("pVal"), HtmlGenericControl)
-            Dim pModBy As HtmlGenericControl = CType(e.Item.FindControl("pModBy"), HtmlGenericControl)
-            Dim pModDate As HtmlGenericControl = CType(e.Item.FindControl("pModDate"), HtmlGenericControl)
-            Dim pApvBy As HtmlGenericControl = CType(e.Item.FindControl("pApvBy"), HtmlGenericControl)
+            Dim pActivity As HtmlGenericControl = CType(e.Item.FindControl("pActivity"), HtmlGenericControl)
+            Dim pMeasureType As HtmlGenericControl = CType(e.Item.FindControl("pMeasureType"), HtmlGenericControl)
+            Dim pFullSpec As HtmlGenericControl = CType(e.Item.FindControl("pFullSpec"), HtmlGenericControl)
+            Dim pAsmBy As HtmlGenericControl = CType(e.Item.FindControl("pAsmBy"), HtmlGenericControl)
+            Dim pAsmDate As HtmlGenericControl = CType(e.Item.FindControl("pAsmDate"), HtmlGenericControl)
+            Dim pLH As HtmlGenericControl = CType(e.Item.FindControl("pLH"), HtmlGenericControl)
 
-            'UI Object
-            Dim pBorder As HtmlGenericControl = CType(e.Item.FindControl("pBorder"), HtmlGenericControl)
-            Dim pStatus As HtmlGenericControl = CType(e.Item.FindControl("pStatus"), HtmlGenericControl)
-            Dim pComp As HtmlGenericControl = CType(e.Item.FindControl("pComp"), HtmlGenericControl)
-            Dim bLH As Button = CType(e.Item.FindControl("bLH"), Button)
+            Dim bOK2 As LinkButton = CType(e.Item.FindControl("bOK2"), LinkButton)
+            Dim tVal As TextBox = CType(e.Item.FindControl("tVal"), TextBox)
+            Dim sUnit As HtmlGenericControl = CType(e.Item.FindControl("sUnit"), HtmlGenericControl)
+            Dim bLHApv As LinkButton = CType(e.Item.FindControl("bLHApv"), LinkButton)
+            Dim bchange As LinkButton = CType(e.Item.FindControl("bchange"), LinkButton)
+            Dim lCheckSpec As HtmlGenericControl = CType(e.Item.FindControl("lCheckSpec"), HtmlGenericControl)
 
-            'Input Data to Object
-            pSeq.InnerText = "Sequence: " & dataItem("Sequence").ToString()
-            pDesc.InnerHtml = dataItem("AssemblyDesc").ToString()
-            pSpec.InnerText = dataItem("SpecFull").ToString()
-            pMeaType.InnerText = dataItem("UnitTypeDesc").ToString()
-            pVal.InnerText = dataItem("AssemblyVal").ToString()
-            pModBy.InnerText = dataItem("ModBy").ToString()
-            pModDate.InnerText = dataItem("ModDate").ToString()
-            pApvBy.InnerText = dataItem("ApprovedBy").ToString()
+            pSeq.InnerText = "#" & dataItem("Sequence")
+            pActivity.InnerHtml = dataItem("AssemblyDesc")
 
-            'costumize UI
-            Select Case dataItem("AssemblyVal").ToString()
-                Case "-"
-                    pBorder.Attributes("class") = "card border border-secondary"
-                    pStatus.Attributes("class") = "badge rounded-pill bg-warning just"
-                    pStatus.InnerText = "NC"
-                    pComp.Style("display") = "none"
-                Case Else
-                    pBorder.Attributes("class") = "card border border-primary"
-                    pStatus.Attributes("class") = "badge rounded-pill bg-success just"
-                    pStatus.InnerText = "C"
-                    pComp.Style("display") = "block"
+            If dataItem("ValType") = "2" Then
+                pFullSpec.Visible = True
+                pFullSpec.InnerText = dataItem("SpecFull")
+
+                Select Case dataItem("UnitType")
+                    Case "1"
+                        pMeasureType.InnerText = "Metric"
+                    Case "2"
+                        pMeasureType.InnerText = "US"
+                End Select
+
+            Else
+                pFullSpec.Visible = False
+            End If
+
+            If dataItem("AssemblyValFull") = "-" Then
+                pAsmBy.Visible = False
+                pAsmDate.Visible = False
+            Else
+                pAsmBy.InnerText = dataItem("ModBy")
+                pAsmDate.InnerText = "on: " & dataItem("ModDate")
+            End If
+
+            Select Case dataItem("ValType")
+                Case "1"
+                    bchange.Visible = False
+                    lCheckSpec.Visible = False
+
+                    bOK2.Visible = True
+                    tVal.Visible = True
+                    tVal.ReadOnly = True
+                    If dataItem("AssemblyValFull") <> "-" Then
+                        bOK2.Visible = False
+                        tVal.Text = dataItem("AssemblyValFull")
+                    End If
+                Case "2"
+                    bOK2.Visible = False
+                    tVal.Visible = True
+                    tVal.TextMode = TextBoxMode.Number
+                    sUnit.Visible = True
+                    If dataItem("AssemblyValFull") <> "-" Then
+                        tVal.Text = dataItem("AssemblyVal")
+                        sUnit.InnerText = dataItem("Unit")
+                    End If
+
+                    If checkspec(Replace(CheckDBNull(dataItem("AssemblyVal")), "-", String.Empty), Replace(CheckDBNull(dataItem("Spec")), "-", String.Empty), Replace(CheckDBNull(dataItem("Tolerance")), "-", String.Empty)) = True Then
+                        lCheckSpec.Visible = False
+                    Else
+                        lCheckSpec.Visible = True
+                    End If
+                Case "3"
+                    bchange.Visible = False
+                    lCheckSpec.Visible = False
+
+                    bOK2.Visible = False
+                    tVal.Visible = True
+                    If dataItem("AssemblyValFull") <> "-" Then
+                        tVal.Text = dataItem("AssemblyVal")
+                    End If
             End Select
 
-            If dataItem("AssemblyVal") = "-" And dataItem("ApprovedBy") = "-" Then
-                bLH.Visible = False
-            ElseIf dataItem("AssemblyVal") <> "-" And dataItem("ApprovedBy") = "-" Then
-                bLH.Visible = True
-            Else
-                bLH.Visible = False
-            End If
+            Select Case dataItem("ApprovedBy")
+                Case "-"
+                    bLHApv.Visible = True
+                Case Else
+                    pLH.InnerText = dataItem("ApprovedBy")
+                    bLHApv.Visible = False
+                    tVal.Enabled = False
+            End Select
+
+
+
         End If
-    End Sub
-
-    Protected Sub bChangeSpec_Click(sender As Object, e As EventArgs)
-        Dim arr As String() = CType(sender, LinkButton).CommandArgument.Split(",")
-        Dim eidinput As String = arr(0)
-        Dim eunittype As String = arr(1)
-
-        If eunittype = "1" Then
-            eunittype = 2
-        ElseIf eunittype = "2" Then
-            eunittype = 1
-        End If
-
-        Dim query As String = "update tbl_AssemblyInput set UnitType=" & eunittype & " where IDAssemblyInput=" & eidinput
-        executeQuery(query)
-        getcurrentScrollPos()
     End Sub
 
     Sub getcurrentScrollPos()
@@ -194,7 +220,7 @@ Public Class AssemblyMea
         Dim dt As New DataTable
         Dim ecol As String = "IDAssemblyInput,[Sequence],Replace(AssemblyDesc,CHAR(13)+CHAR(10),'<br />') as AssemblyDesc,case when UnitType=1 then 'Metric' else 'US' end as UnitTypeDesc,ValType,Unit,IDAssemblyInput,UnitType,
                             isnull((isnull(convert(varchar(10),Spec),'') + ' ± ' + isnull(convert(varchar(10),Tolerance),'') + ' ' + convert(varchar(10), Unit)),'-') as SpecFull,
-                            case when AssemblyVal is null then '-' else isnull((AssemblyVal + ' ' + Unit),AssemblyVal) end as AssemblyVal,isnull(ModBy,'-') as ModBy,isnull(convert(varchar, ModDate,103),'-') as ModDate,isnull(ApprovedBy,'-') as ApprovedBy,InstructionType"
+                            case when AssemblyVal is null then '-' else isnull((AssemblyVal + ' ' + Unit),AssemblyVal) end as AssemblyValFull,AssemblyVal,isnull(ModBy,'-') as ModBy,isnull(convert(varchar, ModDate,103),'-') as ModDate,isnull(ApprovedBy,'-') as ApprovedBy,InstructionType"
         Dim query As String = "select " & ecol & " from v_AssemblyDetailInputRev2 where IDAssemblyInput=" & eid
         dt = GetDataTable(query)
         If dt.Rows.Count > 0 Then
@@ -280,15 +306,15 @@ Public Class AssemblyMea
 
         'load section data
         Dim dt2 As New DataTable
-        Dim ecol As String = "IDAssemblyInput,[Sequence],Replace(AssemblyDesc,CHAR(13)+CHAR(10),'<br />') as AssemblyDesc,case when UnitType=1 then 'Metric' else 'US' end as UnitTypeDesc,ValType,Unit,IDAssemblyInput,UnitType,
+        Dim ecol As String = "IDAssemblyInput,[Sequence],Replace(AssemblyDesc,CHAR(13)+CHAR(10),'<br />') as AssemblyDesc,case when UnitType=1 then 'Metric' else 'US' end as UnitTypeDesc,ValType,Unit,IDAssemblyInput,UnitType,Spec,Tolerance,
                             isnull((isnull(convert(varchar(10),Spec),'') + ' ± ' + isnull(convert(varchar(10),Tolerance),'') + ' ' + convert(varchar(10), Unit)),'-') as SpecFull,
-                            case when AssemblyVal is null then '-' else isnull((AssemblyVal + ' ' + Unit),AssemblyVal) end as AssemblyVal,isnull(ModBy,'-') as ModBy,isnull(convert(varchar, ModDate,103),'-') as ModDate,isnull(ApprovedBy,'-') as ApprovedBy,InstructionType"
+                            case when AssemblyVal is null then '-' else isnull((AssemblyVal + ' ' + Unit),AssemblyVal) end as AssemblyValFull,AssemblyVal,isnull(ModBy,'-') as ModBy,isnull(convert(varchar, ModDate,103),'-') as ModDate,isnull(ApprovedBy,'-') as ApprovedBy,InstructionType"
         Dim query2 As String = "select " & ecol & " from v_AssemblyDetailInputRev2 where wono=" & evar(ewo, 1) & " and AssemblySection=" & evar(esection, 1) & "
                                 order by AssemblySection, dbo.SequenceNum(Sequence),dbo.SequenceAlpha(Sequence),dbo.getsortval(Sequence,30,10)"
         dt2 = GetDataTable(query2)
         If dt2.Rows.Count > 0 Then
-            rpt_mea.DataSource = dt2
-            rpt_mea.DataBind()
+            rpt_mea2.DataSource = dt2
+            rpt_mea2.DataBind()
         End If
 
         getProgress(1)
@@ -492,5 +518,86 @@ Public Class AssemblyMea
 
     Protected Sub bBack_Click(sender As Object, e As EventArgs)
         Response.Redirect(urlAssemblyList)
+    End Sub
+
+    Protected Sub bchange_Click(sender As Object, e As EventArgs)
+        Dim arr As String() = CType(sender, LinkButton).CommandArgument.Split(",")
+        Dim eidinput As String = arr(0)
+        Dim eunittype As String = arr(1)
+
+        If eunittype = "1" Then
+            eunittype = 2
+        ElseIf eunittype = "2" Then
+            eunittype = 1
+        End If
+
+        Dim query As String = "update tbl_AssemblyInput set UnitType=" & eunittype & " where IDAssemblyInput=" & eidinput
+        executeQuery(query)
+        getcurrentScrollPos()
+        load_data()
+    End Sub
+
+    Public Function checkspec(ByVal val As String, ByVal spec As String, ByVal tolerance As String) As Boolean
+
+        If val = String.Empty Then
+            checkspec = False
+            GoTo skipp
+        End If
+
+        If spec = String.Empty Then
+            spec = 0
+            'checkspec = True
+            GoTo tanpa_spec
+        End If
+
+        If tolerance = String.Empty Then
+            tolerance = 0
+
+            GoTo tanpa_spec
+        End If
+
+        Dim min As Decimal = (Convert.ToSingle(spec) - Convert.ToSingle(tolerance))
+        Dim max As Decimal = (Convert.ToSingle(spec) + Convert.ToSingle(tolerance))
+        checkspec = True
+
+        If Convert.ToSingle(val) < min Then
+            checkspec = False
+            GoTo skipp
+        ElseIf Convert.ToSingle(val) > max Then
+            checkspec = False
+            GoTo skipp
+        End If
+
+tanpa_spec:
+        checkspec = True
+
+skipp:
+        Return checkspec
+    End Function
+
+    Protected Sub tVal_TextChanged(sender As Object, e As EventArgs)
+        Dim eid As String = String.Empty
+        Dim evaltype As String = String.Empty
+        Dim query As String = String.Empty
+        Dim txt_val As TextBox = CType(sender, TextBox)
+        Dim gv As RepeaterItem = CType(txt_val.NamingContainer, RepeaterItem)
+        txt_val = CType(gv.FindControl("tVal"), TextBox)
+        eid = txt_val.Attributes("IDAssembly").ToString()
+        evaltype = txt_val.Attributes("ValType").ToString()
+
+        Select Case evaltype
+            Case 2
+                If Not IsNumeric(txt_val.Text) Then
+                    txt_val.Text = ""
+                    showAlert("warning", "Numeric Input Only !")
+                    Exit Sub
+                End If
+
+                query = "update tbl_AssemblyInput set AssemblyVal=" & evar(txt_val.Text, 1) & ",ModBy=" & eByName() & ",ModDate=GetDate() where IDAssemblyInput=" & eid
+            Case 3
+                query = "update tbl_AssemblyInput set AssemblyVal=" & evar(txt_val.Text, 1) & ",ModBy=" & eByName() & ",ModDate=GetDate() where IDAssemblyInput=" & eid
+        End Select
+
+        executeQuery(query)
     End Sub
 End Class

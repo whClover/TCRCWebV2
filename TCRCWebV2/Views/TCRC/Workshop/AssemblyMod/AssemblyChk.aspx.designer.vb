@@ -86,6 +86,15 @@ Partial Public Class AssemblyChk
     Protected WithEvents lsection As Global.System.Web.UI.HtmlControls.HtmlGenericControl
 
     '''<summary>
+    '''imgGp control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents imgGp As Global.System.Web.UI.HtmlControls.HtmlImage
+
+    '''<summary>
     '''bchk control.
     '''</summary>
     '''<remarks>
