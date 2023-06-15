@@ -16,13 +16,26 @@
               size:auto;
         }
 
-        table, tr, td, th, tbody, thead, tfoot {
+        tr, td, th, tbody, thead, tfoot {
             page-break-inside: avoid !important;
         }
 
         .cover {
             page-break-after: always !important;
         }
+
+        @media print {
+            body{
+              -webkit-print-color-adjust:exact !important;
+              print-color-adjust:exact !important;
+            }
+        }
+
+        #tApv {
+            page-break-inside: avoid !important;
+            page-break-after: always !important;
+        }
+
     </style>
 </head>
 <body>

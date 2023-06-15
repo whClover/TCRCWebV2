@@ -112,7 +112,7 @@ Public Class AssemblyMea
 
             If dataItem("ValType") = "2" Then
                 pFullSpec.Visible = True
-                pFullSpec.InnerText = dataItem("SpecFull")
+                pFullSpec.InnerText = CheckDBNull(dataItem("SpecFull"))
 
                 Select Case dataItem("UnitType")
                     Case "1"
@@ -125,7 +125,7 @@ Public Class AssemblyMea
                 pFullSpec.Visible = False
             End If
 
-            If dataItem("AssemblyValFull") = "-" Then
+            If CheckDBNull(dataItem("AssemblyValFull")) = "-" Then
                 pAsmBy.Visible = False
                 pAsmDate.Visible = False
             Else
@@ -141,7 +141,7 @@ Public Class AssemblyMea
                     bOK2.Visible = True
                     tVal.Visible = True
                     tVal.ReadOnly = True
-                    If dataItem("AssemblyValFull") <> "-" Then
+                    If CheckDBNull(dataItem("AssemblyValFull")) <> "-" Then
                         bOK2.Visible = False
                         tVal.Text = dataItem("AssemblyValFull")
                     End If
@@ -150,9 +150,9 @@ Public Class AssemblyMea
                     tVal.Visible = True
                     tVal.TextMode = TextBoxMode.Number
                     sUnit.Visible = True
-                    If dataItem("AssemblyValFull") <> "-" Then
-                        tVal.Text = dataItem("AssemblyVal")
-                        sUnit.InnerText = dataItem("Unit")
+                    If CheckDBNull(dataItem("AssemblyValFull")) <> "-" Then
+                        tVal.Text = CheckDBNull(dataItem("AssemblyVal"))
+                        sUnit.InnerText = CheckDBNull(dataItem("Unit"))
                     End If
 
                     If checkspec(Replace(CheckDBNull(dataItem("AssemblyVal")), "-", String.Empty), Replace(CheckDBNull(dataItem("Spec")), "-", String.Empty), Replace(CheckDBNull(dataItem("Tolerance")), "-", String.Empty)) = True Then
@@ -166,16 +166,16 @@ Public Class AssemblyMea
 
                     bOK2.Visible = False
                     tVal.Visible = True
-                    If dataItem("AssemblyValFull") <> "-" Then
+                    If CheckDBNull(dataItem("AssemblyValFull")) <> "-" Then
                         tVal.Text = dataItem("AssemblyVal")
                     End If
             End Select
 
-            Select Case dataItem("ApprovedBy")
+            Select Case CheckDBNull(dataItem("ApprovedBy"))
                 Case "-"
                     bLHApv.Visible = True
                 Case Else
-                    pLH.InnerText = dataItem("ApprovedBy")
+                    pLH.InnerText = CheckDBNull(dataItem("ApprovedBy"))
                     bLHApv.Visible = False
                     tVal.Enabled = False
             End Select
@@ -540,7 +540,7 @@ Public Class AssemblyMea
     Public Function checkspec(ByVal val As String, ByVal spec As String, ByVal tolerance As String) As Boolean
 
         If val = String.Empty Then
-            checkspec = False
+            checkspec = True
             GoTo skipp
         End If
 

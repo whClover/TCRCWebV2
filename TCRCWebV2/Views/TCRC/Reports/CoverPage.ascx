@@ -11,5 +11,5 @@
 </style>
 
 <div class="cover">
-    <img src="../../../images/cover assembly.jpg" alt="Cover Image">
+    <img src="../../../images/Assembly Cover 3.png" alt="Cover Image">
 </div>

@@ -1508,6 +1508,8 @@
     <Content Include="fonts\fa-regular-400.svg" />
     <Content Include="fonts\fa-solid-900.svg" />
     <Content Include="Global.asax" />
+    <Content Include="images\Assembly Cover 2.png" />
+    <Content Include="images\Assembly Cover 3.png" />
     <Content Include="images\auth-bg-dark.jpg" />
     <Content Include="images\auth-bg.jpg" />
     <Content Include="images\brands\behance.png" />

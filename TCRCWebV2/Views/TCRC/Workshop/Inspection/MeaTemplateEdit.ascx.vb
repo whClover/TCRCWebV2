@@ -20,7 +20,7 @@ Public Class MeaTemplateEdit
 
     Sub load_dropdown()
         BindDataDropDown(ddComp, "select MaintIDDesc,MaintID from tbl_MaintBase where TCRP=1", "MaintIDDesc", "MaintID")
-        BindDataDropDown(ddUnitDesc, "select UnitDesc from tbl_UnitDesc", "UnitDesc", "UnitDesc")
+        BindDataDropDown(ddUnitDesc, "select UnitDesc from tbl_UnitDesc Order By UnitDesc", "UnitDesc", "UnitDesc")
     End Sub
 
     Protected Sub bSaveTemplate_Click(sender As Object, e As EventArgs)

@@ -64,5 +64,8 @@
     'ReportsPath
     Public Shared RptAssemblyMea As String = urlPrint & "AssemblyMea.aspx"
 
+    'temp
+    Public Shared urlTemp As String = "~/temp/"
+
     'END
 End Class
