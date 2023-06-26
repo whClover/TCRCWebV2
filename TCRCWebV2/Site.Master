@@ -56,6 +56,8 @@
         }, 5000); // Check every 5 seconds
     </script>
 
+
+    <script src="/assets/libs/sweetalert2/sweetalert2.min.js"></script>
 </head>
 <body data-layout="horizontal" data-topbar="dark">
     <form runat="server">

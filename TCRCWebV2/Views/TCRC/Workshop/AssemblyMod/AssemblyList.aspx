@@ -1,16 +1,19 @@
 ﻿<%@ Page Title="Assembly List" MasterPageFile="~/Site.Master" Language="vb" AutoEventWireup="false" CodeBehind="AssemblyList.aspx.vb" Inherits="TCRCWebV2.AssemblyList" %>
 <%@ Register Src="~/Views/Shared/MenuTCRC.ascx" TagPrefix="uc1" TagName="MenuTCRC" %>
+<%@ Register Src="~/Views/TCRC/Workshop/AssemblyMod/AssemblyAssign.ascx" TagPrefix="uc1" TagName="AssemblyAssign" %>
+
 
 <asp:Content runat="server" ContentPlaceHolderID="MenuContent">
     <uc1:MenuTCRC runat="server" ID="MenuTCRC" />
 </asp:Content>
 
 <asp:Content runat="server" ContentPlaceHolderID="MainContent">
+    <uc1:AssemblyAssign runat="server" id="AssemblyAssign" />
     <div class="row">
         <div class="col-md-3">
             <div class="card">
                 <div class="card-header">
-                    <h4 class="card-title">Assembly Dashboard (On Develop)</h4>
+                    <h4 class="card-title">Assembly Supv Dashboard (On Develop)</h4>
                 </div>
                 <div class="card-body">
                     <ul class="list-unstyled categories-list">
@@ -122,14 +125,17 @@
                                             <small class="card-title-desc" runat="server" id="hJobStatus">Job Status:</small>
                                         </div>
                                         <div>
-                                            <asp:LinkButton runat="server" ID="bUpload" CssClass="btn btn-sm btn-soft-primary" OnClick="bUpload_Click">
+                                            <asp:LinkButton OnClientClick="return confirm('Are you sure?');" runat="server" ID="bUpload" CssClass="btn btn-sm btn-soft-primary" CommandArgument='<%# Eval("WONo") %>' OnClick="bUpload_Click">
                                                 <i class="fa fa-upload"></i> Upload
                                             </asp:LinkButton>
-                                            <asp:LinkButton runat="server" ID="LinkButton3" CssClass="btn btn-sm btn-soft-primary" CommandArgument='<%# Eval("WONo") %>' OnClick="bprint_Click">
+                                            <asp:LinkButton OnClientClick="return confirm('Are you sure?');" runat="server" ID="bprint" CssClass="btn btn-sm btn-soft-primary" CommandArgument='<%# Eval("WONo") %>' OnClick="bprint_Click">
                                                 <i class="fa fa-print"></i> Print
                                             </asp:LinkButton>
-                                            <asp:LinkButton runat="server" ID="LinkButton4" CssClass="btn btn-sm btn-soft-primary">
+                                            <asp:LinkButton OnClientClick="return confirm('Are you sure?');" runat="server" ID="bsync" CssClass="btn btn-sm btn-soft-primary" CommandArgument='<%# Eval("WONo") %>' OnClick="bsync_Click">
                                                 <i class="fas fa-history"></i> Sync Progress
+                                            </asp:LinkButton>
+                                            <asp:LinkButton runat="server" ID="bassign" CssClass="btn btn-sm btn-soft-primary">
+                                                <i class="fas fa-edit"></i> Assign Template
                                             </asp:LinkButton>
                                         </div>
                                     </div>

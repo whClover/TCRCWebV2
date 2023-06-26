@@ -67,7 +67,13 @@
             <asp:GridView runat="server" ID="gv_table" AutoGenerateColumns="false" CssClass="table table-bordered w-100" OnRowDataBound="gv_table_RowDataBound">
                 <Columns>
                     <asp:BoundField HeaderStyle-CssClass="text-center bg-warning" HeaderText="No" DataField="Sequence" />
-                    <asp:BoundField HeaderStyle-CssClass="text-center bg-warning" HeaderText="Activity" DataField="AssemblyDesc" HtmlEncode="false" />
+                    <%--<asp:BoundField HeaderStyle-CssClass="text-center bg-warning" HeaderText="Activity" DataField="AssemblyDesc" HtmlEncode="false" />--%>
+                    <asp:TemplateField HeaderStyle-CssClass="text-center bg-warning" HeaderText="Activity">
+                        <ItemTemplate>
+                            <asp:Image runat="server" id="imgdet" src='<%# Eval("PicturePath").ToString() %>' class="img-fluid" /> <br />
+                            <span class="form-label" runat="server" id="pActivity"><%# Eval("AssemblyDesc").ToString() %></span>
+                        </ItemTemplate>
+                    </asp:TemplateField>
                     <asp:BoundField HeaderStyle-CssClass="text-center bg-warning" HeaderText="Measurement Type" DataField="UnitTypeDesc" />
                     <asp:BoundField HeaderStyle-CssClass="text-center bg-warning" HeaderText="Technical Spesification" DataField="SpecFull" />
                     <asp:BoundField HeaderStyle-CssClass="text-center bg-warning" HeaderText="Actual Measurement" DataField="AssemblyVal" />
@@ -102,4 +108,7 @@
             </div>
         </FooterTemplate>
     </asp:Repeater>
+    <div class="last-page">
+      <!-- konten terakhir dokumen -->
+    </div>
 </asp:Content>

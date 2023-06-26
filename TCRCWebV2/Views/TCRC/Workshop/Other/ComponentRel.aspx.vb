@@ -23,11 +23,9 @@ Public Class ComponentRel
         Dim dt As New DataTable
         Dim query As String = "select * from v_TCRCReleaseForm" & tempfilter
         dt = GetDataTable(query)
-        If dt.Rows.Count > 0 Then
-            lcount.Text = "Total Rows: " & dt.Rows.Count
-            gv_comprel.DataSource = dt
-            gv_comprel.DataBind()
-        End If
+        lcount.Text = "Total Rows: " & dt.Rows.Count
+        gv_comprel.DataSource = dt
+        gv_comprel.DataBind()
     End Sub
 
     Sub filtering()
@@ -45,8 +43,19 @@ Public Class ComponentRel
         End Select
 
         Select Case ddFI.SelectedValue
-            Case "-"
-                tempfilter = " and JP='-'" & tempfilter
+            Case "Empty"
+                tempfilter = " and JP='Empty'" & tempfilter
+            Case "Done"
+                tempfilter = " and JP='Done'" & tempfilter
+            Case Else
+                tempfilter = tempfilter
+        End Select
+
+        Select Case ddPercComp.SelectedValue
+            Case "1"
+                tempfilter = " and PercComp<>'100%'" & tempfilter
+            Case "2"
+                tempfilter = " and PercComp='100%'" & tempfilter
             Case Else
                 tempfilter = tempfilter
         End Select
@@ -75,6 +84,8 @@ Public Class ComponentRel
     End Sub
 
     Protected Sub bEdit_Click(sender As Object, e As EventArgs)
+
+
         Dim ewo As String = CType(sender, LinkButton).CommandArgument
         'check already add or not ?
         Dim query As String = "exec dbo.TCRCSubmitCompRelease " & evar(ewo, 1) & ",'check',null,null,null,
@@ -173,9 +184,12 @@ Public Class ComponentRel
         dt = GetDataTable(qry_chk)
         If dt.Rows.Count > 0 Then
             If CheckDBNull(dt.Rows(0)("JobID")) = String.Empty Then
-                'showAlert("warning", "Please submit data to form, before send to JP")
-                lalert.Visible = True
-                lalert.InnerText = "Please submit data to form, before send to JP"
+                showAlertV2("warning", "Please submit data to form, before send to JP")
+                Exit Sub
+            End If
+
+            If CheckDBNull(dt.Rows(0)("PercComp") <> "100%") Then
+                showAlertV2("warning", "Please Complete Component Release Form")
                 Exit Sub
             End If
 
@@ -196,10 +210,8 @@ Public Class ComponentRel
             executeQuery(qry_sub)
 
         End If
-        showAlert("success", "Component Release Form Has Been Uploaded !")
+        showAlertV2("success", "Component Release Form Has Been Uploaded !")
         generatedata()
-        'print
-        'Response.Redirect(urlComponentReleaseForm & "?wo=" & ewo)
     End Sub
 
     Sub showAlert(ByVal type As String, ByVal msg As String)
@@ -207,4 +219,11 @@ Public Class ComponentRel
         script = "toastr[""" & type & """](""" & msg & """);"
         ScriptManager.RegisterStartupScript(Me, Me.GetType(), "toastrMessage", script, True)
     End Sub
+
+    Sub showAlertV2(ByVal type As String, ByVal msg As String)
+        Dim script As String
+        script = "Swal.fire('','" & msg & "','" & type & "')"
+        ScriptManager.RegisterStartupScript(Me, Me.GetType(), "Swal", script, True)
+    End Sub
+
 End Class

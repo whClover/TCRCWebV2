@@ -68,6 +68,15 @@ Partial Public Class ComponentRel
     Protected WithEvents ddFI As Global.System.Web.UI.WebControls.DropDownList
 
     '''<summary>
+    '''ddPercComp control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents ddPercComp As Global.System.Web.UI.WebControls.DropDownList
+
+    '''<summary>
     '''ddYear control.
     '''</summary>
     '''<remarks>

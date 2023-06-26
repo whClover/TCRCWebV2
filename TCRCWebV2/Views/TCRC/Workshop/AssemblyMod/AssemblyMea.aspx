@@ -109,8 +109,8 @@
                                             <div class="table-responsive">
                                                 <asp:Repeater runat="server" ID="rpt_mea2" OnItemDataBound="rpt_mea2_ItemDataBound">
                                                     <HeaderTemplate>
-                                                        <table class="table table-hover mb-0 align-middle">
-                                                            <thead class="bg-secondary text-white">
+                                                        <table class="table table-hover mb-0 align-middle table-bordered">
+                                                            <thead class="bg-warning fw-bold">
                                                                 <tr>
                                                                     <th>No</th>
                                                                     <th colspan="2">Activity</th>
@@ -123,23 +123,24 @@
                                                             <tbody>
                                                     </HeaderTemplate>
                                                     <ItemTemplate>
-                                                        <tr>
+                                                        <tr runat="server" id="tRow">
                                                             <td>
                                                                 <span class="form-label" runat="server" id="pSeq"></span>
                                                             </td>
-                                                            <td>
+                                                            <td class="text-center">
                                                                 <div class="flex-shrink-0 me-3">
                                                                     <div class="avatar-sm">
-                                                                        <div class="avatar-title rounded-circle font-size-12">
-                                                                            <i class="fas fa-user"></i>
+                                                                        <div class="avatar-title rounded-circle font-size-12" runat="server" id="cirB">
+                                                                            <i class="fas fa-user" runat="server" id="iconB"></i>
                                                                         </div>
                                                                     </div>
                                                                 </div>
                                                             </td>
                                                             <td style="width:50%">
+                                                                <asp:Image runat="server" id="imgdet" src='<%# Eval("PicturePath").ToString() %>' class="img-fluid" /> <br />
                                                                 <span class="form-label" runat="server" id="pActivity"></span>
                                                             </td>
-                                                            <td class="text-center">
+                                                            <td class="text-center">                                                              
                                                                 <span class="form-label text-center" id="pMeasureType" runat="server"></span>
                                                                 <asp:LinkButton runat="server" ID="bchange" CssClass="btn btn-sm" OnClick="bchange_Click" CommandArgument='<%# Eval("IDAssemblyInput") & "," & Eval("UnitType") %>'>
                                                                     <i class="fa fa-sync text-muted"></i>

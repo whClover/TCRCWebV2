@@ -12,6 +12,12 @@ Public Class AssemblyList
 
     End Sub
 
+    Sub showAlertV2(ByVal type As String, ByVal msg As String)
+        Dim script As String
+        script = "Swal.fire('','" & msg & "','" & type & "')"
+        ScriptManager.RegisterStartupScript(Me, Me.GetType(), "Swal", script, True)
+    End Sub
+
     Sub filtering()
         If tWONo.Text <> String.Empty Then tempfilter = " and WONo like " & evar(tWONo.Text, 11) & tempfilter
         If ddWs.SelectedValue <> String.Empty Then tempfilter = " and ComppGroup=" & evar(ddWs.SelectedValue, 1) & tempfilter
@@ -46,10 +52,8 @@ Public Class AssemblyList
         Dim dt As New DataTable
         Dim query As String = "select * from v_AssemblyGroupRev4" & tempfilter
         dt = GetDataTable(query)
-        If dt.Rows.Count > 0 Then
-            rpt_Assembly.DataSource = dt
-            rpt_Assembly.DataBind()
-        End If
+        rpt_Assembly.DataSource = dt
+        rpt_Assembly.DataBind()
     End Sub
 
     Protected Sub bSearch_Click(sender As Object, e As EventArgs)
@@ -70,7 +74,38 @@ Public Class AssemblyList
     End Sub
 
     Protected Sub bupload_Click(sender As Object, e As EventArgs)
-        'showAlert("warning", "This Function Will be Active soon !")
+        Dim mea As String
+        Dim ewo As String = CType(sender, LinkButton).CommandArgument
+        Dim query As String = "select * from v_AssemblyGroupRev4 where wono=" & evar(ewo, 1)
+        Dim namafile As String
+        Dim dt As New DataTable
+        dt = GetDataTable(query)
+        If dt.Rows.Count > 0 Then
+            mea = dt.Rows(0)("AssemblyStatus").ToString()
+            Select Case mea
+                Case "Complete"
+                    Dim fs = CreateObject("Scripting.FileSystemObject")
+                    Dim savepath As String = JobPck + ewo + "\14\"
+                    If Not System.IO.Directory.Exists(savePath) Then
+                        System.IO.Directory.CreateDirectory(savePath)
+                    End If
+                    namafile = JobPck + ewo + "\14\" + ewo + "_14_CPQC.pdf"
+                    Dim p As Process = New Process()
+                    p.StartInfo.FileName = "C:\webroot\TCRC Web\Rotativa\wkhtmltopdf.exe"
+                    'p.StartInfo.FileName = "C:\Rotativa\wkhtmltopdf.exe" 'local indra
+                    p.StartInfo.Arguments = "http://bpnaps07:9191/Views/TCRC/Reports/AssemblyMea.aspx?WO=" & ewo & " " & namafile
+                    p.Start()
+                    p.WaitForExit()
+
+                    Dim query_upload As String = "exec dbo.SubmitJobAttachment '" + ewo + "',14,'" + namafile + "'," + eByName() + ""
+                    executeQuery(query_upload)
+                    showAlertV2("success", "Checksheet has Been Uploaded")
+                Case Else
+                    showAlertV2("warning", "Please Complete Digital Assembly Worksheet")
+                    Exit Sub
+            End Select
+
+        End If
     End Sub
 
     Protected Sub bprint_Click(sender As Object, e As EventArgs)
@@ -138,6 +173,11 @@ Public Class AssemblyList
             Dim hAssemblyStat As HtmlGenericControl = CType(e.Item.FindControl("hAssemblyStat"), HtmlGenericControl)
             Dim hJobStatus As HtmlGenericControl = CType(e.Item.FindControl("hJobStatus"), HtmlGenericControl)
 
+            Dim bupload As LinkButton = CType(e.Item.FindControl("bupload"), LinkButton)
+            Dim bprint As LinkButton = CType(e.Item.FindControl("bprint"), LinkButton)
+            Dim bsync As LinkButton = CType(e.Item.FindControl("bsync"), LinkButton)
+            Dim bassign As LinkButton = CType(e.Item.FindControl("bassign"), LinkButton)
+
             hAssemblyStat.InnerHtml = "<strong>Assembly Status: </strong>" & dataItem("AssemblyStatus").ToString()
             hJobStatus.InnerHtml = "<strong>Job Status: </strong>" & dataItem("JobStatus").ToString()
             hWONo.InnerHtml = "WO." & dataItem("WONo").ToString()
@@ -172,6 +212,15 @@ Public Class AssemblyList
 
             If dataItem("AssignTemplate") = "0" Then
                 bProgress.Visible = False
+            End If
+
+
+            If CheckDBNull(dataItem("Mea_Perc")).ToString() = "-" Then
+                bupload.Visible = False
+                bprint.Visible = False
+                bsync.Visible = False
+            Else
+                bassign.Visible = False
             End If
         End If
     End Sub
@@ -231,6 +280,14 @@ Public Class AssemblyList
     End Sub
 
     Protected Sub bDyno_Click(sender As Object, e As EventArgs)
-        showAlert("info", "Coming Soon")
+        showAlertV2("info", "Coming Soon")
+    End Sub
+
+    Protected Sub bsync_Click(sender As Object, e As EventArgs)
+        Dim ewo As String = CType(sender, LinkButton).CommandArgument
+        Dim query As String = "exec dbo.AssemblySyncProggress " & evar(ewo, 1)
+        executeQuery(query)
+        showAlertV2("success", "WO." & ewo & " has been sync successfully")
+        load_Data()
     End Sub
 End Class

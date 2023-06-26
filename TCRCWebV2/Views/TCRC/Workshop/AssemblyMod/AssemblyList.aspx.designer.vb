@@ -23,6 +23,15 @@ Partial Public Class AssemblyList
     Protected WithEvents MenuTCRC As Global.TCRCWebV2.MenuTCRC1
 
     '''<summary>
+    '''AssemblyAssign control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents AssemblyAssign As Global.TCRCWebV2.AssemblyAssign
+
+    '''<summary>
     '''tWONo control.
     '''</summary>
     '''<remarks>

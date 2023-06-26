@@ -77,7 +77,7 @@ Public Class AssemblyMea
 
         Dim dt As New DataTable
         Dim ecol As String = "IDAssemblyInput,[Sequence],Replace(AssemblyDesc,CHAR(13)+CHAR(10),'<br />') as AssemblyDesc,case when UnitType=1 then 'Metric' else 'US' end as UnitTypeDesc,ValType,Unit,IDAssemblyInput,UnitType,Spec,Tolerance,
-                            isnull((isnull(convert(varchar(10),Spec),'') + ' ± ' + isnull(convert(varchar(10),Tolerance),'') + ' ' + convert(varchar(10), Unit)),'-') as SpecFull,
+                            isnull((isnull(convert(varchar(10),Spec),'') + ' ± ' + isnull(convert(varchar(10),Tolerance),'') + ' ' + convert(varchar(10), Unit)),'-') as SpecFull,'../../../../' + dbo.RemapPicW(PicturePath) as PicturePath,
                             case when AssemblyVal is null then '-' else isnull((AssemblyVal + ' ' + Unit),AssemblyVal) end as AssemblyValFull,AssemblyVal,isnull(ModBy,'-') as ModBy,isnull(convert(varchar, ModDate,103),'-') as ModDate,isnull(ApprovedBy,'-') as ApprovedBy,InstructionType"
         Dim query As String = "select " & ecol & " from v_AssemblyDetailInputRev2 where wono=" & evar(ewo, 1) & " and AssemblySection=" & evar(esection, 1) & "
                                 order by AssemblySection, dbo.SequenceNum(Sequence),dbo.SequenceAlpha(Sequence),dbo.getsortval(Sequence,30,10)"
@@ -106,6 +106,11 @@ Public Class AssemblyMea
             Dim bLHApv As LinkButton = CType(e.Item.FindControl("bLHApv"), LinkButton)
             Dim bchange As LinkButton = CType(e.Item.FindControl("bchange"), LinkButton)
             Dim lCheckSpec As HtmlGenericControl = CType(e.Item.FindControl("lCheckSpec"), HtmlGenericControl)
+            Dim imgdet As Image = CType(e.Item.FindControl("imgdet"), Image)
+
+            Dim cirB As HtmlGenericControl = CType(e.Item.FindControl("cirB"), HtmlGenericControl)
+            Dim iconB As HtmlGenericControl = CType(e.Item.FindControl("iconB"), HtmlGenericControl)
+            Dim tRow As HtmlTableRow = CType(e.Item.FindControl("tRow"), HtmlTableRow)
 
             pSeq.InnerText = "#" & dataItem("Sequence")
             pActivity.InnerHtml = dataItem("AssemblyDesc")
@@ -180,8 +185,20 @@ Public Class AssemblyMea
                     tVal.Enabled = False
             End Select
 
+            If CheckDBNull(dataItem("PicturePath")) <> "-" Then
+                'imgdet.ImageUrl = dataItem("PicturePath").ToString()
+            Else
+                imgdet.Visible = False
+            End If
 
-
+            If CheckDBNull(dataItem("InstructionType")) = "Info" Then
+                cirB.Attributes("class") = "avatar-title rounded-circle font-size-12"
+                iconB.Attributes("class") = "fas fa-info"
+            ElseIf CheckDBNull(dataItem("InstructionType")) = "Stop" Then
+                cirB.Attributes("class") = "avatar-title rounded-circle font-size-12 bg-danger"
+                iconB.Attributes("class") = "fas fa-exclamation"
+                tRow.Attributes("class") = "bg-soft-danger"
+            End If
         End If
     End Sub
 
@@ -219,7 +236,7 @@ Public Class AssemblyMea
 
         Dim dt As New DataTable
         Dim ecol As String = "IDAssemblyInput,[Sequence],Replace(AssemblyDesc,CHAR(13)+CHAR(10),'<br />') as AssemblyDesc,case when UnitType=1 then 'Metric' else 'US' end as UnitTypeDesc,ValType,Unit,IDAssemblyInput,UnitType,
-                            isnull((isnull(convert(varchar(10),Spec),'') + ' ± ' + isnull(convert(varchar(10),Tolerance),'') + ' ' + convert(varchar(10), Unit)),'-') as SpecFull,
+                            isnull((isnull(convert(varchar(10),Spec),'') + ' ± ' + isnull(convert(varchar(10),Tolerance),'') + ' ' + convert(varchar(10), Unit)),'-') as SpecFull,'../../../../' + dbo.RemapPicW(PicturePath) as PicturePath,
                             case when AssemblyVal is null then '-' else isnull((AssemblyVal + ' ' + Unit),AssemblyVal) end as AssemblyValFull,AssemblyVal,isnull(ModBy,'-') as ModBy,isnull(convert(varchar, ModDate,103),'-') as ModDate,isnull(ApprovedBy,'-') as ApprovedBy,InstructionType"
         Dim query As String = "select " & ecol & " from v_AssemblyDetailInputRev2 where IDAssemblyInput=" & eid
         dt = GetDataTable(query)
@@ -307,7 +324,7 @@ Public Class AssemblyMea
         'load section data
         Dim dt2 As New DataTable
         Dim ecol As String = "IDAssemblyInput,[Sequence],Replace(AssemblyDesc,CHAR(13)+CHAR(10),'<br />') as AssemblyDesc,case when UnitType=1 then 'Metric' else 'US' end as UnitTypeDesc,ValType,Unit,IDAssemblyInput,UnitType,Spec,Tolerance,
-                            isnull((isnull(convert(varchar(10),Spec),'') + ' ± ' + isnull(convert(varchar(10),Tolerance),'') + ' ' + convert(varchar(10), Unit)),'-') as SpecFull,
+                            isnull((isnull(convert(varchar(10),Spec),'') + ' ± ' + isnull(convert(varchar(10),Tolerance),'') + ' ' + convert(varchar(10), Unit)),'-') as SpecFull,'../../../../' + dbo.RemapPicW(PicturePath) as PicturePath,
                             case when AssemblyVal is null then '-' else isnull((AssemblyVal + ' ' + Unit),AssemblyVal) end as AssemblyValFull,AssemblyVal,isnull(ModBy,'-') as ModBy,isnull(convert(varchar, ModDate,103),'-') as ModDate,isnull(ApprovedBy,'-') as ApprovedBy,InstructionType"
         Dim query2 As String = "select " & ecol & " from v_AssemblyDetailInputRev2 where wono=" & evar(ewo, 1) & " and AssemblySection=" & evar(esection, 1) & "
                                 order by AssemblySection, dbo.SequenceNum(Sequence),dbo.SequenceAlpha(Sequence),dbo.getsortval(Sequence,30,10)"
@@ -356,7 +373,8 @@ Public Class AssemblyMea
         Dim eid As String = CType(sender, LinkButton).CommandArgument
         Dim query As String = "update tbl_AssemblyInput set ApprovedBy=" & eByName() & " where IDAssemblyInput=" & eid
         executeQuery(query)
-        showAlert("success", "ID: " & eid & " has been approved")
+        'showAlert("success", "ID: " & eid & " has been approved")
+        showAlertV2("success", "ID: " & eid & " has been approved")
     End Sub
 
     Protected Sub bgallery_Click(sender As Object, e As EventArgs)
@@ -384,7 +402,8 @@ Public Class AssemblyMea
             If dt2.Rows.Count > 0 Then
                 eunitid = dt2.Rows(0)("unitDescID")
             Else
-                showAlert("warning", "Module SWP/WI Not Found !, Please Contact Team QC")
+                'showAlert("warning", "Module SWP/WI Not Found !, Please Contact Team QC")
+                showAlertV2("warning", "Module SWP/WI Not Found !, Please Contact Team QC")
                 Exit Sub
             End If
 
@@ -395,6 +414,7 @@ Public Class AssemblyMea
             If dt3.Rows.Count > 0 Then
                 elinkfile = dt3.Rows(0)("LinkFile")
             Else
+                showAlertV2("warning", "Module SWP/WI Not Found !, Please Contact Team QC")
                 Exit Sub
             End If
             Dim filePath As String = elinkfile
@@ -419,7 +439,7 @@ Public Class AssemblyMea
         Dim dt As New DataTable
         dt = GetDataTable(query)
         If Not dt.Rows.Count > 0 Then
-            showAlert("warning", "Please Complete Assembly Checksheet Before Printing Process !")
+            showAlertV2("warning", "Please Complete Assembly Checksheet Before Printing Process !")
             Exit Sub
         End If
 
@@ -487,7 +507,8 @@ Public Class AssemblyMea
     Protected Sub ddSupv_SelectedIndexChanged(sender As Object, e As EventArgs)
 
         If CheckGroup(44) = False Then
-            showAlert("warning", "You dont have access supervisor approval")
+            'showAlert("warning", "You dont have access supervisor approval")
+            showAlertV2("warning", "You dont have access supervisor approval")
             Exit Sub
         End If
 
@@ -503,7 +524,8 @@ Public Class AssemblyMea
     Protected Sub bApv_Click(sender As Object, e As EventArgs)
 
         If CheckGroup(43) = False Then
-            showAlert("warning", "You dont have access supervisor approval")
+            'showAlert("warning", "You dont have access supervisor approval")
+            showAlertV2("warning", "You dont have access supervisor approval")
             Exit Sub
         End If
 
@@ -539,7 +561,7 @@ Public Class AssemblyMea
 
     Public Function checkspec(ByVal val As String, ByVal spec As String, ByVal tolerance As String) As Boolean
 
-        If val = String.Empty Then
+        If val = String.Empty Or val = "n/a" Then
             checkspec = True
             GoTo skipp
         End If
@@ -589,7 +611,8 @@ skipp:
             Case 2
                 If Not IsNumeric(txt_val.Text) Then
                     txt_val.Text = ""
-                    showAlert("warning", "Numeric Input Only !")
+                    'showAlert("warning", "Numeric Input Only !")
+                    showAlertV2("warning", "Numeric Input Only !")
                     Exit Sub
                 End If
 
@@ -599,5 +622,11 @@ skipp:
         End Select
 
         executeQuery(query)
+    End Sub
+
+    Sub showAlertV2(ByVal type As String, ByVal msg As String)
+        Dim script As String
+        script = "Swal.fire('','" & msg & "','" & type & "')"
+        ScriptManager.RegisterStartupScript(Me, Me.GetType(), "Swal", script, True)
     End Sub
 End Class

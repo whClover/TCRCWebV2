@@ -5,8 +5,8 @@
     aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
-            <div class="modal-header bg-soft-purple">
-                <h5 class="modal-title text-purple" id="myLargeModalLabel">Release Forms</h5>
+            <div class="modal-header bg-soft-primary">
+                <h5 class="modal-title text-primary" id="myLargeModalLabel">Release Forms</h5>
                 <button type="button" class="btn-close" data-dismiss="modal"
                     aria-label="Close">
                 </button>
@@ -60,9 +60,9 @@
                 <table class="table table-bordered gridview">
                     <thead>
                         <tr>
-                            <th class="text-center text-purple bg-soft-purple" style="width:5%">No</th>
-                            <th class="text-center text-purple bg-soft-purple">Descriptions</th>
-                            <th class="text-center text-purple bg-soft-purple">Checklist</th>
+                            <th class="text-center text-primary bg-soft-primary" style="width:5%">No</th>
+                            <th class="text-center text-primary bg-soft-primary">Descriptions</th>
+                            <th class="text-center text-primary bg-soft-primary">Checklist</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -95,20 +95,20 @@
                             <td>● Check for unsafe condition</td>
                             <td class="text-center"><asp:CheckBox ID="chkVisInsp6" runat="server" /></td>
                         </tr>
-                        <tr class="bg-soft-purple">
+                        <tr class="bg-soft-primary">
                             <td rowspan="4" class="text-center">2</td>
                             <td>Ensure the following report has been uploaded to the database</td>
                             <td></td>
                         </tr>
-                        <tr class="bg-soft-purple">
+                        <tr class="bg-soft-primary">
                             <td>● Assembly check sheet</td>
                             <td class="text-center"><asp:CheckBox ID="chkAsmChk" runat="server" /></td>
                         </tr>
-                        <tr class="bg-soft-purple">
+                        <tr class="bg-soft-primary">
                             <td>● Test performance Component Report</td>
                             <td class="text-center"><asp:CheckBox ID="chkTstPerform" runat="server" /></td>
                         </tr>
-                        <tr class="bg-soft-purple">
+                        <tr class="bg-soft-primary">
                             <td>● Photos of the component on different position</td>
                             <td class="text-center"><asp:CheckBox ID="chkPhotoComp" runat="server" /></td>
                         </tr>
@@ -117,7 +117,7 @@
                             <td>Antirust protection - Ensure utilising VCI (Viscous Corrosion Inhibitor) oil misting on component</td>
                             <td class="text-center"><asp:CheckBox ID="chkAntiRust" runat="server" /></td>
                         </tr>
-                        <tr class="bg-soft-purple">
+                        <tr class="bg-soft-primary">
                             <td class="text-center">4</td>
                             <td>Paint Quality - No stretch found and paint fully covered the area to be painted</td>
                             <td class="text-center"><asp:CheckBox ID="chkPaintQuality" runat="server" /></td>
@@ -127,7 +127,7 @@
                             <td>Wrapping / Sealing - Properly wrap or seal</td>
                             <td class="text-center"><asp:CheckBox ID="chkWrapping" runat="server" /></td>
                         </tr>
-                        <tr class="bg-soft-purple">
+                        <tr class="bg-soft-primary">
                             <td class="text-center">6</td>
                             <td>Ensure seal installation attached on component</td>
                             <td class="text-center"><asp:CheckBox ID="chkEnSealIns" runat="server" /></td>
@@ -138,14 +138,14 @@
                             <td class="text-center"><asp:CheckBox ID="chkInstChk" runat="server" /></td>
                         </tr>
                         <tr>
-                            <td colspan="3" class="bg-soft-purple">Remarks / Finding</td>
+                            <td colspan="3" class="bg-soft-primary">Remarks / Finding</td>
                         </tr>
                         <tr>
-                            <td colspan="3" class="bg-soft-purple">
+                            <td colspan="3" class="bg-soft-primary">
                                 <asp:textbox TextMode="MultiLine" runat="server" CssClass="form-control" style="height:150px;" ID="tRemarks"></asp:textbox>
                             </td>
                         </tr>
-                        <tr class="bg-soft-purple">
+                        <tr class="bg-soft-primary">
                             <td colspan="3">
                                 <div class="row">
                                     <div class="col-md-2"></div>
@@ -159,15 +159,15 @@
                                 </div>
                             </td>
                         </tr>
-                        <tr class="bg-soft-purple">
+                        <tr class="bg-soft-primary">
                             <td colspan="3">Noted: If rejected, please notify for further instruction</td>
                         </tr>
-                        <tr class="bg-soft-purple">
+                        <tr class="bg-soft-primary">
                             <td colspan="3">
                                 <asp:Label runat="server" ID="InspBy" Text="Inspect By:"></asp:Label>
                             </td>
                         </tr>
-                        <tr class="bg-soft-purple">
+                        <tr class="bg-soft-primary">
                             <td colspan="3">
                                 <asp:Label runat="server" ID="InspDate" Text="Date:"></asp:Label>
                             </td>
@@ -176,8 +176,8 @@
                 </table>
             </div>
             <div class="modal-footer">
-                <asp:Button ID="bSave" runat="server" Text="Save" CssClass="btn btn-soft-purple btn-sm" OnClick="bSave_Click"/>
-                <asp:Button ID="Button1" runat="server" Text="Close" CssClass="btn btn-soft-purple btn-sm" data-dismiss="modal" />
+                <asp:Button ID="bSave" runat="server" Text="Save" CssClass="btn btn-soft-primary btn-sm" OnClick="bSave_Click"/>
+                <asp:Button ID="Button1" runat="server" Text="Close" CssClass="btn btn-soft-primary btn-sm" data-dismiss="modal" />
             </div>
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->

@@ -47,7 +47,7 @@
                             <div class="table-responsive">
                                 <asp:GridView ID="gv_chk" runat="server" CssClass="table table-hover table-nowrap mb-0 align-middle table-check" AutoGenerateColumns="false">
                                     <Columns>
-                                        <asp:TemplateField>
+                                        <asp:TemplateField HeaderStyle-CssClass="bg-warning">
                                             <HeaderTemplate>
                                                 <asp:CheckBox ID="CheckBoxHeader" runat="server" onclick="CheckAll(this);" />
                                             </HeaderTemplate>
@@ -55,15 +55,15 @@
                                                 <asp:CheckBox ID="CheckBox1" runat="server" />
                                             </ItemTemplate>
                                         </asp:TemplateField>
-                                        <asp:BoundField HeaderText="ID" Visible="false" DataField="IDInsDetail" />
-                                        <asp:BoundField HeaderText="PN" DataField="PartNumber" />
-                                        <asp:BoundField HeaderText="Pic No" DataField="NoPict" />
-                                        <asp:BoundField HeaderText="Part Desc" DataField="PartDesc" />
-                                        <asp:BoundField HeaderText="Qty" DataField="Qty" />
-                                        <asp:BoundField HeaderText="Recommendation" DataField="Recommendation" />
-                                        <asp:BoundField HeaderText="Remark" DataField="PartRemark" />
-                                        <asp:BoundField HeaderText="AssemblyBy" DataField="AssemblyBy" />
-                                        <asp:BoundField HeaderText="AssemblyDate" DataField="AssemblyDate" />
+                                        <asp:BoundField HeaderText="ID" HeaderStyle-CssClass="bg-warning" Visible="false" DataField="IDInsDetail" />
+                                        <asp:BoundField HeaderText="PN" HeaderStyle-CssClass="bg-warning" DataField="PartNumber" />
+                                        <asp:BoundField HeaderText="Pic No" HeaderStyle-CssClass="bg-warning" DataField="NoPict" />
+                                        <asp:BoundField HeaderText="Part Desc" HeaderStyle-CssClass="bg-warning" DataField="PartDesc" />
+                                        <asp:BoundField HeaderText="Qty" HeaderStyle-CssClass="bg-warning" DataField="Qty" />
+                                        <asp:BoundField HeaderText="Recommendation" HeaderStyle-CssClass="bg-warning" DataField="Recommendation" />
+                                        <asp:BoundField HeaderText="Remark" HeaderStyle-CssClass="bg-warning" DataField="PartRemark" />
+                                        <asp:BoundField HeaderText="AssemblyBy" HeaderStyle-CssClass="bg-warning" DataField="AssemblyBy" />
+                                        <asp:BoundField HeaderText="AssemblyDate" HeaderStyle-CssClass="bg-warning" DataField="AssemblyDate" />
                                     </Columns>
                                 </asp:GridView>
                                 <script type="text/javascript">

@@ -29,11 +29,20 @@
               -webkit-print-color-adjust:exact !important;
               print-color-adjust:exact !important;
             }
+
+            @page :last {
+                margin: 0;
+            }
         }
 
         #tApv {
             page-break-inside: avoid !important;
             page-break-after: always !important;
+        }
+
+        .last-page {
+            page-break-inside: avoid !important;
+            break-after: avoid-page;
         }
 
     </style>
