@@ -73,6 +73,7 @@ Public Class Utility
         Dim dt As New DataTable
         dt = SQLFunction.GetDataTable(query)
         If dt.Rows.Count = 0 Then
+            ObjName.Items.Clear()
             ObjName.Items.Insert(0, New ListItem("No Data Available !"))
         Else
             ObjName.DataSource = dt
@@ -85,6 +86,7 @@ Public Class Utility
 
     Public Shared Sub BindDataDropDownV2(ByVal ObjName As DropDownList, ByVal dt As DataTable, ByVal ObjText As String, ByVal ObjVal As String)
         If dt.Rows.Count = 0 Then
+            ObjName.Items.Clear()
             ObjName.Items.Insert(0, New ListItem("No Data Available !"))
         Else
             ObjName.DataSource = dt

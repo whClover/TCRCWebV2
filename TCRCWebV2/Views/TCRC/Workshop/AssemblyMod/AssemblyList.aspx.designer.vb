@@ -32,6 +32,24 @@ Partial Public Class AssemblyList
     Protected WithEvents AssemblyAssign As Global.TCRCWebV2.AssemblyAssign
 
     '''<summary>
+    '''rpt_supvouts_PT control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents rpt_supvouts_PT As Global.System.Web.UI.WebControls.Repeater
+
+    '''<summary>
+    '''rpt_spvouts_E control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents rpt_spvouts_E As Global.System.Web.UI.WebControls.Repeater
+
+    '''<summary>
     '''tWONo control.
     '''</summary>
     '''<remarks>

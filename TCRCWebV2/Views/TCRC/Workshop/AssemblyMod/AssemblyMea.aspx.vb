@@ -158,6 +158,8 @@ Public Class AssemblyMea
                     If CheckDBNull(dataItem("AssemblyValFull")) <> "-" Then
                         tVal.Text = CheckDBNull(dataItem("AssemblyVal"))
                         sUnit.InnerText = CheckDBNull(dataItem("Unit"))
+                    Else
+                        sUnit.InnerText = CheckDBNull(dataItem("Unit"))
                     End If
 
                     If checkspec(Replace(CheckDBNull(dataItem("AssemblyVal")), "-", String.Empty), Replace(CheckDBNull(dataItem("Spec")), "-", String.Empty), Replace(CheckDBNull(dataItem("Tolerance")), "-", String.Empty)) = True Then
@@ -178,7 +180,15 @@ Public Class AssemblyMea
 
             Select Case CheckDBNull(dataItem("ApprovedBy"))
                 Case "-"
-                    bLHApv.Visible = True
+
+                    If CheckDBNull(dataItem("AssemblyVal")) = "-" Then
+                        bLHApv.Visible = False
+                    Else
+                        bLHApv.Visible = True
+                    End If
+
+
+
                 Case Else
                     pLH.InnerText = CheckDBNull(dataItem("ApprovedBy"))
                     bLHApv.Visible = False
@@ -375,6 +385,7 @@ Public Class AssemblyMea
         executeQuery(query)
         'showAlert("success", "ID: " & eid & " has been approved")
         showAlertV2("success", "ID: " & eid & " has been approved")
+        Response.Redirect(urlAssemblyMea & "?wo=" & Request.QueryString("WO"))
     End Sub
 
     Protected Sub bgallery_Click(sender As Object, e As EventArgs)
@@ -622,11 +633,28 @@ skipp:
         End Select
 
         executeQuery(query)
+        Response.Redirect(urlAssemblyMea & "?wo=" & Request.QueryString("WO"))
     End Sub
 
     Sub showAlertV2(ByVal type As String, ByVal msg As String)
         Dim script As String
         script = "Swal.fire('','" & msg & "','" & type & "')"
         ScriptManager.RegisterStartupScript(Me, Me.GetType(), "Swal", script, True)
+    End Sub
+
+    Protected Sub bOK2_Click(sender As Object, e As EventArgs)
+        Dim eid As String = String.Empty
+        eid = CType(sender, LinkButton).CommandArgument
+        Dim query As String = "update tbl_AssemblyInput set AssemblyVal='OK',ModBy=" & eByName() & ",ModDate=GetDate() where IDAssemblyInput=" & eid
+        executeQuery(query)
+        Response.Redirect(urlAssemblyMea & "?wo=" & Request.QueryString("WO"))
+    End Sub
+
+    Protected Sub bLHApv_Click(sender As Object, e As EventArgs)
+        Dim eid As String = String.Empty
+        eid = CType(sender, LinkButton).CommandArgument
+        Dim query As String = "update tbl_AssemblyInput set ApprovedBy=" & eByName() & " where IDAssemblyInput=" & eid
+        executeQuery(query)
+        Response.Redirect(urlAssemblyMea & "?wo=" & Request.QueryString("WO"))
     End Sub
 End Class

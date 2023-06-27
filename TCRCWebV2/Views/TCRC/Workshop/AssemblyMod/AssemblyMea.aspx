@@ -153,7 +153,7 @@
                                                                     <asp:TextBox runat="server" CssClass="form-control form-control-sm" ID="tVal" Visible="false" OnTextChanged="tVal_TextChanged" 
                                                                         IDAssembly='<%# Eval("IDAssemblyInput") %>' ValType='<%# Eval("ValType") %>' AutoPostBack="true"></asp:TextBox>
                                                                     <span class="input-group-text" id="sUnit" runat="server" Visible="false">-</span>
-                                                                    <asp:LinkButton runat="server" ID="bOK2" CssClass="btn btn-soft-primary" Visible="false">OK</asp:LinkButton>
+                                                                    <asp:LinkButton runat="server" ID="bOK2" CssClass="btn btn-soft-primary" Visible="false" CommandArgument='<%# Eval("IDAssemblyInput") %>' OnClick="bOK2_Click">OK</asp:LinkButton>
                                                                 </div>
                                                                 <small runat="server" class="form-label text-danger fw-bold" id="lCheckSpec">Out of spec</small>
                                                             </td>
@@ -162,7 +162,7 @@
                                                                 <label class="form-label" runat="server" id="pAsmDate"></label>
                                                             </td>
                                                             <td>
-                                                                <asp:LinkButton runat="server" CssClass="btn btn-soft-primary" ID="bLHApv">Approve</asp:LinkButton>
+                                                                <asp:LinkButton runat="server" CssClass="btn btn-soft-primary" ID="bLHApv" OnClick="bLHApv_Click" CommandArgument='<%# Eval("IDAssemblyInput") %>'>Approve</asp:LinkButton>
                                                                 <label class="form-label" runat="server" id="pLH"></label>
                                                             </td>
                                                         </tr>

@@ -13,7 +13,7 @@
         <div class="col-md-3">
             <div class="card">
                 <div class="card-header">
-                    <h4 class="card-title">Assembly Supv Dashboard (On Develop)</h4>
+                    <h4 class="card-title">Assembly Supv Dashboard (On Trial)</h4>
                 </div>
                 <div class="card-body">
                     <ul class="list-unstyled categories-list">
@@ -25,9 +25,16 @@
                                 <div class="collapse show" id="PT-collapse" style="">
                                     <div class="card border-0 shadow-none ps-2 mb-0">
                                         <ul class="list-unstyled mb-0">
-                                            <li><a href="#" class="d-flex align-items-center"><span class="me-auto">Assembly In-progress</span> <span class="ms-auto">-</span> </a></li>
-                                            <li><a href="#" class="d-flex align-items-center"><span class="me-auto">Assembly LH Approval</span> <span class="ms-auto">-</span> </a></li>
-                                            <li><a href="#" class="d-flex align-items-center"><span class="me-auto">Assembly Supv Approval</span> <span class="ms-auto">-</span> </a></li>
+                                            <asp:Repeater runat="server" ID="rpt_supvouts_PT">
+                                                <ItemTemplate>
+                                                    <li>
+                                                        <asp:LinkButton runat="server" CssClass="d-flex align-items-center" ID="bDshPT" OnClick="bDshPT_Click" CommandArgument='<%# Eval("AssignedTo").ToString() %>'>
+                                                            <span class="me-auto"><%# Eval("AssignedTo").ToString() %></span> 
+                                                            <span class="ms-auto"><%# Eval("c").ToString() %></span> 
+                                                        </asp:LinkButton>
+                                                    </li>
+                                                </ItemTemplate>
+                                            </asp:Repeater>
                                         </ul>
                                     </div>
                                 </div>
@@ -41,9 +48,16 @@
                                 <div class="collapse show" id="Engine-collapse" style="">
                                     <div class="card border-0 shadow-none ps-2 mb-0">
                                         <ul class="list-unstyled mb-0">
-                                            <li><a href="#" class="d-flex align-items-center"><span class="me-auto">Assembly In-progress</span> <span class="ms-auto">-</span> </a></li>
-                                            <li><a href="#" class="d-flex align-items-center"><span class="me-auto">Assembly LH Approval</span> <span class="ms-auto">-</span> </a></li>
-                                            <li><a href="#" class="d-flex align-items-center"><span class="me-auto">Assembly Supv Approval</span> <span class="ms-auto">-</span> </a></li>
+                                            <asp:Repeater runat="server" ID="rpt_spvouts_E">
+                                                <ItemTemplate>
+                                                    <li>
+                                                        <asp:LinkButton runat="server" CssClass="d-flex align-items-center" ID="bDshE" OnClick="bDshE_Click">
+                                                            <span class="me-auto"><%# Eval("AssignedTo").ToString() %></span> 
+                                                            <span class="ms-auto"><%# Eval("c").ToString() %></span>
+                                                        </asp:LinkButton>
+                                                    </li>
+                                                </ItemTemplate>
+                                            </asp:Repeater>
                                         </ul>
                                     </div>
                                 </div>
@@ -134,7 +148,7 @@
                                             <asp:LinkButton OnClientClick="return confirm('Are you sure?');" runat="server" ID="bsync" CssClass="btn btn-sm btn-soft-primary" CommandArgument='<%# Eval("WONo") %>' OnClick="bsync_Click">
                                                 <i class="fas fa-history"></i> Sync Progress
                                             </asp:LinkButton>
-                                            <asp:LinkButton runat="server" ID="bassign" CssClass="btn btn-sm btn-soft-primary">
+                                            <asp:LinkButton runat="server" ID="bassign" CssClass="btn btn-sm btn-soft-primary" CommandArgument='<%# Eval("WONo") %>' OnClick="bassign_Click">
                                                 <i class="fas fa-edit"></i> Assign Template
                                             </asp:LinkButton>
                                         </div>

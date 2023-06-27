@@ -8,14 +8,38 @@ Public Class AssemblyList
     Inherits System.Web.UI.Page
 
     Dim tempfilter As String = ""
+    Dim utility As New Utility(Me)
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-
+        loadOuts_PT()
+        loadOuts_E()
     End Sub
 
     Sub showAlertV2(ByVal type As String, ByVal msg As String)
         Dim script As String
         script = "Swal.fire('','" & msg & "','" & type & "')"
         ScriptManager.RegisterStartupScript(Me, Me.GetType(), "Swal", script, True)
+    End Sub
+
+    Sub loadOuts_PT()
+        Dim query As String = "select count(DISTINCT wono) as c,t1.AssignedTo from tbl_AssemblySectionApproval as t1 inner join tbl_user t2 on t1.AssignedTo=t2.username 
+                                where SupvApprovedDate is null and AssignedTo is not null and Len(WONO)=7 and dbo.WOCompGroup(WONO)='Powertrain' group by AssignedTo"
+        Dim dt As New DataTable
+        dt = GetDataTable(query)
+        If dt.Rows.Count = 0 Then Exit Sub
+
+        rpt_supvouts_PT.DataSource = dt
+        rpt_supvouts_PT.DataBind()
+    End Sub
+
+    Sub loadOuts_E()
+        Dim query As String = "select count(DISTINCT wono) as c,t1.AssignedTo from tbl_AssemblySectionApproval as t1 inner join tbl_user t2 on t1.AssignedTo=t2.username 
+                                where SupvApprovedDate is null and AssignedTo is not null and Len(WONO)=7 and dbo.WOCompGroup(WONO)='Engine' group by AssignedTo"
+        Dim dt As New DataTable
+        dt = GetDataTable(query)
+        If dt.Rows.Count = 0 Then Exit Sub
+
+        rpt_spvouts_E.DataSource = dt
+        rpt_spvouts_E.DataBind()
     End Sub
 
     Sub filtering()
@@ -218,7 +242,7 @@ Public Class AssemblyList
             If CheckDBNull(dataItem("Mea_Perc")).ToString() = "-" Then
                 bupload.Visible = False
                 bprint.Visible = False
-                bsync.Visible = False
+                bsync.Visible = True
             Else
                 bassign.Visible = False
             End If
@@ -289,5 +313,72 @@ Public Class AssemblyList
         executeQuery(query)
         showAlertV2("success", "WO." & ewo & " has been sync successfully")
         load_Data()
+    End Sub
+
+    Protected Sub bDshPT_Click(sender As Object, e As EventArgs)
+        Dim esupv As String = CType(sender, LinkButton).CommandArgument
+        Dim query As String = "select wono from tbl_AssemblySectionApproval as t1 
+        inner join tbl_user t2 on t1.AssignedTo=t2.username where SupvApprovedDate is null and AssignedTo is not null and Len(WONO)=7 and dbo.WOCompGroup(WONO)='Powertrain' and AssignedTo=" & evar(esupv, 1)
+        Dim dt, dt2 As New DataTable
+        dt = GetDataTable(query)
+        If dt.Rows.Count = 0 Then Exit Sub
+        Dim wonoString As String = ""
+        For i As Integer = 0 To dt.Rows.Count - 1
+            wonoString += "'" + dt.Rows(i)("wono").ToString() + "',"
+        Next
+        wonoString = wonoString.TrimEnd(","c)
+        Dim query2 As String = "select * from v_AssemblyGroupRev4 where wono in(" & wonoString & ")"
+        dt2 = GetDataTable(query2)
+        rpt_Assembly.DataSource = dt2
+        rpt_Assembly.DataBind()
+    End Sub
+
+    Protected Sub bDshE_Click(sender As Object, e As EventArgs)
+        Dim esupv As String = CType(sender, LinkButton).CommandArgument
+        Dim query As String = "select wono from tbl_AssemblySectionApproval as t1 
+        inner join tbl_user t2 on t1.AssignedTo=t2.username where SupvApprovedDate is null and AssignedTo is not null and Len(WONO)=7 and dbo.WOCompGroup(WONO)='Engine' and AssignedTo=" & evar(esupv, 1)
+        Dim dt, dt2 As New DataTable
+        dt = GetDataTable(query)
+        If dt.Rows.Count = 0 Then Exit Sub
+        Dim wonoString As String = ""
+        For i As Integer = 0 To dt.Rows.Count - 1
+            wonoString += "'" + dt.Rows(i)("wono").ToString() + "',"
+        Next
+        wonoString = wonoString.TrimEnd(","c)
+        Dim query2 As String = "select * from v_AssemblyGroupRev4 where wono in(" & wonoString & ")"
+        dt2 = GetDataTable(query2)
+        rpt_Assembly.DataSource = dt2
+        rpt_Assembly.DataBind()
+    End Sub
+
+    Protected Sub bassign_Click(sender As Object, e As EventArgs)
+        Dim ewo As String = CType(sender, LinkButton).CommandArgument
+        Dim query As String = "select *,(select UnitDescID from tbl_unitdesc where unitdesc=UnitDescription) as UnitID from v_Intjobdetailrev3 where wono=" & evar(ewo, 1) & ""
+        Dim dt As New DataTable
+        dt = GetDataTable(query)
+        If dt.Rows.Count = 0 Then
+            showAlertV2("warning", "WO Number Not Found on System, Please contact Admin")
+            Exit Sub
+        End If
+
+        Dim modWONO As TextBox = DirectCast(AssemblyAssign.FindControl("modWONO"), TextBox)
+        Dim modWODesc As TextBox = DirectCast(AssemblyAssign.FindControl("modWODesc"), TextBox)
+        Dim modWOUnitDesc As TextBox = DirectCast(AssemblyAssign.FindControl("modWOUnitDesc"), TextBox)
+        Dim modMaintID As TextBox = DirectCast(AssemblyAssign.FindControl("modMaintID"), TextBox)
+        Dim modCompName As TextBox = DirectCast(AssemblyAssign.FindControl("modCompName"), TextBox)
+        Dim modDDTemplate As DropDownList = DirectCast(AssemblyAssign.FindControl("modDDTemplate"), DropDownList)
+
+        Dim eMaintID As String = Left(CheckDBNull(dt.Rows(0)("MaintType").ToString()), 5)
+        Dim eunitID As String = CheckDBNull(dt.Rows(0)("UnitID").ToString())
+
+        modWONO.Text = CheckDBNull(dt.Rows(0)("WONO").ToString())
+        modWODesc.Text = dt.Rows(0)("WODesc").ToString()
+        modWOUnitDesc.Text = dt.Rows(0)("UnitDescription").ToString()
+        modMaintID.Text = eMaintID
+        modCompName.Text = dt.Rows(0)("ComponentGroup").ToString()
+
+        Dim q_template As String = "select IDTemplateAssemblyGroup,TemplateName from dbo.GetAssemblyTemplate(" & eunitID & "," & evar(eMaintID, 1) & ")"
+        BindDataDropDown(modDDTemplate, q_template, "TemplateName", "IDTemplateAssemblyGroup")
+        utility.ModalV2("MainContent_AssemblyAssign_Panel1")
     End Sub
 End Class

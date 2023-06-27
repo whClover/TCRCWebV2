@@ -21,4 +21,67 @@ Partial Public Class AssemblyAssign
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents Panel1 As Global.System.Web.UI.HtmlControls.HtmlGenericControl
+
+    '''<summary>
+    '''modWONO control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents modWONO As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''modWODesc control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents modWODesc As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''modWOUnitDesc control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents modWOUnitDesc As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''modMaintID control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents modMaintID As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''modCompName control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents modCompName As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''modDDTemplate control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents modDDTemplate As Global.System.Web.UI.WebControls.DropDownList
+
+    '''<summary>
+    '''bassign control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents bassign As Global.System.Web.UI.WebControls.LinkButton
 End Class
