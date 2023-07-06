@@ -1617,6 +1617,7 @@
     <Content Include="Views\TCRC\Workshop\AssemblyMod\AssemblyAssign.ascx" />
     <Content Include="Views\TCRC\Workshop\AssemblyMod\AssemblyChk.aspx" />
     <Content Include="Views\TCRC\Workshop\AssemblyMod\AssemblyCylHead.aspx" />
+    <Content Include="Views\TCRC\Workshop\AssemblyMod\AssemblyDyno.aspx" />
     <Content Include="Views\TCRC\Workshop\AssemblyMod\AssemblyFuelCode.aspx" />
     <Content Include="Views\TCRC\Workshop\AssemblyMod\AssemblyGallery.ascx" />
     <Content Include="Views\TCRC\Workshop\AssemblyMod\AssemblyLinerBore.aspx" />
@@ -1852,6 +1853,13 @@
     </Compile>
     <Compile Include="Views\TCRC\Workshop\AssemblyMod\AssemblyCylHead.aspx.vb">
       <DependentUpon>AssemblyCylHead.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Views\TCRC\Workshop\AssemblyMod\AssemblyDyno.aspx.designer.vb">
+      <DependentUpon>AssemblyDyno.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TCRC\Workshop\AssemblyMod\AssemblyDyno.aspx.vb">
+      <DependentUpon>AssemblyDyno.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="Views\TCRC\Workshop\AssemblyMod\AssemblyFuelCode.aspx.designer.vb">

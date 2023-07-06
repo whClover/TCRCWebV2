@@ -11,95 +11,68 @@ Option Strict On
 Option Explicit On
 
 
-Partial Public Class AssemblyMenu
+Partial Public Class AssemblyDyno
 
     '''<summary>
-    '''n1 control.
+    '''MenuTCRC control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents n1 As Global.System.Web.UI.WebControls.LinkButton
+    Protected WithEvents MenuTCRC As Global.TCRCWebV2.MenuTCRC1
 
     '''<summary>
-    '''n2 control.
+    '''lwono control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents n2 As Global.System.Web.UI.WebControls.LinkButton
+    Protected WithEvents lwono As Global.System.Web.UI.HtmlControls.HtmlGenericControl
 
     '''<summary>
-    '''n3 control.
+    '''lwodesc control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents n3 As Global.System.Web.UI.WebControls.LinkButton
+    Protected WithEvents lwodesc As Global.System.Web.UI.HtmlControls.HtmlGenericControl
 
     '''<summary>
-    '''n4 control.
+    '''AssemblyMenu control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents n4 As Global.System.Web.UI.WebControls.LinkButton
+    Protected WithEvents AssemblyMenu As Global.TCRCWebV2.AssemblyMenu
 
     '''<summary>
-    '''n5 control.
+    '''lSectionProg control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents n5 As Global.System.Web.UI.WebControls.LinkButton
+    Protected WithEvents lSectionProg As Global.System.Web.UI.HtmlControls.HtmlGenericControl
 
     '''<summary>
-    '''n6 control.
+    '''pSectionProg control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents n6 As Global.System.Web.UI.WebControls.LinkButton
+    Protected WithEvents pSectionProg As Global.System.Web.UI.HtmlControls.HtmlGenericControl
 
     '''<summary>
-    '''n7 control.
+    '''rpt_section control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents n7 As Global.System.Web.UI.WebControls.LinkButton
-
-    '''<summary>
-    '''n8 control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents n8 As Global.System.Web.UI.WebControls.LinkButton
-
-    '''<summary>
-    '''n9 control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents n9 As Global.System.Web.UI.WebControls.LinkButton
-
-    '''<summary>
-    '''n10 control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents n10 As Global.System.Web.UI.WebControls.LinkButton
+    Protected WithEvents rpt_section As Global.System.Web.UI.WebControls.Repeater
 End Class

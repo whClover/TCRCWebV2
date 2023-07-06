@@ -52,6 +52,7 @@
     Public Shared urlAssemblyFuelInjTrom As String = urlAssembly & "AssemblyFuelCode.aspx"
     Public Shared urlAssemblyPistonRec As String = urlAssembly & "AssemblyPistonRec.aspx"
     Public Shared urlAssemblyCylinderHead As String = urlAssembly & "AssemblyCylHead.aspx"
+    Public Shared urlAssemblyDyno As String = urlAssembly & "AssemblyDyno.aspx"
 
     'TCRC: Other Module
     Public Shared urlOtherModule As String = urlTCRCWorkshop & "Other/"

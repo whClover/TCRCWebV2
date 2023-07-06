@@ -154,6 +154,7 @@
                                         </div>
                                     </div>
                                 </div>
+                                <hr />
                                 <div class="card-body" runat="server" id="bProgress">
                                     <ul class="list-inline main-chart mb-0">
                                         <li class="list-inline-item chart-border-left me-0 border-0" runat="server" id="liMea"> 

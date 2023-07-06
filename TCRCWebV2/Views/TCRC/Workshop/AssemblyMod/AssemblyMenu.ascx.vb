@@ -21,6 +21,7 @@ Public Class AssemblyMenu
         n7.CssClass = enonactive
         n8.CssClass = enonactive
         n9.CssClass = enonactive
+        n10.CssClass = enonactive
 
         Dim linkb As String
         linkb = Session("ss_assembly")
@@ -43,6 +44,8 @@ Public Class AssemblyMenu
             n8.CssClass = eactive
         ElseIf linkb = "n9" Then
             n9.CssClass = eactive
+        ElseIf linkb = "n10" Then
+            n10.CssClass = eactive
         End If
     End Sub
 
@@ -61,6 +64,7 @@ Public Class AssemblyMenu
                     n7.Visible = False
                     n8.Visible = False
                     n9.Visible = False
+                    n10.Visible = False
                 Case "Engine"
                     n1.Visible = True
                     n2.Visible = True
@@ -71,6 +75,7 @@ Public Class AssemblyMenu
                     n7.Visible = True
                     n8.Visible = True
                     n9.Visible = True
+                    n10.Visible = True
             End Select
 
         End If
@@ -112,6 +117,10 @@ Public Class AssemblyMenu
         reactive_nav(n9)
     End Sub
 
+    Protected Sub n10_Click(sender As Object, e As EventArgs)
+        reactive_nav(n10)
+    End Sub
+
     Sub reactive_nav(ByVal linkb As LinkButton)
         Dim eactive = "nav-link active"
         Dim enonactive = "nav-link"
@@ -125,6 +134,7 @@ Public Class AssemblyMenu
         n7.CssClass = enonactive
         n8.CssClass = enonactive
         n9.CssClass = enonactive
+        n10.CssClass = enonactive
 
         If linkb Is n1 Then
             'n1.CssClass = eactive
@@ -162,8 +172,9 @@ Public Class AssemblyMenu
             'n9.CssClass = eactive
             Session("ss_assembly") = "n9"
             Response.Redirect(urlAssemblyCylinderHead & "?wo=" & ewo)
+        ElseIf linkb Is n10 Then
+            Session("ss_assembly") = "n10"
+            Response.Redirect(urlAssemblyDyno & "?wo=" & ewo)
         End If
     End Sub
-
-
 End Class
