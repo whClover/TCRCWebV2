@@ -7,6 +7,7 @@ Public Class AssemblyFuelCode
     Inherits System.Web.UI.Page
 
     Dim ewo As String
+    Dim utility As New Utility(Me)
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         ewo = Request.QueryString("wo")
 
@@ -14,6 +15,25 @@ Public Class AssemblyFuelCode
             load_head()
             load_data()
             load_progress()
+            check_templateEngine()
+        End If
+    End Sub
+
+    Sub check_templateEngine()
+        Dim ewo As String = Request.QueryString("wo")
+        Dim query As String = "select * from tbl_AssemblyEngineInput where wono=" & evar(ewo, 1)
+        Dim dt As New DataTable
+        dt = GetDataTable(query)
+        If dt.Rows.Count = 0 Then
+            Dim query2 As String = "select * from v_Intjobdetailrev3 where wono=" & evar(ewo, 1)
+            Dim dt2 As New DataTable
+            dt2 = GetDataTable(query2)
+            Dim modWONO As TextBox = DirectCast(AssemblyAssignEngine.FindControl("modWONO"), TextBox)
+            Dim modWODesc As TextBox = DirectCast(AssemblyAssignEngine.FindControl("modWODesc"), TextBox)
+            modWONO.Text = ewo
+            modWODesc.Text = dt2.Rows(0)("WODesc")
+
+            utility.ModalV2("MainContent_AssemblyAssignEngine_Panel1")
         End If
     End Sub
 

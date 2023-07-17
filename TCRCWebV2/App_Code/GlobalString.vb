@@ -13,8 +13,6 @@
     Public Shared DataLabourAvg As String = "..\..\..\data\LabourAvg.txt"
     '==============================================================
 
-
-
     'variabel untuk link web-nya,
     Public Shared urlMainMenu As String = "~/"
     Public Shared urlError As String = "~/Views/Shared/ErrorPage.aspx"

@@ -112,8 +112,8 @@
                                                         <table class="table table-hover mb-0 align-middle table-bordered">
                                                             <thead class="bg-warning fw-bold">
                                                                 <tr>
-                                                                    <th>No</th>
-                                                                    <th colspan="2">Activity</th>
+                                                                    <th style="width:3%">No</th>
+                                                                    <th style="width:40%">Activity</th>
                                                                     <th>Technical Spesification</th>
                                                                     <th>Actual Measurement</th>
                                                                     <th>Mech</th>
@@ -124,10 +124,10 @@
                                                     </HeaderTemplate>
                                                     <ItemTemplate>
                                                         <tr runat="server" id="tRow">
-                                                            <td>
+                                                            <td style="width:3%">
                                                                 <span class="form-label" runat="server" id="pSeq"></span>
                                                             </td>
-                                                            <td class="text-center">
+                                                            <td style="width:40%">
                                                                 <div class="flex-shrink-0 me-3">
                                                                     <div class="avatar-sm">
                                                                         <div class="avatar-title rounded-circle font-size-12" runat="server" id="cirB">
@@ -135,8 +135,6 @@
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                            </td>
-                                                            <td style="width:50%">
                                                                 <asp:Image runat="server" id="imgdet" src='<%# Eval("PicturePath").ToString() %>' class="img-fluid" /> <br />
                                                                 <span class="form-label" runat="server" id="pActivity"></span>
                                                             </td>
@@ -173,8 +171,6 @@
                                                     </FooterTemplate>
                                                 </asp:Repeater>
                                             </div>
-
-                                            
                                         </div>
                                         <div class="tab-pane" id="supvapv" role="tabpanel">
                                             <asp:GridView runat="server" CssClass="table table-bordered table-striped" ID="gv_supv" AutoGenerateColumns="false" OnRowDataBound="gv_supv_RowDataBound">

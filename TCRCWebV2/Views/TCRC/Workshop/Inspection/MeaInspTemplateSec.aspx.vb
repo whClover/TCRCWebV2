@@ -160,4 +160,9 @@ Public Class MeaInspTemplateSec
         script = optsc & "toastr[""" & type & """](""" & msg & """);"
         ScriptManager.RegisterStartupScript(Me, Me.GetType(), "toastrMessage", script, True)
     End Sub
+
+    Protected Sub bAddPN_Click(sender As Object, e As EventArgs)
+
+        utility.ModalV2("MainContent_MeaInspTemplatePN_Panel1")
+    End Sub
 End Class

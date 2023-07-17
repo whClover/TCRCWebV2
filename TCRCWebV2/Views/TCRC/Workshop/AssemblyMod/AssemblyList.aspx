@@ -51,7 +51,7 @@
                                             <asp:Repeater runat="server" ID="rpt_spvouts_E">
                                                 <ItemTemplate>
                                                     <li>
-                                                        <asp:LinkButton runat="server" CssClass="d-flex align-items-center" ID="bDshE" OnClick="bDshE_Click">
+                                                        <asp:LinkButton runat="server" CssClass="d-flex align-items-center" ID="bDshE" OnClick="bDshE_Click" CommandArgument='<%# Eval("AssignedTo").ToString() %>'>
                                                             <span class="me-auto"><%# Eval("AssignedTo").ToString() %></span> 
                                                             <span class="ms-auto"><%# Eval("c").ToString() %></span>
                                                         </asp:LinkButton>

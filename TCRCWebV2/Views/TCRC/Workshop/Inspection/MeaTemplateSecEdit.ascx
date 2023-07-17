@@ -1,7 +1,7 @@
 ﻿<%@ Control Language="vb" AutoEventWireup="false" CodeBehind="MeaTemplateSecEdit.ascx.vb" Inherits="TCRCWebV2.MeaTemplateSecEdit" %>
 
 <div id="Panel1" runat="server" class="modal fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-xl">
+    <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="myExtraLargeModalLabel">Template Section Add / Edit</h5>
@@ -12,22 +12,22 @@
                     <asp:HiddenField runat="server" ID="IDGroup" />
 
                     <div class="mb-3 row">
-                        <label class="col-md-2 col-form-label">Sequence</label>
-                        <div classc="col-md-10">
+                        <label class="col-md-4 col-form-label">Sequence</label>
+                        <div classc="col-md-8">
                             <asp:TextBox TextMode="Number" CssClass="form-control" runat="server" ID="tSeq"></asp:TextBox>
                         </div>
                     </div>
 
                     <div class="mb-3 row">
                         <asp:HiddenField runat="server" ID="cursection" />
-                        <label class="col-md-2 col-form-label">Section Name</label>
-                        <div classc="col-md-10">
+                        <label class="col-md-4 col-form-label">Section Name</label>
+                        <div classc="col-md-8">
                             <asp:TextBox CssClass="form-control" runat="server" ID="tSection"></asp:TextBox>
                         </div>
                     </div>
 
                     <div class="mb-3 row">
-                        <label class="col-md-2 col-form-label">After Inspection</label>
+                        <label class="col-md-4 col-form-label">After Inspection</label>
                         <div classc="col-md-4">
                             <asp:DropDownList runat="server" ID="ddAftInsp" CssClass="form-control">
                                 <asp:ListItem Value="" Text=""></asp:ListItem>
@@ -36,6 +36,22 @@
                             </asp:DropDownList>
                         </div>
                     </div>
+
+                    <div class="mb-3 row">
+                        <div class="col-md-12">
+                            <asp:GridView runat="server" CssClass="table table-striped table-bordered gridview" AutoGenerateColumns="false" ID="gvPN">
+                                <Columns>
+                                    <asp:TemplateField HeaderText="No">
+                                        <ItemTemplate>
+                                            <%# Container.DataItemIndex + 1 %>
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
+                                    <asp:BoundField HeaderText="PartNumber" />
+                                </Columns>
+                            </asp:GridView>
+                        </div>
+                    </div>
+
                 </div>
             </div>
             <div class="modal-footer">

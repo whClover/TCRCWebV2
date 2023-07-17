@@ -1,6 +1,8 @@
 ﻿<%@  Page Title="Assembly Pin Piston" MasterPageFile="~/Site.Master" Language="vb" AutoEventWireup="false" CodeBehind="AssemblyPinPiston.aspx.vb" Inherits="TCRCWebV2.AssemblyPinPiston" %>
 <%@ Register Src="~/Views/Shared/MenuTCRC.ascx" TagPrefix="uc1" TagName="MenuTCRC" %>
 <%@ Register Src="~/Views/TCRC/Workshop/AssemblyMod/AssemblyMenu.ascx" TagPrefix="uc1" TagName="AssemblyMenu" %>
+<%@ Register Src="~/Views/TCRC/Workshop/AssemblyMod/AssemblyAssignEngine.ascx" TagPrefix="uc1" TagName="AssemblyAssignEngine" %>
+
 
 <asp:Content ContentPlaceHolderID="MenuContent" runat="server">
     <uc1:MenuTCRC runat="server" ID="MenuTCRC" />
@@ -14,6 +16,7 @@
         });
     </script>
     <asp:HiddenField runat="server" ID="ScrollPosition" />
+    <uc1:AssemblyAssignEngine runat="server" ID="AssemblyAssignEngine" />
     <div class="row">
         <div class="col-md-12">
             <div class="card">

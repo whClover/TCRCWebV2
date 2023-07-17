@@ -41,6 +41,15 @@ Partial Public Class MeaInspTemplateSec
     Protected WithEvents MeaTemplateSecUpload As Global.TCRCWebV2.MeaTemplateSecUpload
 
     '''<summary>
+    '''MeaInspTemplatePN control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents MeaInspTemplatePN As Global.TCRCWebV2.MeaInspTemplatePN
+
+    '''<summary>
     '''tID control.
     '''</summary>
     '''<remarks>

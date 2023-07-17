@@ -1548,6 +1548,8 @@
     <Content Include="images\logo-light.png" />
     <Content Include="images\logo-sm-light.png" />
     <Content Include="images\logo-sm.png" />
+    <Content Include="images\logo-tcrc.png" />
+    <Content Include="images\logo-tcrc2.png" />
     <Content Include="images\logo\logo-tcrc.png" />
     <Content Include="images\logo\logo-tcrc2.png" />
     <Content Include="images\logo\Thiess.png" />
@@ -1615,6 +1617,7 @@
     <Content Include="Views\TCRC\Reports\MeaInspection.aspx" />
     <Content Include="Views\TCRC\Reports\MeaInspectionRev.aspx" />
     <Content Include="Views\TCRC\Workshop\AssemblyMod\AssemblyAssign.ascx" />
+    <Content Include="Views\TCRC\Workshop\AssemblyMod\AssemblyAssignEngine.ascx" />
     <Content Include="Views\TCRC\Workshop\AssemblyMod\AssemblyChk.aspx" />
     <Content Include="Views\TCRC\Workshop\AssemblyMod\AssemblyCylHead.aspx" />
     <Content Include="Views\TCRC\Workshop\AssemblyMod\AssemblyDyno.aspx" />
@@ -1635,6 +1638,7 @@
     <Content Include="Views\TCRC\Workshop\Inspection\MeaInspRemark.ascx" />
     <Content Include="Views\TCRC\Workshop\Inspection\MeaInspTemplate.aspx" />
     <Content Include="Views\TCRC\Workshop\Inspection\MeaInspTemplateAddEdit.aspx" />
+    <Content Include="Views\TCRC\Workshop\Inspection\MeaInspTemplatePN.ascx" />
     <Content Include="Views\TCRC\Workshop\Inspection\MeaInspTemplateRef.ascx" />
     <Content Include="Views\TCRC\Workshop\Inspection\MeaInspTemplateSec.aspx" />
     <Content Include="Views\TCRC\Workshop\Inspection\MeaInspWorksheet.aspx" />
@@ -1841,6 +1845,13 @@
       <DependentUpon>AssemblyAssign.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="Views\TCRC\Workshop\AssemblyMod\AssemblyAssignEngine.ascx.designer.vb">
+      <DependentUpon>AssemblyAssignEngine.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TCRC\Workshop\AssemblyMod\AssemblyAssignEngine.ascx.vb">
+      <DependentUpon>AssemblyAssignEngine.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="Views\TCRC\Workshop\AssemblyMod\AssemblyChk.aspx.designer.vb">
       <DependentUpon>AssemblyChk.aspx</DependentUpon>
     </Compile>
@@ -1979,6 +1990,13 @@
     </Compile>
     <Compile Include="Views\TCRC\Workshop\Inspection\MeaInspTemplateAddEdit.aspx.vb">
       <DependentUpon>MeaInspTemplateAddEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\TCRC\Workshop\Inspection\MeaInspTemplatePN.ascx.designer.vb">
+      <DependentUpon>MeaInspTemplatePN.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TCRC\Workshop\Inspection\MeaInspTemplatePN.ascx.vb">
+      <DependentUpon>MeaInspTemplatePN.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Views\TCRC\Workshop\Inspection\MeaInspTemplateRef.ascx.designer.vb">
@@ -2216,9 +2234,9 @@
       <CustomToolNamespace>My</CustomToolNamespace>
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
-    <None Include="packages.config" />
     <Content Include="Site.Master" />
     <Content Include="Report.Master" />
+    <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

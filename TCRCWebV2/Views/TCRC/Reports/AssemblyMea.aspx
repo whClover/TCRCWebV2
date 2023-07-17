@@ -70,7 +70,7 @@
                     <%--<asp:BoundField HeaderStyle-CssClass="text-center bg-warning" HeaderText="Activity" DataField="AssemblyDesc" HtmlEncode="false" />--%>
                     <asp:TemplateField HeaderStyle-CssClass="text-center bg-warning" HeaderText="Activity">
                         <ItemTemplate>
-                            <asp:Image runat="server" id="imgdet" src='<%# Eval("PicturePath").ToString() %>' class="img-fluid" /> <br />
+                            <asp:Image runat="server" id="imgdet" src='<%# Eval("PicturePath").ToString() %>' class="img-fluid" visible='<%# Eval("PicturePath") != "" %>' /> <br />
                             <span class="form-label" runat="server" id="pActivity"><%# Eval("AssemblyDesc").ToString() %></span>
                         </ItemTemplate>
                     </asp:TemplateField>

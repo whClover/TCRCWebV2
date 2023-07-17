@@ -67,6 +67,7 @@ Public Class AssemblyMea2
 
     Protected Sub gv_table_RowDataBound(sender As Object, e As GridViewRowEventArgs)
         If e.Row.RowType = DataControlRowType.DataRow Then
+
             Dim dataItem As DataRowView = CType(e.Row.DataItem, DataRowView)
 
             Dim evaltype As String = dataItem("ValType")

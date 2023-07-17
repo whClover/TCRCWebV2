@@ -32,6 +32,15 @@ Partial Public Class AssemblyLinerBore
     Protected WithEvents ScrollPosition As Global.System.Web.UI.WebControls.HiddenField
 
     '''<summary>
+    '''AssemblyAssignEngine control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents AssemblyAssignEngine As Global.TCRCWebV2.AssemblyAssignEngine
+
+    '''<summary>
     '''lwono control.
     '''</summary>
     '''<remarks>

@@ -10,18 +10,19 @@
             <div class="modal-body">
                 <style>
                     .gallery {
-                      display: grid;
-                      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-                      grid-auto-rows: minmax(250px, max-content);
-                      grid-gap: 0;
+                        display: grid;
+                        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                        grid-auto-rows: minmax(250px, max-content);
+                        grid-gap: 0;
                     }
 
                     .gallery img {
-                      width: 100%;
-                      height: 100%;
-                      object-fit: cover;
-                      object-position: center;
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                        object-position: center;
                     }
+
                 </style>
                 <asp:HiddenField runat="server" ID="hwono" />
                 <div class="mb-3">
@@ -41,8 +42,8 @@
                             <asp:Repeater runat="server" ID="rpt_pic">
                                 <ItemTemplate>
                                     <div class="element-item">
-                                        <a class="image-popup" href="../../../../images/tes/IMG_1586[1].JPG" title>
-                                            <img src="../../../../images/tes/IMG_1586[1].JPG" class="img-fluid">
+                                        <a class="image-popup" href='<%# Eval("PicturePath").ToString() %>' title>
+                                            <img src='<%# Eval("PicturePath").ToString() %>' class="img-fluid">
                                         </a>
                                     </div>
                                 </ItemTemplate>

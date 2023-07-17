@@ -84,7 +84,7 @@
                         <div class="dropdown d-inline-block">
                             <button type="button" class="btn header-item user text-start d-flex align-items-center" id="page-header-user-dropdown"
                                 data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <img class="rounded-circle header-profile-user" runat="server" src="~/assets/images/users/avatar-1.jpg" alt="Header Avatar">
+                                <img class="rounded-circle header-profile-user img-fluid" runat="server" src="~/assets/images/users/avatar-2.jpg" alt="Header Avatar">
                                 <span class="ms-2 d-none d-sm-block user-item-desc">
                                     <span class="user-name" id="sFullName" runat="server">~</span>
                                     <span class="user-sub-title" id="sEmail" runat="server">~</span>

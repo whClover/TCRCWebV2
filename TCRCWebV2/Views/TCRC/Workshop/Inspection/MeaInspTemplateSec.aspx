@@ -3,8 +3,7 @@
 <%@ Register Src="~/Views/TCRC/Workshop/Inspection/MeaTemplateSecEdit.ascx" TagPrefix="uc1" TagName="MeaTemplateSecEdit" %>
 <%@ Register Src="~/Views/TCRC/Workshop/Inspection/MeaTemplateSecUpload.ascx" TagPrefix="uc1" TagName="MeaTemplateSecUpload" %>
 <%@ Register Src="~/Views/Shared/MenuTCRC.ascx" TagPrefix="uc1" TagName="MenuTCRC" %>
-
-
+<%@ Register Src="~/Views/TCRC/Workshop/Inspection/MeaInspTemplatePN.ascx" TagPrefix="uc1" TagName="MeaInspTemplatePN" %>
 
 <asp:Content runat="server" ContentPlaceHolderID="MenuContent">
     <uc1:MenuTCRC runat="server" ID="MenuTCRC" />
@@ -36,6 +35,7 @@
                     <div class="card-body">
                         <uc1:MeaTemplateSecEdit runat="server" ID="MeaTemplateSecEdit" />
                         <uc1:MeaTemplateSecUpload runat="server" ID="MeaTemplateSecUpload" />
+                        <uc1:MeaInspTemplatePN runat="server" id="MeaInspTemplatePN" />
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="mb-3 row">
@@ -103,6 +103,8 @@
                                                 sec='<%# Eval("SectionName") %>' OnClick="bDetails_Click" /> |
                                             <asp:Button runat="server" ID="bEdit" CssClass="btn btn-link btn-sm text-purple" Text="Edit" 
                                                 OnClick="bEdit_Click" seq='<%# Eval("SeqSection") %>' sec='<%# Eval("SectionName") %>' aftinsp='<%# Eval("AfterInspection") %>' /> |
+                                            <asp:Button runat="server" ID="bAddPN" CssClass="btn btn-link btn-sm text-purple" Text="Add PN" 
+                                                OnClick="bAddPN_Click" sec='<%# Eval("SectionName") %>' /> |
                                             <asp:Button runat="server" ID="bDelete" CssClass="btn btn-link btn-sm text-purple" Text="Delete" OnClientClick="return confirm('Are you sure?');"
                                                 Onclick="bDelete_Click" seq='<%# Eval("SeqSection") %>' sec='<%# Eval("SectionName") %>' />
                                         </ItemTemplate>

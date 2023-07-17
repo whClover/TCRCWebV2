@@ -1,6 +1,8 @@
 ﻿<%@ Page Title="Assembly Piston Rec." MasterPageFile="~/Site.Master" Language="vb" AutoEventWireup="false" CodeBehind="AssemblyPistonRec.aspx.vb" Inherits="TCRCWebV2.AssemblyPistonRec" %>
 <%@ Register Src="~/Views/Shared/MenuTCRC.ascx" TagPrefix="uc1" TagName="MenuTCRC" %>
 <%@ Register Src="~/Views/TCRC/Workshop/AssemblyMod/AssemblyMenu.ascx" TagPrefix="uc1" TagName="AssemblyMenu" %>
+<%@ Register Src="~/Views/TCRC/Workshop/AssemblyMod/AssemblyAssignEngine.ascx" TagPrefix="uc1" TagName="AssemblyAssignEngine" %>
+
 
 
 <asp:Content ContentPlaceHolderID="MenuContent" runat="server">
@@ -8,6 +10,7 @@
 </asp:Content>
 
 <asp:Content ContentPlaceHolderID="MainContent" runat="server">
+    <uc1:AssemblyAssignEngine runat="server" ID="AssemblyAssignEngine" />
     <div class="row">
         <div class="col-md-12">
             <div class="card">

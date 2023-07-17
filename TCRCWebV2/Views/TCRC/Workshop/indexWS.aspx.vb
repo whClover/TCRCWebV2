@@ -1,9 +1,28 @@
 ﻿Imports TCRCWebV2.GlobalString
+Imports TCRCWebV2.SQLFunction
+Imports TCRCWebV2.Utility
+
 Public Class IndexWS
     Inherits System.Web.UI.Page
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+        If Session("ss_userid") = "" Then
+            Response.Redirect(urlTCRCLogin)
+        Else
+            loadUser()
+        End If
+    End Sub
 
+    Sub loadUser()
+        Dim query As String = "select *,dbo.GetSupvName(" & evar(Session("ss_userid"), 1) & ") as SupvName from tbl_user where userid=" & evar(Session("ss_userid"), 1)
+        Dim dt As New DataTable
+        dt = GetDataTable(query)
+        If dt.Rows.Count = 0 Then Exit Sub
+        hFullName.InnerText = dt.Rows(0)("FullName").ToString()
+        hTitle.InnerText = dt.Rows(0)("JobTitle").ToString()
+        hEmail.InnerText = dt.Rows(0)("Email").ToString()
+        hSupv.InnerText = dt.Rows(0)("SupvName").ToString()
+        hJobCost.InnerText = dt.Rows(0)("JobCost").ToString()
     End Sub
 
     Sub showAlert(ByVal type As String, ByVal msg As String)

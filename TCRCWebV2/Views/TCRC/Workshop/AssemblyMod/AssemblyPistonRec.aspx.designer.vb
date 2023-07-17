@@ -23,6 +23,15 @@ Partial Public Class AssemblyPistonRec
     Protected WithEvents MenuTCRC As Global.TCRCWebV2.MenuTCRC1
 
     '''<summary>
+    '''AssemblyAssignEngine control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents AssemblyAssignEngine As Global.TCRCWebV2.AssemblyAssignEngine
+
+    '''<summary>
     '''lwono control.
     '''</summary>
     '''<remarks>

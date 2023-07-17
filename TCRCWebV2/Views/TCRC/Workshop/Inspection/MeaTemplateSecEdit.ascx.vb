@@ -12,6 +12,13 @@ Public Class MeaTemplateSecEdit
         End If
     End Sub
 
+    Sub LoadPN()
+        Dim eidgroup As String = Request.QueryString("id")
+        Dim dt As New DataTable
+        Dim query As String = ""
+        dt = GetDataTable(query)
+    End Sub
+
     Protected Sub bSave_Click(sender As Object, e As EventArgs)
         Dim eseq, ecursection, esection, eaftinsp As String
 

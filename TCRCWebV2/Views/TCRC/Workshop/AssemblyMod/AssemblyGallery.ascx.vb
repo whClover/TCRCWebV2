@@ -31,11 +31,12 @@ Public Class AssemblyGallery
     Protected Sub rpt_sec_ItemDataBound(sender As Object, e As RepeaterItemEventArgs)
         If e.Item.ItemType = ListItemType.Item OrElse e.Item.ItemType = ListItemType.AlternatingItem Then
             Dim dataItem As DataRowView = CType(e.Item.DataItem, DataRowView)
+            Dim ewo As String = Request.QueryString("wo")
 
             Dim rpt_pic As Repeater = CType(e.Item.FindControl("rpt_pic"), Repeater)
             Dim dt As New DataTable
-            Dim query As String = "select '../../../' + dbo.ReMapPicW(PicturePath) from tbl_AssemblyInputPict 
-			                where wono=" & evar(hwono.Value, 1) & " and SectionName=" & evar(dataItem("SectionName").ToString(), 1) & ""
+            Dim query As String = "select '../../../' + dbo.ReMapPicW(PicturePath) as PicturePath from tbl_AssemblyInputPict 
+			                where wono=" & evar(ewo, 1) & " and SectionName=" & evar(dataItem("SectionName").ToString(), 1) & ""
             dt = GetDataTable(query)
             If dt.Rows.Count > 0 Then
                 rpt_pic.DataSource = dt

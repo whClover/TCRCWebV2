@@ -55,7 +55,7 @@
                                                 <asp:CheckBox ID="CheckBox1" runat="server" />
                                             </ItemTemplate>
                                         </asp:TemplateField>
-                                        <asp:BoundField HeaderText="ID" HeaderStyle-CssClass="bg-warning" Visible="false" DataField="IDInsDetail" />
+                                        <asp:BoundField HeaderText="ID" HeaderStyle-CssClass="bg-warning" DataField="IDInsDetail" />
                                         <asp:BoundField HeaderText="PN" HeaderStyle-CssClass="bg-warning" DataField="PartNumber" />
                                         <asp:BoundField HeaderText="Pic No" HeaderStyle-CssClass="bg-warning" DataField="NoPict" />
                                         <asp:BoundField HeaderText="Part Desc" HeaderStyle-CssClass="bg-warning" DataField="PartDesc" />

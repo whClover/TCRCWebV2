@@ -41,7 +41,7 @@ Public Class AssemblyChk
 
         lsection.InnerText = firstSection
         Dim dt As New DataTable
-        Dim query As String = "select * from v_AssemblyCheckList where wono=" & evar(ewo, 1) & " and SectionPart=" & evar(firstSection, 1)
+        Dim query As String = "select * from v_AssemblyCheckList where wono=" & evar(ewo, 1) & " and SectionPart=" & evar(firstSection, 1) & " order by sequence, NoPict"
         dt = GetDataTable(query)
         If dt.Rows.Count > 0 Then
             gv_chk.DataSource = dt
@@ -100,6 +100,15 @@ Public Class AssemblyChk
         If dt.Rows.Count > 0 Then
             gv_chk.DataSource = dt
             gv_chk.DataBind()
+        End If
+
+        Dim dt2 As New DataTable
+        Dim esection As String = String.Empty
+        Dim query2 As String = "select SectionPart, case when('../../../../' + dbo.RemapPicW(PicturePath)) is null then '' else ('../../../../' + dbo.RemapPicW(PicturePath)) end as PicturePathGroup " _
+                                & "from v_AssemblyCheckList where wono=" & evar(ewo, 1) & " and SectionPart=" & evar(sectionName, 1)
+        dt2 = GetDataTable(query2)
+        If dt2.Rows.Count > 0 Then
+            imgGp.Src = dt2.Rows(0)("PicturePathGroup")
         End If
     End Sub
 
