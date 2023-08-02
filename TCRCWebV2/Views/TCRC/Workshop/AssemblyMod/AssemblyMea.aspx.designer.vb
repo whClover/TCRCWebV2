@@ -77,6 +77,24 @@ Partial Public Class AssemblyMea
     Protected WithEvents AssemblyMenu As Global.TCRCWebV2.AssemblyMenu
 
     '''<summary>
+    '''bMea control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents bMea As Global.System.Web.UI.WebControls.LinkButton
+
+    '''<summary>
+    '''bSupvApv control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents bSupvApv As Global.System.Web.UI.WebControls.LinkButton
+
+    '''<summary>
     '''bgallery control.
     '''</summary>
     '''<remarks>
@@ -183,13 +201,4 @@ Partial Public Class AssemblyMea
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents rpt_mea2 As Global.System.Web.UI.WebControls.Repeater
-
-    '''<summary>
-    '''gv_supv control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents gv_supv As Global.System.Web.UI.WebControls.GridView
 End Class

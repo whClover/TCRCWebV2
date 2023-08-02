@@ -7,6 +7,7 @@ Public Class AssemblyPinPiston
     Inherits System.Web.UI.Page
 
     Dim ewo As String
+    Dim utility As New Utility(Me)
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         ewo = Request.QueryString("wo")
 
@@ -31,7 +32,7 @@ Public Class AssemblyPinPiston
             modWONO.Text = ewo
             modWODesc.Text = dt2.Rows(0)("WODesc")
 
-            Utility.ModalV2("MainContent_AssemblyAssignEngine_Panel1")
+            utility.ModalV2("MainContent_AssemblyAssignEngine_Panel1")
         End If
     End Sub
 
@@ -161,5 +162,22 @@ Public Class AssemblyPinPiston
         Dim script As String
         script = optsc & "toastr[""" & type & """](""" & msg & """);"
         ScriptManager.RegisterStartupScript(Me, Me.GetType(), "toastrMessage", script, True)
+    End Sub
+
+    Protected Sub bna_Click(sender As Object, e As EventArgs)
+        Dim query, ewono As String
+        ewono = Request.QueryString("wo")
+        query = "update tbl_AssemblyEngineInput set Value='n/a',ModBy=" & eByName() & ",ModDate=GetDate() where wono=" & evar(ewono, 1) & " and 
+                CylinderDesc in('BearingDIA','PinDIA','Boresurface','ConrodRetention','ConrodBend','ConrodTwist')"
+        executeQuery(query)
+        showAlertV2("success", "Saved")
+        load_data()
+        load_progress()
+    End Sub
+
+    Sub showAlertV2(ByVal type As String, ByVal msg As String)
+        Dim script As String
+        script = "Swal.fire('','" & msg & "','" & type & "')"
+        ScriptManager.RegisterStartupScript(Me, Me.GetType(), "Swal", script, True)
     End Sub
 End Class

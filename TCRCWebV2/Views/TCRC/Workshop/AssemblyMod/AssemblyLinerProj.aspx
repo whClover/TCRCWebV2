@@ -29,6 +29,12 @@
                         <uc1:AssemblyMenu runat="server" ID="AssemblyMenu" />
                         <div class="col-md-12">
                             <div class="d-flex flex-wrap gap-2 mb-2 fw-bold">
+                                <u>Tools</u>
+                            </div>
+                            <div class="mt-3 mb-3">
+                                <asp:LinkButton runat="server" CssClass="btn btn-soft-primary btn-sm" ID="bna" OnClick="bna_Click" OnClientClick="return confirm('Are you sure?')">All n/a</asp:LinkButton>
+                            </div>
+                            <div class="d-flex flex-wrap gap-2 mb-2 fw-bold">
                                 <u>Liner Projection</u>
                             </div>
                             <div class="mt-3 mb-3">
@@ -53,27 +59,27 @@
                                                     <div class="row">
                                                         <div class="col-md-3">
                                                             <div class="mb-1">
-                                                                <label class="form-label font-size-10" for="formrow-firstname-input">A</label>
+                                                                <label class="form-label" for="formrow-firstname-input">A</label>
                                                                 <asp:TextBox name="txtValues" runat="server" CssClass="form-control form-control-sm" TextMode="Number" ID="tA"></asp:TextBox>
                                                                 <%--<input class="form-control form-control-sm" id="tA" type="number" />--%>
                                                             </div>
                                                         </div>
                                                         <div class="col-md-3">
                                                             <div class="mb-1">
-                                                                <label class="form-label font-size-10" for="formrow-firstname-input">B</label>
+                                                                <label class="form-label" for="formrow-firstname-input">B</label>
                                                                 <asp:TextBox name="txtValues" runat="server" CssClass="form-control form-control-sm" TextMode="Number" ID="tB"></asp:TextBox>
                                                                 <%--<input class="form-control form-control-sm" id="tB" type="number" />--%>
                                                             </div>
                                                         </div>
                                                         <div class="col-md-3">
                                                             <div class="mb-1">
-                                                                <label class="form-label font-size-10" for="formrow-firstname-input" >Sum A-D:</label>
+                                                                <label class="form-label" for="formrow-firstname-input" >Sum A-D:</label>
                                                                 <asp:TextBox runat="server" CssClass="form-control form-control-sm" TextMode="Number" Enabled="false" ID="tSum"></asp:TextBox>
                                                             </div>
                                                         </div>
                                                         <div class="col-md-3">
                                                             <div class="mb-1">
-                                                                <label class="form-label font-size-10" for="formrow-firstname-input" >Avg A-D:</label>
+                                                                <label class="form-label" for="formrow-firstname-input" >Avg A-D:</label>
                                                                 <asp:TextBox runat="server" CssClass="form-control form-control-sm" TextMode="Number" Enabled="false" ID="tAvg"></asp:TextBox>
                                                             </div>
                                                         </div>
@@ -81,27 +87,27 @@
                                                     <div class="row">
                                                         <div class="col-md-3">
                                                             <div class="mb-1">
-                                                                <label class="form-label font-size-10" for="formrow-firstname-input">C</label>
+                                                                <label class="form-label" for="formrow-firstname-input">C</label>
                                                                 <asp:TextBox name="txtValues" runat="server" CssClass="form-control form-control-sm" TextMode="Number" ID="tC"></asp:TextBox>
                                                                 <%--<input class="form-control form-control-sm" id="tC" type="number" />--%>
                                                             </div>
                                                         </div>
                                                         <div class="col-md-3">
                                                             <div class="mb-1">
-                                                                <label class="form-label font-size-10" for="formrow-firstname-input">D</label>
+                                                                <label class="form-label" for="formrow-firstname-input">D</label>
                                                                 <asp:TextBox name="txtValues" runat="server" CssClass="form-control form-control-sm" TextMode="Number" ID="tD"></asp:TextBox>
                                                                 <%--<input class="form-control form-control-sm" id="tD" type="number" />--%>
                                                             </div>
                                                         </div>
                                                         <div class="col-md-3">
                                                             <div class="mb-1">
-                                                                <label class="form-label font-size-10" for="formrow-firstname-input">Max A-D:</label>
+                                                                <label class="form-label" for="formrow-firstname-input">Max A-D:</label>
                                                                 <asp:TextBox runat="server" CssClass="form-control form-control-sm" TextMode="Number" Enabled="false" ID="tMax"></asp:TextBox>
                                                             </div>
                                                         </div>
                                                         <div class="col-md-3">
                                                             <div class="mb-1">
-                                                                <label class="form-label font-size-10" for="formrow-firstname-input">Min A-D:</label>
+                                                                <label class="form-label" for="formrow-firstname-input">Min A-D:</label>
                                                                 <asp:TextBox runat="server" CssClass="form-control form-control-sm" TextMode="Number" Enabled="false" ID="tMin"></asp:TextBox>
                                                             </div>
                                                         </div>
@@ -116,7 +122,7 @@
                                                         </div>
                                                         <div class="col-md-6">
                                                             <div class="mb-1">
-                                                                <label class="form-label font-size-10" for="formrow-firstname-input">Variation:</label>
+                                                                <label class="form-label" for="formrow-firstname-input">Variation:</label>
                                                                 <asp:TextBox runat="server" CssClass="form-control form-control-sm" TextMode="Number" Enabled="false" ID="tVar"></asp:TextBox>
                                                             </div>
                                                         </div>

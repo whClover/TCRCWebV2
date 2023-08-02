@@ -1,6 +1,8 @@
 ﻿<%@ Page Title="Assembly Check" MasterPageFile="~/Site.Master" Language="vb" AutoEventWireup="false" CodeBehind="AssemblyChk.aspx.vb" Inherits="TCRCWebV2.AssemblyChk" %>
 <%@ Register Src="~/Views/Shared/MenuTCRC.ascx" TagPrefix="uc1" TagName="MenuTCRC" %>
 <%@ Register Src="~/Views/TCRC/Workshop/AssemblyMod/AssemblyMenu.ascx" TagPrefix="uc1" TagName="AssemblyMenu" %>
+<%@ Register Src="~/Views/TCRC/Workshop/AssemblyMod/AssemblyChkRemark.ascx" TagPrefix="uc1" TagName="AssemblyChkRemark" %>
+
 
 <asp:Content ContentPlaceHolderID="MenuContent" runat="server">
     <uc1:MenuTCRC runat="server" ID="MenuTCRC" />
@@ -10,6 +12,7 @@
     <div class="row">
         <div class="col-md-12">
             <div class="card">
+                <uc1:AssemblyChkRemark runat="server" id="AssemblyChkRemark" />
                 <div class="card-header">
                     <h5 class="card-title" runat="server" id="lwono">WO.</h5>
                     <small class="card-title-desc" runat="server" id="lwodesc">WO Desc.</small>
@@ -35,7 +38,7 @@
                                 <h5 class="text-muted" runat="server" id="lsection">Section Name</h5>
                             </div>
                             <img src="../../../../images/NoPicture.png" class="img-fluid mb-3" 
-                                style="display: block; margin-left:auto; margin-right:auto; Position:Static;" id="imgGp" runat="server"/>
+                                style="display: block; margin-left:auto; margin-right:auto; Position:Static; max-height: 500px" id="imgGp" runat="server"/>
                             <div class="mb-3 text-center">
                                 <asp:LinkButton runat="server" CssClass="btn btn-rounded btn-soft-primary" ID="bchk" OnClick="bchk_Click">
                                     <i class="fa fa-check-circle"></i> Check
@@ -43,9 +46,12 @@
                                 <asp:LinkButton runat="server" CssClass="btn btn-rounded btn-soft-primary" ID="bna" OnClick="bna_Click">
                                     <i class="far fa-eye-slash"></i> N/A
                                 </asp:LinkButton>
+                                <asp:LinkButton runat="server" CssClass="btn btn-rounded btn-soft-primary" ID="bremark" OnClick="bremark_Click">
+                                    <i class="far fa-eye-slash"></i> Remark
+                                </asp:LinkButton>
                             </div>
                             <div class="table-responsive">
-                                <asp:GridView ID="gv_chk" runat="server" CssClass="table table-hover table-nowrap mb-0 align-middle table-check" AutoGenerateColumns="false">
+                                <asp:GridView ID="gv_chk" runat="server" CssClass="table table-hover table-nowrap mb-0 align-middle table-check" AutoGenerateColumns="false" OnRowDataBound="gv_chk_RowDataBound">
                                     <Columns>
                                         <asp:TemplateField HeaderStyle-CssClass="bg-warning">
                                             <HeaderTemplate>
@@ -61,7 +67,7 @@
                                         <asp:BoundField HeaderText="Part Desc" HeaderStyle-CssClass="bg-warning" DataField="PartDesc" />
                                         <asp:BoundField HeaderText="Qty" HeaderStyle-CssClass="bg-warning" DataField="Qty" />
                                         <asp:BoundField HeaderText="Recommendation" HeaderStyle-CssClass="bg-warning" DataField="Recommendation" />
-                                        <asp:BoundField HeaderText="Remark" HeaderStyle-CssClass="bg-warning" DataField="PartRemark" />
+                                        <asp:BoundField HeaderText="Remark" HeaderStyle-CssClass="bg-warning" DataField="AssemblyRemark" />
                                         <asp:BoundField HeaderText="AssemblyBy" HeaderStyle-CssClass="bg-warning" DataField="AssemblyBy" />
                                         <asp:BoundField HeaderText="AssemblyDate" HeaderStyle-CssClass="bg-warning" DataField="AssemblyDate" />
                                     </Columns>

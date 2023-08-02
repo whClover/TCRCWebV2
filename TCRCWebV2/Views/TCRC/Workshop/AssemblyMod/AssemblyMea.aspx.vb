@@ -10,10 +10,11 @@ Public Class AssemblyMea
 
     Dim ewo As String
     Dim utility As New Utility(Me)
+
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-        'If Session("ss_userid") = "" Then
-        '    Response.Redirect(urlTCRCLogin)
-        'End If
+        If Session("ss_userid") = "" Then
+            Response.Redirect(urlTCRCLogin)
+        End If
 
         ewo = Request.QueryString("wo")
         Session("ss_assembly") = "n1"
@@ -21,29 +22,35 @@ Public Class AssemblyMea
             load_head()
             load_data()
             Bindingsection()
-            load_supvSection()
-        End If
-    End Sub
-
-    Sub load_supvSection()
-        Dim query As String = "select * from v_AssemblySectionApproval where wono=" & evar(ewo, 1)
-        Dim dt As New DataTable
-        dt = GetDataTable(query)
-        If dt.Rows.Count > 0 Then
-            gv_supv.DataSource = dt
-            gv_supv.DataBind()
+            'load_supvSection()
         End If
     End Sub
 
     Protected Sub Page_PreRenderComplete(sender As Object, e As EventArgs) Handles Me.PreRenderComplete
-        If Session("ScrollPosition") IsNot Nothing Then
-            Dim scrollPosition As Integer = Integer.Parse(Session("ScrollPosition"))
-            ScriptManager.RegisterStartupScript(Me, Me.GetType(), "setScrollPosition", "setTimeout(function() { window.scrollTo(0, " & scrollPosition & "); }, 100);", True)
-        End If
+        Try
+            If Session("ScrollPosition") IsNot Nothing Then
+                Dim scrollPosition As Integer = Integer.Parse(Session("ScrollPosition"))
+                ScriptManager.RegisterStartupScript(Me, Me.GetType(), "setScrollPosition", "setTimeout(function() { window.scrollTo(0, " & scrollPosition & "); }, 100);", True)
+            End If
+        Catch ex As Exception
+            ScriptManager.RegisterStartupScript(Me, Me.GetType(), "setScrollPosition", "setTimeout(function() { window.scrollTo(0, 0); }, 100);", True)
+        End Try
+
 
         getProgress(1)
         getProgress(2)
     End Sub
+
+#Region "Load Data"
+    'Sub load_supvSection()
+    '    Dim query As String = "select * from v_AssemblySectionApproval where wono=" & evar(ewo, 1)
+    '    Dim dt As New DataTable
+    '    dt = GetDataTable(query)
+    '    If dt.Rows.Count > 0 Then
+    '        gv_supv.DataSource = dt
+    '        gv_supv.DataBind()
+    '    End If
+    'End Sub
 
     Sub load_head()
         lwono.InnerText = "WO." & ewo
@@ -135,8 +142,10 @@ Public Class AssemblyMea
             Dim iconB As HtmlGenericControl = CType(e.Item.FindControl("iconB"), HtmlGenericControl)
             Dim tRow As HtmlTableRow = CType(e.Item.FindControl("tRow"), HtmlTableRow)
 
-            pSeq.InnerText = "#" & dataItem("Sequence")
-            pActivity.InnerHtml = dataItem("AssemblyDesc")
+            Dim bNA As LinkButton = CType(e.Item.FindControl("bNA"), LinkButton)
+
+            pSeq.InnerText = "#" & CheckDBNull(dataItem("Sequence"))
+            pActivity.InnerHtml = CheckDBNull(dataItem("AssemblyDesc"))
 
             If dataItem("ValType") = "2" Then
                 pFullSpec.Visible = True
@@ -157,8 +166,8 @@ Public Class AssemblyMea
                 pAsmBy.Visible = False
                 pAsmDate.Visible = False
             Else
-                pAsmBy.InnerText = dataItem("ModBy")
-                pAsmDate.InnerText = "on: " & dataItem("ModDate")
+                pAsmBy.InnerText = CheckDBNull(dataItem("ModBy"))
+                pAsmDate.InnerText = "on: " & CheckDBNull(dataItem("ModDate"))
             End If
 
             Select Case dataItem("ValType")
@@ -206,8 +215,10 @@ Public Class AssemblyMea
 
                     If CheckDBNull(dataItem("AssemblyVal")) = "-" Then
                         bLHApv.Visible = False
+                        bNA.Visible = True
                     Else
                         bLHApv.Visible = True
+                        bNA.Visible = False
                     End If
 
 
@@ -232,42 +243,113 @@ Public Class AssemblyMea
                 iconB.Attributes("class") = "fas fa-exclamation"
                 tRow.Attributes("class") = "bg-soft-danger"
             End If
+
+            'N/A Value
+            If CheckDBNull(dataItem("AssemblyVal")) = "-" Then
+
+            End If
         End If
     End Sub
 
-    Sub getcurrentScrollPos()
-        Try
-            Dim currentScrollPosition As Integer = Integer.Parse(ScrollPosition.Value)
-            Session("ScrollPosition") = currentScrollPosition
-        Catch ex As Exception
-            Session("ScrollPosition") = Integer.Parse("0")
-        End Try
+    Sub load_section(ByVal esection As String)
+        If esection = String.Empty Then
+            Exit Sub
+        End If
+
+        'load picture group
+        Dim dt As New DataTable
+        Dim query As String = "select case when('../../../../' + dbo.RemapPicW(PicturePath)) is null then '' else ('../../../../' + dbo.RemapPicW(PicturePath)) end as PicturePathGroup
+        from v_AssemblySectionPicture where wono=" & evar(ewo, 1) & " and AssemblySection=" & evar(esection, 1)
+        dt = GetDataTable(query)
+        If dt.Rows.Count > 0 Then
+            imgGp.Src = dt.Rows(0)("PicturePathGroup")
+        End If
+
+        'load section data
+        Dim dt2 As New DataTable
+        Dim ecol As String = "IDAssemblyInput,[Sequence],Replace(AssemblyDesc,CHAR(13)+CHAR(10),'<br />') as AssemblyDesc,case when UnitType=1 then 'Metric' else 'US' end as UnitTypeDesc,ValType,Unit,IDAssemblyInput,UnitType,Spec,Tolerance,
+                            isnull((isnull(convert(varchar(10),Spec),'') + ' ± ' + isnull(convert(varchar(10),Tolerance),'') + ' ' + convert(varchar(10), Unit)),'-') as SpecFull,'../../../../' + dbo.RemapPicW(PicturePath) as PicturePath,
+                            case when AssemblyVal is null then '-' else isnull((AssemblyVal + ' ' + Unit),AssemblyVal) end as AssemblyValFull,AssemblyVal,isnull(ModBy,'-') as ModBy,isnull(convert(varchar, ModDate,103),'-') as ModDate,isnull(ApprovedBy,'-') as ApprovedBy,InstructionType"
+        Dim query2 As String = "select " & ecol & " from v_AssemblyDetailInputRev2 where wono=" & evar(ewo, 1) & " and AssemblySection=" & evar(esection, 1) & "
+                                order by AssemblySection, dbo.SequenceNum(Sequence),dbo.SequenceAlpha(Sequence),dbo.getsortval(Sequence,30,10)"
+        dt2 = GetDataTable(query2)
+        If dt2.Rows.Count > 0 Then
+            rpt_mea2.DataSource = dt2
+            rpt_mea2.DataBind()
+        End If
+
+        getProgress(1)
+        getProgress(2)
     End Sub
 
-    Sub showAlert(ByVal type As String, ByVal msg As String)
-        Dim optsc As String = "toastr.options = {
-          ""closeButton"": false,
-          ""debug"": false,
-          ""newestOnTop"": false,
-          ""progressBar"": false,
-          ""positionClass"": ""toast-top-center"",
-          ""preventDuplicates"": false,
-          ""onclick"": null,
-          ""showDuration"": ""300"",
-          ""hideDuration"": ""1000"",
-          ""timeOut"": ""5000"",
-          ""extendedTimeOut"": ""1000"",
-          ""showEasing"": ""swing"",
-          ""hideEasing"": ""linear"",
-          ""showMethod"": ""fadeIn"",
-          ""hideMethod"": ""fadeOut""
-        };"
+    Sub getProgress(ByVal type As Integer)
+        Dim query As String = String.Empty
+        Dim dt As New DataTable
 
-        Dim script As String
-        script = optsc & "toastr[""" & type & """](""" & msg & """);"
-        ScriptManager.RegisterStartupScript(Me, Me.GetType(), "toastrMessage", script, True)
+        If type = 1 Then
+            query = "select " _
+                + "AssemblySection, " _
+                + "dbo.PercentCalc(SUM(CASE WHEN AssemblyVal IS NOT NULL THEN 1 ELSE 0 END), COUNT(IDAssemblyInput)) as Perc " _
+                + "from v_AssemblyDetailInputRev2 Group By WONO, AssemblySection " _
+                + "Having wono=" & evar(ewo, 1) & " and AssemblySection=" & evar(ddsection.Text, 1)
+
+            dt = GetDataTable(query)
+            If dt.Rows.Count > 0 Then
+                pSectionProg.Style("width") = dt.Rows(0)("Perc") & "%"
+                lSectionProg.InnerText = "Section Progress (" & dt.Rows(0)("Perc") & "%)"
+            End If
+        ElseIf type = 2 Then
+            query = "select " _
+                + "AssemblySection, " _
+                + "dbo.PercentCalc(SUM(CASE WHEN ApprovedBy IS NOT NULL THEN 1 ELSE 0 END), COUNT(IDAssemblyInput)) as Perc " _
+                + "from v_AssemblyDetailInputRev2 Group By WONO, AssemblySection " _
+                + "Having wono=" & evar(ewo, 1) & " and AssemblySection=" & evar(ddsection.Text, 1)
+
+            dt = GetDataTable(query)
+            If dt.Rows.Count > 0 Then
+                pSectionLH.Style("width") = dt.Rows(0)("Perc") & "%"
+                lSectionLH.InnerText = "Leading Hand Approval Progress (" & dt.Rows(0)("Perc") & "%)"
+            End If
+        End If
     End Sub
 
+    Protected Sub gv_supv_RowDataBound(sender As Object, e As GridViewRowEventArgs)
+        If e.Row.RowType = DataControlRowType.DataRow Then
+            Dim dataItem As DataRowView = CType(e.Row.DataItem, DataRowView)
+            Dim bapv As LinkButton = CType(e.Row.FindControl("bApv"), LinkButton)
+            Dim lApv As Label = CType(e.Row.FindControl("lApv"), Label)
+            Dim ddSupv As DropDownList = CType(e.Row.FindControl("ddSupv"), DropDownList)
+
+            Dim asectionValue As String = DataBinder.Eval(e.Row.DataItem, "AssemblySection").ToString()
+            Dim cMea As String = DataBinder.Eval(e.Row.DataItem, "Perc").ToString()
+            Dim cLH As String = DataBinder.Eval(e.Row.DataItem, "PercApproval").ToString()
+            ddSupv.Attributes("asection") = asectionValue
+
+            bapv.Attributes("asection") = asectionValue
+            bapv.Attributes("amea") = cMea
+            bapv.Attributes("aLH") = cLH
+
+            Dim esupvby As String = CheckDBNull(dataItem("SupvApprovedBy"))
+            Dim eassignto As String = CheckDBNull(dataItem("AssignedTo"))
+
+            Dim qry_supv As String = "select * from vw_UserPrivilegesEmailNotif where EmailTypeDesc='Supervisory' and EmailTypeID=43 and ActiveStatus=-1 order by FullName"
+            BindDataDropDown(ddSupv, qry_supv, "FullName", "UserName")
+
+            lApv.Text = esupvby
+            If esupvby = "-" Then
+                lApv.Visible = False
+                bapv.Visible = True
+                ddSupv.SelectedValue = eassignto
+            Else
+                ddSupv.Text = esupvby
+                ddSupv.Enabled = False
+                bapv.Visible = False
+                lApv.Visible = True
+            End If
+        End If
+    End Sub
+#End Region
+#Region "Action"
     Protected Sub bedit_Click(sender As Object, e As EventArgs)
         Dim eid As String = CType(sender, LinkButton).CommandArgument
 
@@ -342,68 +424,6 @@ Public Class AssemblyMea
         Session("ScrollPosition") = Integer.Parse("0")
 
         load_section(esection)
-    End Sub
-
-    Sub load_section(ByVal esection As String)
-        If esection = String.Empty Then
-            Exit Sub
-        End If
-
-        'load picture group
-        Dim dt As New DataTable
-        Dim query As String = "select case when('../../../../' + dbo.RemapPicW(PicturePath)) is null then '' else ('../../../../' + dbo.RemapPicW(PicturePath)) end as PicturePathGroup
-        from v_AssemblySectionPicture where wono=" & evar(ewo, 1) & " and AssemblySection=" & evar(esection, 1)
-        dt = GetDataTable(query)
-        If dt.Rows.Count > 0 Then
-            imgGp.Src = dt.Rows(0)("PicturePathGroup")
-        End If
-
-        'load section data
-        Dim dt2 As New DataTable
-        Dim ecol As String = "IDAssemblyInput,[Sequence],Replace(AssemblyDesc,CHAR(13)+CHAR(10),'<br />') as AssemblyDesc,case when UnitType=1 then 'Metric' else 'US' end as UnitTypeDesc,ValType,Unit,IDAssemblyInput,UnitType,Spec,Tolerance,
-                            isnull((isnull(convert(varchar(10),Spec),'') + ' ± ' + isnull(convert(varchar(10),Tolerance),'') + ' ' + convert(varchar(10), Unit)),'-') as SpecFull,'../../../../' + dbo.RemapPicW(PicturePath) as PicturePath,
-                            case when AssemblyVal is null then '-' else isnull((AssemblyVal + ' ' + Unit),AssemblyVal) end as AssemblyValFull,AssemblyVal,isnull(ModBy,'-') as ModBy,isnull(convert(varchar, ModDate,103),'-') as ModDate,isnull(ApprovedBy,'-') as ApprovedBy,InstructionType"
-        Dim query2 As String = "select " & ecol & " from v_AssemblyDetailInputRev2 where wono=" & evar(ewo, 1) & " and AssemblySection=" & evar(esection, 1) & "
-                                order by AssemblySection, dbo.SequenceNum(Sequence),dbo.SequenceAlpha(Sequence),dbo.getsortval(Sequence,30,10)"
-        dt2 = GetDataTable(query2)
-        If dt2.Rows.Count > 0 Then
-            rpt_mea2.DataSource = dt2
-            rpt_mea2.DataBind()
-        End If
-
-        getProgress(1)
-        getProgress(2)
-    End Sub
-
-    Sub getProgress(ByVal type As Integer)
-        Dim query As String = String.Empty
-        Dim dt As New DataTable
-
-        If type = 1 Then
-            query = "select " _
-                + "AssemblySection, " _
-                + "dbo.PercentCalc(SUM(CASE WHEN AssemblyVal IS NOT NULL THEN 1 ELSE 0 END), COUNT(IDAssemblyInput)) as Perc " _
-                + "from v_AssemblyDetailInputRev2 Group By WONO, AssemblySection " _
-                + "Having wono=" & evar(ewo, 1) & " and AssemblySection=" & evar(ddsection.Text, 1)
-
-            dt = GetDataTable(query)
-            If dt.Rows.Count > 0 Then
-                pSectionProg.Style("width") = dt.Rows(0)("Perc") & "%"
-                lSectionProg.InnerText = "Section Progress (" & dt.Rows(0)("Perc") & "%)"
-            End If
-        ElseIf type = 2 Then
-            query = "select " _
-                + "AssemblySection, " _
-                + "dbo.PercentCalc(SUM(CASE WHEN ApprovedBy IS NOT NULL THEN 1 ELSE 0 END), COUNT(IDAssemblyInput)) as Perc " _
-                + "from v_AssemblyDetailInputRev2 Group By WONO, AssemblySection " _
-                + "Having wono=" & evar(ewo, 1) & " and AssemblySection=" & evar(ddsection.Text, 1)
-
-            dt = GetDataTable(query)
-            If dt.Rows.Count > 0 Then
-                pSectionLH.Style("width") = dt.Rows(0)("Perc") & "%"
-                lSectionLH.InnerText = "Leading Hand Approval Progress (" & dt.Rows(0)("Perc") & "%)"
-            End If
-        End If
     End Sub
 
     Protected Sub bLH_Click(sender As Object, e As EventArgs)
@@ -513,34 +533,6 @@ Public Class AssemblyMea
 
     End Sub
 
-    Protected Sub gv_supv_RowDataBound(sender As Object, e As GridViewRowEventArgs)
-        If e.Row.RowType = DataControlRowType.DataRow Then
-            Dim dataItem As DataRowView = CType(e.Row.DataItem, DataRowView)
-            Dim bapv As LinkButton = CType(e.Row.FindControl("bApv"), LinkButton)
-            Dim lApv As Label = CType(e.Row.FindControl("lApv"), Label)
-            Dim ddSupv As DropDownList = CType(e.Row.FindControl("ddSupv"), DropDownList)
-
-            Dim asectionValue As String = DataBinder.Eval(e.Row.DataItem, "AssemblySection").ToString()
-            ddSupv.Attributes("asection") = asectionValue
-            bapv.Attributes("asection") = asectionValue
-
-            Dim esupvby As String = CheckDBNull(dataItem("SupvApprovedBy"))
-
-            Dim qry_supv As String = "select * from vw_UserPrivilegesEmailNotif where EmailTypeDesc='Supervisory' and EmailTypeID=43 and ActiveStatus=-1 order by FullName"
-            BindDataDropDown(ddSupv, qry_supv, "FullName", "UserName")
-
-            lApv.Text = esupvby
-            If esupvby = "-" Then
-                lApv.Visible = False
-                bapv.Visible = True
-            Else
-                ddSupv.SelectedValue = esupvby
-                ddSupv.Enabled = False
-                bapv.Visible = False
-                lApv.Visible = True
-            End If
-        End If
-    End Sub
 
     Protected Sub ddSupv_SelectedIndexChanged(sender As Object, e As EventArgs)
 
@@ -556,7 +548,7 @@ Public Class AssemblyMea
         Dim query As String = "update tbl_AssemblySectionApproval set AssignedTo=" & eByName() & ",
                 AssignedDate=GetDate() where AssemblySection=" & evar(esection, 1) & " and wono=" & evar(ewo, 1)
         executeQuery(query)
-        load_supvSection()
+        'load_supvSection()
     End Sub
 
     Protected Sub bApv_Click(sender As Object, e As EventArgs)
@@ -570,9 +562,22 @@ Public Class AssemblyMea
         Dim bapv As LinkButton = DirectCast(sender, LinkButton)
 
         Dim esection As String = bapv.Attributes("asection")
+        Dim eMea As String = bapv.Attributes("amea")
+        Dim eLH As String = bapv.Attributes("aLH")
+
+        If eMea <> "100" Then
+            showAlertV2("warning", "Please complete measurement before approve this section !")
+            Exit Sub
+        End If
+
+        If eLH <> "100" Then
+            showAlertV2("warning", "Please complete Leading Hand Approval before approve this section !")
+            Exit Sub
+        End If
+
         Dim query As String = "exec dbo.AssemblyApprovalFix " & evar(ewo, 1) & "," & evar(esection, 1) & "," & eByName()
         executeQuery(query)
-        load_supvSection()
+        'load_supvSection()
     End Sub
 
     Protected Sub bBack_Click(sender As Object, e As EventArgs)
@@ -597,9 +602,122 @@ Public Class AssemblyMea
         load_dataSection(esection)
     End Sub
 
+    Protected Sub tVal_TextChanged(sender As Object, e As EventArgs)
+        Dim eid As String = String.Empty
+        Dim evaltype As String = String.Empty
+        Dim query As String = String.Empty
+        Dim txt_val As TextBox = CType(sender, TextBox)
+        Dim gv As RepeaterItem = CType(txt_val.NamingContainer, RepeaterItem)
+        txt_val = CType(gv.FindControl("tVal"), TextBox)
+        eid = txt_val.Attributes("IDAssembly").ToString()
+        evaltype = txt_val.Attributes("ValType").ToString()
+
+        Select Case evaltype
+            Case 2
+                If Not IsNumeric(txt_val.Text) Then
+                    txt_val.Text = ""
+                    'showAlert("warning", "Numeric Input Only !")
+                    showAlertV2("warning", "Numeric Input Only !")
+                    Exit Sub
+                End If
+
+                query = "update tbl_AssemblyInput set AssemblyVal=" & evar(txt_val.Text, 1) & ",ModBy=" & eByName() & ",ModDate=GetDate() where IDAssemblyInput=" & eid
+            Case 3
+                query = "update tbl_AssemblyInput set AssemblyVal=" & evar(txt_val.Text, 1) & ",ModBy=" & eByName() & ",ModDate=GetDate() where IDAssemblyInput=" & eid
+        End Select
+
+        executeQuery(query)
+        'Response.Redirect(urlAssemblyMea & "?wo=" & Request.QueryString("WO"))
+        getcurrentScrollPos()
+        Dim esection As String = ddsection.Text
+        load_dataSection(esection)
+    End Sub
+
+    Protected Sub bOK2_Click(sender As Object, e As EventArgs)
+        Dim eid As String = String.Empty
+        eid = CType(sender, LinkButton).CommandArgument
+        Dim query As String = "update tbl_AssemblyInput set AssemblyVal='OK',ModBy=" & eByName() & ",ModDate=GetDate() where IDAssemblyInput=" & eid
+        executeQuery(query)
+        'Response.Redirect(urlAssemblyMea & "?wo=" & Request.QueryString("WO"))
+        getcurrentScrollPos()
+        Dim esection As String = ddsection.Text
+        load_dataSection(esection)
+    End Sub
+
+    Protected Sub bLHApv_Click(sender As Object, e As EventArgs)
+        If CheckGroup(44) = False Then
+            'showAlert("warning", "You dont have access supervisor approval")
+            showAlertV2("warning", "You dont have access Leading Hand approval")
+            Exit Sub
+        End If
+
+        Dim eid As String = String.Empty
+        eid = CType(sender, LinkButton).CommandArgument
+        Dim query As String = "update tbl_AssemblyInput set ApprovedBy=" & eByName() & " where IDAssemblyInput=" & eid
+        executeQuery(query)
+        'Response.Redirect(urlAssemblyMea & "?wo=" & Request.QueryString("WO"))
+        getcurrentScrollPos()
+        Dim esection As String = ddsection.Text
+        load_dataSection(esection)
+    End Sub
+
+    Protected Sub bNA_Click(sender As Object, e As EventArgs)
+        Dim eid As String = String.Empty
+        eid = CType(sender, LinkButton).CommandArgument
+        Dim query As String = "update tbl_AssemblyInput set AssemblyVal='n/a',ModBy=" & eByName() & ",ModDate=GetDate() where IDAssemblyInput=" & eid
+        executeQuery(query)
+        getcurrentScrollPos()
+        Dim esection As String = ddsection.Text
+        load_dataSection(esection)
+    End Sub
+
+    Protected Sub breset_Click(sender As Object, e As EventArgs)
+        Dim eid As String = String.Empty
+        eid = CType(sender, LinkButton).CommandArgument
+        Dim query As String = "update tbl_AssemblyInput set ReworkBy=" & eByName() & ",ReworkDate=getdate(),ApprovedBy=NULL,ApprovedDate=NULL,AssemblyVal=NULL,ModBy=NULL,ModDate=NULL where IDAssemblyInput=" & eid
+        executeQuery(query)
+        getcurrentScrollPos()
+        Dim esection As String = ddsection.Text
+        load_dataSection(esection)
+    End Sub
+#End Region
+#Region "Function"
+    Sub getcurrentScrollPos()
+        Try
+            Dim currentScrollPosition As Integer = Integer.Parse(ScrollPosition.Value)
+            Session("ScrollPosition") = currentScrollPosition
+        Catch ex As Exception
+            Session("ScrollPosition") = Integer.Parse("0")
+        End Try
+    End Sub
+
+    Sub showAlert(ByVal type As String, ByVal msg As String)
+        Dim optsc As String = "toastr.options = {
+          ""closeButton"": false,
+          ""debug"": false,
+          ""newestOnTop"": false,
+          ""progressBar"": false,
+          ""positionClass"": ""toast-top-center"",
+          ""preventDuplicates"": false,
+          ""onclick"": null,
+          ""showDuration"": ""300"",
+          ""hideDuration"": ""1000"",
+          ""timeOut"": ""5000"",
+          ""extendedTimeOut"": ""1000"",
+          ""showEasing"": ""swing"",
+          ""hideEasing"": ""linear"",
+          ""showMethod"": ""fadeIn"",
+          ""hideMethod"": ""fadeOut""
+        };"
+
+        Dim script As String
+        script = optsc & "toastr[""" & type & """](""" & msg & """);"
+        ScriptManager.RegisterStartupScript(Me, Me.GetType(), "toastrMessage", script, True)
+    End Sub
+
     Public Function checkspec(ByVal val As String, ByVal spec As String, ByVal tolerance As String) As Boolean
 
-        If val = String.Empty Or val = "n/a" Then
+        If val = String.Empty Or val = "n/a" Or val = "NA" Then
             checkspec = True
             GoTo skipp
         End If
@@ -635,36 +753,7 @@ skipp:
         Return checkspec
     End Function
 
-    Protected Sub tVal_TextChanged(sender As Object, e As EventArgs)
-        Dim eid As String = String.Empty
-        Dim evaltype As String = String.Empty
-        Dim query As String = String.Empty
-        Dim txt_val As TextBox = CType(sender, TextBox)
-        Dim gv As RepeaterItem = CType(txt_val.NamingContainer, RepeaterItem)
-        txt_val = CType(gv.FindControl("tVal"), TextBox)
-        eid = txt_val.Attributes("IDAssembly").ToString()
-        evaltype = txt_val.Attributes("ValType").ToString()
 
-        Select Case evaltype
-            Case 2
-                If Not IsNumeric(txt_val.Text) Then
-                    txt_val.Text = ""
-                    'showAlert("warning", "Numeric Input Only !")
-                    showAlertV2("warning", "Numeric Input Only !")
-                    Exit Sub
-                End If
-
-                query = "update tbl_AssemblyInput set AssemblyVal=" & evar(txt_val.Text, 1) & ",ModBy=" & eByName() & ",ModDate=GetDate() where IDAssemblyInput=" & eid
-            Case 3
-                query = "update tbl_AssemblyInput set AssemblyVal=" & evar(txt_val.Text, 1) & ",ModBy=" & eByName() & ",ModDate=GetDate() where IDAssemblyInput=" & eid
-        End Select
-
-        executeQuery(query)
-        'Response.Redirect(urlAssemblyMea & "?wo=" & Request.QueryString("WO"))
-        getcurrentScrollPos()
-        Dim esection As String = ddsection.Text
-        load_dataSection(esection)
-    End Sub
 
     Sub showAlertV2(ByVal type As String, ByVal msg As String)
         Dim script As String
@@ -672,25 +761,13 @@ skipp:
         ScriptManager.RegisterStartupScript(Me, Me.GetType(), "Swal", script, True)
     End Sub
 
-    Protected Sub bOK2_Click(sender As Object, e As EventArgs)
-        Dim eid As String = String.Empty
-        eid = CType(sender, LinkButton).CommandArgument
-        Dim query As String = "update tbl_AssemblyInput set AssemblyVal='OK',ModBy=" & eByName() & ",ModDate=GetDate() where IDAssemblyInput=" & eid
-        executeQuery(query)
-        'Response.Redirect(urlAssemblyMea & "?wo=" & Request.QueryString("WO"))
-        getcurrentScrollPos()
-        Dim esection As String = ddsection.Text
-        load_dataSection(esection)
+    Protected Sub bMea_Click(sender As Object, e As EventArgs)
+        Response.Redirect(urlAssemblyMea & "?wo=" & Request.QueryString("wo"))
     End Sub
 
-    Protected Sub bLHApv_Click(sender As Object, e As EventArgs)
-        Dim eid As String = String.Empty
-        eid = CType(sender, LinkButton).CommandArgument
-        Dim query As String = "update tbl_AssemblyInput set ApprovedBy=" & eByName() & " where IDAssemblyInput=" & eid
-        executeQuery(query)
-        'Response.Redirect(urlAssemblyMea & "?wo=" & Request.QueryString("WO"))
-        getcurrentScrollPos()
-        Dim esection As String = ddsection.Text
-        load_dataSection(esection)
+    Protected Sub bSupvApv_Click(sender As Object, e As EventArgs)
+        Response.Redirect(urlAssemblyMeaApv & "?wo=" & Request.QueryString("wo"))
     End Sub
+#End Region
+
 End Class

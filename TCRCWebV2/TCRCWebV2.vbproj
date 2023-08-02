@@ -1611,6 +1611,7 @@
     <Content Include="Views\TCRC\Office\index.aspx" />
     <Content Include="Views\TCRC\Office\Administration\ListWO.aspx" />
     <Content Include="Views\TCRC\Reports\AssemblyMea.aspx" />
+    <Content Include="Views\TCRC\Reports\AssemblyMeaRev.aspx" />
     <Content Include="Views\TCRC\Reports\CompRelFooter.aspx" />
     <Content Include="Views\TCRC\Reports\CompRelForm.aspx" />
     <Content Include="Views\TCRC\Reports\CoverPage.ascx" />
@@ -1619,6 +1620,7 @@
     <Content Include="Views\TCRC\Workshop\AssemblyMod\AssemblyAssign.ascx" />
     <Content Include="Views\TCRC\Workshop\AssemblyMod\AssemblyAssignEngine.ascx" />
     <Content Include="Views\TCRC\Workshop\AssemblyMod\AssemblyChk.aspx" />
+    <Content Include="Views\TCRC\Workshop\AssemblyMod\AssemblyChkRemark.ascx" />
     <Content Include="Views\TCRC\Workshop\AssemblyMod\AssemblyCylHead.aspx" />
     <Content Include="Views\TCRC\Workshop\AssemblyMod\AssemblyDyno.aspx" />
     <Content Include="Views\TCRC\Workshop\AssemblyMod\AssemblyFuelCode.aspx" />
@@ -1628,6 +1630,7 @@
     <Content Include="Views\TCRC\Workshop\AssemblyMod\AssemblyList.aspx" />
     <Content Include="Views\TCRC\Workshop\AssemblyMod\AssemblyMea.ascx" />
     <Content Include="Views\TCRC\Workshop\AssemblyMod\AssemblyMea.aspx" />
+    <Content Include="Views\TCRC\Workshop\AssemblyMod\AssemblyMeaApv.aspx" />
     <Content Include="Views\TCRC\Workshop\AssemblyMod\AssemblyMenu.ascx" />
     <Content Include="Views\TCRC\Workshop\AssemblyMod\AssemblyPinPiston.aspx" />
     <Content Include="Views\TCRC\Workshop\AssemblyMod\AssemblyPistonRec.aspx" />
@@ -1803,6 +1806,13 @@
       <DependentUpon>AssemblyMea.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
+    <Compile Include="Views\TCRC\Reports\AssemblyMeaRev.aspx.designer.vb">
+      <DependentUpon>AssemblyMeaRev.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TCRC\Reports\AssemblyMeaRev.aspx.vb">
+      <DependentUpon>AssemblyMeaRev.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
     <Compile Include="Views\TCRC\Reports\CompRelFooter.aspx.designer.vb">
       <DependentUpon>CompRelFooter.aspx</DependentUpon>
     </Compile>
@@ -1858,6 +1868,13 @@
     <Compile Include="Views\TCRC\Workshop\AssemblyMod\AssemblyChk.aspx.vb">
       <DependentUpon>AssemblyChk.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Views\TCRC\Workshop\AssemblyMod\AssemblyChkRemark.ascx.designer.vb">
+      <DependentUpon>AssemblyChkRemark.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TCRC\Workshop\AssemblyMod\AssemblyChkRemark.ascx.vb">
+      <DependentUpon>AssemblyChkRemark.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Views\TCRC\Workshop\AssemblyMod\AssemblyCylHead.aspx.designer.vb">
       <DependentUpon>AssemblyCylHead.aspx</DependentUpon>
@@ -1920,6 +1937,13 @@
     </Compile>
     <Compile Include="Views\TCRC\Workshop\AssemblyMod\AssemblyMea.aspx.vb">
       <DependentUpon>AssemblyMea.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Views\TCRC\Workshop\AssemblyMod\AssemblyMeaApv.aspx.designer.vb">
+      <DependentUpon>AssemblyMeaApv.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TCRC\Workshop\AssemblyMod\AssemblyMeaApv.aspx.vb">
+      <DependentUpon>AssemblyMeaApv.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="Views\TCRC\Workshop\AssemblyMod\AssemblyMenu.ascx.designer.vb">

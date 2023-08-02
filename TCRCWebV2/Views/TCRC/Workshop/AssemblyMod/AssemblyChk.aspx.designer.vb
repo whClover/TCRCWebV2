@@ -23,6 +23,15 @@ Partial Public Class AssemblyChk
     Protected WithEvents MenuTCRC As Global.TCRCWebV2.MenuTCRC1
 
     '''<summary>
+    '''AssemblyChkRemark control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents AssemblyChkRemark As Global.TCRCWebV2.AssemblyChkRemark
+
+    '''<summary>
     '''lwono control.
     '''</summary>
     '''<remarks>
@@ -111,6 +120,15 @@ Partial Public Class AssemblyChk
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents bna As Global.System.Web.UI.WebControls.LinkButton
+
+    '''<summary>
+    '''bremark control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents bremark As Global.System.Web.UI.WebControls.LinkButton
 
     '''<summary>
     '''gv_chk control.

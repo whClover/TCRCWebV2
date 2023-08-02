@@ -29,6 +29,12 @@
                         <uc1:AssemblyMenu runat="server" ID="AssemblyMenu" />
                         <div class="col-md-12">
                             <div class="d-flex flex-wrap gap-2 mb-2 fw-bold">
+                                <u>Tools</u>
+                            </div>
+                            <div class="mt-3 mb-3">
+                                <asp:LinkButton runat="server" CssClass="btn btn-soft-primary btn-sm" ID="bna" OnClick="bna_Click" OnClientClick="return confirm('Are you sure?')">All n/a</asp:LinkButton>
+                            </div>
+                            <div class="d-flex flex-wrap gap-2 mb-2 fw-bold">
                                 <u>Valve Lash Adjustment</u>
                             </div>
                             <div class="mt-3 mb-3">

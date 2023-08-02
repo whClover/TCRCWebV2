@@ -7,7 +7,9 @@ Public Class AssemblyGallery
     Inherits System.Web.UI.UserControl
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-        load_data()
+        If IsPostBack = False Then
+            load_data()
+        End If
     End Sub
 
     Sub load_data()
@@ -85,5 +87,7 @@ lanjut:
                                 & "('" + esection + "','" + newfile + "','1'," + eByName() + ",GetDate(),'" + ewo + "')"
             executeQuery(query)
         End If
+
+        Response.Redirect(urlAssemblyMea & "?wo=" & ewo)
     End Sub
 End Class

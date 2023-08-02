@@ -100,7 +100,7 @@ Public Class AssemblyFuelCode
             Dim query_2 As String = "update tbl_AssemblyEngineInput set Value=" & evar(ddInjIden.SelectedValue, 1) & ",ModDate=GetDate(),ModBy=" & eByName() & " 
                 where wono=" & evar(ewo, 1) & " and CylinderDesc='InjctIdentication' and CylinderNo=" & evar(cylinderNo, 1)
             executeQuery(query_1)
-            executeQuery(query_1)
+            executeQuery(query_2)
             showAlert("success", "Data Saved Successfully")
 
             load_data()
@@ -130,5 +130,21 @@ Public Class AssemblyFuelCode
         Dim script As String
         script = optsc & "toastr[""" & type & """](""" & msg & """);"
         ScriptManager.RegisterStartupScript(Me, Me.GetType(), "toastrMessage", script, True)
+    End Sub
+
+    Protected Sub bna_Click(sender As Object, e As EventArgs)
+        Dim query, ewono As String
+        ewono = Request.QueryString("wo")
+        query = "update tbl_AssemblyEngineInput set Value='n/a',ModBy=" & eByName() & ",ModDate=GetDate() where wono=" & evar(ewono, 1) & " and CylinderDesc in('TrimCode','InjctIdentication')"
+        executeQuery(query)
+        showAlertV2("success", "Saved")
+        load_data()
+        load_progress()
+    End Sub
+
+    Sub showAlertV2(ByVal type As String, ByVal msg As String)
+        Dim script As String
+        script = "Swal.fire('','" & msg & "','" & type & "')"
+        ScriptManager.RegisterStartupScript(Me, Me.GetType(), "Swal", script, True)
     End Sub
 End Class

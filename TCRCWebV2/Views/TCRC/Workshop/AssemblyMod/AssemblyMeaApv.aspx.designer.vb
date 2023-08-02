@@ -11,7 +11,7 @@ Option Strict On
 Option Explicit On
 
 
-Partial Public Class AssemblyLinerProj
+Partial Public Class AssemblyMeaApv
 
     '''<summary>
     '''MenuTCRC control.
@@ -21,24 +21,6 @@ Partial Public Class AssemblyLinerProj
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents MenuTCRC As Global.TCRCWebV2.MenuTCRC1
-
-    '''<summary>
-    '''ScrollPosition control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents ScrollPosition As Global.System.Web.UI.WebControls.HiddenField
-
-    '''<summary>
-    '''AssemblyAssignEngine control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents AssemblyAssignEngine As Global.TCRCWebV2.AssemblyAssignEngine
 
     '''<summary>
     '''lwono control.
@@ -68,56 +50,29 @@ Partial Public Class AssemblyLinerProj
     Protected WithEvents AssemblyMenu As Global.TCRCWebV2.AssemblyMenu
 
     '''<summary>
-    '''bna control.
+    '''bMea control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents bna As Global.System.Web.UI.WebControls.LinkButton
+    Protected WithEvents bMea As Global.System.Web.UI.WebControls.LinkButton
 
     '''<summary>
-    '''lSectionProg control.
+    '''bSupvApv control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents lSectionProg As Global.System.Web.UI.HtmlControls.HtmlGenericControl
+    Protected WithEvents bSupvApv As Global.System.Web.UI.WebControls.LinkButton
 
     '''<summary>
-    '''pSectionProg control.
+    '''gv_supv control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents pSectionProg As Global.System.Web.UI.HtmlControls.HtmlGenericControl
-
-    '''<summary>
-    '''rpt_liner control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents rpt_liner As Global.System.Web.UI.WebControls.Repeater
-
-    '''<summary>
-    '''ph1 control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents ph1 As Global.System.Web.UI.WebControls.PlaceHolder
-
-    '''<summary>
-    '''ph control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents ph As Global.System.Web.UI.WebControls.PlaceHolder
+    Protected WithEvents gv_supv As Global.System.Web.UI.WebControls.GridView
 End Class

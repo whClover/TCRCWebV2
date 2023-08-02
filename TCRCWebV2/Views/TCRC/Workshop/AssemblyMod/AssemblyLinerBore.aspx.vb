@@ -132,4 +132,20 @@ Public Class AssemblyLinerBore
         script = optsc & "toastr[""" & type & """](""" & msg & """);"
         ScriptManager.RegisterStartupScript(Me, Me.GetType(), "toastrMessage", script, True)
     End Sub
+
+    Protected Sub bna_Click(sender As Object, e As EventArgs)
+        Dim query, ewono As String
+        ewono = Request.QueryString("wo")
+        query = "update tbl_AssemblyEngineInput set Value='n/a',ModBy=" & eByName() & ",ModDate=GetDate() where wono=" & evar(ewono, 1) & " and CylinderDesc in('UpperLinerBore')"
+        executeQuery(query)
+        showAlertV2("success", "Saved")
+        load_data()
+        load_progress()
+    End Sub
+
+    Sub showAlertV2(ByVal type As String, ByVal msg As String)
+        Dim script As String
+        script = "Swal.fire('','" & msg & "','" & type & "')"
+        ScriptManager.RegisterStartupScript(Me, Me.GetType(), "Swal", script, True)
+    End Sub
 End Class

@@ -7,7 +7,11 @@ Public Class AssemblyAssignEngine
     Inherits System.Web.UI.UserControl
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-        load_template()
+
+        If IsPostBack = False Then
+            load_template()
+        End If
+
     End Sub
 
     Sub load_template()
@@ -20,6 +24,7 @@ Public Class AssemblyAssignEngine
         Dim eIDTemplate As String = modDDTemplate.SelectedValue
         Dim query As String = "exec dbo.AssemblyTemplateEngineSubmit " + ewo + "," + eIDTemplate + "," + eByName()
         executeQuery(query)
-        ScriptManager.RegisterStartupScript(Me, Me.GetType(), "Refresh", "window.location.reload();", True)
+        'ScriptManager.RegisterStartupScript(Me, Me.GetType(), "Refresh", "window.location.reload();", True)
+        Response.Redirect(urlAssemblyLinerProj & "?wo=" & modWONo.Text)
     End Sub
 End Class

@@ -42,6 +42,7 @@
     Public Shared urlAssembly As String = urlTCRCWorkshop & "/AssemblyMod/"
     Public Shared urlAssemblyList As String = urlAssembly & "AssemblyList.aspx"
     Public Shared urlAssemblyMea As String = urlAssembly & "AssemblyMea.aspx"
+    Public Shared urlAssemblyMeaApv As String = urlAssembly & "AssemblyMeaApv.aspx"
     Public Shared urlAssemblyChk As String = urlAssembly & "AssemblyChk.aspx"
     Public Shared urlAssemblyLinerProj As String = urlAssembly & "AssemblyLinerProj.aspx"
     Public Shared urlAssemblyUpperLiner As String = urlAssembly & "AssemblyLinerBore.aspx"

@@ -59,6 +59,15 @@ Partial Public Class AssemblyPistonRec
     Protected WithEvents AssemblyMenu As Global.TCRCWebV2.AssemblyMenu
 
     '''<summary>
+    '''bna control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents bna As Global.System.Web.UI.WebControls.LinkButton
+
+    '''<summary>
     '''lSectionProg control.
     '''</summary>
     '''<remarks>

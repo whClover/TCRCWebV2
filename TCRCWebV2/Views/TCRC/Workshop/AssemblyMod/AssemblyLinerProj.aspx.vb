@@ -4,6 +4,7 @@ Imports TCRCWebV2.GlobalString
 Imports System.Data.SqlClient
 Imports DocumentFormat.OpenXml.Office.CustomUI
 Imports System.Windows
+Imports Newtonsoft.Json
 
 Public Class AssemblyLinerProj
 	Inherits System.Web.UI.Page
@@ -86,8 +87,8 @@ Public Class AssemblyLinerProj
 			& "case when LPMinMetric is null then 0 else convert(float,LPMinMetric) end as LPMinMetric," _
 			& "case when LPMinUnitMetric is null then '' else LPMinUnitMetric end as LPMinUnitMetric," _
 			& "case when LPMaxMetric is null then 0 else convert(float,LPMaxMetric) end as LPMaxMetric," _
-			& "case when LPMaxUnitMetric is null then '' else LPMaxUnitMetric end as LPMaxUnitMetric from 
-			v_AssemblyLinerProj where wono=" & evar(ewo, 1)
+			& "case when LPMaxUnitMetric is null then '' else LPMaxUnitMetric end as LPMaxUnitMetric from" _
+			& " v_AssemblyLinerProj where wono=" & evar(ewo, 1)
 		dt = GetDataTable(query)
 		If dt.Rows.Count > 0 Then
 			rpt_liner.DataSource = dt
@@ -114,11 +115,30 @@ Public Class AssemblyLinerProj
 			Dim tMin As TextBox = CType(e.Item.FindControl("tMin"), TextBox)
 			Dim tVar As TextBox = CType(e.Item.FindControl("tVar"), TextBox)
 
+			Dim LPMinUS As Decimal = dataItem("LPMinUS")
+			Dim LPMaxUS As Decimal = dataItem("LPMaxUS")
+
 			'input data ke object
 			lCylNo.InnerText = "Cylinder No." & dataItem("CylinderNo").ToString()
 			Dim especUS As String = dataItem("LPMinUS").ToString() & dataItem("LPMinUnitUS").ToString() & " - " & dataItem("LPMaxUS").ToString() & dataItem("LPMaxUnitUS").ToString()
 			Dim eSpecMetric As String = dataItem("LPMinMetric").ToString() & dataItem("LPMinUnitMetric").ToString() & " - " & dataItem("LPMaxMetric").ToString() & dataItem("LPMaxUnitMetric").ToString()
 			lSpec.InnerHtml = "Spesifications: <br />" & especUS & "<br />" & eSpecMetric
+
+			If dataItem("LPA") > LPMaxUS Or dataItem("LPA") < LPMinUS Then
+				tA.ForeColor = System.Drawing.Color.Red
+			End If
+
+			If dataItem("LPB") > LPMaxUS And dataItem("LPB") < LPMinUS Then
+				tB.ForeColor = System.Drawing.Color.Red
+			End If
+
+			If dataItem("LPC") > LPMaxUS And dataItem("LPC") < LPMinUS Then
+				tC.ForeColor = System.Drawing.Color.Red
+			End If
+
+			If dataItem("LPD") > LPMaxUS And dataItem("LPD") < LPMinUS Then
+				tD.ForeColor = System.Drawing.Color.Red
+			End If
 
 			tA.Text = dataItem("LPA").ToString()
 			tB.Text = dataItem("LPB").ToString()
@@ -216,7 +236,7 @@ Public Class AssemblyLinerProj
 			stringhtml = String.Concat(stringhtml, datastring)
 		End While
 
-		fullhtml = "<table class=""table table-condensed font-size-10 gridview"">" & stringhtml & "</table>"
+		fullhtml = "<table class=""table table-condensed gridview"">" & stringhtml & "</table>"
 		html.Append(fullhtml)
 		ph.Controls.Add(New Literal() With {
 			.Text = html.ToString()
@@ -294,7 +314,7 @@ Public Class AssemblyLinerProj
 			stringhtml = String.Concat(stringhtml, datastring)
 		End While
 
-		fullhtml = "<table class=""table table-condensed font-size-10 gridview"">" & stringhtml & "</table>"
+		fullhtml = "<table class=""table table-condensed gridview"">" & stringhtml & "</table>"
 		html.Append(fullhtml)
 		ph1.Controls.Add(New Literal() With {
 			.Text = html.ToString()
@@ -354,7 +374,7 @@ Public Class AssemblyLinerProj
 			load_2()
 			load_3()
 			load_progress()
-			getcurrentScrollPos()
+			'getcurrentScrollPos()
 		End If
 	End Sub
 
@@ -380,5 +400,23 @@ Public Class AssemblyLinerProj
 		Dim script As String
 		script = optsc & "toastr[""" & type & """](""" & msg & """);"
 		ScriptManager.RegisterStartupScript(Me, Me.GetType(), "toastrMessage", script, True)
+	End Sub
+
+	Protected Sub bna_Click(sender As Object, e As EventArgs)
+		Dim query, ewono As String
+		ewono = Request.QueryString("wo")
+		query = "update tbl_AssemblyEngineInput set Value='n/a',ModBy=" & eByName() & ",ModDate=GetDate() where wono=" & evar(ewono, 1) & " and CylinderDesc in('LPA','LPB','LPC','LPD')"
+		executeQuery(query)
+		showAlertV2("success", "Saved")
+		load_1()
+		load_2()
+		load_3()
+		load_progress()
+	End Sub
+
+	Sub showAlertV2(ByVal type As String, ByVal msg As String)
+		Dim script As String
+		script = "Swal.fire('','" & msg & "','" & type & "')"
+		ScriptManager.RegisterStartupScript(Me, Me.GetType(), "Swal", script, True)
 	End Sub
 End Class

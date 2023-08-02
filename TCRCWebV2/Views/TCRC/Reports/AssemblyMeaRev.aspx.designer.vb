@@ -11,34 +11,16 @@ Option Strict On
 Option Explicit On
 
 
-Partial Public Class AssemblyLinerBore
+Partial Public Class AssemblyMeaRev
 
     '''<summary>
-    '''MenuTCRC control.
+    '''CoverPage control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents MenuTCRC As Global.TCRCWebV2.MenuTCRC1
-
-    '''<summary>
-    '''ScrollPosition control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents ScrollPosition As Global.System.Web.UI.WebControls.HiddenField
-
-    '''<summary>
-    '''AssemblyAssignEngine control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents AssemblyAssignEngine As Global.TCRCWebV2.AssemblyAssignEngine
+    Protected WithEvents CoverPage As Global.TCRCWebV2.CoverPage
 
     '''<summary>
     '''lwono control.
@@ -47,7 +29,16 @@ Partial Public Class AssemblyLinerBore
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents lwono As Global.System.Web.UI.HtmlControls.HtmlGenericControl
+    Protected WithEvents lwono As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''lunitno control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lunitno As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
     '''lwodesc control.
@@ -56,50 +47,32 @@ Partial Public Class AssemblyLinerBore
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents lwodesc As Global.System.Web.UI.HtmlControls.HtmlGenericControl
+    Protected WithEvents lwodesc As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''AssemblyMenu control.
+    '''lunitdesc control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents AssemblyMenu As Global.TCRCWebV2.AssemblyMenu
+    Protected WithEvents lunitdesc As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''bna control.
+    '''lcomp control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents bna As Global.System.Web.UI.WebControls.LinkButton
+    Protected WithEvents lcomp As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''lSectionProg control.
+    '''rpt_section control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents lSectionProg As Global.System.Web.UI.HtmlControls.HtmlGenericControl
-
-    '''<summary>
-    '''pSectionProg control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents pSectionProg As Global.System.Web.UI.HtmlControls.HtmlGenericControl
-
-    '''<summary>
-    '''rpt_linerBore control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents rpt_linerBore As Global.System.Web.UI.WebControls.Repeater
+    Protected WithEvents rpt_section As Global.System.Web.UI.WebControls.Repeater
 End Class

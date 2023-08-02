@@ -164,6 +164,8 @@ Public Class AssemblyList
             'Ambil Data Data Source
             Dim dataItem As DataRowView = CType(e.Item.DataItem, DataRowView)
 
+            Dim emaintid As String = dataItem("MaintID").ToString()
+
             Dim hWONo As HtmlGenericControl = CType(e.Item.FindControl("hWONo"), HtmlGenericControl)
             Dim hWODesc As HtmlGenericControl = CType(e.Item.FindControl("hWODesc"), HtmlGenericControl)
             Dim hMea As HtmlGenericControl = CType(e.Item.FindControl("hMea"), HtmlGenericControl)
@@ -218,8 +220,24 @@ Public Class AssemblyList
             hCH.InnerHtml = IIf(CheckDBNull(dataItem("Dyno_Perc").ToString() = "-"), "-", dataItem("Dyno_Perc").ToString() & "%")
             hLH.InnerHtml = IIf(CheckDBNull(dataItem("LHApv_Perc").ToString() = "-"), "-", dataItem("LHApv_Perc").ToString() & "%")
             hSupv.InnerHtml = IIf(CheckDBNull(dataItem("SPVApv_Perc").ToString() = "-"), "-", dataItem("SPVApv_Perc").ToString() & "%")
+            hDyno.InnerHtml = IIf(CheckDBNull(dataItem("Dyno_Perc").ToString() = "-"), "-", dataItem("Dyno_Perc").ToString() & "%")
 
             If dataItem("ComppGroup") = "Powertrain" Then
+                liMea.Visible = True
+                leChk.Visible = True
+                liLP.Visible = False
+                liULB.Visible = False
+                liPPC.Visible = False
+                liVLA.Visible = False
+                liFuel.Visible = False
+                liPR.Visible = False
+                liCH.Visible = False
+                liDyno.Visible = False
+                liLH.Visible = True
+                liSpv.Visible = True
+            End If
+
+            If dataItem("ComppGroup") = "Engine" And emaintid <> "N1000" Then
                 liMea.Visible = True
                 leChk.Visible = True
                 liLP.Visible = False
@@ -250,9 +268,15 @@ Public Class AssemblyList
     End Sub
 
     Protected Sub bMea_Click(sender As Object, e As EventArgs)
+        'Dim ewo As String = CType(sender, LinkButton).CommandArgument
+        'Session("ss_assembly") = "n1"
+        'Response.Redirect(urlAssemblyMea & "?wo=" & ewo)
+
         Dim ewo As String = CType(sender, LinkButton).CommandArgument
         Session("ss_assembly") = "n1"
-        Response.Redirect(urlAssemblyMea & "?wo=" & ewo)
+        Response.Write("<script>")
+        Response.Write("window.open('../../../../Views/TCRC/Workshop/AssemblyMod/AssemblyMea.aspx?wo=" & ewo & "', '_blank')")
+        Response.Write("</script>")
     End Sub
 
     Protected Sub bChk_Click(sender As Object, e As EventArgs)

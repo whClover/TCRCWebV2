@@ -47,8 +47,13 @@ Public Class AssemblyCylHead
     End Sub
 
     Sub getcurrentScrollPos()
-        Dim currentScrollPosition As Integer = Integer.Parse(ScrollPosition.Value)
-        Session("ScrollPosition") = currentScrollPosition
+        Try
+            Dim currentScrollPosition As Integer = Integer.Parse(ScrollPosition.Value)
+            Session("ScrollPosition") = currentScrollPosition
+        Catch ex As Exception
+
+        End Try
+
     End Sub
 
     Sub load_head()
@@ -97,9 +102,10 @@ Public Class AssemblyCylHead
             'Declare Object
             Dim H2 As HtmlGenericControl = CType(e.Item.FindControl("H2"), HtmlGenericControl)
             Dim ddCylRec As DropDownList = CType(e.Item.FindControl("ddCylRec"), DropDownList)
+            Dim tExWO As TextBox = CType(e.Item.FindControl("tExWO"), TextBox)
 
             Dim tIntakeA As TextBox = CType(e.Item.FindControl("tIntakeA"), TextBox)
-            Dim tIntakeB As TextBox = CType(e.Item.FindControl("tIntakeA"), TextBox)
+            Dim tIntakeB As TextBox = CType(e.Item.FindControl("tIntakeB"), TextBox)
             Dim tExhaustA As TextBox = CType(e.Item.FindControl("tExhaustA"), TextBox)
             Dim tExhaustB As TextBox = CType(e.Item.FindControl("tExhaustB"), TextBox)
 
@@ -121,6 +127,8 @@ Public Class AssemblyCylHead
             ddIntakeB.SelectedValue = dataItem("IntakeValveB_InsBore").ToString()
             ddExhaustA.SelectedValue = dataItem("ExhaustValveA_InsBore").ToString()
             ddExhaustB.SelectedValue = dataItem("ExhaustValveB_InsBore").ToString()
+
+            tExWO.Text = CheckDBNull(dataItem("WOCylHead").ToString())
         End If
     End Sub
 
@@ -128,6 +136,7 @@ Public Class AssemblyCylHead
         If e.CommandName = "Save" Then
             Dim cylinderNo As String = Convert.ToString(e.CommandArgument)
             Dim ddCylRec As DropDownList = CType(e.Item.FindControl("ddCylRec"), DropDownList)
+            Dim tExWO As TextBox = CType(e.Item.FindControl("tExWO"), TextBox)
 
             Dim tIntakeA As TextBox = CType(e.Item.FindControl("tIntakeA"), TextBox)
             Dim tIntakeB As TextBox = CType(e.Item.FindControl("tIntakeB"), TextBox)
@@ -148,6 +157,10 @@ Public Class AssemblyCylHead
             Dim query_6 As String = "exec AssemblyUpdateEngineInput " & evar(ewo, 1) & "," & evar(cylinderNo, 1) & ",'IntakeValveB_InsBore'," & evar(ddIntakeB.SelectedValue, 1) & "," & eByName()
             Dim query_7 As String = "exec AssemblyUpdateEngineInput " & evar(ewo, 1) & "," & evar(cylinderNo, 1) & ",'ExhaustValveA_InsBore'," & evar(ddExhaustA.SelectedValue, 1) & "," & eByName()
             Dim query_8 As String = "exec AssemblyUpdateEngineInput " & evar(ewo, 1) & "," & evar(cylinderNo, 1) & ",'ExhaustValveB_InsBore'," & evar(ddExhaustB.SelectedValue, 1) & "," & eByName()
+
+            Dim query_9 As String = "exec AssemblyUpdateEngineInput " & evar(ewo, 1) & "," & evar(cylinderNo, 1) & ",'WOCylHead'," & evar(tExWO.Text, 1) & "," & eByName()
+            Dim query_10 As String = "exec AssemblyUpdateEngineInput " & evar(ewo, 1) & "," & evar(cylinderNo, 1) & ",'CylRec'," & evar(ddCylRec.SelectedValue, 1) & "," & eByName()
+
             executeQuery(query_1)
             executeQuery(query_2)
             executeQuery(query_3)
@@ -156,6 +169,8 @@ Public Class AssemblyCylHead
             executeQuery(query_6)
             executeQuery(query_7)
             executeQuery(query_8)
+            executeQuery(query_9)
+            executeQuery(query_10)
 
             showAlert("success", "Data Saved Successfully")
 
@@ -187,5 +202,23 @@ Public Class AssemblyCylHead
         Dim script As String
         script = optsc & "toastr[""" & type & """](""" & msg & """);"
         ScriptManager.RegisterStartupScript(Me, Me.GetType(), "toastrMessage", script, True)
+    End Sub
+
+    Protected Sub bna_Click(sender As Object, e As EventArgs)
+        Dim query, ewono As String
+        ewono = Request.QueryString("wo")
+        query = "update tbl_AssemblyEngineInput set Value='n/a',ModBy=" & eByName() & ",ModDate=GetDate() where wono=" & evar(ewono, 1) & " and 
+                CylinderDesc in('IntakeValveA','IntakeValveB','ExhaustValveA','ExhaustValveB','IntakeValveA_InsBore','IntakeValveB_InsBore',
+                'ExhaustValveA_InsBore','ExhaustValveB_InsBore','WOCylHead','CylRec')"
+        executeQuery(query)
+        showAlertV2("success", "Saved")
+        load_data()
+        load_progress()
+    End Sub
+
+    Sub showAlertV2(ByVal type As String, ByVal msg As String)
+        Dim script As String
+        script = "Swal.fire('','" & msg & "','" & type & "')"
+        ScriptManager.RegisterStartupScript(Me, Me.GetType(), "Swal", script, True)
     End Sub
 End Class

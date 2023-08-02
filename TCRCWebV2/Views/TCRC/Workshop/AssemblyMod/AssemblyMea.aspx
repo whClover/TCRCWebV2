@@ -36,16 +36,16 @@
                                     
                                     <ul class="nav nav-tabs nav-tabs-custom mb-3" role="tablist">
                                         <li class="nav-item" role="presentation">
-                                            <a class="nav-link active" data-bs-toggle="tab" href="#mealist" role="tab" aria-selected="false" tabindex="-1">
+                                            <asp:LinkButton runat="server" CssClass="nav-link active" ID="bMea" OnClick="bMea_Click">
                                                 <span class="d-block d-sm-none"><i class="far fa-user"></i></span>
                                                 <span class="d-none d-sm-block">Measurement List</span> 
-                                            </a>
+                                            </asp:LinkButton>
                                         </li>
                                         <li class="nav-item" role="presentation">
-                                            <a class="nav-link" data-bs-toggle="tab" href="#supvapv" role="tab" aria-selected="false" tabindex="-1">
-                                                <span class="d-block d-sm-none"><i class="far fa-envelope"></i></span>
-                                                <span class="d-none d-sm-block">Supervisor Approval</span>   
-                                            </a>
+                                            <asp:LinkButton runat="server" CssClass="nav-link" ID="bSupvApv" OnClick="bSupvApv_Click">
+                                                <span class="d-block d-sm-none"><i class="far fa-user"></i></span>
+                                                <span class="d-none d-sm-block">Supervisor Approval</span> 
+                                            </asp:LinkButton>
                                         </li>
                                     </ul>
 
@@ -146,14 +146,18 @@
                                                                 <hr />
                                                                 <span class="form-label" runat="server" id="pFullSpec"></span>
                                                             </td>
-                                                            <td class="text-center">
+                                                            <td>
                                                                 <div class="input-group">
                                                                     <asp:TextBox runat="server" CssClass="form-control form-control-sm" ID="tVal" Visible="false" OnTextChanged="tVal_TextChanged" 
                                                                         IDAssembly='<%# Eval("IDAssemblyInput") %>' ValType='<%# Eval("ValType") %>' AutoPostBack="true"></asp:TextBox>
                                                                     <span class="input-group-text" id="sUnit" runat="server" Visible="false">-</span>
                                                                     <asp:LinkButton runat="server" ID="bOK2" CssClass="btn btn-soft-primary" Visible="false" CommandArgument='<%# Eval("IDAssemblyInput") %>' OnClick="bOK2_Click">OK</asp:LinkButton>
+                                                                    <asp:LinkButton runat="server" ID="bNA" CssClass="btn btn-soft-secondary" Visible="false" CommandArgument='<%# Eval("IDAssemblyInput") %>' OnClick="bNA_Click">NA</asp:LinkButton>
                                                                 </div>
                                                                 <small runat="server" class="form-label text-danger fw-bold" id="lCheckSpec">Out of spec</small>
+                                                                <hr />
+                                                                <asp:LinkButton runat="server" CssClass="btn btn-soft-secondary btn-sm" OnClick="breset_Click" CommandArgument='<%# Eval("IDAssemblyInput") %>' ID="breset" 
+                                                                    OnClientClick="return confirm('Are you sure you want to reset the value?')">Reset Value</asp:LinkButton>
                                                             </td>
                                                             <td>
                                                                 <label class="form-label" runat="server" id="pAsmBy"></label><br />
@@ -171,28 +175,7 @@
                                                     </FooterTemplate>
                                                 </asp:Repeater>
                                             </div>
-                                        </div>
-                                        <div class="tab-pane" id="supvapv" role="tabpanel">
-                                            <asp:GridView runat="server" CssClass="table table-bordered table-striped" ID="gv_supv" AutoGenerateColumns="false" OnRowDataBound="gv_supv_RowDataBound">
-                                                <Columns>
-                                                    <asp:BoundField HeaderText="AssemblySection" DataField="AssemblySection" />
-                                                    <asp:BoundField HeaderText="Measure %" DataField="Perc" />
-                                                    <asp:BoundField HeaderText="LH Approval %" DataField="PercApproval" />
-                                                    <asp:TemplateField HeaderText="Assigned To">
-                                                        <ItemTemplate>
-                                                            <asp:DropDownList runat="server" CssClass="form-control form-control-sm" ID="ddSupv" 
-                                                                OnSelectedIndexChanged="ddSupv_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
-                                                        </ItemTemplate>
-                                                    </asp:TemplateField>
-                                                    <asp:TemplateField HeaderText="Supv Approved By">
-                                                        <ItemTemplate>
-                                                            <asp:LinkButton runat="server" CssClass="btn btn-success btn-sm" ID="bApv" OnClick="bApv_Click">Approve</asp:LinkButton>
-                                                            <asp:Label runat="server" CssClass="form-label" ID="lApv"></asp:Label>
-                                                        </ItemTemplate>
-                                                    </asp:TemplateField>
-                                                </Columns>
-                                            </asp:GridView>
-                                        </div>
+                                        </div>                                       
                                     </div>
                                 </div>
                             </div>

@@ -6,6 +6,7 @@ Public Class AssemblyChk
     Inherits System.Web.UI.Page
 
     Dim ewo As String
+    Dim utility As New Utility(Me)
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         ewo = Request.QueryString("wo")
 
@@ -66,10 +67,8 @@ Public Class AssemblyChk
 
         Dim query As String = "select * from v_AssemblyCheckList where wono=" & evar(ewo, 1) & " and SectionPart=" & evar(sectionPart, 1)
         dt = GetDataTable(query)
-        If dt.Rows.Count > 0 Then
-            gv_chk.DataSource = dt
-            gv_chk.DataBind()
-        End If
+        gv_chk.DataSource = dt
+        gv_chk.DataBind()
         getPercProgress()
     End Sub
 
@@ -146,5 +145,38 @@ Public Class AssemblyChk
             pSectionProg.Style("width") = dt.Rows(0)("CheckSheetCompletion") & "%"
             lSectionProg.InnerText = "Overall Progress (" & dt.Rows(0)("CheckSheetCompletion") & "%)"
         End If
+    End Sub
+
+    Protected Sub gv_chk_RowDataBound(sender As Object, e As GridViewRowEventArgs)
+        If e.Row.RowType = DataControlRowType.DataRow Then
+            If e.Row.RowType = DataControlRowType.DataRow Then
+                Dim assemblyBy As Object = DataBinder.Eval(e.Row.DataItem, "AssemblyBy")
+                If assemblyBy IsNot DBNull.Value AndAlso Not String.IsNullOrEmpty(assemblyBy) Then
+                    'e.Row.BackColor = System.Drawing.Color.White
+                Else
+                    e.Row.CssClass = "bg-soft-secondary"
+                    'e.Row.BackColor = System.Drawing.Color.Red
+                End If
+            End If
+        End If
+    End Sub
+
+    Protected Sub bremark_Click(sender As Object, e As EventArgs)
+        Dim IDInsDetail As String = String.Empty
+        For Each row As GridViewRow In gv_chk.Rows
+            Dim cb As CheckBox = TryCast(row.FindControl("CheckBox1"), CheckBox)
+            If cb IsNot Nothing AndAlso cb.Checked Then
+                ' Do something with the checked checkbox
+                IDInsDetail = IDInsDetail & row.Cells(1).Text & ","
+            End If
+        Next
+
+        IDInsDetail = Left(IDInsDetail, Len(IDInsDetail) - 1)
+        Dim hidinsdetail As HiddenField = DirectCast(AssemblyChkRemark.FindControl("hidinsdetail"), HiddenField)
+        Dim hwono As HiddenField = DirectCast(AssemblyChkRemark.FindControl("hwono"), HiddenField)
+        hidinsdetail.Value = IDInsDetail
+        hwono.Value = Request.QueryString("wo")
+
+        utility.ModalV2("MainContent_AssemblyChkRemark_Panel1")
     End Sub
 End Class
