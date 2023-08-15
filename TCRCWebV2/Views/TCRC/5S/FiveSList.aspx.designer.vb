@@ -11,7 +11,7 @@ Option Strict On
 Option Explicit On
 
 
-Partial Public Class indexWS
+Partial Public Class FiveSList
 
     '''<summary>
     '''MenuTCRC control.
@@ -23,83 +23,83 @@ Partial Public Class indexWS
     Protected WithEvents MenuTCRC As Global.TCRCWebV2.MenuTCRC1
 
     '''<summary>
-    '''hFullName control.
+    '''tStart control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents hFullName As Global.System.Web.UI.HtmlControls.HtmlGenericControl
+    Protected WithEvents tStart As Global.System.Web.UI.HtmlControls.HtmlInputText
 
     '''<summary>
-    '''hTitle control.
+    '''tEnd control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents hTitle As Global.System.Web.UI.HtmlControls.HtmlGenericControl
+    Protected WithEvents tEnd As Global.System.Web.UI.HtmlControls.HtmlInputText
 
     '''<summary>
-    '''bMeaWorksheet control.
+    '''ddLocation control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents bMeaWorksheet As Global.System.Web.UI.WebControls.LinkButton
+    Protected WithEvents ddLocation As Global.System.Web.UI.WebControls.DropDownList
 
     '''<summary>
-    '''bMeaTemplate control.
+    '''ddassignto control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents bMeaTemplate As Global.System.Web.UI.WebControls.LinkButton
+    Protected WithEvents ddassignto As Global.System.Web.UI.WebControls.DropDownList
 
     '''<summary>
-    '''basm control.
+    '''ddsupv control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents basm As Global.System.Web.UI.WebControls.LinkButton
+    Protected WithEvents ddsupv As Global.System.Web.UI.WebControls.DropDownList
 
     '''<summary>
-    '''fivesummary control.
+    '''bsearch control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents fivesummary As Global.System.Web.UI.WebControls.LinkButton
+    Protected WithEvents bsearch As Global.System.Web.UI.WebControls.LinkButton
 
     '''<summary>
-    '''fivesreg control.
+    '''FiveSAssignArea control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents fivesreg As Global.System.Web.UI.WebControls.LinkButton
+    Protected WithEvents FiveSAssignArea As Global.TCRCWebV2.FiveSAssignArea
 
     '''<summary>
-    '''fivesloc control.
+    '''badd control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents fivesloc As Global.System.Web.UI.WebControls.LinkButton
+    Protected WithEvents badd As Global.System.Web.UI.WebControls.LinkButton
 
     '''<summary>
-    '''bCompRelease control.
+    '''gv5SList control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents bCompRelease As Global.System.Web.UI.WebControls.LinkButton
+    Protected WithEvents gv5SList As Global.System.Web.UI.WebControls.GridView
 End Class

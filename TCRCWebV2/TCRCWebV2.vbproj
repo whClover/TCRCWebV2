@@ -1555,6 +1555,12 @@
     <Content Include="images\logo\Thiess.png" />
     <Content Include="images\maintenance.png" />
     <Content Include="images\NoPicture.png" />
+    <Content Include="images\p1.jpg" />
+    <Content Include="images\p2.jpg" />
+    <Content Include="images\p3.jpg" />
+    <Content Include="images\p4.JPG" />
+    <Content Include="images\p5.JPG" />
+    <Content Include="images\p6.JPG" />
     <Content Include="images\profile-bg.jpg" />
     <Content Include="images\small\img-1.jpg" />
     <Content Include="images\small\img-10.jpg" />
@@ -1607,6 +1613,16 @@
     <Content Include="Views\Shared\ErrorPage.aspx" />
     <Content Include="Views\Shared\MenuTCRC.ascx" />
     <Content Include="Views\Shared\MenuTMRP.aspx" />
+    <Content Include="Views\TCRC\5S\FiveSArea.aspx" />
+    <Content Include="Views\TCRC\5S\FiveSAreaForm.ascx" />
+    <Content Include="Views\TCRC\5S\FiveSAssignArea.ascx" />
+    <Content Include="Views\TCRC\5S\FiveSDetails.aspx" />
+    <Content Include="Views\TCRC\5S\FiveSDetailsForm.ascx" />
+    <Content Include="Views\TCRC\5S\FiveSDetailsForm.aspx" />
+    <Content Include="Views\TCRC\5S\FiveSList.aspx" />
+    <Content Include="Views\TCRC\5S\FiveSLocation.aspx" />
+    <Content Include="Views\TCRC\5S\FiveSLocationForm.ascx" />
+    <Content Include="Views\TCRC\5S\FiveSSummary.aspx" />
     <Content Include="Views\TCRC\index.aspx" />
     <Content Include="Views\TCRC\Office\index.aspx" />
     <Content Include="Views\TCRC\Office\Administration\ListWO.aspx" />
@@ -1776,6 +1792,76 @@
     </Compile>
     <Compile Include="Views\Shared\MenuTMRP.aspx.vb">
       <DependentUpon>MenuTMRP.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Views\TCRC\5S\FiveSArea.aspx.designer.vb">
+      <DependentUpon>FiveSArea.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TCRC\5S\FiveSArea.aspx.vb">
+      <DependentUpon>FiveSArea.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\TCRC\5S\FiveSAreaForm.ascx.designer.vb">
+      <DependentUpon>FiveSAreaForm.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TCRC\5S\FiveSAreaForm.ascx.vb">
+      <DependentUpon>FiveSAreaForm.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\TCRC\5S\FiveSAssignArea.ascx.designer.vb">
+      <DependentUpon>FiveSAssignArea.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TCRC\5S\FiveSAssignArea.ascx.vb">
+      <DependentUpon>FiveSAssignArea.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\TCRC\5S\FiveSDetails.aspx.designer.vb">
+      <DependentUpon>FiveSDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TCRC\5S\FiveSDetails.aspx.vb">
+      <DependentUpon>FiveSDetails.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Views\TCRC\5S\FiveSDetailsForm.ascx.designer.vb">
+      <DependentUpon>FiveSDetailsForm.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TCRC\5S\FiveSDetailsForm.ascx.vb">
+      <DependentUpon>FiveSDetailsForm.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\TCRC\5S\FiveSDetailsForm.aspx.designer.vb">
+      <DependentUpon>FiveSDetailsForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TCRC\5S\FiveSDetailsForm.aspx.vb">
+      <DependentUpon>FiveSDetailsForm.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Views\TCRC\5S\FiveSList.aspx.designer.vb">
+      <DependentUpon>FiveSList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TCRC\5S\FiveSList.aspx.vb">
+      <DependentUpon>FiveSList.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Views\TCRC\5S\FiveSLocation.aspx.designer.vb">
+      <DependentUpon>FiveSLocation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TCRC\5S\FiveSLocation.aspx.vb">
+      <DependentUpon>FiveSLocation.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Views\TCRC\5S\FiveSLocationForm.ascx.designer.vb">
+      <DependentUpon>FiveSLocationForm.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TCRC\5S\FiveSLocationForm.ascx.vb">
+      <DependentUpon>FiveSLocationForm.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\TCRC\5S\FiveSSummary.aspx.designer.vb">
+      <DependentUpon>FiveSSummary.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TCRC\5S\FiveSSummary.aspx.vb">
+      <DependentUpon>FiveSSummary.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="Views\TCRC\index.aspx.designer.vb">

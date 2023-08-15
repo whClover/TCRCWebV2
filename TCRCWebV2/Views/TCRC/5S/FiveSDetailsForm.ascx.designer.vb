@@ -11,95 +11,104 @@ Option Strict On
 Option Explicit On
 
 
-Partial Public Class indexWS
+Partial Public Class FiveSDetailsForm
 
     '''<summary>
-    '''MenuTCRC control.
+    '''Panel1 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents MenuTCRC As Global.TCRCWebV2.MenuTCRC1
+    Protected WithEvents Panel1 As Global.System.Web.UI.HtmlControls.HtmlGenericControl
 
     '''<summary>
-    '''hFullName control.
+    '''hidarea control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents hFullName As Global.System.Web.UI.HtmlControls.HtmlGenericControl
+    Protected WithEvents hidarea As Global.System.Web.UI.WebControls.HiddenField
 
     '''<summary>
-    '''hTitle control.
+    '''hidfinding control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents hTitle As Global.System.Web.UI.HtmlControls.HtmlGenericControl
+    Protected WithEvents hidfinding As Global.System.Web.UI.WebControls.HiddenField
 
     '''<summary>
-    '''bMeaWorksheet control.
+    '''hidfindingGP control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents bMeaWorksheet As Global.System.Web.UI.WebControls.LinkButton
+    Protected WithEvents hidfindingGP As Global.System.Web.UI.WebControls.HiddenField
 
     '''<summary>
-    '''bMeaTemplate control.
+    '''tArea control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents bMeaTemplate As Global.System.Web.UI.WebControls.LinkButton
+    Protected WithEvents tArea As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
-    '''basm control.
+    '''tfinding control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents basm As Global.System.Web.UI.WebControls.LinkButton
+    Protected WithEvents tfinding As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
-    '''fivesummary control.
+    '''taction control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents fivesummary As Global.System.Web.UI.WebControls.LinkButton
+    Protected WithEvents taction As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
-    '''fivesreg control.
+    '''FileUpload1 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents fivesreg As Global.System.Web.UI.WebControls.LinkButton
+    Protected WithEvents FileUpload1 As Global.System.Web.UI.WebControls.FileUpload
 
     '''<summary>
-    '''fivesloc control.
+    '''bupload control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents fivesloc As Global.System.Web.UI.WebControls.LinkButton
+    Protected WithEvents bupload As Global.System.Web.UI.WebControls.LinkButton
 
     '''<summary>
-    '''bCompRelease control.
+    '''pictlist control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents bCompRelease As Global.System.Web.UI.WebControls.LinkButton
+    Protected WithEvents pictlist As Global.System.Web.UI.WebControls.ListBox
+
+    '''<summary>
+    '''bsave control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents bsave As Global.System.Web.UI.WebControls.LinkButton
 End Class

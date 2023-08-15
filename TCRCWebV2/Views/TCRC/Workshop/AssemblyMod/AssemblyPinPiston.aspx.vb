@@ -77,7 +77,7 @@ Public Class AssemblyPinPiston
         Dim dt As New DataTable
         Dim query As String = "select dbo.PercentCalc(sum(case when Value is null then 0 else 1 end),
             count(IDEngineInput)) as PercComp from tbl_AssemblyEngineInput where wono=" & evar(ewo, 1) & " and 
-            CylinderDesc in('BearingDIA','PInDIA','Boresurface','TestRetention','ConrodBend','ConrodTwist') group by value"
+            CylinderDesc in('BearingDIA','PInDIA','Boresurface','TestRetention','ConrodBend','ConrodTwist')"
         dt = GetDataTable(query)
         If dt.Rows.Count > 0 Then
             pSectionProg.Style("width") = dt.Rows(0)("PercComp") & "%"

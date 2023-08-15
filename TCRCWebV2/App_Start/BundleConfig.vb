@@ -23,6 +23,7 @@ Public Class BundleConfig
             "~/assets/libs/simplebar/simplebar.min.js",
             "~/assets/libs/feather-icons/feather.min.js",
             "~/assets/js/app.js",
+            "~/assets/libs/flatpickr/flatpickr.min.js",
             "~/assets/costume/multiselect/chosen.jquery.min.js",
             "~/assets/libs/choices.js/public/assets/scripts/choices.min.js",
             "~/assets/js/pages/form-advanced.init.js",

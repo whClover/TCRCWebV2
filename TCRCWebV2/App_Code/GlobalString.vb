@@ -7,6 +7,7 @@
     Public Shared MeaInspPict As String = PictSTG & "InspectionTemplate\"
     Public Shared JobPck As String = "\\" & server & "\Database\Plant_Component\JobPackage\"
     Public Shared asmpict As String = PictSTG & "AssemblyPicture\"
+    Public Shared Picture5S As String = "\\" & server & "\dbattachcomp$\Picture5S\"
     '=============
 
     'DataPath
@@ -60,6 +61,14 @@
 
     'TCRC: Administration Module
     Public Shared urlWODetails As String = urlTCRCOfficeAdm & "ListWO.aspx"
+
+    'TCRC: 5S Module
+    Public Shared url5SLocation As String = urlTCRC & "5S/FiveSLocation.aspx"
+    Public Shared url5SArea As String = urlTCRC & "5S/FiveSArea.aspx"
+    Public Shared url5SRegister As String = urlTCRC & "5S/FiveSList.aspx"
+    Public Shared url5sDetails As String = urlTCRC & "5S/FiveSDetails.aspx"
+    Public Shared url5sForm As String = urlTCRC & "5S/FiveSDetailsForm.aspx"
+    Public Shared url5sSummary As String = urlTCRC & "5S/FiveSSummary.aspx"
 
     'ReportsPath
     Public Shared RptAssemblyMea As String = urlPrint & "AssemblyMea.aspx"

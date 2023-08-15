@@ -20,19 +20,6 @@ Public Class IndexWS
         If dt.Rows.Count = 0 Then Exit Sub
         hFullName.InnerText = dt.Rows(0)("FullName").ToString()
         hTitle.InnerText = dt.Rows(0)("JobTitle").ToString()
-        hEmail.InnerText = dt.Rows(0)("Email").ToString()
-        hSupv.InnerText = dt.Rows(0)("SupvName").ToString()
-        hJobCost.InnerText = dt.Rows(0)("JobCost").ToString()
-    End Sub
-
-    Sub showAlert(ByVal type As String, ByVal msg As String)
-        Dim script As String
-        script = "toastr[""" & type & """](""" & msg & """);"
-        ScriptManager.RegisterStartupScript(Me, Me.GetType(), "toastrMessage", script, True)
-    End Sub
-
-    Protected Sub comingsoon()
-        showAlert("info", "Coming soon")
     End Sub
 
     Protected Sub bMeaWorksheet_Click(sender As Object, e As EventArgs)
@@ -43,19 +30,23 @@ Public Class IndexWS
         Response.Redirect(urlMeasureTemplate)
     End Sub
 
-    Protected Sub bPrelimWorksheet_Click(sender As Object, e As EventArgs)
-        comingsoon()
-    End Sub
-
-    Protected Sub bPrelimTemplate_Click(sender As Object, e As EventArgs)
-        comingsoon()
+    Protected Sub basm_Click(sender As Object, e As EventArgs)
+        Response.Redirect(urlAssemblyList)
     End Sub
 
     Protected Sub bCompRelease_Click(sender As Object, e As EventArgs)
         Response.Redirect(urlComponentRelease)
     End Sub
 
-    Protected Sub bassm_Click(sender As Object, e As EventArgs)
-        Response.Redirect(urlAssemblyList)
+    Protected Sub fivesloc_Click(sender As Object, e As EventArgs)
+        Response.Redirect(url5SLocation)
+    End Sub
+
+    Protected Sub fivesreg_Click(sender As Object, e As EventArgs)
+        Response.Redirect(url5SRegister)
+    End Sub
+
+    Protected Sub fivesummary_Click(sender As Object, e As EventArgs)
+        Response.Redirect(url5sSummary)
     End Sub
 End Class

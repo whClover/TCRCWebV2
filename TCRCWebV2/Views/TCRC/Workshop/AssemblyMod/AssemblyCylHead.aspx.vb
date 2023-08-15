@@ -74,7 +74,7 @@ Public Class AssemblyCylHead
         Dim query As String = "select dbo.PercentCalc(sum(case when Value is null then 0 else 1 end),
             count(IDEngineInput)) as PercComp from tbl_AssemblyEngineInput where wono=" & evar(ewo, 1) & " and 
             CylinderDesc in('IntakeValveA','IntakeValveB','ExhaustValveA','ExhaustValveB','CylRec','WOCylHead',
-            'IntakeValveA_InsBore','IntakeValveB_InsBore','ExhaustValveA_InsBore','ExhaustValveB_InsBore') group by value"
+            'IntakeValveA_InsBore','IntakeValveB_InsBore','ExhaustValveA_InsBore','ExhaustValveB_InsBore')"
         dt = GetDataTable(query)
         If dt.Rows.Count > 0 Then
             pSectionProg.Style("width") = dt.Rows(0)("PercComp") & "%"

@@ -11,7 +11,7 @@ Option Strict On
 Option Explicit On
 
 
-Partial Public Class indexWS
+Partial Public Class FiveSDetails
 
     '''<summary>
     '''MenuTCRC control.
@@ -23,83 +23,65 @@ Partial Public Class indexWS
     Protected WithEvents MenuTCRC As Global.TCRCWebV2.MenuTCRC1
 
     '''<summary>
-    '''hFullName control.
+    '''FiveSDetailsForm control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents hFullName As Global.System.Web.UI.HtmlControls.HtmlGenericControl
+    Protected WithEvents FiveSDetailsForm As Global.TCRCWebV2.FiveSDetailsForm
 
     '''<summary>
-    '''hTitle control.
+    '''bBack control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents hTitle As Global.System.Web.UI.HtmlControls.HtmlGenericControl
+    Protected WithEvents bBack As Global.System.Web.UI.WebControls.LinkButton
 
     '''<summary>
-    '''bMeaWorksheet control.
+    '''head1 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents bMeaWorksheet As Global.System.Web.UI.WebControls.LinkButton
+    Protected WithEvents head1 As Global.System.Web.UI.HtmlControls.HtmlGenericControl
 
     '''<summary>
-    '''bMeaTemplate control.
+    '''ddLeader control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents bMeaTemplate As Global.System.Web.UI.WebControls.LinkButton
+    Protected WithEvents ddLeader As Global.System.Web.UI.WebControls.DropDownList
 
     '''<summary>
-    '''basm control.
+    '''bassign control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents basm As Global.System.Web.UI.WebControls.LinkButton
+    Protected WithEvents bassign As Global.System.Web.UI.WebControls.LinkButton
 
     '''<summary>
-    '''fivesummary control.
+    '''bSupvApv control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents fivesummary As Global.System.Web.UI.WebControls.LinkButton
+    Protected WithEvents bSupvApv As Global.System.Web.UI.WebControls.LinkButton
 
     '''<summary>
-    '''fivesreg control.
+    '''rptArea control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents fivesreg As Global.System.Web.UI.WebControls.LinkButton
-
-    '''<summary>
-    '''fivesloc control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents fivesloc As Global.System.Web.UI.WebControls.LinkButton
-
-    '''<summary>
-    '''bCompRelease control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents bCompRelease As Global.System.Web.UI.WebControls.LinkButton
+    Protected WithEvents rptArea As Global.System.Web.UI.WebControls.Repeater
 End Class

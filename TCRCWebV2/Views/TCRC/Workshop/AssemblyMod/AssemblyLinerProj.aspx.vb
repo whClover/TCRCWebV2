@@ -332,7 +332,7 @@ Public Class AssemblyLinerProj
 		If ewo = String.Empty Then Exit Sub
 
 		Dim dt As New DataTable
-		Dim query As String = "select LP_Perc from tmp_InsPartassemblycount where wono=" & evar(ewo, 1)
+		Dim query As String = "select LP_Perc from tmp_AssemblyPerc where wono=" & evar(ewo, 1)
 		dt = GetDataTable(query)
 		If dt.Rows.Count > 0 Then
 			pSectionProg.Style("width") = dt.Rows(0)("LP_Perc") & "%"

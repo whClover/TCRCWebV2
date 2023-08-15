@@ -34,7 +34,7 @@
         }
     </script>
 
-    <script type="text/javascript">
+    <%--<script type="text/javascript">
         // Check session status every 5 seconds
         setInterval(function () {
             $.ajax({
@@ -54,7 +54,7 @@
                 }
             });
         }, 5000); // Check every 5 seconds
-    </script>
+    </script>--%>
 
 
     <script src="/assets/libs/sweetalert2/sweetalert2.min.js"></script>
@@ -114,11 +114,11 @@
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-sm-6">
-                                <script>document.write(new Date().getFullYear())</script> &copy; Data Analyst.
+                                <script>document.write(new Date().getFullYear())</script> &copy; Thiess Component Rebuilt Center - Balikpapan.
                             </div>
                             <div class="col-sm-6">
                                 <div class="text-sm-end d-none d-sm-block">
-                                    Crafted with <i class="mdi mdi-heart text-danger"></i> by Plant System
+                                    Crafted with <i class="mdi mdi-heart text-danger"></i> by Plant System & Data Analyst
                                 </div>
                             </div>
                         </div>
@@ -130,9 +130,50 @@
         <!-- END layout-wrapper -->
     </form>
 
-<asp:PlaceHolder runat="server">
+<%--<asp:PlaceHolder runat="server">
     <%= Scripts.Render("~/Scripts") %>
-</asp:PlaceHolder>
+</asp:PlaceHolder>--%>
+    <script src="/assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/libs/datatable/datatables.js"></script>
+    <script src="/assets/libs/metismenujs/metismenujs.min.js"></script>
+    <script src="/assets/libs/simplebar/simplebar.min.js"></script>
+    <script src="/assets/libs/feather-icons/feather.min.js"></script>
+    <script src="/assets/libs/flatpickr/flatpickr.min.js"></script>
+    <script src="/assets/libs/choices.js/public/assets/scripts/choices.min.js"></script>
+    <script src="/assets/js/pages/form-advanced.init.js"></script>
+    <script src="/assets/js/app.js"></script>
+    <script>
+        flatpickr(".datepicker-basic", {
+            dateFormat: "d-m-Y",
+        });
+        document.addEventListener("DOMContentLoaded", function () {
+            var e = document.querySelectorAll(".select2");
+            for (i = 0; i < e.length; ++i) {
+                var a = e[i];
+                new Choices(a, {
+                    removeItemButton: false,
+                    removeItems: false,
+                    placeholder: false,
+                    placeholderValue: null,
+                    searchPlaceholderValue: null,
+                    itemSelectText: ''
+                })
+            }
+
+            var eM = document.querySelectorAll(".select2M");
+            for (i = 0; i < eM.length; ++i) {
+                var a = eM[i];
+                new Choices(a, {
+                    removeItemButton: true,
+                    removeItems: true,
+                    placeholder: false,
+                    placeholderValue: null,
+                    searchPlaceholderValue: null,
+                    itemSelectText: ''
+                })
+            }
+        });
+    </script>
 
 </body>
 </html>

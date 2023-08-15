@@ -233,6 +233,14 @@ Public Class Utility
         End If
     End Function
 
+    Public Shared Function CheckDBNullv1(ByVal value As Object) As String
+        If value Is DBNull.Value OrElse value Is Nothing Then
+            Return ""
+        Else
+            Return value
+        End If
+    End Function
+
     Public Shared Function GetCurrentPageName() As String
         Dim currentPage As Page = DirectCast(HttpContext.Current.Handler, Page)
         Return Path.GetFileName(currentPage.AppRelativeVirtualPath)
@@ -310,6 +318,16 @@ Public Class Utility
         End If
 
         Return False
+    End Function
+
+    Public Shared Function varfilter(F As String) As String
+
+
+
+        If Len(F) > 0 Then varfilter = " WHERE " & Right(F, Len(F) - 4)
+
+
+
     End Function
 
 

@@ -217,7 +217,7 @@ Public Class AssemblyList
             hFuelInj.InnerHtml = IIf(CheckDBNull(dataItem("FTC_Perc").ToString() = "-"), "-", dataItem("FTC_Perc").ToString() & "%")
             hRC.InnerHtml = IIf(CheckDBNull(dataItem("PR_Perc").ToString() = "-"), "-", dataItem("PR_Perc").ToString() & "%")
             hCH.InnerHtml = IIf(CheckDBNull(dataItem("CH_Perc").ToString() = "-"), "-", dataItem("CH_Perc").ToString() & "%")
-            hCH.InnerHtml = IIf(CheckDBNull(dataItem("Dyno_Perc").ToString() = "-"), "-", dataItem("Dyno_Perc").ToString() & "%")
+            hDyno.InnerHtml = IIf(CheckDBNull(dataItem("Dyno_Perc").ToString() = "-"), "-", dataItem("Dyno_Perc").ToString() & "%")
             hLH.InnerHtml = IIf(CheckDBNull(dataItem("LHApv_Perc").ToString() = "-"), "-", dataItem("LHApv_Perc").ToString() & "%")
             hSupv.InnerHtml = IIf(CheckDBNull(dataItem("SPVApv_Perc").ToString() = "-"), "-", dataItem("SPVApv_Perc").ToString() & "%")
             hDyno.InnerHtml = IIf(CheckDBNull(dataItem("Dyno_Perc").ToString() = "-"), "-", dataItem("Dyno_Perc").ToString() & "%")
