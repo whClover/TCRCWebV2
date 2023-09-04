@@ -41,6 +41,24 @@ Partial Public Class FiveSSummary
     Protected WithEvents tEnd As Global.System.Web.UI.HtmlControls.HtmlInputText
 
     '''<summary>
+    '''ddLoc control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents ddLoc As Global.System.Web.UI.WebControls.DropDownList
+
+    '''<summary>
+    '''ddInspector control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents ddInspector As Global.System.Web.UI.WebControls.DropDownList
+
+    '''<summary>
     '''bsearch control.
     '''</summary>
     '''<remarks>

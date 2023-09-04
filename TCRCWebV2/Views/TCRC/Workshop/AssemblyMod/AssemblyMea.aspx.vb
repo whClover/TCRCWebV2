@@ -412,7 +412,7 @@ Public Class AssemblyMea
 
         'open modal and get position
         utility.ModalV2("MainContent_AssemblyMea_Panel1")
-        getcurrentScrollPos()
+        'getcurrentScrollPos()
     End Sub
 
     Protected Sub ddsection_SelectedIndexChanged(sender As Object, e As EventArgs)
@@ -447,7 +447,7 @@ Public Class AssemblyMea
         If ewo = String.Empty Then Exit Sub
 
         Dim eunitid As String = String.Empty
-        Dim query As String = "select UnitDescription,Left(MaintType,5) as MaintType from v_IntJobDetailRev3 where wono=" & evar(ewo, 1)
+        Dim query As String = "select UnitDescription,MaintType from v_IntJobDetailRev3 where wono=" & evar(ewo, 1)
         Dim dt As New DataTable
         dt = GetDataTable(query)
         If dt.Rows.Count > 0 Then
@@ -466,7 +466,7 @@ Public Class AssemblyMea
             End If
 
             Dim elinkfile As String
-            Dim query3 As String = "select LinkFile from tbl_GeneralFiles where UnitID=" & eunitid & " and ModuleID=2 and MaintType=" & evar(emainttype, 1)
+            Dim query3 As String = "select LinkFile from tbl_GeneralFiles where UnitID=" & eunitid & " and ModuleID=2 and (MaintType=" & evar(emainttype, 1) & " or MaintType=" & evar(Left(emainttype, 5), 1) & ")"
             Dim dt3 As DataTable
             dt3 = GetDataTable(query3)
             If dt3.Rows.Count > 0 Then
@@ -597,7 +597,7 @@ Public Class AssemblyMea
 
         Dim query As String = "update tbl_AssemblyInput set UnitType=" & eunittype & " where IDAssemblyInput=" & eidinput
         executeQuery(query)
-        getcurrentScrollPos()
+        'getcurrentScrollPos()
         Dim esection As String = ddsection.Text
         load_dataSection(esection)
     End Sub
@@ -628,7 +628,7 @@ Public Class AssemblyMea
 
         executeQuery(query)
         'Response.Redirect(urlAssemblyMea & "?wo=" & Request.QueryString("WO"))
-        getcurrentScrollPos()
+        'getcurrentScrollPos()
         Dim esection As String = ddsection.Text
         load_dataSection(esection)
     End Sub
@@ -639,7 +639,7 @@ Public Class AssemblyMea
         Dim query As String = "update tbl_AssemblyInput set AssemblyVal='OK',ModBy=" & eByName() & ",ModDate=GetDate() where IDAssemblyInput=" & eid
         executeQuery(query)
         'Response.Redirect(urlAssemblyMea & "?wo=" & Request.QueryString("WO"))
-        getcurrentScrollPos()
+        'getcurrentScrollPos()
         Dim esection As String = ddsection.Text
         load_dataSection(esection)
     End Sub
@@ -656,7 +656,7 @@ Public Class AssemblyMea
         Dim query As String = "update tbl_AssemblyInput set ApprovedBy=" & eByName() & " where IDAssemblyInput=" & eid
         executeQuery(query)
         'Response.Redirect(urlAssemblyMea & "?wo=" & Request.QueryString("WO"))
-        getcurrentScrollPos()
+        'getcurrentScrollPos()
         Dim esection As String = ddsection.Text
         load_dataSection(esection)
     End Sub
@@ -666,7 +666,7 @@ Public Class AssemblyMea
         eid = CType(sender, LinkButton).CommandArgument
         Dim query As String = "update tbl_AssemblyInput set AssemblyVal='n/a',ModBy=" & eByName() & ",ModDate=GetDate() where IDAssemblyInput=" & eid
         executeQuery(query)
-        getcurrentScrollPos()
+        'getcurrentScrollPos()
         Dim esection As String = ddsection.Text
         load_dataSection(esection)
     End Sub
@@ -676,7 +676,7 @@ Public Class AssemblyMea
         eid = CType(sender, LinkButton).CommandArgument
         Dim query As String = "update tbl_AssemblyInput set ReworkBy=" & eByName() & ",ReworkDate=getdate(),ApprovedBy=NULL,ApprovedDate=NULL,AssemblyVal=NULL,ModBy=NULL,ModDate=NULL where IDAssemblyInput=" & eid
         executeQuery(query)
-        getcurrentScrollPos()
+        'getcurrentScrollPos()
         Dim esection As String = ddsection.Text
         load_dataSection(esection)
     End Sub

@@ -212,6 +212,29 @@
                     <div class="mt-4">
 
                         <div class="card border shadow-none mb-2">
+                            <asp:LinkButton runat="server" CssClass="text-body" ID="LinkButton1">
+                                <div class="p-2">
+                                    <div class="d-flex">
+                                        <div class="avatar-sm align-self-center me-2">
+                                            <div class="avatar-title rounded bg-transparent text-secondary font-size-18">
+                                                <i class="fas fa-user"></i>
+                                            </div>
+                                        </div>
+    
+                                        <div class="overflow-hidden me-auto">
+                                            <h5 class="font-size-13 text-truncate mb-1">My Outstanding Approval</h5>
+                                            <p class="text-muted text-truncate mb-0">Unlocked</p>
+                                        </div>
+
+                                        <div class="ms-2">
+                                            <i class="fa fa-unlock text-muted"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </asp:LinkButton>
+                        </div><!-- end card -->
+
+                        <div class="card border shadow-none mb-2">
                             <asp:LinkButton runat="server" CssClass="text-body" ID="fivesummary" OnClick="fivesummary_Click">
                                 <div class="p-2">
                                     <div class="d-flex">

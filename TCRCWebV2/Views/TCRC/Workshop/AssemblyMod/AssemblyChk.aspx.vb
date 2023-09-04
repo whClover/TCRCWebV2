@@ -42,7 +42,7 @@ Public Class AssemblyChk
 
         lsection.InnerText = firstSection
         Dim dt As New DataTable
-        Dim query As String = "select * from v_AssemblyCheckList where wono=" & evar(ewo, 1) & " and SectionPart=" & evar(firstSection, 1) & " order by sequence, NoPict"
+        Dim query As String = "select * from v_AssemblyCheckList where wono=" & evar(ewo, 1) & " and SectionPart=" & evar(firstSection, 1) & " Order By dbo.SequenceNum(Sequence),dbo.SequenceAlpha(Sequence),dbo.getsortval(Sequence,30,10), NoPict"
         dt = GetDataTable(query)
         If dt.Rows.Count > 0 Then
             gv_chk.DataSource = dt
@@ -57,7 +57,7 @@ Public Class AssemblyChk
         'load picture group
         Dim dt_pict As New DataTable
         Dim querypict As String = "select case when('../../../../' + dbo.RemapPicW(PicturePath)) is null then '' else ('../../../../' + dbo.RemapPicW(PicturePath)) end as PicturePathGroup
-        from v_AssemblyCheckList where wono=" & evar(ewo, 1) & " and SectionPart=" & evar(sectionPart, 1)
+        from v_AssemblyCheckList where wono=" & evar(ewo, 1) & " and SectionPart=" & evar(sectionPart, 1) & " Order By dbo.SequenceNum(Sequence),dbo.SequenceAlpha(Sequence),dbo.getsortval(Sequence,30,10), NoPict"
         dt_pict = GetDataTable(querypict)
         If dt_pict.Rows.Count > 0 Then
             imgGp.Src = dt_pict.Rows(0)("PicturePathGroup")
@@ -65,7 +65,7 @@ Public Class AssemblyChk
 
         Dim dt As New DataTable
 
-        Dim query As String = "select * from v_AssemblyCheckList where wono=" & evar(ewo, 1) & " and SectionPart=" & evar(sectionPart, 1)
+        Dim query As String = "select * from v_AssemblyCheckList where wono=" & evar(ewo, 1) & " and SectionPart=" & evar(sectionPart, 1) & " Order By dbo.SequenceNum(Sequence),dbo.SequenceAlpha(Sequence),dbo.getsortval(Sequence,30,10), NoPict"
         dt = GetDataTable(query)
         gv_chk.DataSource = dt
         gv_chk.DataBind()
@@ -94,7 +94,7 @@ Public Class AssemblyChk
         Dim sectionName As String = ddsection.SelectedValue
         Dim dt As New DataTable
         lsection.InnerText = ddsection.SelectedValue
-        Dim query As String = "select * from v_AssemblyCheckList where wono=" & evar(ewo, 1) & " and SectionPart=" & evar(sectionName, 1)
+        Dim query As String = "select * from v_AssemblyCheckList where wono=" & evar(ewo, 1) & " and SectionPart=" & evar(sectionName, 1) & " Order By dbo.SequenceNum(Sequence),dbo.SequenceAlpha(Sequence),dbo.getsortval(Sequence,30,10), NoPict"
         dt = GetDataTable(query)
         If dt.Rows.Count > 0 Then
             gv_chk.DataSource = dt
@@ -159,6 +159,32 @@ Public Class AssemblyChk
                 End If
             End If
         End If
+
+        'If e.Row.RowType = DataControlRowType.Header Then
+        '    For Each cell As TableCell In e.Row.Cells
+        '        ' Hanya tambahkan filter jika kolom bukan kolom pertama (checkbox)
+        '        If cell.Controls.Count > 0 AndAlso TypeOf cell.Controls(0) Is CheckBox Then
+        '            Continue For
+        '        End If
+
+        '        ' Mendapatkan indeks kolom berdasarkan nama header
+        '        Dim columnIndex As Integer = e.Row.Cells.GetCellIndex(cell)
+
+        '        ' Tambahkan filter TextBox di atas setiap kolom
+        '        Dim filterTextBox As New TextBox()
+        '        filterTextBox.CssClass = "form-control form-control-sm"
+        '        filterTextBox.Attributes("placeholder") = "Filter..."
+        '        filterTextBox.Attributes("onkeyup") = "applyFilter(this, " & columnIndex & ");"
+
+        '        ' Buat div kontainer untuk filter TextBox
+        '        Dim filterContainer As New HtmlGenericControl("div")
+        '        filterContainer.Attributes("style") = "position:relative;"
+        '        filterContainer.Controls.Add(filterTextBox)
+
+        '        ' Tambahkan div kontainer ke dalam sel
+        '        cell.Controls.Add(filterContainer)
+        '    Next
+        'End If
     End Sub
 
     Protected Sub bremark_Click(sender As Object, e As EventArgs)

@@ -42,6 +42,7 @@ Public Class FiveSDetailsForm1
             dt2 = GetDataTable(query2)
             tArea.Text = dt2.Rows(0)("AreaDesc")
             hidarea.Value = dt2.Rows(0)("IDArea")
+            hidfindingGP.Value = Request.QueryString("idgp")
             eTitle.InnerText = "Register Findings"
             dupload.Visible = False
             rupload.Visible = False
@@ -66,7 +67,7 @@ Public Class FiveSDetailsForm1
         Dim eidfinding As String = Request.QueryString("id")
         Dim epathpict As String = Picture5S & eidfinding & "\"
         If FileUpload1.HasFiles Then
-            Dim allowedExtensions As String() = {".jpg", ".jpeg", ".png"}
+            Dim allowedExtensions As String() = {".jpg", ".jpeg", ".png", ".JPG", ".JPEG", ".PNG"}
             For Each uploadedFile As HttpPostedFile In FileUpload1.PostedFiles
                 Dim fileExtension As String = System.IO.Path.GetExtension(uploadedFile.FileName)
                 If allowedExtensions.Contains(fileExtension) Then
@@ -87,12 +88,19 @@ Public Class FiveSDetailsForm1
                     ' File adalah gambar, lakukan sesuatu di sini
                 Else
                     ' File bukan gambar, tampilkan pesan kesalahan
-                    MsgBox("File " + uploadedFile.FileName + " tidak diizinkan. Hanya diperbolehkan mengunggah file gambar (JPG, JPEG, PNG).<br />")
+                    showAlertV2("warning", "File " + uploadedFile.FileName + " tidak diizinkan. Hanya diperbolehkan mengunggah file gambar (JPG, JPEG, PNG).<br />")
+                    'MsgBox("File " + uploadedFile.FileName + " tidak diizinkan. Hanya diperbolehkan mengunggah file gambar (JPG, JPEG, PNG).<br />")
                 End If
             Next
         End If
 
         bindingData()
+    End Sub
+
+    Sub showAlertV2(ByVal type As String, ByVal msg As String)
+        Dim script As String
+        script = "Swal.fire('','" & msg & "','" & type & "')"
+        ScriptManager.RegisterStartupScript(Me, Me.GetType(), "Swal", script, True)
     End Sub
 
     Protected Sub bsave_Click(sender As Object, e As EventArgs)
@@ -114,6 +122,7 @@ Public Class FiveSDetailsForm1
                     ModBy=" & eByName() & ",ModDate=GetDate() where IDFinding=" & eidfinding
         End If
 
+        'MsgBox(query)
         executeQuery(query)
         Response.Redirect(url5sDetails & "?id=" & eidfindinggp)
     End Sub

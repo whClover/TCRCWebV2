@@ -35,8 +35,6 @@ Public Class SQLFunction
         'Catch ex As Exception
         'err_handler(clsname & "-" & GetCurrentPageName(), GetCurrentMethodName, ex.Message)
         'End Try
-
-        Return dt
     End Function
 
     Public Shared Function DataTableToTxt(ByVal query As String, ByVal fullpath As String) As Boolean

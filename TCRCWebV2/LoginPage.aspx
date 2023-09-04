@@ -56,7 +56,7 @@
                                                         <p runat="server" id="eTxtNofif"></p>
                                                     </div>
                                                     <div class="mt-3">
-                                                        <asp:LinkButton runat="server" CssClass="btn btn-warning w-100" ID="bLogin" OnClick="bLogin_Click"><span style="color:black;font-weight:bold">Continue</span></asp:LinkButton>
+                                                        <asp:LinkButton runat="server" CssClass="btn btn-primary w-100" ID="bLogin" OnClick="bLogin_Click"><span style="color:black;font-weight:bold">Continue</span></asp:LinkButton>
                                                     </div>
                                                     <div class="mt-4 text-center">
                                                         <a href="~/" runat="server" class="text-white-50 text-decoration-underline">Back To Main Menu</a>

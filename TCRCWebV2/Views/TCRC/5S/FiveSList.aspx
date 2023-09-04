@@ -31,6 +31,10 @@
                         <asp:DropDownList runat="server" ID="ddLocation" CssClass="form-select"></asp:DropDownList>
                     </div>
                     <div class="mb-3">
+                        <h6>Inspector</h6>
+                        <asp:DropDownList runat="server" ID="ddInspector" CssClass="form-select"></asp:DropDownList>
+                    </div>
+                    <div class="mb-3">
                         <h6>Assign To</h6>
                         <asp:DropDownList runat="server" ID="ddassignto" CssClass="form-select"></asp:DropDownList>
                     </div>

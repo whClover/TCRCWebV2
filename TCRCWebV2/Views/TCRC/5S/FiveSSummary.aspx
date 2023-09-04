@@ -29,6 +29,18 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="col-md-4">
+                            <div class="mb-3">
+                                <h6>Locations</h6>
+                                <asp:DropDownList runat="server" CssClass="form-control form-control-sm" ID="ddLoc"></asp:DropDownList>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="mb-3">
+                                <h6>Inspector</h6>
+                                <asp:DropDownList runat="server" CssClass="form-control form-control-sm" ID="ddInspector"></asp:DropDownList>
+                            </div>
+                        </div>
                     </div>
                     <div class="row">
                         <div class="mt-2">

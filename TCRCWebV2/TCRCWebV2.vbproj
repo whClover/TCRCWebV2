@@ -1650,6 +1650,7 @@
     <Content Include="Views\TCRC\Workshop\AssemblyMod\AssemblyMenu.ascx" />
     <Content Include="Views\TCRC\Workshop\AssemblyMod\AssemblyPinPiston.aspx" />
     <Content Include="Views\TCRC\Workshop\AssemblyMod\AssemblyPistonRec.aspx" />
+    <Content Include="Views\TCRC\Workshop\AssemblyMod\AssemblyTemplate.aspx" />
     <Content Include="Views\TCRC\Workshop\AssemblyMod\AssemblyValLashAdj.aspx" />
     <Content Include="Views\TCRC\Workshop\indexWS.aspx" />
     <Content Include="Views\TCRC\Workshop\Inspection\MeaInspBeforeAdd.ascx" />
@@ -2051,6 +2052,13 @@
     </Compile>
     <Compile Include="Views\TCRC\Workshop\AssemblyMod\AssemblyPistonRec.aspx.vb">
       <DependentUpon>AssemblyPistonRec.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Views\TCRC\Workshop\AssemblyMod\AssemblyTemplate.aspx.designer.vb">
+      <DependentUpon>AssemblyTemplate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TCRC\Workshop\AssemblyMod\AssemblyTemplate.aspx.vb">
+      <DependentUpon>AssemblyTemplate.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="Views\TCRC\Workshop\AssemblyMod\AssemblyValLashAdj.aspx.designer.vb">

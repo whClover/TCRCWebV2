@@ -71,8 +71,8 @@ Public Class FiveSDetails
 
     Protected Sub baddissue_Click(sender As Object, e As EventArgs)
         If ddLeader.SelectedValue <> "" Then
-            showAlertV2("warning", "Tidak dapat menambahkan finding/edit karna sudah di approve oleh leader")
-            Exit Sub
+            'showAlertV2("warning", "Tidak dapat menambahkan finding/edit karna sudah di approve oleh leader")
+            'Exit Sub
         End If
 
         Dim eidarea As String = CType(sender, LinkButton).CommandArgument
@@ -114,8 +114,8 @@ method_2:
         If CheckDBNullv1(dt3.Rows(0)("SupvApprovedBy")) = "" Then
             Response.Redirect(url5sForm & "?id=" & eidfinding)
         Else
-            showAlertV2("warning", "Tidak dapat menambahkan finding/edit karna sudah di approve oleh leader")
-            Exit Sub
+            'showAlertV2("warning", "Tidak dapat menambahkan finding/edit karna sudah di approve oleh leader")
+            'Exit Sub
         End If
     End Sub
 

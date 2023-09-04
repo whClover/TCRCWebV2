@@ -194,6 +194,24 @@ Partial Public Class AssemblyMea
     Protected WithEvents imgGp As Global.System.Web.UI.HtmlControls.HtmlImage
 
     '''<summary>
+    '''scriptmanager1 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents scriptmanager1 As Global.System.Web.UI.ScriptManager
+
+    '''<summary>
+    '''updpanel1 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents updpanel1 As Global.System.Web.UI.UpdatePanel
+
+    '''<summary>
     '''rpt_mea2 control.
     '''</summary>
     '''<remarks>

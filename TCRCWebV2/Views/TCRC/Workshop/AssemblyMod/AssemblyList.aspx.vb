@@ -268,15 +268,15 @@ Public Class AssemblyList
     End Sub
 
     Protected Sub bMea_Click(sender As Object, e As EventArgs)
-        'Dim ewo As String = CType(sender, LinkButton).CommandArgument
-        'Session("ss_assembly") = "n1"
-        'Response.Redirect(urlAssemblyMea & "?wo=" & ewo)
-
         Dim ewo As String = CType(sender, LinkButton).CommandArgument
         Session("ss_assembly") = "n1"
-        Response.Write("<script>")
-        Response.Write("window.open('../../../../Views/TCRC/Workshop/AssemblyMod/AssemblyMea.aspx?wo=" & ewo & "', '_blank')")
-        Response.Write("</script>")
+        Response.Redirect(urlAssemblyMea & "?wo=" & ewo)
+
+        'Dim ewo As String = CType(sender, LinkButton).CommandArgument
+        'Session("ss_assembly") = "n1"
+        'Response.Write("<script>")
+        'Response.Write("window.open('../../../../Views/TCRC/Workshop/AssemblyMod/AssemblyMea.aspx?wo=" & ewo & "', '_blank')")
+        'Response.Write("</script>")
     End Sub
 
     Protected Sub bChk_Click(sender As Object, e As EventArgs)

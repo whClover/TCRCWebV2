@@ -18,13 +18,14 @@ Public Class FiveSList
 
     Sub loaddropdown()
         BindDataDropDown(ddLocation, "select * from tbl_5SLocation", "LocationDesc", "IDLocation")
+        BindDataDropDown(ddInspector, "select username,fullname from tbl_user where username in(select distinct(RegisterBy) from tbl_5SFindingDetails) order by fullname", "Fullname", "Username")
         BindDataDropDown(ddassignto, "select * from vw_UserPrivilegesEmailNotif where EmailTypeDesc='Supervisory' and EmailTypeID=43 and ActiveStatus=-1 order by FullName", "FullName", "Username")
         BindDataDropDown(ddsupv, "select * from vw_UserPrivilegesEmailNotif where EmailTypeDesc='Supervisory' and EmailTypeID=43 and ActiveStatus=-1 order by FullName", "FullName", "Username")
     End Sub
 
     Sub bindingdata()
         filtering()
-        Dim query As String = "select *,convert(varchar,RegisterDate,103) as formatDate from v_5SRegister" & tempfilter
+        Dim query As String = "select *,convert(varchar,RegisterDate,103) as formatDate from v_5SRegister" & tempfilter & " Order by RegisterDate"
         Dim dt As New DataTable
         dt = GetDataTable(query)
         gv5SList.DataSource = dt
@@ -43,15 +44,16 @@ Public Class FiveSList
     Sub filtering()
         'Date
         If tStart.Value <> String.Empty Then
-            tempfilter = " AND RegisterBy >= " & evar(tStart.Value, 2) & tempfilter
+            tempfilter = " AND convert(date,RegisterDate,103) >= " & evar(tStart.Value, 2) & tempfilter
         End If
         If tEnd.Value <> String.Empty Then
-            tempfilter = " AND RegisterBy <= " & evar(tEnd.Value, 2) & tempfilter
+            tempfilter = " AND convert(date,RegisterDate,103) <= " & evar(tEnd.Value, 2) & tempfilter
         End If
         'End: Date
 
         Dim elocation As String
         If ddLocation.Text <> String.Empty Then tempfilter = " AND IDLocation=" & ddLocation.SelectedValue & tempfilter
+        If ddInspector.Text <> String.Empty Then tempfilter = " AND RegisterBy=" & evar(ddInspector.SelectedValue, 1) & tempfilter
         If ddassignto.Text <> String.Empty Then tempfilter = " AND AssignTo=" & evar(ddassignto.SelectedValue, 1) & tempfilter
         If ddsupv.Text <> String.Empty Then tempfilter = " AND SupvApprovedBy=" & evar(ddsupv.SelectedValue, 1) & tempfilter
 

@@ -4,19 +4,17 @@
 <%@ Register Src="~/Views/TCRC/Workshop/AssemblyMod/AssemblyGallery.ascx" TagPrefix="uc1" TagName="AssemblyGallery" %>
 <%@ Register Src="~/Views/TCRC/Workshop/AssemblyMod/AssemblyMenu.ascx" TagPrefix="uc1" TagName="AssemblyMenu" %>
 
-
-
 <asp:Content runat="server" ContentPlaceHolderID="MenuContent">
     <uc1:MenuTCRC runat="server" ID="MenuTCRC" />
 </asp:Content>
 
 <asp:Content runat="server" ContentPlaceHolderID="MainContent">
-    <script type="text/javascript">
+    <%--<script type="text/javascript">
         window.addEventListener("scroll", function () {
             var scrollPosition = window.pageYOffset;
             document.getElementById('<%=ScrollPosition.ClientID %>').value = scrollPosition;
         });
-    </script>
+    </script>--%>
     <asp:HiddenField runat="server" ID="ScrollPosition" />
     <div class="row">
         <div class="col-md-12">
@@ -106,75 +104,80 @@
                                             <img runat="server" id="imgGp" src="../../../../assets/images/NoPicture.png" class="mb-3 img-fluid"
                                                 style="display: block; margin-left:auto; margin-right:auto; Position:Static; height:70%"/>
 
-                                            <div class="table-responsive">
-                                                <asp:Repeater runat="server" ID="rpt_mea2" OnItemDataBound="rpt_mea2_ItemDataBound">
-                                                    <HeaderTemplate>
-                                                        <table class="table table-hover mb-0 align-middle table-bordered">
-                                                            <thead class="bg-warning fw-bold">
-                                                                <tr>
-                                                                    <th style="width:3%">No</th>
-                                                                    <th style="width:40%">Activity</th>
-                                                                    <th>Technical Spesification</th>
-                                                                    <th>Actual Measurement</th>
-                                                                    <th>Mech</th>
-                                                                    <th>LH</th>
-                                                                </tr>
-                                                            </thead>
-                                                            <tbody>
-                                                    </HeaderTemplate>
-                                                    <ItemTemplate>
-                                                        <tr runat="server" id="tRow">
-                                                            <td style="width:3%">
-                                                                <span class="form-label" runat="server" id="pSeq"></span>
-                                                            </td>
-                                                            <td style="width:40%">
-                                                                <div class="flex-shrink-0 me-3">
-                                                                    <div class="avatar-sm">
-                                                                        <div class="avatar-title rounded-circle font-size-12" runat="server" id="cirB">
-                                                                            <i class="fas fa-user" runat="server" id="iconB"></i>
+                                            <asp:ScriptManager ID="scriptmanager1" runat="server"></asp:ScriptManager>
+                                            <asp:UpdatePanel runat="server" ID="updpanel1">
+                                                <ContentTemplate>
+                                                    <div class="table-responsive">
+                                                        <asp:Repeater runat="server" ID="rpt_mea2" OnItemDataBound="rpt_mea2_ItemDataBound">
+                                                            <HeaderTemplate>
+                                                                <table class="table table-hover mb-0 align-middle table-bordered">
+                                                                    <thead class="bg-warning fw-bold">
+                                                                        <tr>
+                                                                            <th style="width:3%">No</th>
+                                                                            <th style="width:40%">Activity</th>
+                                                                            <th>Technical Spesification</th>
+                                                                            <th>Actual Measurement</th>
+                                                                            <th>Mech</th>
+                                                                            <th>LH</th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                            </HeaderTemplate>
+                                                            <ItemTemplate>
+                                                                <tr runat="server" id="tRow">
+                                                                    <td style="width:3%">
+                                                                        <span class="form-label" runat="server" id="pSeq"></span>
+                                                                    </td>
+                                                                    <td style="width:40%">
+                                                                        <div class="flex-shrink-0 me-3">
+                                                                            <div class="avatar-sm">
+                                                                                <div class="avatar-title rounded-circle font-size-12" runat="server" id="cirB">
+                                                                                    <i class="fas fa-user" runat="server" id="iconB"></i>
+                                                                                </div>
+                                                                            </div>
                                                                         </div>
-                                                                    </div>
-                                                                </div>
-                                                                <asp:Image runat="server" id="imgdet" src='<%# Eval("PicturePath").ToString() %>' class="img-fluid" /> <br />
-                                                                <span class="form-label" runat="server" id="pActivity"></span>
-                                                            </td>
-                                                            <td class="text-center">                                                              
-                                                                <span class="form-label text-center" id="pMeasureType" runat="server"></span>
-                                                                <asp:LinkButton runat="server" ID="bchange" CssClass="btn btn-sm" OnClick="bchange_Click" CommandArgument='<%# Eval("IDAssemblyInput") & "," & Eval("UnitType") %>'>
-                                                                    <i class="fa fa-sync text-muted"></i>
-                                                                </asp:LinkButton>
-                                                                <hr />
-                                                                <span class="form-label" runat="server" id="pFullSpec"></span>
-                                                            </td>
-                                                            <td>
-                                                                <div class="input-group">
-                                                                    <asp:TextBox runat="server" CssClass="form-control form-control-sm" ID="tVal" Visible="false" OnTextChanged="tVal_TextChanged" 
-                                                                        IDAssembly='<%# Eval("IDAssemblyInput") %>' ValType='<%# Eval("ValType") %>' AutoPostBack="true"></asp:TextBox>
-                                                                    <span class="input-group-text" id="sUnit" runat="server" Visible="false">-</span>
-                                                                    <asp:LinkButton runat="server" ID="bOK2" CssClass="btn btn-soft-primary" Visible="false" CommandArgument='<%# Eval("IDAssemblyInput") %>' OnClick="bOK2_Click">OK</asp:LinkButton>
-                                                                    <asp:LinkButton runat="server" ID="bNA" CssClass="btn btn-soft-secondary" Visible="false" CommandArgument='<%# Eval("IDAssemblyInput") %>' OnClick="bNA_Click">NA</asp:LinkButton>
-                                                                </div>
-                                                                <small runat="server" class="form-label text-danger fw-bold" id="lCheckSpec">Out of spec</small>
-                                                                <hr />
-                                                                <asp:LinkButton runat="server" CssClass="btn btn-soft-secondary btn-sm" OnClick="breset_Click" CommandArgument='<%# Eval("IDAssemblyInput") %>' ID="breset" 
-                                                                    OnClientClick="return confirm('Are you sure you want to reset the value?')">Reset Value</asp:LinkButton>
-                                                            </td>
-                                                            <td>
-                                                                <label class="form-label" runat="server" id="pAsmBy"></label><br />
-                                                                <label class="form-label" runat="server" id="pAsmDate"></label>
-                                                            </td>
-                                                            <td>
-                                                                <asp:LinkButton runat="server" CssClass="btn btn-soft-primary" ID="bLHApv" OnClick="bLHApv_Click" CommandArgument='<%# Eval("IDAssemblyInput") %>'>Approve</asp:LinkButton>
-                                                                <label class="form-label" runat="server" id="pLH"></label>
-                                                            </td>
-                                                        </tr>
-                                                    </ItemTemplate>
-                                                    <FooterTemplate>
-                                                            </tbody>
-                                                        </table>
-                                                    </FooterTemplate>
-                                                </asp:Repeater>
-                                            </div>
+                                                                        <asp:Image runat="server" id="imgdet" src='<%# Eval("PicturePath").ToString() %>' class="img-fluid" /> <br />
+                                                                        <span class="form-label" runat="server" id="pActivity"></span>
+                                                                    </td>
+                                                                    <td class="text-center">                                                              
+                                                                        <span class="form-label text-center" id="pMeasureType" runat="server"></span>
+                                                                        <asp:LinkButton runat="server" ID="bchange" CssClass="btn btn-sm" OnClick="bchange_Click" CommandArgument='<%# Eval("IDAssemblyInput") & "," & Eval("UnitType") %>'>
+                                                                            <i class="fa fa-sync text-muted"></i>
+                                                                        </asp:LinkButton>
+                                                                        <hr />
+                                                                        <span class="form-label" runat="server" id="pFullSpec"></span>
+                                                                    </td>
+                                                                    <td>
+                                                                        <div class="input-group">
+                                                                            <asp:TextBox runat="server" CssClass="form-control form-control-sm" ID="tVal" Visible="false" OnTextChanged="tVal_TextChanged" 
+                                                                                IDAssembly='<%# Eval("IDAssemblyInput") %>' ValType='<%# Eval("ValType") %>' AutoPostBack="true"></asp:TextBox>
+                                                                            <span class="input-group-text" id="sUnit" runat="server" Visible="false">-</span>
+                                                                            <asp:LinkButton runat="server" ID="bOK2" CssClass="btn btn-soft-primary" Visible="false" CommandArgument='<%# Eval("IDAssemblyInput") %>' OnClick="bOK2_Click">OK</asp:LinkButton>
+                                                                            <asp:LinkButton runat="server" ID="bNA" CssClass="btn btn-soft-secondary" Visible="false" CommandArgument='<%# Eval("IDAssemblyInput") %>' OnClick="bNA_Click">NA</asp:LinkButton>
+                                                                        </div>
+                                                                        <small runat="server" class="form-label text-danger fw-bold" id="lCheckSpec">Out of spec</small>
+                                                                        <hr />
+                                                                        <asp:LinkButton runat="server" CssClass="btn btn-soft-secondary btn-sm" OnClick="breset_Click" CommandArgument='<%# Eval("IDAssemblyInput") %>' ID="breset" 
+                                                                            OnClientClick="return confirm('Are you sure you want to reset the value?')">Reset Value</asp:LinkButton>
+                                                                    </td>
+                                                                    <td>
+                                                                        <label class="form-label" runat="server" id="pAsmBy"></label><br />
+                                                                        <label class="form-label" runat="server" id="pAsmDate"></label>
+                                                                    </td>
+                                                                    <td>
+                                                                        <asp:LinkButton runat="server" CssClass="btn btn-soft-primary" ID="bLHApv" OnClick="bLHApv_Click" CommandArgument='<%# Eval("IDAssemblyInput") %>'>Approve</asp:LinkButton>
+                                                                        <label class="form-label" runat="server" id="pLH"></label>
+                                                                    </td>
+                                                                </tr>
+                                                            </ItemTemplate>
+                                                            <FooterTemplate>
+                                                                    </tbody>
+                                                                </table>
+                                                            </FooterTemplate>
+                                                        </asp:Repeater>
+                                                    </div>
+                                                </ContentTemplate>
+                                            </asp:UpdatePanel>
                                         </div>                                       
                                     </div>
                                 </div>
