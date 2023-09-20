@@ -69,9 +69,15 @@
     Public Shared url5sDetails As String = urlTCRC & "5S/FiveSDetails.aspx"
     Public Shared url5sForm As String = urlTCRC & "5S/FiveSDetailsForm.aspx"
     Public Shared url5sSummary As String = urlTCRC & "5S/FiveSSummary.aspx"
+    Public Shared url5sApv As String = urlTCRC & "5S/FiveSApv.aspx"
+
+    'TCRC: Component Testing
+    Public Shared urlTestWS As String = urlTCRCWorkshop & "TestBench/"
+    Public Shared urlTestWSIndex As String = urlTestWS & "TestList.aspx"
 
     'ReportsPath
     Public Shared RptAssemblyMea As String = urlPrint & "AssemblyMea.aspx"
+    Public Shared Rpt5S As String = urlPrint & "FiveS.aspx"
 
     'temp
     Public Shared urlTemp As String = "~/temp/"

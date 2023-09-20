@@ -188,10 +188,10 @@ Public Class ComponentRel
                 Exit Sub
             End If
 
-            If CheckDBNull(dt.Rows(0)("PercComp") <> "100%") Then
-                showAlertV2("warning", "Please Complete Component Release Form")
-                Exit Sub
-            End If
+            'If CheckDBNull(dt.Rows(0)("PercComp") <> "100%") Then
+            'showAlertV2("warning", "Please Complete Component Release Form")
+            'Exit Sub
+            'End If
 
             savepath = JobPck & ewo & "\17\"
             If Not System.IO.Directory.Exists(savepath) Then

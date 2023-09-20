@@ -8,9 +8,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%: Page.Title %></title>
 
-    <asp:PlaceHolder runat="server">
+    <%--<asp:PlaceHolder runat="server">
         <%: Styles.Render("~/Css") %>
-    </asp:PlaceHolder>
+    </asp:PlaceHolder>--%>
+
+    <link href="~/assets/css/bootstrap.min.css" rel="stylesheet" runat="server" />
+    <link href="~/assets/css/icons.min.css" rel="stylesheet" runat="server" />
+    <link href="~/assets/css/app.min.css" rel="stylesheet" runat="server" />
+    <link href="~/assets/costume/css/mycss.css" rel="stylesheet" runat="server" />
+    <link href="~/assets/libs/choices.js/public/assets/styles/choices.min.css" rel="stylesheet" runat="server" />
+    <link href="~/assets/libs/flatpickr/flatpickr.min.css" rel="stylesheet" runat="server" />
+    <link href="~/assets/costume/alertify/css/alertify.min.css" rel="stylesheet" runat="server" />
+    <link href="~/assets/costume/toast/toastr.min.css" rel="stylesheet" runat="server" />
+    <link href="~/assets/costume/summernote/summernote-bs4.min.css" rel="stylesheet" runat="server" />
+    <link href="~/assets/libs/sweetalert2/sweetalert2.min.css" rel="stylesheet" runat="server" />
+    <script src="/assets/costume/colorbox/jquery.colorbox-min.js"></script>
+
 
     <asp:PlaceHolder runat="server">
         <%= Scripts.Render("~/buatmodal") %>
@@ -19,6 +32,7 @@
     <asp:PlaceHolder runat="server">
         <%= Scripts.Render("~/summernote") %>
     </asp:PlaceHolder>
+    
 
     <script type="text/javascript">
         function updateProgBar(id, widthPercentage) {
@@ -33,6 +47,13 @@
             }
         }
     </script>
+
+    <style>
+        html, body {
+          scroll-behavior: auto;
+          scroll-snap-type: none;
+        }
+    </style>
 
     <%--<script type="text/javascript">
         // Check session status every 5 seconds
@@ -58,8 +79,49 @@
 
 
     <script src="/assets/libs/sweetalert2/sweetalert2.min.js"></script>
+
+    <style>
+        #overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9); /* Warna latar belakang transparan lebih gelap */
+            z-index: 9999;
+            display: none;
+            align-items: center;
+            justify-content: center;
+          }
+    </style>
+
 </head>
 <body data-layout="horizontal" data-topbar="dark">
+    <div id="overlay">
+        <div id="loader">
+            <h1 class="display-6 text-center">Loading Data</h1><br />
+            <div>
+                <div class="spinner-grow text-light m-1" role="status">
+                    <span class="sr-only">Loading...</span>
+                </div>
+                <div class="spinner-grow text-light m-1" role="status">
+                    <span class="sr-only">Loading...</span>
+                </div>
+                <div class="spinner-grow text-light m-1" role="status">
+                    <span class="sr-only">Loading...</span>
+                </div>
+                <div class="spinner-grow text-light m-1" role="status">
+                    <span class="sr-only">Loading...</span>
+                </div>
+                <div class="spinner-grow text-light m-1" role="status">
+                    <span class="sr-only">Loading...</span>
+                </div>
+                <div class="spinner-grow text-light m-1" role="status">
+                    <span class="sr-only">Loading...</span>
+                </div>
+            </div>
+        </div>
+    </div>
     <form runat="server">
         <div id="layout-wrapper">
             <header id="page-topbar">
@@ -130,9 +192,9 @@
         <!-- END layout-wrapper -->
     </form>
 
-<%--<asp:PlaceHolder runat="server">
-    <%= Scripts.Render("~/Scripts") %>
-</asp:PlaceHolder>--%>
+    <%--<asp:PlaceHolder runat="server">
+        <%= Scripts.Render("~/Scripts") %>
+    </asp:PlaceHolder>--%>
     <script src="/assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="/assets/libs/datatable/datatables.js"></script>
     <script src="/assets/libs/metismenujs/metismenujs.min.js"></script>

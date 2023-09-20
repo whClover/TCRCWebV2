@@ -11,41 +11,32 @@ Option Strict On
 Option Explicit On
 
 
-Partial Public Class LoginPage
+Partial Public Class AssemblyTes
 
     '''<summary>
-    '''form1 control.
+    '''Panel1 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents form1 As Global.System.Web.UI.HtmlControls.HtmlForm
+    Protected WithEvents Panel1 As Global.System.Web.UI.HtmlControls.HtmlGenericControl
 
     '''<summary>
-    '''tjdeuser control.
+    '''hwono control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents tjdeuser As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents hwono As Global.System.Web.UI.WebControls.HiddenField
 
     '''<summary>
-    '''tpass control.
+    '''lna control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents tpass As Global.System.Web.UI.WebControls.TextBox
-
-    '''<summary>
-    '''bLogin control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents bLogin As Global.System.Web.UI.WebControls.LinkButton
+    Protected WithEvents lna As Global.System.Web.UI.WebControls.Label
 End Class

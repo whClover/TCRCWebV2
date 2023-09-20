@@ -18,6 +18,7 @@
                     <small class="card-title-desc" runat="server" id="lwodesc">WO Desc.</small>
                 </div>
                 <div class="card-body">
+                    <asp:ScriptManager ID="scriptmanager1" runat="server"></asp:ScriptManager>
                     <asp:UpdatePanel runat="server" ID="updpanel1">
                         <ContentTemplate>
                              <div class="row">

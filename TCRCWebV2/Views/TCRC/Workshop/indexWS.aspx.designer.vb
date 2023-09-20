@@ -23,24 +23,6 @@ Partial Public Class indexWS
     Protected WithEvents MenuTCRC As Global.TCRCWebV2.MenuTCRC1
 
     '''<summary>
-    '''hFullName control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents hFullName As Global.System.Web.UI.HtmlControls.HtmlGenericControl
-
-    '''<summary>
-    '''hTitle control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents hTitle As Global.System.Web.UI.HtmlControls.HtmlGenericControl
-
-    '''<summary>
     '''bMeaWorksheet control.
     '''</summary>
     '''<remarks>
@@ -68,13 +50,13 @@ Partial Public Class indexWS
     Protected WithEvents basm As Global.System.Web.UI.WebControls.LinkButton
 
     '''<summary>
-    '''LinkButton1 control.
+    '''bwstesting control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents LinkButton1 As Global.System.Web.UI.WebControls.LinkButton
+    Protected WithEvents bwstesting As Global.System.Web.UI.WebControls.LinkButton
 
     '''<summary>
     '''fivesummary control.
@@ -84,6 +66,15 @@ Partial Public Class indexWS
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents fivesummary As Global.System.Web.UI.WebControls.LinkButton
+
+    '''<summary>
+    '''b5sapv control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents b5sapv As Global.System.Web.UI.WebControls.LinkButton
 
     '''<summary>
     '''fivesreg control.

@@ -68,6 +68,15 @@ Partial Public Class FiveSSummary
     Protected WithEvents bsearch As Global.System.Web.UI.WebControls.LinkButton
 
     '''<summary>
+    '''bgenPT control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents bgenPT As Global.System.Web.UI.WebControls.LinkButton
+
+    '''<summary>
     '''gv5sSummary control.
     '''</summary>
     '''<remarks>

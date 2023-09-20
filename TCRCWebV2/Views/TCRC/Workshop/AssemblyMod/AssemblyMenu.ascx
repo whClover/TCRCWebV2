@@ -11,6 +11,6 @@
         <asp:LinkButton runat="server" CssClass="nav-link" ID="n7" OnClick="n7_Click">Fuel Inj. Trim Code</asp:LinkButton>
         <asp:LinkButton runat="server" CssClass="nav-link" ID="n8" OnClick="n8_Click">Piston Recommendation</asp:LinkButton>
         <asp:LinkButton runat="server" CssClass="nav-link" ID="n9" OnClick="n9_Click">Cylinder Head</asp:LinkButton>
-        <asp:LinkButton runat="server" CssClass="nav-link" ID="n10" OnClick="n10_Click">Dyno Check</asp:LinkButton>
+        <%--<asp:LinkButton runat="server" CssClass="nav-link" ID="n10" OnClick="n10_Click" Visible="false">Dyno Check</asp:LinkButton>--%>
     </div>
 </div>

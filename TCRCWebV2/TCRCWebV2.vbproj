@@ -231,6 +231,8 @@
     <Content Include="assets\costume\alertify\css\themes\semantic.rtl.min.css" />
     <Content Include="assets\costume\animated bg\script.js" />
     <Content Include="assets\costume\animated bg\style.css" />
+    <Content Include="assets\costume\colorbox\jquery.colorbox-min.js" />
+    <Content Include="assets\costume\colorbox\jquery.colorbox.js" />
     <Content Include="assets\costume\css\mycss.css" />
     <Content Include="assets\costume\js\boostrap5-alpha.js" />
     <Content Include="assets\costume\js\bootstrap4.4.1.js" />
@@ -238,6 +240,12 @@
     <Content Include="assets\costume\js\jquery-ui.min.js" />
     <Content Include="assets\costume\js\marquee.js" />
     <Content Include="assets\costume\js\myjs.js" />
+    <Content Include="assets\costume\lightbox2\css\lightbox.css" />
+    <Content Include="assets\costume\lightbox2\css\lightbox.min.css" />
+    <Content Include="assets\costume\lightbox2\js\lightbox-plus-jquery.js" />
+    <Content Include="assets\costume\lightbox2\js\lightbox-plus-jquery.min.js" />
+    <Content Include="assets\costume\lightbox2\js\lightbox.js" />
+    <Content Include="assets\costume\lightbox2\js\lightbox.min.js" />
     <Content Include="assets\costume\MeaInsp.js" />
     <Content Include="assets\costume\multiselect\chosen.css" />
     <Content Include="assets\costume\multiselect\chosen.jquery.min.js" />
@@ -1613,6 +1621,7 @@
     <Content Include="Views\Shared\ErrorPage.aspx" />
     <Content Include="Views\Shared\MenuTCRC.ascx" />
     <Content Include="Views\Shared\MenuTMRP.aspx" />
+    <Content Include="Views\TCRC\5S\FiveSApv.aspx" />
     <Content Include="Views\TCRC\5S\FiveSArea.aspx" />
     <Content Include="Views\TCRC\5S\FiveSAreaForm.ascx" />
     <Content Include="Views\TCRC\5S\FiveSAssignArea.ascx" />
@@ -1631,6 +1640,7 @@
     <Content Include="Views\TCRC\Reports\CompRelFooter.aspx" />
     <Content Include="Views\TCRC\Reports\CompRelForm.aspx" />
     <Content Include="Views\TCRC\Reports\CoverPage.ascx" />
+    <Content Include="Views\TCRC\Reports\FiveS.aspx" />
     <Content Include="Views\TCRC\Reports\MeaInspection.aspx" />
     <Content Include="Views\TCRC\Reports\MeaInspectionRev.aspx" />
     <Content Include="Views\TCRC\Workshop\AssemblyMod\AssemblyAssign.ascx" />
@@ -1650,7 +1660,8 @@
     <Content Include="Views\TCRC\Workshop\AssemblyMod\AssemblyMenu.ascx" />
     <Content Include="Views\TCRC\Workshop\AssemblyMod\AssemblyPinPiston.aspx" />
     <Content Include="Views\TCRC\Workshop\AssemblyMod\AssemblyPistonRec.aspx" />
-    <Content Include="Views\TCRC\Workshop\AssemblyMod\AssemblyTemplate.aspx" />
+    <Content Include="Views\TCRC\Workshop\AssemblyMod\AssemblyTemplateList.aspx" />
+    <Content Include="Views\TCRC\Workshop\AssemblyMod\AssemblyTes.ascx" />
     <Content Include="Views\TCRC\Workshop\AssemblyMod\AssemblyValLashAdj.aspx" />
     <Content Include="Views\TCRC\Workshop\indexWS.aspx" />
     <Content Include="Views\TCRC\Workshop\Inspection\MeaInspBeforeAdd.ascx" />
@@ -1674,6 +1685,7 @@
     <Content Include="Views\TCRC\Workshop\Other\ComponentRel.aspx" />
     <Content Include="Views\TCRC\Workshop\Other\ComponentRelEdit.ascx" />
     <Content Include="Views\TCRC\Workshop\Other\LabourHours.aspx" />
+    <Content Include="Views\TCRC\Workshop\Testbench\Testlist.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -1793,6 +1805,13 @@
     </Compile>
     <Compile Include="Views\Shared\MenuTMRP.aspx.vb">
       <DependentUpon>MenuTMRP.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Views\TCRC\5S\FiveSApv.aspx.designer.vb">
+      <DependentUpon>FiveSApv.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TCRC\5S\FiveSApv.aspx.vb">
+      <DependentUpon>FiveSApv.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="Views\TCRC\5S\FiveSArea.aspx.designer.vb">
@@ -1920,6 +1939,13 @@
     <Compile Include="Views\TCRC\Reports\CoverPage.ascx.vb">
       <DependentUpon>CoverPage.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\TCRC\Reports\FiveS.aspx.designer.vb">
+      <DependentUpon>FiveS.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TCRC\Reports\FiveS.aspx.vb">
+      <DependentUpon>FiveS.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="Views\TCRC\Reports\MeaInspection.aspx.designer.vb">
       <DependentUpon>MeaInspection.aspx</DependentUpon>
@@ -2054,12 +2080,19 @@
       <DependentUpon>AssemblyPistonRec.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
-    <Compile Include="Views\TCRC\Workshop\AssemblyMod\AssemblyTemplate.aspx.designer.vb">
-      <DependentUpon>AssemblyTemplate.aspx</DependentUpon>
+    <Compile Include="Views\TCRC\Workshop\AssemblyMod\AssemblyTemplateList.aspx.designer.vb">
+      <DependentUpon>AssemblyTemplateList.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\TCRC\Workshop\AssemblyMod\AssemblyTemplate.aspx.vb">
-      <DependentUpon>AssemblyTemplate.aspx</DependentUpon>
+    <Compile Include="Views\TCRC\Workshop\AssemblyMod\AssemblyTemplateList.aspx.vb">
+      <DependentUpon>AssemblyTemplateList.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Views\TCRC\Workshop\AssemblyMod\AssemblyTes.ascx.designer.vb">
+      <DependentUpon>AssemblyTes.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TCRC\Workshop\AssemblyMod\AssemblyTes.ascx.vb">
+      <DependentUpon>AssemblyTes.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Views\TCRC\Workshop\AssemblyMod\AssemblyValLashAdj.aspx.designer.vb">
       <DependentUpon>AssemblyValLashAdj.aspx</DependentUpon>
@@ -2222,6 +2255,13 @@
       <DependentUpon>LabourHours.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="Views\TCRC\Workshop\Testbench\Testlist.aspx.designer.vb">
+      <DependentUpon>Testlist.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TCRC\Workshop\Testbench\Testlist.aspx.vb">
+      <DependentUpon>Testlist.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="My Project\Resources.resx">
@@ -2313,7 +2353,6 @@
     <Content Include="assets\libs\swiper\esm\svelte\swiper-slide.svelte" />
     <Content Include="assets\libs\swiper\esm\svelte\swiper.svelte" />
     <Content Include="assets\libs\wnumb\LICENSE.MD" />
-    <Content Include=".htaccess" />
     <Content Include="assets\costume\js\jquery-3.6.3.min.js" />
     <Content Include="Files\Digital Inspection Template.xlsx" />
     <Content Include="assets\costume\js\bootstrap4.5.0.js" />
@@ -2343,6 +2382,8 @@
     <Content Include="fonts\materialdesignicons-webfont.woff" />
     <Content Include="fonts\materialdesignicons-webfont.woff2" />
     <Content Include="app.min.css.map" />
+    <Content Include="assets\costume\lightbox2\js\lightbox-plus-jquery.min.map" />
+    <Content Include="assets\costume\lightbox2\js\lightbox.min.map" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>

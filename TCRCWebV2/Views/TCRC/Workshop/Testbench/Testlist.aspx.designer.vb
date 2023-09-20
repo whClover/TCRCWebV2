@@ -11,41 +11,41 @@ Option Strict On
 Option Explicit On
 
 
-Partial Public Class LoginPage
+Partial Public Class Testlist
 
     '''<summary>
-    '''form1 control.
+    '''MenuTCRC control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents form1 As Global.System.Web.UI.HtmlControls.HtmlForm
+    Protected WithEvents MenuTCRC As Global.TCRCWebV2.MenuTCRC1
 
     '''<summary>
-    '''tjdeuser control.
+    '''tWONo control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents tjdeuser As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents tWONo As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
-    '''tpass control.
+    '''bsearch control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents tpass As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents bsearch As Global.System.Web.UI.WebControls.LinkButton
 
     '''<summary>
-    '''bLogin control.
+    '''gvTest control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents bLogin As Global.System.Web.UI.WebControls.LinkButton
+    Protected WithEvents gvTest As Global.System.Web.UI.WebControls.GridView
 End Class

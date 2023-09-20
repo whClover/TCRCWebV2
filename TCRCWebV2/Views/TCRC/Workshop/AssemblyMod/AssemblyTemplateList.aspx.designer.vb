@@ -11,5 +11,14 @@ Option Strict On
 Option Explicit On
 
 
-Partial Public Class AssemblyTemplate
+Partial Public Class AssemblyTemplateList
+
+    '''<summary>
+    '''MenuTCRC control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents MenuTCRC As Global.TCRCWebV2.MenuTCRC1
 End Class

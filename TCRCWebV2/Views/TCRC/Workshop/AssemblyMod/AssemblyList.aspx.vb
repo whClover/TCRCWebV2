@@ -81,7 +81,11 @@ Public Class AssemblyList
     End Sub
 
     Protected Sub bSearch_Click(sender As Object, e As EventArgs)
+        'ClientScript.RegisterStartupScript(Me.GetType(), "ShowOverlay", "<script>document.getElementById('overlay').style.display = 'flex';</script>")
+
         load_Data()
+
+        'ClientScript.RegisterStartupScript(Me.GetType(), "HideOverlay", "<script>document.getElementById('overlay').style.display = 'none';</script>")
     End Sub
 
     Sub showAlert(ByVal type As String, ByVal msg As String)
@@ -177,7 +181,7 @@ Public Class AssemblyList
             Dim hFuelInj As HtmlGenericControl = CType(e.Item.FindControl("hFuelInj"), HtmlGenericControl)
             Dim hRC As HtmlGenericControl = CType(e.Item.FindControl("hRC"), HtmlGenericControl)
             Dim hCH As HtmlGenericControl = CType(e.Item.FindControl("hCH"), HtmlGenericControl)
-            Dim hDyno As HtmlGenericControl = CType(e.Item.FindControl("hDyno"), HtmlGenericControl)
+            'Dim hDyno As HtmlGenericControl = CType(e.Item.FindControl("hDyno"), HtmlGenericControl)
             Dim hLH As HtmlGenericControl = CType(e.Item.FindControl("hLH"), HtmlGenericControl)
             Dim hSupv As HtmlGenericControl = CType(e.Item.FindControl("hSupv"), HtmlGenericControl)
 
@@ -192,7 +196,7 @@ Public Class AssemblyList
             Dim liFuel As HtmlGenericControl = CType(e.Item.FindControl("liFuel"), HtmlGenericControl)
             Dim liPR As HtmlGenericControl = CType(e.Item.FindControl("liPR"), HtmlGenericControl)
             Dim liCH As HtmlGenericControl = CType(e.Item.FindControl("liCH"), HtmlGenericControl)
-            Dim liDyno As HtmlGenericControl = CType(e.Item.FindControl("liDyno"), HtmlGenericControl)
+            'Dim liDyno As HtmlGenericControl = CType(e.Item.FindControl("liDyno"), HtmlGenericControl)
             Dim liLH As HtmlGenericControl = CType(e.Item.FindControl("liLH"), HtmlGenericControl)
             Dim liSpv As HtmlGenericControl = CType(e.Item.FindControl("liSpv"), HtmlGenericControl)
 
@@ -217,10 +221,10 @@ Public Class AssemblyList
             hFuelInj.InnerHtml = IIf(CheckDBNull(dataItem("FTC_Perc").ToString() = "-"), "-", dataItem("FTC_Perc").ToString() & "%")
             hRC.InnerHtml = IIf(CheckDBNull(dataItem("PR_Perc").ToString() = "-"), "-", dataItem("PR_Perc").ToString() & "%")
             hCH.InnerHtml = IIf(CheckDBNull(dataItem("CH_Perc").ToString() = "-"), "-", dataItem("CH_Perc").ToString() & "%")
-            hDyno.InnerHtml = IIf(CheckDBNull(dataItem("Dyno_Perc").ToString() = "-"), "-", dataItem("Dyno_Perc").ToString() & "%")
+            'hDyno.InnerHtml = IIf(CheckDBNull(dataItem("Dyno_Perc").ToString() = "-"), "-", dataItem("Dyno_Perc").ToString() & "%")
             hLH.InnerHtml = IIf(CheckDBNull(dataItem("LHApv_Perc").ToString() = "-"), "-", dataItem("LHApv_Perc").ToString() & "%")
             hSupv.InnerHtml = IIf(CheckDBNull(dataItem("SPVApv_Perc").ToString() = "-"), "-", dataItem("SPVApv_Perc").ToString() & "%")
-            hDyno.InnerHtml = IIf(CheckDBNull(dataItem("Dyno_Perc").ToString() = "-"), "-", dataItem("Dyno_Perc").ToString() & "%")
+            'hDyno.InnerHtml = IIf(CheckDBNull(dataItem("Dyno_Perc").ToString() = "-"), "-", dataItem("Dyno_Perc").ToString() & "%")
 
             If dataItem("ComppGroup") = "Powertrain" Then
                 liMea.Visible = True
@@ -232,7 +236,7 @@ Public Class AssemblyList
                 liFuel.Visible = False
                 liPR.Visible = False
                 liCH.Visible = False
-                liDyno.Visible = False
+                'liDyno.Visible = False
                 liLH.Visible = True
                 liSpv.Visible = True
             End If
@@ -247,7 +251,7 @@ Public Class AssemblyList
                 liFuel.Visible = False
                 liPR.Visible = False
                 liCH.Visible = False
-                liDyno.Visible = False
+                'liDyno.Visible = False
                 liLH.Visible = True
                 liSpv.Visible = True
             End If
@@ -268,15 +272,15 @@ Public Class AssemblyList
     End Sub
 
     Protected Sub bMea_Click(sender As Object, e As EventArgs)
-        Dim ewo As String = CType(sender, LinkButton).CommandArgument
-        Session("ss_assembly") = "n1"
-        Response.Redirect(urlAssemblyMea & "?wo=" & ewo)
-
         'Dim ewo As String = CType(sender, LinkButton).CommandArgument
         'Session("ss_assembly") = "n1"
-        'Response.Write("<script>")
-        'Response.Write("window.open('../../../../Views/TCRC/Workshop/AssemblyMod/AssemblyMea.aspx?wo=" & ewo & "', '_blank')")
-        'Response.Write("</script>")
+        'Response.Redirect(urlAssemblyMea & "?wo=" & ewo)
+
+        Dim ewo As String = CType(sender, LinkButton).CommandArgument
+        Session("ss_assembly") = "n1"
+        Response.Write("<script>")
+        Response.Write("window.open('../../../../Views/TCRC/Workshop/AssemblyMod/AssemblyMea.aspx?wo=" & ewo & "', '_blank')")
+        Response.Write("</script>")
     End Sub
 
     Protected Sub bChk_Click(sender As Object, e As EventArgs)

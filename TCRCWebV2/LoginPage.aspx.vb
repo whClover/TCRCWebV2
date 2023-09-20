@@ -7,24 +7,11 @@ Public Class LoginPage
     Inherits System.Web.UI.Page
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-        If Not IsPostBack Then
-            Dim eid As String = Request.QueryString("id")
-            Select Case eid
-                Case 1
-                    webapp.Text = "TCRC"
-                Case 2
-                    webapp.Text = "PER"
-                Case 3
-                    webapp.Text = "TMRP"
-                Case 4
-                    webapp.Text = "Fabshop"
-            End Select
-        End If
+
     End Sub
 
     Sub login()
         Session.RemoveAll()
-        Dim eWebApp As String = evar(webapp.Text, 1)
         Dim eusername As String = evar(tjdeuser.Text, 1)
         Dim ePass As String = evar(tpass.Text, 1)
 
@@ -33,30 +20,24 @@ Public Class LoginPage
         dt = GetDataTable(query)
 
         If dt.Rows.Count = 0 Then
-            eNotif.Style.Add("display", "Block")
-            eTxtNofif.InnerHtml = "<i class=""fas fa-exclamation-circle""></i> User/JDE " + eusername + " is Not Registered"
+            showAlertV2("warning", "Username/JDE is not found on system.")
+            Exit Sub
         Else
-            eNotif.Style.Add("display", "none")
             For Each row As DataRow In dt.Select()
                 Dim currpass = evar(row("dbpass"), 1)
                 If (row("ActiveStatus")) = 0 Then
-                    eNotif.Style.Add("display", "Block")
-                    eTxtNofif.InnerHtml = "<i class=""fas fa-exclamation-circle""></i> User/JDE " + eusername + " No Longer Active"
+                    showAlertV2("warning", "Username/JDE is not active. Please contact system administrator to re-active.")
+                    Exit Sub
                 ElseIf ePass <> currpass Then
-                    eNotif.Style.Add("display", "Block")
-                    eTxtNofif.InnerHtml = "<i class=""fas fa-exclamation-circle""></i> Password did not Match"
+                    showAlertV2("warning", "Password incorrect")
+                    Exit Sub
                 Else
                     Session("ss_userid") = row("userid")
                     Session("ss_username") = row("username")
                     Session("ss_fullname") = row("fullname")
                     Session("ss_priv") = row("Previllege")
                     Session("ss_email") = row("Email")
-
-                    Dim eweb As String = webapp.Text
-                    Select Case eweb
-                        Case "TCRC"
-                            Response.Redirect("~/Views/TCRC/index.aspx")
-                    End Select
+                    Response.Redirect("~/Views/TCRC/index.aspx")
                 End If
             Next
         End If
@@ -64,5 +45,11 @@ Public Class LoginPage
 
     Protected Sub bLogin_Click(sender As Object, e As EventArgs)
         login()
+    End Sub
+
+    Sub showAlertV2(ByVal type As String, ByVal msg As String)
+        Dim script As String
+        script = "Swal.fire('','" & msg & "','" & type & "')"
+        ScriptManager.RegisterStartupScript(Me, Me.GetType(), "Swal", script, True)
     End Sub
 End Class

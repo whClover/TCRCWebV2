@@ -93,13 +93,4 @@ Partial Public Class AssemblyMenu
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents n9 As Global.System.Web.UI.WebControls.LinkButton
-
-    '''<summary>
-    '''n10 control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents n10 As Global.System.Web.UI.WebControls.LinkButton
 End Class

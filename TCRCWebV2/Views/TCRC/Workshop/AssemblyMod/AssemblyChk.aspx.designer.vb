@@ -50,6 +50,15 @@ Partial Public Class AssemblyChk
     Protected WithEvents lwodesc As Global.System.Web.UI.HtmlControls.HtmlGenericControl
 
     '''<summary>
+    '''scriptmanager1 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents scriptmanager1 As Global.System.Web.UI.ScriptManager
+
+    '''<summary>
     '''updpanel1 control.
     '''</summary>
     '''<remarks>

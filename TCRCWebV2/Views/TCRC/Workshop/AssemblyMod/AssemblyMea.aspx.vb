@@ -412,7 +412,7 @@ Public Class AssemblyMea
 
         'open modal and get position
         utility.ModalV2("MainContent_AssemblyMea_Panel1")
-        'getcurrentScrollPos()
+        getcurrentScrollPos()
     End Sub
 
     Protected Sub ddsection_SelectedIndexChanged(sender As Object, e As EventArgs)
@@ -597,7 +597,7 @@ Public Class AssemblyMea
 
         Dim query As String = "update tbl_AssemblyInput set UnitType=" & eunittype & " where IDAssemblyInput=" & eidinput
         executeQuery(query)
-        'getcurrentScrollPos()
+        getcurrentScrollPos()
         Dim esection As String = ddsection.Text
         load_dataSection(esection)
     End Sub
@@ -617,7 +617,7 @@ Public Class AssemblyMea
                 If Not IsNumeric(txt_val.Text) Then
                     txt_val.Text = ""
                     'showAlert("warning", "Numeric Input Only !")
-                    showAlertV2("warning", "Numeric Input Only !")
+                    'showAlertV2("warning", "Numeric Input Only !")
                     Exit Sub
                 End If
 
@@ -628,7 +628,7 @@ Public Class AssemblyMea
 
         executeQuery(query)
         'Response.Redirect(urlAssemblyMea & "?wo=" & Request.QueryString("WO"))
-        'getcurrentScrollPos()
+        getcurrentScrollPos()
         Dim esection As String = ddsection.Text
         load_dataSection(esection)
     End Sub
@@ -639,7 +639,7 @@ Public Class AssemblyMea
         Dim query As String = "update tbl_AssemblyInput set AssemblyVal='OK',ModBy=" & eByName() & ",ModDate=GetDate() where IDAssemblyInput=" & eid
         executeQuery(query)
         'Response.Redirect(urlAssemblyMea & "?wo=" & Request.QueryString("WO"))
-        'getcurrentScrollPos()
+        getcurrentScrollPos()
         Dim esection As String = ddsection.Text
         load_dataSection(esection)
     End Sub
@@ -656,7 +656,7 @@ Public Class AssemblyMea
         Dim query As String = "update tbl_AssemblyInput set ApprovedBy=" & eByName() & " where IDAssemblyInput=" & eid
         executeQuery(query)
         'Response.Redirect(urlAssemblyMea & "?wo=" & Request.QueryString("WO"))
-        'getcurrentScrollPos()
+        getcurrentScrollPos()
         Dim esection As String = ddsection.Text
         load_dataSection(esection)
     End Sub

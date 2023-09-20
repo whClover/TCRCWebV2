@@ -152,12 +152,10 @@ Public Class AssemblyCylHead
             Dim query_2 As String = "exec AssemblyUpdateEngineInput " & evar(ewo, 1) & "," & evar(cylinderNo, 1) & ",'IntakeValveB'," & evar(tIntakeB.Text, 1) & "," & eByName()
             Dim query_3 As String = "exec AssemblyUpdateEngineInput " & evar(ewo, 1) & "," & evar(cylinderNo, 1) & ",'ExhaustValveA'," & evar(tExhaustA.Text, 1) & "," & eByName()
             Dim query_4 As String = "exec AssemblyUpdateEngineInput " & evar(ewo, 1) & "," & evar(cylinderNo, 1) & ",'ExhaustValveB'," & evar(tExhaustB.Text, 1) & "," & eByName()
-
             Dim query_5 As String = "exec AssemblyUpdateEngineInput " & evar(ewo, 1) & "," & evar(cylinderNo, 1) & ",'IntakeValveA_InsBore'," & evar(ddIntakeA.SelectedValue, 1) & "," & eByName()
             Dim query_6 As String = "exec AssemblyUpdateEngineInput " & evar(ewo, 1) & "," & evar(cylinderNo, 1) & ",'IntakeValveB_InsBore'," & evar(ddIntakeB.SelectedValue, 1) & "," & eByName()
             Dim query_7 As String = "exec AssemblyUpdateEngineInput " & evar(ewo, 1) & "," & evar(cylinderNo, 1) & ",'ExhaustValveA_InsBore'," & evar(ddExhaustA.SelectedValue, 1) & "," & eByName()
             Dim query_8 As String = "exec AssemblyUpdateEngineInput " & evar(ewo, 1) & "," & evar(cylinderNo, 1) & ",'ExhaustValveB_InsBore'," & evar(ddExhaustB.SelectedValue, 1) & "," & eByName()
-
             Dim query_9 As String = "exec AssemblyUpdateEngineInput " & evar(ewo, 1) & "," & evar(cylinderNo, 1) & ",'WOCylHead'," & evar(tExWO.Text, 1) & "," & eByName()
             Dim query_10 As String = "exec AssemblyUpdateEngineInput " & evar(ewo, 1) & "," & evar(cylinderNo, 1) & ",'CylRec'," & evar(ddCylRec.SelectedValue, 1) & "," & eByName()
 

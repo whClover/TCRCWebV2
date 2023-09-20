@@ -108,15 +108,15 @@ Public Class FiveSDetails
         utility.ModalV2("MainContent_FiveSDetailsForm_Panel1")
 
 method_2:
-        Dim query3 As String = "select * from tbl_5SFindingGP where IDFindingGP=(select top 1 IDFindingGP from tbl_5SFindingDetails where IDFinding=" & eidfinding & ")"
-        Dim dt3 As New DataTable
-        dt3 = GetDataTable(query3)
-        If CheckDBNullv1(dt3.Rows(0)("SupvApprovedBy")) = "" Then
-            Response.Redirect(url5sForm & "?id=" & eidfinding)
-        Else
-            'showAlertV2("warning", "Tidak dapat menambahkan finding/edit karna sudah di approve oleh leader")
-            'Exit Sub
-        End If
+        'Dim query3 As String = "select * from tbl_5SFindingGP where IDFindingGP=(select top 1 IDFindingGP from tbl_5SFindingDetails where IDFinding=" & eidfinding & ")"
+        'Dim dt3 As New DataTable
+        'dt3 = GetDataTable(query3)
+        'If CheckDBNullv1(dt3.Rows(0)("SupvApprovedBy")) = "" Then
+        Response.Redirect(url5sForm & "?id=" & eidfinding)
+        'Else
+        'showAlertV2("warning", "Tidak dapat menambahkan finding/edit karna sudah di approve oleh leader")
+        'Exit Sub
+        'End If
     End Sub
 
     Protected Sub gvdetails_RowDataBound(sender As Object, e As GridViewRowEventArgs)
@@ -131,8 +131,13 @@ method_2:
         Dim dt As New DataTable
         dt = GetDataTable(query)
         Dim esupv As String = dt.Rows(0)("SupvApprovedBy").ToString()
+        Dim eassign As String = CheckDBNull(dt.Rows(0)("AssignTo").ToString())
         If esupv <> String.Empty Then
             bSupvApv.Visible = False
+        End If
+        If eassign <> String.Empty Then
+            bassign.Visible = False
+            ddLeader.Enabled = False
         End If
     End Sub
 
@@ -144,7 +149,9 @@ method_2:
 
         Dim query As String = "update tbl_5SFindingGP set SupvApprovedBy=" & eByName() & ",SupvApprovedDate=GetDate() where IDFindingGP=" & Request.QueryString("id")
         executeQuery(query)
+        bindingdata()
         checksupv()
+
     End Sub
 
     Sub showAlertV2(ByVal type As String, ByVal msg As String)

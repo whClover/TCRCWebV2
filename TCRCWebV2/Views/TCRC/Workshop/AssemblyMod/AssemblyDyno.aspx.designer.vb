@@ -41,15 +41,6 @@ Partial Public Class AssemblyDyno
     Protected WithEvents lwodesc As Global.System.Web.UI.HtmlControls.HtmlGenericControl
 
     '''<summary>
-    '''AssemblyMenu control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents AssemblyMenu As Global.TCRCWebV2.AssemblyMenu
-
-    '''<summary>
     '''lSectionProg control.
     '''</summary>
     '''<remarks>
@@ -75,4 +66,22 @@ Partial Public Class AssemblyDyno
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents rpt_section As Global.System.Web.UI.WebControls.Repeater
+
+    '''<summary>
+    '''tRemark control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents tRemark As Global.System.Web.UI.HtmlControls.HtmlTextArea
+
+    '''<summary>
+    '''bsaverem control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents bsaverem As Global.System.Web.UI.WebControls.LinkButton
 End Class

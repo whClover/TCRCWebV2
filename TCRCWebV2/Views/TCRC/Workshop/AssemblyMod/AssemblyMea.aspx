@@ -9,12 +9,12 @@
 </asp:Content>
 
 <asp:Content runat="server" ContentPlaceHolderID="MainContent">
-    <%--<script type="text/javascript">
+    <script type="text/javascript">
         window.addEventListener("scroll", function () {
             var scrollPosition = window.pageYOffset;
             document.getElementById('<%=ScrollPosition.ClientID %>').value = scrollPosition;
         });
-    </script>--%>
+    </script>
     <asp:HiddenField runat="server" ID="ScrollPosition" />
     <div class="row">
         <div class="col-md-12">

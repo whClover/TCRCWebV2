@@ -330,5 +330,23 @@ Public Class Utility
 
     End Function
 
+    Public Shared Function generateRandom() As String
+        Dim random As New Random()
+        Dim length As Integer = 10 ' Panjang string yang diinginkan
+        Dim sb As New StringBuilder()
+
+        Dim possibleChars As String = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
+
+        For i As Integer = 0 To length - 1
+            ' Mengambil karakter acak dari kumpulan karakter yang mungkin
+            Dim randomChar As Char = possibleChars(random.Next(possibleChars.Length))
+            sb.Append(randomChar)
+        Next
+
+        Dim randomString As String = sb.ToString()
+
+        Return randomString
+    End Function
+
 
 End Class

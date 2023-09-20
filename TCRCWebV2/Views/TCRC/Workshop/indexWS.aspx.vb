@@ -7,19 +7,9 @@ Public Class IndexWS
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         If Session("ss_userid") = "" Then
-            Response.Redirect(urlTCRCLogin)
+            'Response.Redirect(urlTCRCLogin)
         Else
-            loadUser()
         End If
-    End Sub
-
-    Sub loadUser()
-        Dim query As String = "select *,dbo.GetSupvName(" & evar(Session("ss_userid"), 1) & ") as SupvName from tbl_user where userid=" & evar(Session("ss_userid"), 1)
-        Dim dt As New DataTable
-        dt = GetDataTable(query)
-        If dt.Rows.Count = 0 Then Exit Sub
-        hFullName.InnerText = dt.Rows(0)("FullName").ToString()
-        hTitle.InnerText = dt.Rows(0)("JobTitle").ToString()
     End Sub
 
     Protected Sub bMeaWorksheet_Click(sender As Object, e As EventArgs)
@@ -48,5 +38,28 @@ Public Class IndexWS
 
     Protected Sub fivesummary_Click(sender As Object, e As EventArgs)
         Response.Redirect(url5sSummary)
+    End Sub
+
+    Protected Sub b5sapv_Click(sender As Object, e As EventArgs)
+        Dim dt As New DataTable
+        Dim ename As String = Session("ss_username")
+        Dim query As String = "select * from v_5SRegister where AssignTo=" & evar(ename, 1) & " and SupvApprovedBy is null"
+        dt = GetDataTable(query)
+        If dt.Rows.Count = 0 Then
+            showAlertV2("info", "There are no oustanding inspection to approve")
+            Exit Sub
+        End If
+
+        Response.Redirect(url5sApv)
+    End Sub
+
+    Sub showAlertV2(ByVal type As String, ByVal msg As String)
+        Dim script As String
+        script = "Swal.fire('','" & msg & "','" & type & "')"
+        ScriptManager.RegisterStartupScript(Me, Me.GetType(), "Swal", script, True)
+    End Sub
+
+    Protected Sub bwstesting_Click(sender As Object, e As EventArgs)
+        Response.Redirect(urlTestWSIndex)
     End Sub
 End Class

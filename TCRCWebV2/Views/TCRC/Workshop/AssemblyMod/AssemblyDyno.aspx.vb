@@ -25,6 +25,11 @@ Public Class AssemblyDyno
         If dt.Rows.Count > 0 Then
             lwodesc.InnerText = dt.Rows(0)("WODesc")
         End If
+
+        Dim queryrem As String = "select * from tbl_AssemblyEngineInputGP where wono=" & evar(ewo, 1)
+        Dim dtrem As New DataTable
+        dtrem = GetDataTable(queryrem)
+        tRemark.InnerText = dtrem.Rows(0)("DynoRemark").ToString()
     End Sub
 
     Sub getProgress()
@@ -128,4 +133,20 @@ Public Class AssemblyDyno
         Response.Redirect(urlAssemblyDyno & "?wo=" & Request.QueryString("WO"))
     End Sub
 
+    Protected Sub bsaverem_Click(sender As Object, e As EventArgs)
+        If tRemark.InnerText = String.Empty Then
+            showAlertV2("info", "Please fill Dyno Remark")
+            Exit Sub
+        End If
+
+        Dim query As String = "update tbl_AssemblyEngineInputGP set DynoRemark=" & evar(tRemark.InnerText, 1) & " where wono=" & evar(Request.QueryString("wo"), 1)
+        executeQuery(query)
+        showAlertV2("success", "Dyno Remark has been Saved")
+    End Sub
+
+    Sub showAlertV2(ByVal type As String, ByVal msg As String)
+        Dim script As String
+        script = "Swal.fire('','" & msg & "','" & type & "')"
+        ScriptManager.RegisterStartupScript(Me, Me.GetType(), "Swal", script, True)
+    End Sub
 End Class

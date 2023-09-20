@@ -62,7 +62,7 @@
                     </asp:LinkButton>
                 </div>
                 <div class="card-body p-0">
-                    <asp:GridView runat="server" CssClass="table table-bordered p-0 table-sm" ID="gv5SList" AutoGenerateColumns="false">
+                    <asp:GridView runat="server" CssClass="table table-borderles p-0 table-sm" ID="gv5SList" AutoGenerateColumns="false">
                         <Columns>
                             <asp:BoundField HeaderText="ID" DataField="IDFindingGP" HeaderStyle-CssClass="text-center bg-soft-primary" ItemStyle-CssClass="text-center" />
                             <asp:BoundField HeaderText="Location Description" DataField="LocationDesc" HeaderStyle-CssClass="bg-soft-primary" />

@@ -2,7 +2,6 @@
 <%@ Register Src="~/Views/Shared/MenuTCRC.ascx" TagPrefix="uc1" TagName="MenuTCRC" %>
 <%@ Register Src="~/Views/TCRC/Workshop/AssemblyMod/AssemblyAssign.ascx" TagPrefix="uc1" TagName="AssemblyAssign" %>
 
-
 <asp:Content runat="server" ContentPlaceHolderID="MenuContent">
     <uc1:MenuTCRC runat="server" ID="MenuTCRC" />
 </asp:Content>
@@ -238,7 +237,7 @@
                                                 </asp:LinkButton>
                                             </div>
                                         </li>
-                                        <li class="list-inline-item chart-border-left me-0" runat="server" id="liDyno">
+                                        <%--<li class="list-inline-item chart-border-left me-0" runat="server" id="liDyno">
                                             <span class="text-muted fw-normal font-size-11 ms-2 text-center">Dyno Check</span>
                                             <h4 class="my-1 text-center text-primary" runat="server" id="hDyno">24.03 %</h4>
                                             <div class="text-center">
@@ -246,7 +245,7 @@
                                                     <i class="fa fa-edit"></i>
                                                 </asp:LinkButton>
                                             </div>
-                                        </li>
+                                        </li>--%>
                                         <li class="list-inline-item chart-border-left me-0" runat="server" id="liLH">
                                             <span class="text-muted fw-normal font-size-11 ms-2 text-center">LH Approval</span>
                                             <h4 class="my-1 text-center text-primary" runat="server" id="hLH">24.03 %</h4>
