@@ -1,13 +1,17 @@
-﻿Public Class GlobalString
+﻿Imports Microsoft.SqlServer.Server
+
+Public Class GlobalString
     Public Shared popupsize As String = "'width=1200,height=800,left=200,top=200,resizable=yes'"
 
     'defaultpath
-    Public shared server As String = "bpnaps07"
+    Public Shared server As String = "bpnaps07"
     Public Shared PictSTG As String = "\\" & server & "\Database\Plant_Component\PictInspection\"
     Public Shared MeaInspPict As String = PictSTG & "InspectionTemplate\"
     Public Shared JobPck As String = "\\" & server & "\Database\Plant_Component\JobPackage\"
     Public Shared asmpict As String = PictSTG & "AssemblyPicture\"
     Public Shared Picture5S As String = "\\" & server & "\dbattachcomp$\Picture5S\"
+    Public Shared JobIDAttachment As String = "\\bpnaps07\dbattachcomp$\JobID\"
+    Public Shared PICTAssemblyTemplate As String = PictSTG & "AssemblyTemplatePIC\"
     '=============
 
     'DataPath
@@ -53,11 +57,15 @@
     Public Shared urlAssemblyPistonRec As String = urlAssembly & "AssemblyPistonRec.aspx"
     Public Shared urlAssemblyCylinderHead As String = urlAssembly & "AssemblyCylHead.aspx"
     Public Shared urlAssemblyDyno As String = urlAssembly & "AssemblyDyno.aspx"
+    Public Shared urlAssemblyTemplate As String = urlAssembly & "AssemblyTemplateList.aspx"
+    Public Shared urlAssemblyTemplateDetails As String = urlAssembly & "AssemblyTemplateDetails.aspx"
+    Public Shared urlAssemblyTemplateEdit As String = urlAssembly & "AssemblyTemplateEdit.aspx"
 
     'TCRC: Other Module
     Public Shared urlOtherModule As String = urlTCRCWorkshop & "Other/"
     Public Shared urlComponentRelease As String = urlOtherModule & "ComponentRel.aspx"
     Public Shared urlComponentReleaseForm As String = urlPrint & "CompRelForm.aspx"
+    Public Shared urlComponentReleaseEdit As String = urlOtherModule & "ComponenRelEdit.aspx"
 
     'TCRC: Administration Module
     Public Shared urlWODetails As String = urlTCRCOfficeAdm & "ListWO.aspx"

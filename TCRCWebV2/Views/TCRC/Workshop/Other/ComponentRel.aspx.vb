@@ -84,9 +84,10 @@ Public Class ComponentRel
     End Sub
 
     Protected Sub bEdit_Click(sender As Object, e As EventArgs)
-
-
         Dim ewo As String = CType(sender, LinkButton).CommandArgument
+        Response.Redirect(urlComponentReleaseEdit & "?wo=" & ewo)
+        Exit Sub
+
         'check already add or not ?
         Dim query As String = "exec dbo.TCRCSubmitCompRelease " & evar(ewo, 1) & ",'check',null,null,null,
         null,null,null,null,null,null,null,null,null,null,null,null,null,null," & eByName()
@@ -203,7 +204,7 @@ Public Class ComponentRel
             Dim p As Process = New Process()
             p.StartInfo.FileName = "C:\webroot\TCRCWebV2\Rotativa\wkhtmltopdf.exe"
             'p.StartInfo.FileName = "C:\Rotativa\wkhtmltopdf.exe"
-            p.StartInfo.Arguments = "http://bpnaps07:9191/Views/TCRC/Reports/CompRelForm.aspx?wo=" & ewo & " " & "--footer-html http://bpnaps07:9191/Views/TCRC/Reports/CompRelFooter.aspx" & " " & namafile
+            p.StartInfo.Arguments = "http://bpnaps07:88/Views/TCRC/Reports/CompRelForm.aspx?wo=" & ewo & " " & "--footer-html http://bpnaps07:88/Views/TCRC/Reports/CompRelFooter.aspx" & " " & namafile
             p.Start()
 
             Dim qry_sub = "exec dbo.SubmitJobAttachment " & evar(ewo, 1) & ",17," & evar(namafile, 1) & "," & eByName()

@@ -1660,6 +1660,9 @@
     <Content Include="Views\TCRC\Workshop\AssemblyMod\AssemblyMenu.ascx" />
     <Content Include="Views\TCRC\Workshop\AssemblyMod\AssemblyPinPiston.aspx" />
     <Content Include="Views\TCRC\Workshop\AssemblyMod\AssemblyPistonRec.aspx" />
+    <Content Include="Views\TCRC\Workshop\AssemblyMod\AssemblyTemplateDetails.aspx" />
+    <Content Include="Views\TCRC\Workshop\AssemblyMod\AssemblyTemplateEdit.aspx" />
+    <Content Include="Views\TCRC\Workshop\AssemblyMod\AssemblyTemplateForm.ascx" />
     <Content Include="Views\TCRC\Workshop\AssemblyMod\AssemblyTemplateList.aspx" />
     <Content Include="Views\TCRC\Workshop\AssemblyMod\AssemblyTes.ascx" />
     <Content Include="Views\TCRC\Workshop\AssemblyMod\AssemblyValLashAdj.aspx" />
@@ -1682,6 +1685,7 @@
     <Content Include="Views\TCRC\Workshop\Inspection\MeaTemplateSecEdit.ascx" />
     <Content Include="Views\TCRC\Workshop\Inspection\MeaTemplateSecUpload.ascx" />
     <Content Include="Views\TCRC\Workshop\Inspection\MeaTemplateShow.aspx" />
+    <Content Include="Views\TCRC\Workshop\Other\ComponenRelEdit.aspx" />
     <Content Include="Views\TCRC\Workshop\Other\ComponentRel.aspx" />
     <Content Include="Views\TCRC\Workshop\Other\ComponentRelEdit.ascx" />
     <Content Include="Views\TCRC\Workshop\Other\LabourHours.aspx" />
@@ -2080,6 +2084,27 @@
       <DependentUpon>AssemblyPistonRec.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
+    <Compile Include="Views\TCRC\Workshop\AssemblyMod\AssemblyTemplateDetails.aspx.designer.vb">
+      <DependentUpon>AssemblyTemplateDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TCRC\Workshop\AssemblyMod\AssemblyTemplateDetails.aspx.vb">
+      <DependentUpon>AssemblyTemplateDetails.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Views\TCRC\Workshop\AssemblyMod\AssemblyTemplateEdit.aspx.designer.vb">
+      <DependentUpon>AssemblyTemplateEdit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TCRC\Workshop\AssemblyMod\AssemblyTemplateEdit.aspx.vb">
+      <DependentUpon>AssemblyTemplateEdit.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Views\TCRC\Workshop\AssemblyMod\AssemblyTemplateForm.ascx.designer.vb">
+      <DependentUpon>AssemblyTemplateForm.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TCRC\Workshop\AssemblyMod\AssemblyTemplateForm.ascx.vb">
+      <DependentUpon>AssemblyTemplateForm.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="Views\TCRC\Workshop\AssemblyMod\AssemblyTemplateList.aspx.designer.vb">
       <DependentUpon>AssemblyTemplateList.aspx</DependentUpon>
     </Compile>
@@ -2234,6 +2259,13 @@
       <DependentUpon>MeaTemplateShow.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="Views\TCRC\Workshop\Other\ComponenRelEdit.aspx.designer.vb">
+      <DependentUpon>ComponenRelEdit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TCRC\Workshop\Other\ComponenRelEdit.aspx.vb">
+      <DependentUpon>ComponenRelEdit.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
     <Compile Include="Views\TCRC\Workshop\Other\ComponentRel.aspx.designer.vb">
       <DependentUpon>ComponentRel.aspx</DependentUpon>
     </Compile>
@@ -2384,6 +2416,14 @@
     <Content Include="app.min.css.map" />
     <Content Include="assets\costume\lightbox2\js\lightbox-plus-jquery.min.map" />
     <Content Include="assets\costume\lightbox2\js\lightbox.min.map" />
+    <Content Include="fonts\summernote.eot" />
+    <Content Include="fonts\summernote.ttf" />
+    <Content Include="fonts\summernote.woff" />
+    <Content Include="fonts\summernote.woff2" />
+    <Content Include="assets\costume\summernote\assets\costume\summernote\font\summernote.eot" />
+    <Content Include="assets\costume\summernote\assets\costume\summernote\font\summernote.ttf" />
+    <Content Include="assets\costume\summernote\assets\costume\summernote\font\summernote.woff" />
+    <Content Include="assets\costume\summernote\assets\costume\summernote\font\summernote.woff2" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>

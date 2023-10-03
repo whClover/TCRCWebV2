@@ -62,4 +62,8 @@ Public Class IndexWS
     Protected Sub bwstesting_Click(sender As Object, e As EventArgs)
         Response.Redirect(urlTestWSIndex)
     End Sub
+
+    Protected Sub basmtemplate_Click(sender As Object, e As EventArgs)
+        Response.Redirect(urlAssemblyTemplate)
+    End Sub
 End Class

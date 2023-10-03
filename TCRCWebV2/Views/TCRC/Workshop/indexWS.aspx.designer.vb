@@ -50,6 +50,15 @@ Partial Public Class indexWS
     Protected WithEvents basm As Global.System.Web.UI.WebControls.LinkButton
 
     '''<summary>
+    '''basmtemplate control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents basmtemplate As Global.System.Web.UI.WebControls.LinkButton
+
+    '''<summary>
     '''bwstesting control.
     '''</summary>
     '''<remarks>

@@ -45,8 +45,9 @@
                     </div>
                     <div class="col-md-2">
                         <div class="mb-3">
-                            <label for="tWS">FI Status</label>
+                            <label for="tWS">Job Package Status</label>
                             <asp:DropDownList runat="server" CssClass="form-control" ID="ddFI">
+                                <asp:ListItem Value=""></asp:ListItem>
                                 <asp:ListItem Value="Empty">Empty</asp:ListItem>
                                 <asp:ListItem Value="Done">Done</asp:ListItem>
                             </asp:DropDownList>

@@ -4,6 +4,7 @@ Imports System.IO
 Imports System.Security.Policy
 Imports ClosedXML.Excel
 Imports DocumentFormat.OpenXml.Math
+Imports Microsoft.Reporting.WebForms
 Imports TCRCWebV2.GlobalString
 Imports TCRCWebV2.SQLFunction
 
@@ -348,5 +349,13 @@ Public Class Utility
         Return randomString
     End Function
 
+    Public Shared Function genSwalAlert(ByVal type As String, ByVal msg As String, ByVal vpage As Page)
+        Dim script As String
+        script = "Swal.fire('','" & msg & "','" & type & "')"
+        ScriptManager.RegisterStartupScript(vpage, vpage.GetType(), "Swal", script, True)
+    End Function
 
+    Public Shared Function uploadPictGen()
+
+    End Function
 End Class

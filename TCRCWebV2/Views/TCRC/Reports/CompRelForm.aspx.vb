@@ -5,6 +5,7 @@ Public Class CompRelForm
     Inherits System.Web.UI.Page
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+        loadpicture()
         GenerateData()
     End Sub
 
@@ -53,6 +54,21 @@ Public Class CompRelForm
             InspBy.Text = "Inspect By: " & CheckDBNull(dt.Rows(0)("RegisterBy"))
             InspDate.Text = "Date: " & CheckDBNull(dt.Rows(0)("RegisterDate"))
 
+        End If
+    End Sub
+
+    Sub loadpicture()
+        Dim ewo As String = Request.QueryString("wo")
+        If ewo = String.Empty Then Exit Sub
+        Dim query As String = "select IDPict,'../../../../' + dbo.RemapPicW(PicturePath) as PicturePath from 
+            tbl_GeneralPicture where JobID=(select ID from tbl_IntJobDetailx where wono=" & evar(ewo, 1) & ") and ModuleID=2 and PictureStatus=1"
+        Dim dt As New DataTable
+        dt = GetDataTable(query)
+        If dt.Rows.Count > 0 Then
+            rpt_pict.DataSource = dt
+            rpt_pict.DataBind()
+        Else
+            rpic.Visible = False
         End If
     End Sub
 End Class

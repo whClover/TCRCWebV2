@@ -11,7 +11,7 @@ Option Strict On
 Option Explicit On
 
 
-Partial Public Class AssemblyTemplateList
+Partial Public Class AssemblyTemplateDetails
 
     '''<summary>
     '''MenuTCRC control.
@@ -23,22 +23,31 @@ Partial Public Class AssemblyTemplateList
     Protected WithEvents MenuTCRC As Global.TCRCWebV2.MenuTCRC1
 
     '''<summary>
-    '''AssemblyTemplateForm control.
+    '''tunitdesc control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents AssemblyTemplateForm As Global.TCRCWebV2.AssemblyTemplateForm
+    Protected WithEvents tunitdesc As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
-    '''ddunitdesc control.
+    '''tTemplateName control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents ddunitdesc As Global.System.Web.UI.WebControls.DropDownList
+    Protected WithEvents tTemplateName As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''ddsection control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents ddsection As Global.System.Web.UI.WebControls.DropDownList
 
     '''<summary>
     '''tDesc control.
@@ -50,13 +59,22 @@ Partial Public Class AssemblyTemplateList
     Protected WithEvents tDesc As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
-    '''ddActive control.
+    '''tseq control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents ddActive As Global.System.Web.UI.WebControls.DropDownList
+    Protected WithEvents tseq As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''ddactive control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents ddactive As Global.System.Web.UI.WebControls.DropDownList
 
     '''<summary>
     '''bsearch control.
@@ -68,47 +86,11 @@ Partial Public Class AssemblyTemplateList
     Protected WithEvents bsearch As Global.System.Web.UI.WebControls.LinkButton
 
     '''<summary>
-    '''badd control.
+    '''rpt_section control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents badd As Global.System.Web.UI.WebControls.LinkButton
-
-    '''<summary>
-    '''htotalall control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents htotalall As Global.System.Web.UI.HtmlControls.HtmlGenericControl
-
-    '''<summary>
-    '''htotalactive control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents htotalactive As Global.System.Web.UI.HtmlControls.HtmlGenericControl
-
-    '''<summary>
-    '''htotalinactive control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents htotalinactive As Global.System.Web.UI.HtmlControls.HtmlGenericControl
-
-    '''<summary>
-    '''rpt_udesc control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents rpt_udesc As Global.System.Web.UI.WebControls.Repeater
+    Protected WithEvents rpt_section As Global.System.Web.UI.WebControls.Repeater
 End Class

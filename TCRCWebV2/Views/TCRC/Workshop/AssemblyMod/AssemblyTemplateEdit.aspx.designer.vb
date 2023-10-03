@@ -11,257 +11,239 @@ Option Strict On
 Option Explicit On
 
 
-Partial Public Class CompRelForm
+Partial Public Class AssemblyTemplateEdit
 
     '''<summary>
-    '''lWO control.
+    '''MenuTCRC control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents lWO As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents MenuTCRC As Global.TCRCWebV2.MenuTCRC1
 
     '''<summary>
-    '''lCompPn control.
+    '''qrychk control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents lCompPn As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents qrychk As Global.System.Web.UI.HtmlControls.HtmlGenericControl
 
     '''<summary>
-    '''lUnitNo control.
+    '''bsave control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents lUnitNo As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents bsave As Global.System.Web.UI.WebControls.LinkButton
 
     '''<summary>
-    '''lCompReg control.
+    '''bclose control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents lCompReg As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents bclose As Global.System.Web.UI.WebControls.LinkButton
 
     '''<summary>
-    '''lUnitModel control.
+    '''sTemplateName control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents lUnitModel As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents sTemplateName As Global.System.Web.UI.HtmlControls.HtmlGenericControl
 
     '''<summary>
-    '''lDateHead control.
+    '''sIDGP control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents lDateHead As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents sIDGP As Global.System.Web.UI.HtmlControls.HtmlGenericControl
 
     '''<summary>
-    '''lCompDesc control.
+    '''sIDDetal control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents lCompDesc As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents sIDDetal As Global.System.Web.UI.HtmlControls.HtmlGenericControl
 
     '''<summary>
-    '''chkVisInsp1 control.
+    '''tRegBy control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents chkVisInsp1 As Global.System.Web.UI.WebControls.CheckBox
+    Protected WithEvents tRegBy As Global.System.Web.UI.HtmlControls.HtmlGenericControl
 
     '''<summary>
-    '''chkVisInsp2 control.
+    '''tRegDate control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents chkVisInsp2 As Global.System.Web.UI.WebControls.CheckBox
+    Protected WithEvents tRegDate As Global.System.Web.UI.HtmlControls.HtmlGenericControl
 
     '''<summary>
-    '''chkVisInsp3 control.
+    '''tModBy control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents chkVisInsp3 As Global.System.Web.UI.WebControls.CheckBox
+    Protected WithEvents tModBy As Global.System.Web.UI.HtmlControls.HtmlGenericControl
 
     '''<summary>
-    '''chkVisInsp4 control.
+    '''tModDate control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents chkVisInsp4 As Global.System.Web.UI.WebControls.CheckBox
+    Protected WithEvents tModDate As Global.System.Web.UI.HtmlControls.HtmlGenericControl
 
     '''<summary>
-    '''chkVisInsp5 control.
+    '''tsection control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents chkVisInsp5 As Global.System.Web.UI.WebControls.CheckBox
+    Protected WithEvents tsection As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
-    '''chkVisInsp6 control.
+    '''tseq control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents chkVisInsp6 As Global.System.Web.UI.WebControls.CheckBox
+    Protected WithEvents tseq As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
-    '''chkAsmChk control.
+    '''tDesc control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents chkAsmChk As Global.System.Web.UI.WebControls.CheckBox
+    Protected WithEvents tDesc As Global.System.Web.UI.HtmlControls.HtmlGenericControl
 
     '''<summary>
-    '''chkTstPerform control.
+    '''ddvaltype control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents chkTstPerform As Global.System.Web.UI.WebControls.CheckBox
+    Protected WithEvents ddvaltype As Global.System.Web.UI.WebControls.DropDownList
 
     '''<summary>
-    '''chkPhotoComp control.
+    '''ddInstrucType control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents chkPhotoComp As Global.System.Web.UI.WebControls.CheckBox
+    Protected WithEvents ddInstrucType As Global.System.Web.UI.WebControls.DropDownList
 
     '''<summary>
-    '''chkAntiRust control.
+    '''fileupload control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents chkAntiRust As Global.System.Web.UI.WebControls.CheckBox
+    Protected WithEvents fileupload As Global.System.Web.UI.WebControls.FileUpload
 
     '''<summary>
-    '''chkPaintQuality control.
+    '''bupload control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents chkPaintQuality As Global.System.Web.UI.WebControls.CheckBox
+    Protected WithEvents bupload As Global.System.Web.UI.WebControls.LinkButton
 
     '''<summary>
-    '''chkWrapping control.
+    '''img1 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents chkWrapping As Global.System.Web.UI.WebControls.CheckBox
+    Protected WithEvents img1 As Global.System.Web.UI.HtmlControls.HtmlImage
 
     '''<summary>
-    '''chkEnSealIns control.
+    '''ddunittype control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents chkEnSealIns As Global.System.Web.UI.WebControls.CheckBox
+    Protected WithEvents ddunittype As Global.System.Web.UI.WebControls.DropDownList
 
     '''<summary>
-    '''chkInstChk control.
+    '''tspec control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents chkInstChk As Global.System.Web.UI.WebControls.CheckBox
+    Protected WithEvents tspec As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
-    '''tRemarks control.
+    '''ttolerance control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents tRemarks As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents ttolerance As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
-    '''chkStatAcc control.
+    '''tunit control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents chkStatAcc As Global.System.Web.UI.WebControls.CheckBox
+    Protected WithEvents tunit As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
-    '''chkStatRjt control.
+    '''baddpec control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents chkStatRjt As Global.System.Web.UI.WebControls.CheckBox
+    Protected WithEvents baddpec As Global.System.Web.UI.WebControls.LinkButton
 
     '''<summary>
-    '''InspBy control.
+    '''gvspec control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents InspBy As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents gvspec As Global.System.Web.UI.WebControls.GridView
 
     '''<summary>
-    '''InspDate control.
+    '''imgGp control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents InspDate As Global.System.Web.UI.WebControls.Label
-
-    '''<summary>
-    '''rpic control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents rpic As Global.System.Web.UI.HtmlControls.HtmlGenericControl
-
-    '''<summary>
-    '''rpt_pict control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents rpt_pict As Global.System.Web.UI.WebControls.Repeater
+    Protected WithEvents imgGp As Global.System.Web.UI.HtmlControls.HtmlImage
 End Class

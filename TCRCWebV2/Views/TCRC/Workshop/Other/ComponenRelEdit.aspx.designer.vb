@@ -11,70 +11,106 @@ Option Strict On
 Option Explicit On
 
 
-Partial Public Class CompRelForm
+Partial Public Class ComponenRelEdit
 
     '''<summary>
-    '''lWO control.
+    '''MenuTCRC control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents lWO As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents MenuTCRC As Global.TCRCWebV2.MenuTCRC1
 
     '''<summary>
-    '''lCompPn control.
+    '''bsave control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents lCompPn As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents bsave As Global.System.Web.UI.WebControls.LinkButton
 
     '''<summary>
-    '''lUnitNo control.
+    '''bprint control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents lUnitNo As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents bprint As Global.System.Web.UI.WebControls.LinkButton
 
     '''<summary>
-    '''lCompReg control.
+    '''bclose control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents lCompReg As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents bclose As Global.System.Web.UI.WebControls.LinkButton
 
     '''<summary>
-    '''lUnitModel control.
+    '''tWONo control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents lUnitModel As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents tWONo As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
-    '''lDateHead control.
+    '''tCompPN control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents lDateHead As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents tCompPN As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
-    '''lCompDesc control.
+    '''tUnitNo control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents lCompDesc As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents tUnitNo As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''tCompReg control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents tCompReg As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''tUnitModel control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents tUnitModel As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''tDate control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents tDate As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''tCompDesc control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents tCompDesc As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
     '''chkVisInsp1 control.
@@ -248,13 +284,22 @@ Partial Public Class CompRelForm
     Protected WithEvents InspDate As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''rpic control.
+    '''FileUpload control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents rpic As Global.System.Web.UI.HtmlControls.HtmlGenericControl
+    Protected WithEvents FileUpload As Global.System.Web.UI.WebControls.FileUpload
+
+    '''<summary>
+    '''buploadpoct control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents buploadpoct As Global.System.Web.UI.WebControls.LinkButton
 
     '''<summary>
     '''rpt_pict control.

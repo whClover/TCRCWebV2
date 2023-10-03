@@ -150,7 +150,7 @@
 
             <div class="card mb-3">
                 <div class="card-body p-2">
-                    <a href="javascript: void(0);" class="text-body">
+                    <asp:linkbutton runat="server" CssClass="text-body" ID="basmtemplate" OnClick="basmtemplate_Click">
                         <div class="p-2">
                             <div class="d-flex">
                                 <div class="avatar-sm align-self-center me-2">
@@ -161,7 +161,7 @@
 
                                 <div class="overflow-hidden me-auto">
                                     <h5 class="font-size-13 text-truncate mb-1">Assembly Template</h5>
-                                    <small class="badge badge-soft-danger font-13">In-Active</small>
+                                    <small class="badge badge-soft-success font-13">Active</small>
                                 </div>
 
                                 <div class="ms-2">
@@ -169,7 +169,7 @@
                                 </div>
                             </div>
                         </div>
-                    </a>
+                    </asp:linkbutton>
                 </div>
             </div>
 

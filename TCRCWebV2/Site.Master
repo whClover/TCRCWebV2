@@ -24,6 +24,11 @@
     <link href="~/assets/libs/sweetalert2/sweetalert2.min.css" rel="stylesheet" runat="server" />
     <script src="/assets/costume/colorbox/jquery.colorbox-min.js"></script>
 
+    <!-- quill css -->
+    <link href="~/assets/libs/quill/quill.core.css" rel="stylesheet" type="text/css" runat="server" />
+    <link href="~/assets/libs/quill/quill.bubble.css" rel="stylesheet" type="text/css" runat="server" />
+    <link href="~/assets/libs/quill/quill.snow.css" rel="stylesheet" type="text/css" runat="server" />
+
 
     <asp:PlaceHolder runat="server">
         <%= Scripts.Render("~/buatmodal") %>
@@ -196,7 +201,6 @@
         <%= Scripts.Render("~/Scripts") %>
     </asp:PlaceHolder>--%>
     <script src="/assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="/assets/libs/datatable/datatables.js"></script>
     <script src="/assets/libs/metismenujs/metismenujs.min.js"></script>
     <script src="/assets/libs/simplebar/simplebar.min.js"></script>
     <script src="/assets/libs/feather-icons/feather.min.js"></script>
@@ -204,6 +208,10 @@
     <script src="/assets/libs/choices.js/public/assets/scripts/choices.min.js"></script>
     <script src="/assets/js/pages/form-advanced.init.js"></script>
     <script src="/assets/js/app.js"></script>
+    <!-- ckeditor -->
+    <script src="/assets/libs/@ckeditor/ckeditor5-build-classic/build/ckeditor.js"></script>
+    <script src="/assets/libs/quill/quill.min.js"></script>
+
     <script>
         flatpickr(".datepicker-basic", {
             dateFormat: "d-m-Y",
@@ -235,6 +243,24 @@
                 })
             }
         });
+
+    </script>
+
+    <script>
+        ClassicEditor.create(
+            document.querySelector(".ckeditku")).then(function (e) {
+                e.ui.view.editable.element.style.height = "200px"
+            }).catch(function (e) { console.error(e) });
+        var quill = new Quill(".sneditku", {
+            theme: "snow", modules: {
+                toolbar: [
+                    ["bold", "italic", "underline", "strike"],
+                    [{ color: [] }, { background: [] }],
+                    [{ list: "ordered" }, { list: "bullet" }, { indent: "-1" }, { indent: "+1" }],
+                    ["direction", { align: [] }]
+                ]
+            }
+        }), quill = new Quill("#bubble-editor", { theme: "bubble" });
     </script>
 
 </body>

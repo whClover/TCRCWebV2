@@ -37,6 +37,18 @@ Public Class SQLFunction
         'End Try
     End Function
 
+    Public Shared Function GetDataFromColumn(ByVal dt As DataTable, ByVal columnName As String) As String
+        If dt IsNot Nothing AndAlso dt.Rows.Count > 0 AndAlso dt.Columns.Contains(columnName) Then
+            Dim value As Object = dt.Rows(0)(columnName)
+
+            If Not DBNull.Value.Equals(value) Then
+                Return value.ToString()
+            End If
+        End If
+
+        Return ""
+    End Function
+
     Public Shared Function DataTableToTxt(ByVal query As String, ByVal fullpath As String) As Boolean
         Dim dt As New DataTable()
         Dim sb As New StringBuilder()

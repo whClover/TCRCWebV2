@@ -183,6 +183,43 @@
                         </table>
                     </div>
                 </div>
+
+                <div class="row" runat="server" id="rpic" style="page-break-before: always;">
+                    <br />
+                    <br />
+                    <div class="col-md-12 p-0">
+                        <style>
+                            .image-container {
+                                position: relative;
+                                display: inline-block;
+                                border-radius: 8px;
+                                overflow: hidden;
+                                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+                                page-break-inside: avoid;
+                            }
+                        </style>
+                        <span class="fw-bold" style="color:#0063B0;font-size:30px;clear:both;display: block;">
+                            Component Release Pictures
+                        </span>
+                        <asp:Repeater runat="server" ID="rpt_pict">
+                            <HeaderTemplate>
+                                <div class="container">
+                            </HeaderTemplate>
+                            <ItemTemplate>
+                                <div class="item" style="float: left; width: 50%; padding: 5px;">
+                                    <div class="image-container">
+                                        <img src='<%# Eval("PicturePath").ToString() %>' class="imgku" style="max-height: 360px; max-width: 100%; margin: 5px;" />
+                                    </div>
+                                </div>
+                            </ItemTemplate>
+                            <FooterTemplate>
+                                <div style="clear: both;"></div>
+                                </div>
+                            </FooterTemplate>
+                        </asp:Repeater>
+                    </div>
+                </div>
+                    
             </div>
         </div>
     </div>
