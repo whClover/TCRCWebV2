@@ -1,5 +1,8 @@
 ﻿<%@ Page Title="Assembly Template Details" MasterPageFile="~/Site.Master" Language="vb" AutoEventWireup="false" CodeBehind="AssemblyTemplateDetails.aspx.vb" Inherits="TCRCWebV2.AssemblyTemplateDetails" %>
 <%@ Register Src="~/Views/Shared/MenuTCRC.ascx" TagPrefix="uc1" TagName="MenuTCRC" %>
+<%@ Register Src="~/Views/TCRC/Workshop/AssemblyMod/AssemblyTemplateSection.ascx" TagPrefix="uc1" TagName="AssemblyTemplateSection" %>
+<%@ Register Src="~/Views/TCRC/Workshop/AssemblyMod/AssemblyTemplateGPPict.ascx" TagPrefix="uc1" TagName="AssemblyTemplateGPPict" %>
+
 
 <asp:Content runat="server" ContentPlaceHolderID="MenuContent">
     <uc1:MenuTCRC runat="server" ID="MenuTCRC" />
@@ -65,7 +68,9 @@
                             <asp:LinkButton runat="server" CssClass="btn btn-soft-primary btn-sm" ID="bsearch" OnClick="bsearch_Click">
                                 <i class="fa fa-search"></i> Search
                             </asp:LinkButton>
-                            <asp:LinkButton runat="server" CssClass="btn btn-soft-primary btn-sm">
+                            <uc1:AssemblyTemplateSection runat="server" id="AssemblyTemplateSection" />
+                            <uc1:AssemblyTemplateGPPict runat="server" id="AssemblyTemplateGPPict" />
+                            <asp:LinkButton runat="server" CssClass="btn btn-soft-primary btn-sm" ID="baddsection" OnClick="baddsection_Click">
                                 <i class="fa fa-plus"></i> Add New Section
                             </asp:LinkButton>
                         </div>
@@ -85,7 +90,7 @@
                                 <asp:LinkButton runat="server" CssClass="btn btn-soft-primary btn-sm" ID="baddstep" OnClick="baddstep_Click" CommandArgument='<%# Eval("AssemblySection") %>'>
                                     <i class="fa fa-plus"></i> Add Step
                                 </asp:LinkButton>
-                                <asp:LinkButton runat="server" CssClass="btn btn-soft-primary btn-sm">
+                                <asp:LinkButton runat="server" CssClass="btn btn-soft-primary btn-sm" ID="bchangepict" OnClick="bchangepict_Click" CommandArgument='<%# Eval("AssemblySection") %>'>
                                     <i class="fa fa-image"></i> Change/Upload Picture
                                 </asp:LinkButton>
                             </div>
@@ -123,7 +128,7 @@
                                                         <asp:LinkButton runat="server" CssClass="btn btn-sm btn-light" ID="bedit" OnClick="bedit_Click" CommandArgument='<%# Eval("IDTemplateAssembly") %>'>
                                                             <i class="fa fa-edit"></i>
                                                         </asp:LinkButton>
-                                                        <asp:LinkButton runat="server" CssClass="btn btn-sm btn-light">
+                                                        <asp:LinkButton runat="server" CssClass="btn btn-sm btn-light" ID="bhistory" OnClick="bhistory_Click" CommandArgument='<%# Eval("IDTemplateAssembly") %>'>
                                                             <i class="fa fa-history"></i>
                                                         </asp:LinkButton>
                                                         
@@ -134,14 +139,14 @@
                                                     <td>
                                                         <asp:Image runat="server" ID="imgdet" class="mb-3 img-fluid"
                                                             style="display: block; height:50%" />
-                                                        <span class="form-label" id="sDesc" runat="server"></span>
+                                                        <div id="sDesc" runat="server"></div>
                                                     </td>
                                                     <td><span class="form-label" id="sRegBy" runat="server"></span></td>
                                                     <td><span class="form-label" id="sRegDate" runat="server"></span></td>
                                                     <td><span class="form-label" id="sModBy" runat="server"></span></td>
                                                     <td><span class="form-label" id="sModDate" runat="server"></span></td>
                                                     <td>
-                                                        <asp:LinkButton runat="server" CssClass="btn btn-sm btn-light">
+                                                        <asp:LinkButton runat="server" CssClass="btn btn-sm btn-light" ID="bdeactive" OnClick="bdeactive_Click" CommandArgument='<%# Eval("IDTemplateAssembly") %>' OnClientClick="return confirm('Are you sure?');">
                                                             <i class="fa fa-trash"></i>
                                                         </asp:LinkButton>
                                                     </td>

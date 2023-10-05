@@ -11,113 +11,140 @@ Option Strict On
 Option Explicit On
 
 
-Partial Public Class AssemblyTemplateDetails
+Partial Public Class TimesheetModule
 
     '''<summary>
-    '''MenuTCRC control.
+    '''form1 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents MenuTCRC As Global.TCRCWebV2.MenuTCRC1
+    Protected WithEvents form1 As Global.System.Web.UI.HtmlControls.HtmlForm
 
     '''<summary>
-    '''tunitdesc control.
+    '''hwelcome control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents tunitdesc As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents hwelcome As Global.System.Web.UI.HtmlControls.HtmlGenericControl
 
     '''<summary>
-    '''tTemplateName control.
+    '''sJDENo control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents tTemplateName As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents sJDENo As Global.System.Web.UI.HtmlControls.HtmlGenericControl
 
     '''<summary>
-    '''ddsection control.
+    '''sUsername control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents ddsection As Global.System.Web.UI.WebControls.DropDownList
+    Protected WithEvents sUsername As Global.System.Web.UI.HtmlControls.HtmlGenericControl
 
     '''<summary>
-    '''tDesc control.
+    '''ssFullName control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents tDesc As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents ssFullName As Global.System.Web.UI.HtmlControls.HtmlGenericControl
 
     '''<summary>
-    '''tseq control.
+    '''sSupvName control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents tseq As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents sSupvName As Global.System.Web.UI.HtmlControls.HtmlGenericControl
 
     '''<summary>
-    '''ddactive control.
+    '''tCrew control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents ddactive As Global.System.Web.UI.WebControls.DropDownList
+    Protected WithEvents tCrew As Global.System.Web.UI.HtmlControls.HtmlGenericControl
 
     '''<summary>
-    '''bsearch control.
+    '''tJobCost control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents bsearch As Global.System.Web.UI.WebControls.LinkButton
+    Protected WithEvents tJobCost As Global.System.Web.UI.HtmlControls.HtmlGenericControl
 
     '''<summary>
-    '''AssemblyTemplateSection control.
+    '''sDate control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents AssemblyTemplateSection As Global.TCRCWebV2.AssemblyTemplateSection
+    Protected WithEvents sDate As Global.System.Web.UI.HtmlControls.HtmlGenericControl
 
     '''<summary>
-    '''AssemblyTemplateGPPict control.
+    '''sTime control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents AssemblyTemplateGPPict As Global.TCRCWebV2.AssemblyTemplateGPPict
+    Protected WithEvents sTime As Global.System.Web.UI.HtmlControls.HtmlGenericControl
 
     '''<summary>
-    '''baddsection control.
+    '''Dd1 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents baddsection As Global.System.Web.UI.WebControls.LinkButton
+    Protected WithEvents Dd1 As Global.System.Web.UI.HtmlControls.HtmlGenericControl
 
     '''<summary>
-    '''rpt_section control.
+    '''ddshift control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents rpt_section As Global.System.Web.UI.WebControls.Repeater
+    Protected WithEvents ddshift As Global.System.Web.UI.WebControls.DropDownList
+
+    '''<summary>
+    '''btoolbox control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents btoolbox As Global.System.Web.UI.WebControls.LinkButton
+
+    '''<summary>
+    '''boffschedule control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents boffschedule As Global.System.Web.UI.WebControls.LinkButton
+
+    '''<summary>
+    '''gvTS control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents gvTS As Global.System.Web.UI.WebControls.GridView
 End Class

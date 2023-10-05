@@ -35,7 +35,7 @@ Public Class AssemblyTemplateEdit
 
         tsection.Text = GetDataFromColumn(dt, "AssemblySection")
         tseq.Text = GetDataFromColumn(dt, "Sequence")
-        tDesc.InnerHtml = GetDataFromColumn(dt, "AssemblyDesc")
+        summernote.InnerHtml = GetDataFromColumn(dt, "AssemblyDesc")
         ddvaltype.SelectedValue = GetDataFromColumn(dt, "ValType")
         ddInstrucType.SelectedValue = GetDataFromColumn(dt, "InstructionType")
 
@@ -99,6 +99,7 @@ newdata:
         Dim ins As String
         If eid = String.Empty Then
             ins = "'Add'"
+            eid = "0"
         Else
             ins = "'Edit'"
         End If
@@ -113,7 +114,7 @@ newdata:
             Exit Sub
         End If
 
-        If tDesc.InnerHtml = String.Empty Then
+        If summernote.InnerHtml = String.Empty Then
             genSwalAlert("warning", "Please fill Section", Me)
             Exit Sub
         End If
@@ -126,7 +127,7 @@ newdata:
         Dim eseq, esection, edesc, evaltype, einsttype, espec, easmunit, etolerance As String
         eseq = evar(tseq.Text, 1)
         esection = evar(tsection.Text,1)
-        edesc = evar(tDesc.InnerHtml, 1)
+        edesc = evar(summernote.Value, 1)
         evaltype = evar(ddvaltype.SelectedValue, 1)
         einsttype = evar(ddInstrucType.SelectedValue, 1)
         espec = evar("NULL", 0)

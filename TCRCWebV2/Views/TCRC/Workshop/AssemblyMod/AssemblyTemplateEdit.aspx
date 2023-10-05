@@ -87,7 +87,19 @@
                             <div class="mb-1 row">
                                 <label class="col-md-4 col-form-label">Assembly Description</label>
                                 <div class="col-md-8">
-                                    <div runat="server" class="sneditku" style="height:300px" id="tDesc"></div>
+                                    <%--<div runat="server" class="sneditku" style="height:300px" id="tDesc"></div>--%>
+                                    <textarea runat="server" id="summernote" name="editordata"></textarea>
+                                    <script>
+                                        $('#MainContent_summernote').summernote({
+                                            toolbar: [
+                                                ['font', ['bold', 'underline', 'clear']],
+                                                ['color', ['color']],
+                                                ['table', ['table']],
+                                                ['para', ['ul', 'ol', 'paragraph']],
+                                            ],
+                                            height: 300
+                                        });
+                                    </script>
                                 </div>
                             </div>
                             <div class="mb-1 row">

@@ -1,0 +1,72 @@
+﻿Imports TCRCWebV2.SQLFunction
+Imports TCRCWebV2.Utility
+Imports TCRCWebV2.GlobalString
+Imports Microsoft.SqlServer.Server
+
+Public Class TimesheetModule
+    Inherits System.Web.UI.Page
+
+    Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+        If IsPostBack = False Then
+            gvTS.DataSource = New List(Of String)
+            gvTS.DataBind()
+
+            bindingheader()
+            BindingData()
+        End If
+    End Sub
+
+    Sub bindingheader()
+        Dim euname As String = eusername()
+        Dim dt As New DataTable
+        Dim query As String = "select * from vw_TCRPUserInformation where username=" & evar(eusername, 1)
+        dt = GetDataTable(query)
+        If dt.Rows.Count = 0 Then
+            Response.Redirect(urlTMRP_Revisuname)
+            Exit Sub
+        Else
+            sJDENo.InnerText = GetDataFromColumn(dt, "UserID")
+            sUsername.InnerText = GetDataFromColumn(dt, "Username")
+            ssFullName.InnerText = GetDataFromColumn(dt, "FullName")
+            sSupvName.InnerText = GetDataFromColumn(dt, "SpvFullName")
+            tCrew.InnerText = GetDataFromColumn(dt, "GroupName")
+            tJobCost.InnerText = GetDataFromColumn(dt, "JobCost")
+
+            sDate.InnerText = Now.ToString("dd MMMM yyyy")
+
+        End If
+    End Sub
+
+    Sub BindingData()
+        Dim dt As New DataTable
+        Dim query As String = "select Job,CONVERT(varchar(5), StartTime, 108) as StartTime, CONVERT(varchar(5), StopTime, 108) as StopTime
+            from v_TCRPDailyTimeSheet where username=" & evar(eusername, 1) & " and DailyDate >= convert(varchar,getdate(),23) order by starttime desc"
+        dt = GetDataTable(query)
+        gvTS.DataSource = dt
+        gvTS.DataBind()
+    End Sub
+
+    Protected Sub btoolbox_Click(sender As Object, e As EventArgs)
+        Dim eshift As String = ddshift.Text
+        Dim ejobno As String = tJobCost.InnerText
+        Dim ejdeno As String = sJDENo.InnerText
+
+        ' Memanggil fungsi StartWorkNoWO atau tugas lain yang diperlukan
+        StartWorkNoWO(2, eshift, ejdeno, ejobno)
+        genSwalAlert("success", "Clockin Toolbox Success", Me)
+
+        BindingData()
+    End Sub
+
+    Protected Sub boffschedule_Click(sender As Object, e As EventArgs)
+        Dim eshift As String = ddshift.Text
+        Dim ejobno As String = tJobCost.InnerText
+        Dim ejdeno As String = sJDENo.InnerText
+
+        ' Memanggil fungsi StartWorkNoWO atau tugas lain yang diperlukan
+        StartWorkNoWO(15, eshift, ejdeno, ejobno)
+        genSwalAlert("success", "Clockin Off Schedule Success", Me)
+
+        BindingData()
+    End Sub
+End Class

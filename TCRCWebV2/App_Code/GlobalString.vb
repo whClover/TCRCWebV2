@@ -60,6 +60,7 @@ Public Class GlobalString
     Public Shared urlAssemblyTemplate As String = urlAssembly & "AssemblyTemplateList.aspx"
     Public Shared urlAssemblyTemplateDetails As String = urlAssembly & "AssemblyTemplateDetails.aspx"
     Public Shared urlAssemblyTemplateEdit As String = urlAssembly & "AssemblyTemplateEdit.aspx"
+    Public Shared urlAssemblyHistory As String = urlAssembly & "AssemblyHistoryInput.aspx"
 
     'TCRC: Other Module
     Public Shared urlOtherModule As String = urlTCRCWorkshop & "Other/"
@@ -89,6 +90,12 @@ Public Class GlobalString
 
     'temp
     Public Shared urlTemp As String = "~/temp/"
+
+    'TMRP - Timesheet
+    Public Shared urlTMRP As String = "~/Views/TMRP/"
+    Public Shared urlTMRP_Timesheet As String = urlTMRP & "Timesheet/"
+    Public Shared urlTMRP_TimesheetForm As String = urlTMRP_Timesheet & "TimesheetModule.aspx"
+    Public Shared urlTMRP_Revisuname As String = urlTMRP_Timesheet & "RevisedUsername.aspx"
 
     'END
 End Class

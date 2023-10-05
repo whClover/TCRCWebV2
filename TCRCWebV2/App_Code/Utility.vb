@@ -4,6 +4,7 @@ Imports System.IO
 Imports System.Security.Policy
 Imports ClosedXML.Excel
 Imports DocumentFormat.OpenXml.Math
+Imports Microsoft.Reporting.Map.WebForms.BingMaps
 Imports Microsoft.Reporting.WebForms
 Imports TCRCWebV2.GlobalString
 Imports TCRCWebV2.SQLFunction
@@ -137,6 +138,50 @@ Public Class Utility
         Return t
 
     End Function
+
+    'Private Function ExportData(ByVal dt As DataTable, ByVal filename As String)
+    '    Dim workbook As New ClosedXML.Excel.XLWorkbook()
+    '    Dim worksheet = workbook.Worksheets.Add("Data")
+    '    Dim headerRow = worksheet.Row(1)
+    '    headerRow.Style.Fill.BackgroundColor = XLColor.FromHtml("#2596be")
+    '    headerRow.Style.Font.FontColor = XLColor.White
+    '    headerRow.Style.Font.Bold = True
+    '    Dim columnNumber As Integer = 1
+    '    For Each column As DataColumn In dt.Columns
+    '        worksheet.Cell(1, columnNumber).Value = column.ColumnName
+    '        columnNumber += 1
+    '    Next
+    '    Dim rowNumber As Integer = 2
+    '    For Each row As DataRow In dt.Rows
+    '        columnNumber = 1
+    '        For Each column As DataColumn In dt.Columns
+    '            Dim value As Object = row(column.ColumnName)
+    '            If column.DataType Is GetType(Integer) Then
+    '                If Not IsDBNull(value) Then
+    '                    worksheet.Cell(rowNumber, columnNumber).Value = Convert.ToInt32(value)
+    '                End If
+    '            Else
+    '                If Not IsDBNull(value) Then
+    '                    worksheet.Cell(rowNumber, columnNumber).Value = value.ToString()
+    '                End If
+    '            End If
+    '            columnNumber += 1
+    '        Next
+    '        rowNumber += 1
+    '    Next
+    '    Response.Clear()
+    '    Response.Buffer = True
+    '    Response.Charset = ""
+    '    Response.ContentType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+    '    Response.AddHeader("content-disposition", "attachment;filename=" & filename & ".xlsx")
+    '    Using memoryStream As New System.IO.MemoryStream()
+    '        workbook.SaveAs(memoryStream)
+    '        memoryStream.WriteTo(Response.OutputStream)
+    '        memoryStream.Close()
+    '    End Using
+    '    Response.Flush()
+    '    Response.End()
+    'End Function
 
     Public Shared Function errPicker(ByVal filename As String, ByVal errormsg As String)
         Dim str_Return As String
@@ -322,13 +367,7 @@ Public Class Utility
     End Function
 
     Public Shared Function varfilter(F As String) As String
-
-
-
         If Len(F) > 0 Then varfilter = " WHERE " & Right(F, Len(F) - 4)
-
-
-
     End Function
 
     Public Shared Function generateRandom() As String
@@ -355,7 +394,46 @@ Public Class Utility
         ScriptManager.RegisterStartupScript(vpage, vpage.GetType(), "Swal", script, True)
     End Function
 
-    Public Shared Function uploadPictGen()
+    Public Shared Function StartWorkNoWO(ByVal eWorkStatusID As Integer, ByVal eShift As Integer, ByVal euserid As String, ByVal eJobNo As String)
+        Dim dt As New DataTable
+        Dim query As String = "Select WorkStatus,ISNULL(CostCode,0) as CostCode from tbl_TCRPWorkStatusSheet Where WOrkStatusID=" & eWorkStatusID
+        dt = GetDataTable(query)
 
+        Dim ecostcode As String = GetDataFromColumn(dt, "CostCode")
+        Dim eActivityID As String = "NULL"
+        Dim eIDWorkOrder As String = "NULL"
+        Dim eSubCompID As String = "NULL"
+        Dim eSubActivityID As String = "NULL"
+        Dim eNote As String = "NULL"
+        Dim eCLockType As String = "Web Apps"
+
+        StartWorkAct(eWorkStatusID, euserid, eShift, ecostcode, eIDWorkOrder, eActivityID, eJobNo, eSubActivityID, eNote, eCLockType)
+    End Function
+
+    Public Shared Function StartWorkAct(ByVal eWorkStatusID As String, ByVal eUserID As String, ByVal eShift As String, ByVal eCostCode As String, ByVal eIDWorkOrder As String,
+                                    ByVal eActivityID As String, ByVal ejobno As String, ByVal eSubActivityID As String, ByVal eNote As String, ByVal eCLockType As String)
+
+        Dim query As String = "exec dbo.ClockInLabour1 " _
+                                & evar(eUserID, 1) & "," _
+                                & evar(eShift, 0) & "," _
+                                & eWorkStatusID _
+                                & "," & evar(eCostCode, 1) & "," _
+                                    & eIDWorkOrder _
+                                    & "," & eActivityID & "," _
+                                    & evar(ejobno, 1) _
+                                    & "," & eSubActivityID & "," _
+                                    & eNote _
+                                    & "," & evar(eCLockType, 1) _
+                                    & "," & evar(eusername, 1)
+        executeQuery(query)
+
+    End Function
+
+    Public Shared Function eusername() As String
+        Dim t As String = HttpContext.Current.Request.LogonUserIdentity.Name.ToString()
+        Dim n As String = InStr(t, "\")
+        t = Right(t, Len(t) - n)
+
+        Return t
     End Function
 End Class

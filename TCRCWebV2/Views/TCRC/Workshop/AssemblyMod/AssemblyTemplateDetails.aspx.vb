@@ -1,11 +1,13 @@
 ﻿Imports TCRCWebV2.SQLFunction
 Imports TCRCWebV2.GlobalString
 Imports TCRCWebV2.Utility
+Imports Microsoft.SqlServer.Server
 
 Public Class AssemblyTemplateDetails
     Inherits System.Web.UI.Page
 
     Dim tempfilter As String
+    Dim utility As New Utility(Me)
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         If IsPostBack = False Then
             loaddropdown()
@@ -73,7 +75,7 @@ Public Class AssemblyTemplateDetails
             Dim query As String
             If tempfilter <> String.Empty Then
                 tempfilter = Replace(tempfilter, "where", " and ")
-                query = "select *,convert(varchar,registerdate,103) as formregdate,convert(varchar,moddate,103) as formmoddate, 
+                query = "select *,convert(varchar,registerdate,103) as formregdate,convert(varchar,moddate,103) as formmoddate, Replace(AssemblyDesc,CHAR(13)+CHAR(10),'<br />') as AssemblyDescForm,
                 case when('../../../../' + dbo.RemapPicW(SubPicture)) is null then null else ('../../../../' + dbo.RemapPicW(SubPicture)) end as SubPictureForm
                 from v_AssemblyTemplateDetailRev where IDTemplateAssemblyGroup=" & Request.QueryString("id") & " and AssemblySection=" & evar(esection, 1) & tempfilter &
                 " order by AssemblySection, dbo.SequenceNum(Sequence),dbo.SequenceAlpha(Sequence),dbo.getsortval(Sequence,30,10)"
@@ -111,7 +113,7 @@ Public Class AssemblyTemplateDetails
                 imgdet.ImageUrl = CheckDBNull(dataItem("SubPictureForm").ToString())
             End If
 
-            sDesc.InnerHtml = dataItem("AssemblyDesc").ToString()
+            sDesc.InnerHtml = HttpUtility.HtmlDecode(dataItem("AssemblyDescForm"))
             sRegBy.InnerText = dataItem("RegisterBy").ToString()
             sRegDate.InnerText = dataItem("formregdate").ToString()
             sModBy.InnerText = dataItem("ModBy").ToString()
@@ -128,5 +130,44 @@ Public Class AssemblyTemplateDetails
         Dim eidgp As String = Request.QueryString("id")
         Dim esection As String = CType(sender, LinkButton).CommandArgument
         Response.Redirect(urlAssemblyTemplateEdit & "?idgp=" & eidgp & "&section=" & esection)
+    End Sub
+
+    Protected Sub baddsection_Click(sender As Object, e As EventArgs)
+        Dim eidgp As String = Request.QueryString("id")
+        If eidgp = String.Empty Then Exit Sub
+
+        Dim gidgp As HiddenField = DirectCast(AssemblyTemplateSection.FindControl("gidgp"), HiddenField)
+        Dim tsection As TextBox = DirectCast(AssemblyTemplateSection.FindControl("tsection"), TextBox)
+        gidgp.Value = eidgp
+
+        utility.ModalV2("MainContent_AssemblyTemplateSection_Panel1")
+    End Sub
+
+    Protected Sub bchangepict_Click(sender As Object, e As EventArgs)
+        Dim eidgp As String = Request.QueryString("id")
+        Dim esection As String = CType(sender, LinkButton).CommandArgument
+        If eidgp = String.Empty Then Exit Sub
+        If esection = String.Empty Then Exit Sub
+
+        Dim gidgp As HiddenField = DirectCast(AssemblyTemplateGPPict.FindControl("gidgp"), HiddenField)
+        Dim gsection As HiddenField = DirectCast(AssemblyTemplateGPPict.FindControl("gsection"), HiddenField)
+        gidgp.Value = eidgp
+        gsection.Value = esection
+
+        utility.ModalV2("MainContent_AssemblyTemplateGPPict_Panel1")
+    End Sub
+
+    Protected Sub bdeactive_Click(sender As Object, e As EventArgs)
+        Dim eid As String = Request.QueryString("id")
+        If eid = String.Empty Then Exit Sub
+        Dim query As String = "update tbl_assemblyTemplateRev set Active=0, DeactiveBy=" & eByName() & ", 
+            DeactiveDate=GetDate(), Sequence=Sequence+'_DEL' where IDTemplateAssembly=" & evar(eid, 0)
+        executeQuery(query)
+    End Sub
+
+    Protected Sub bhistory_Click(sender As Object, e As EventArgs)
+        Dim eid As String = CType(sender, LinkButton).CommandArgument
+        Dim eidgp As String = Request.QueryString("id")
+        Response.Redirect(urlAssemblyHistory & "?id=" & eid & "&idgp=" & eidgp)
     End Sub
 End Class

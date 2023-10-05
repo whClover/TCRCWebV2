@@ -131,13 +131,13 @@ Partial Public Class AssemblyTemplateEdit
     Protected WithEvents tseq As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
-    '''tDesc control.
+    '''summernote control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents tDesc As Global.System.Web.UI.HtmlControls.HtmlGenericControl
+    Protected WithEvents summernote As Global.System.Web.UI.HtmlControls.HtmlTextArea
 
     '''<summary>
     '''ddvaltype control.
