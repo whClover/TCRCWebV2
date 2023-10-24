@@ -1614,6 +1614,7 @@
     </Content>
     <Content Include="Views\Sample\summernote.aspx" />
     <Content Include="Views\Sample\tes.aspx" />
+    <Content Include="Views\Sample\tes2.aspx" />
     <Content Include="Views\Sample\Users.aspx" />
     <Content Include="LoginPage.aspx" />
     <Content Include="Views\Sample\UsersEdit.aspx" />
@@ -1635,12 +1636,14 @@
     <Content Include="Views\TCRC\index.aspx" />
     <Content Include="Views\TCRC\Office\index.aspx" />
     <Content Include="Views\TCRC\Office\Administration\ListWO.aspx" />
+    <Content Include="Views\TCRC\Reports\AssemblyLinerProjection.aspx" />
     <Content Include="Views\TCRC\Reports\AssemblyMea.aspx" />
     <Content Include="Views\TCRC\Reports\AssemblyMeaRev.aspx" />
     <Content Include="Views\TCRC\Reports\CompRelFooter.aspx" />
     <Content Include="Views\TCRC\Reports\CompRelForm.aspx" />
     <Content Include="Views\TCRC\Reports\CoverPage.ascx" />
     <Content Include="Views\TCRC\Reports\FiveS.aspx" />
+    <Content Include="Views\TCRC\Reports\footer.html" />
     <Content Include="Views\TCRC\Reports\MeaInspection.aspx" />
     <Content Include="Views\TCRC\Reports\MeaInspectionRev.aspx" />
     <Content Include="Views\TCRC\Workshop\AssemblyMod\AssemblyAssign.ascx" />
@@ -1692,8 +1695,11 @@
     <Content Include="Views\TCRC\Workshop\Other\ComponentRel.aspx" />
     <Content Include="Views\TCRC\Workshop\Other\ComponentRelEdit.ascx" />
     <Content Include="Views\TCRC\Workshop\Other\LabourHours.aspx" />
+    <Content Include="Views\TCRC\Workshop\PreliminaryInspect\PrelimTemplateDetails.aspx" />
+    <Content Include="Views\TCRC\Workshop\PreliminaryInspect\PrelimTemplateDetailsEdit.aspx" />
     <Content Include="Views\TCRC\Workshop\PreliminaryInspect\PrelimTemplateList.aspx" />
     <Content Include="Views\TCRC\Workshop\Testbench\Testlist.aspx" />
+    <Content Include="Views\TCRC\Workshop\Timesheet\TimesheetIndex.aspx" />
     <Content Include="Views\TMRP\Timesheet\RevisedUsername.aspx" />
     <Content Include="Views\TMRP\Timesheet\TimesheetModule.aspx" />
     <Content Include="Web.config" />
@@ -1744,6 +1750,13 @@
     </Compile>
     <Compile Include="Views\Sample\tes.aspx.vb">
       <DependentUpon>tes.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Views\Sample\tes2.aspx.designer.vb">
+      <DependentUpon>tes2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Sample\tes2.aspx.vb">
+      <DependentUpon>tes2.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="Views\Sample\Users.aspx.designer.vb">
@@ -1913,6 +1926,13 @@
     </Compile>
     <Compile Include="Views\TCRC\Office\Administration\ListWO.aspx.vb">
       <DependentUpon>ListWO.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Views\TCRC\Reports\AssemblyLinerProjection.aspx.designer.vb">
+      <DependentUpon>AssemblyLinerProjection.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TCRC\Reports\AssemblyLinerProjection.aspx.vb">
+      <DependentUpon>AssemblyLinerProjection.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="Views\TCRC\Reports\AssemblyMea.aspx.designer.vb">
@@ -2314,6 +2334,20 @@
       <DependentUpon>LabourHours.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="Views\TCRC\Workshop\PreliminaryInspect\PrelimTemplateDetails.aspx.designer.vb">
+      <DependentUpon>PrelimTemplateDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TCRC\Workshop\PreliminaryInspect\PrelimTemplateDetails.aspx.vb">
+      <DependentUpon>PrelimTemplateDetails.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Views\TCRC\Workshop\PreliminaryInspect\PrelimTemplateDetailsEdit.aspx.designer.vb">
+      <DependentUpon>PrelimTemplateDetailsEdit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TCRC\Workshop\PreliminaryInspect\PrelimTemplateDetailsEdit.aspx.vb">
+      <DependentUpon>PrelimTemplateDetailsEdit.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
     <Compile Include="Views\TCRC\Workshop\PreliminaryInspect\PrelimTemplateList.aspx.designer.vb">
       <DependentUpon>PrelimTemplateList.aspx</DependentUpon>
     </Compile>
@@ -2327,6 +2361,13 @@
     <Compile Include="Views\TCRC\Workshop\Testbench\Testlist.aspx.vb">
       <DependentUpon>Testlist.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\TCRC\Workshop\Timesheet\TimesheetIndex.aspx.designer.vb">
+      <DependentUpon>TimesheetIndex.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TCRC\Workshop\Timesheet\TimesheetIndex.aspx.vb">
+      <DependentUpon>TimesheetIndex.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="Views\TMRP\Timesheet\RevisedUsername.aspx.designer.vb">
       <DependentUpon>RevisedUsername.aspx</DependentUpon>
@@ -2496,7 +2537,6 @@
     <Folder Include="uploads\" />
     <Folder Include="Views\Fabshop\" />
     <Folder Include="Views\PER\" />
-    <Folder Include="Views\TCRC\Workshop\Timesheet\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

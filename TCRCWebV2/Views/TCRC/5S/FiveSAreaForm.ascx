@@ -3,7 +3,7 @@
 <div id="Panel1" runat="server" class="modal fade" role="dialog" aria-hidden="true" data-backdrop="static">
     <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
-            <div class="modal-header bg-soft-primary">
+            <div class="modal-header bg-light">
                 <h5 class="modal-title text-muted">Form - 5S Area</h5>
                 <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
             </div>

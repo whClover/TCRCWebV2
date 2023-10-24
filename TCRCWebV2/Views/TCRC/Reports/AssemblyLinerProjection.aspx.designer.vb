@@ -11,7 +11,7 @@ Option Strict On
 Option Explicit On
 
 
-Partial Public Class AssemblyMeaRev
+Partial Public Class AssemblyLinerProjection
 
     '''<summary>
     '''lwono control.
@@ -59,11 +59,11 @@ Partial Public Class AssemblyMeaRev
     Protected WithEvents lcomp As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''rpt_section control.
+    '''rpt_liner control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents rpt_section As Global.System.Web.UI.WebControls.Repeater
+    Protected WithEvents rpt_liner As Global.System.Web.UI.WebControls.Repeater
 End Class

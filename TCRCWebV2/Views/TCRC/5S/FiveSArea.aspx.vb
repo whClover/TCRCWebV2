@@ -75,12 +75,12 @@ Public Class FiveSArea
         utility.ModalV2("MainContent_FiveSAreaForm_Panel1")
     End Sub
 
-    Protected Sub bdeactive_Click(sender As Object, e As EventArgs)
-        Dim eidarea As String = CType(sender, LinkButton).CommandArgument
-        Dim query As String = "update tbl_5SArea set Deactive=1,DeactiveBy=" & eByName() & ",DeactiveDate=Getdate() where IDArea=" & eidarea
-        executeQuery(query)
-        bindingdata()
-    End Sub
+    'Protected Sub bdeactive_Click(sender As Object, e As EventArgs)
+    '    Dim eidarea As String = CType(sender, LinkButton).CommandArgument
+    '    Dim query As String = "update tbl_5SArea set Deactive=1,DeactiveBy=" & eByName() & ",DeactiveDate=Getdate() where IDArea=" & eidarea
+    '    executeQuery(query)
+    '    bindingdata()
+    'End Sub
 
     Protected Sub bback_Click(sender As Object, e As EventArgs)
         Response.Redirect(url5SLocation)

@@ -41,6 +41,15 @@ Partial Public Class indexWS
     Protected WithEvents bMeaTemplate As Global.System.Web.UI.WebControls.LinkButton
 
     '''<summary>
+    '''bprelimtemplate control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents bprelimtemplate As Global.System.Web.UI.WebControls.LinkButton
+
+    '''<summary>
     '''basm control.
     '''</summary>
     '''<remarks>

@@ -97,5 +97,10 @@ Public Class GlobalString
     Public Shared urlTMRP_TimesheetForm As String = urlTMRP_Timesheet & "TimesheetModule.aspx"
     Public Shared urlTMRP_Revisuname As String = urlTMRP_Timesheet & "RevisedUsername.aspx"
 
+    'TCRC: Preliminary
+    Public Shared urlPreliminary As String = urlTCRCWorkshop & "PreliminaryInspect/"
+    Public Shared urlPreliminaryTemplateList As String = urlPreliminary & "PrelimTemplateList.aspx"
+    Public Shared urlPreliminaryTemplateDetail As String = urlPreliminary & "PrelimTemplateDetails.aspx"
+    Public Shared urlPreliminaryTemplateEdit As String = urlPreliminary & "PrelimTemplateDetailsEdit.aspx"
     'END
 End Class

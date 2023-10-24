@@ -7,114 +7,89 @@
 </asp:Content>
 
 <asp:Content runat="server" ContentPlaceHolderID="MainContent">
+    <style>
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-gap: 10px;
+            padding: 10px;
+        }
+
+        /* Mengatur tampilan tile */
+        .grid-item {
+            background-color: #ffffff;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+            /* Mengatur ikon */
+            .grid-item i {
+                font-size: 24px;
+                margin-bottom: 10px;
+            }
+
+        /* Mengatur responsivitas tile */
+        @media screen and (max-width: 600px) {
+            .grid-item {
+                font-size: 14px;
+            }
+
+            /* Mengatur grid ketika lebar layar < 600px */
+            .grid-container {
+                grid-template-columns: repeat(2, 200px); /* Atur lebar tetap 200px */
+                justify-content: center; /* Pusatkan grid-item */
+            }
+        }
+
+        .grid-button {
+            background-color: #ffffff;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+    </style>
     <div class="row mb-3">
         <div class="col-md-4">
             <div class="">
                 <h6 class="mb-2 text-decoration-underline">Measure Inspection</h6>
             </div>
 
-            <div class="card mb-1">
-                <div class="card-body p-2">
-                    <asp:LinkButton runat="server" CssClass="text-body" ID="bMeaWorksheet" OnClick="bMeaWorksheet_Click">
-                        <div class="p-2">
-                            <div class="d-flex">
-                                <div class="avatar-sm align-self-center me-2">
-                                    <div class="avatar-title rounded bg-transparent text-secondary font-size-18">
-                                        <i class="fas fa-file-signature"></i>
-                                    </div>
-                                </div>
-    
-                                <div class="overflow-hidden me-auto">
-                                    <h5 class="font-size-13 text-truncate mb-1">Measure Worksheet</h5>
-                                    <small class="badge badge-soft-success font-13">Active</small>
-                                </div>
-
-                                <div class="ms-2">
-                                    <i class="fa fa-unlock text-muted"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </asp:LinkButton>
-                </div>
+            <div class="grid-container">
+                <asp:LinkButton runat="server" CssClass="btn grid-button" ID="bMeaWorksheet" OnClick="bMeaWorksheet_Click">
+                    <i class="fas fa-file-signature fa-2x text-muted"></i>
+                    <div>Measure Worksheet</div>
+                </asp:LinkButton>
+                <asp:LinkButton runat="server" CssClass="btn grid-button" ID="bMeaTemplate" OnClick="bMeaTemplate_Click">
+                    <i class="fa fa-book fa-2x text-muted"></i>
+                    <div>Measure Template</div>
+                </asp:LinkButton>
             </div>
 
-            <div class="card mb-3">
-                <div class="card-body p-2">
-                    <asp:LinkButton runat="server" CssClass="text-body" ID="bMeaTemplate" OnClick="bMeaTemplate_Click">
-                        <div class="p-2">
-                            <div class="d-flex">
-                                <div class="avatar-sm align-self-center me-2">
-                                    <div class="avatar-title rounded bg-transparent text-secondary font-size-18">
-                                        <i class="fa fa-book"></i>
-                                    </div>
-                                </div>
-
-                                <div class="overflow-hidden me-auto">
-                                    <h5 class="font-size-13 text-truncate mb-1">Measure Template</h5>
-                                    <small class="badge badge-soft-success font-13">Active</small>
-                                </div>
-
-                                <div class="ms-2">
-                                    <i class="fa fa-unlock text-muted"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </asp:LinkButton>
-                </div>
-            </div>
+            <hr />
 
             <div class="">
                 <h6 class="mb-2 text-decoration-underline">Preliminary Inspection</h6>
             </div>
 
-            <div class="card mb-1">
-                <div class="card-body p-2">
-                    <a href="javascript: void(0);" class="text-body">
-                        <div class="p-2">
-                            <div class="d-flex">
-                                <div class="avatar-sm align-self-center me-2">
-                                    <div class="avatar-title rounded bg-transparent text-secondary font-size-18">
-                                        <i class="fas fa-file-signature"></i>
-                                    </div>
-                                </div>
-    
-                                <div class="overflow-hidden me-auto">
-                                    <h5 class="font-size-13 text-truncate mb-1">Preliminary Worksheet</h5>
-                                    <small class="badge badge-soft-danger font-13">In-Active</small>
-                                </div>
-
-                                <div class="ms-2">
-                                    <i class="fa fa-unlock text-muted"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-
-            <div class="card mb-1">
-                <div class="card-body p-2">
-                    <a href="javascript: void(0);" class="text-body">
-                        <div class="p-2">
-                            <div class="d-flex">
-                                <div class="avatar-sm align-self-center me-2">
-                                    <div class="avatar-title rounded bg-transparent text-secondary font-size-18">
-                                        <i class="fa fa-book"></i>
-                                    </div>
-                                </div>
-
-                                <div class="overflow-hidden me-auto">
-                                    <h5 class="font-size-13 text-truncate mb-1">Preliminary Template</h5>
-                                    <small class="badge badge-soft-danger font-13">In-Active</small>
-                                </div>
-
-                                <div class="ms-2">
-                                    <i class="fa fa-unlock text-muted"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
+            <div class="grid-container">
+                <asp:LinkButton runat="server" CssClass="btn grid-button">
+                    <i class="fas fa-file-signature fa-2x text-muted"></i>
+                    <div>Preliminary Worksheet</div>
+                </asp:LinkButton>
+                <asp:LinkButton runat="server" CssClass="btn grid-button" ID="bprelimtemplate" OnClick="bprelimtemplate_Click">
+                    <i class="fa fa-book fa-2x text-muted"></i>
+                    <div>Preliminary Template</div>
+                </asp:LinkButton>
             </div>
         </div>
 
@@ -123,83 +98,28 @@
                 <h6 class="mb-2 text-decoration-underline">Component Assembly</h6>
             </div>
 
-            <div class="card mb-1">
-                <div class="card-body p-2">
-                    <asp:LinkButton runat="server" CssClass="text-body" ID="basm" OnClick="basm_Click">
-                        <div class="p-2">
-                            <div class="d-flex">
-                                <div class="avatar-sm align-self-center me-2">
-                                    <div class="avatar-title rounded bg-transparent text-secondary font-size-18">
-                                        <i class="fas fa-file-signature"></i>
-                                    </div>
-                                </div>
-    
-                                <div class="overflow-hidden me-auto">
-                                    <h5 class="font-size-13 text-truncate mb-1">Assembly Worksheet</h5>
-                                    <small class="badge badge-soft-success font-13">Active</small>
-                                </div>
-
-                                <div class="ms-2">
-                                    <i class="fa fa-unlock text-muted"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </asp:LinkButton>
-                </div>
+            <div class="grid-container">
+                <asp:LinkButton runat="server" CssClass="btn grid-button" ID="basm" OnClick="basm_Click">
+                    <i class="fas fa-file-signature fa-2x text-muted"></i>
+                    <div>Assembly Worksheet</div>
+                </asp:LinkButton>
+                <asp:LinkButton runat="server" CssClass="btn grid-button" ID="basmtemplate" OnClick="basmtemplate_Click">
+                    <i class="fa fa-book fa-2x text-muted"></i>
+                    <div>Assembly Template</div>
+                </asp:LinkButton>
             </div>
 
-            <div class="card mb-3">
-                <div class="card-body p-2">
-                    <asp:linkbutton runat="server" CssClass="text-body" ID="basmtemplate" OnClick="basmtemplate_Click">
-                        <div class="p-2">
-                            <div class="d-flex">
-                                <div class="avatar-sm align-self-center me-2">
-                                    <div class="avatar-title rounded bg-transparent text-secondary font-size-18">
-                                        <i class="fa fa-book"></i>
-                                    </div>
-                                </div>
-
-                                <div class="overflow-hidden me-auto">
-                                    <h5 class="font-size-13 text-truncate mb-1">Assembly Template</h5>
-                                    <small class="badge badge-soft-success font-13">Active</small>
-                                </div>
-
-                                <div class="ms-2">
-                                    <i class="fa fa-unlock text-muted"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </asp:linkbutton>
-                </div>
-            </div>
+            <hr />
 
             <div class="">
                 <h6 class="mb-2 text-decoration-underline">Component Testing</h6>
             </div>
 
-            <div class="card mb-1">
-                <div class="card-body p-2">
-                    <asp:LinkButton runat="server" CssClass="text-body" ID="bwstesting" OnClick="bwstesting_Click">
-                        <div class="p-2">
-                            <div class="d-flex">
-                                <div class="avatar-sm align-self-center me-2">
-                                    <div class="avatar-title rounded bg-transparent text-secondary font-size-18">
-                                        <i class="fas fa-file-signature"></i>
-                                    </div>
-                                </div>
-    
-                                <div class="overflow-hidden me-auto">
-                                    <h5 class="font-size-13 text-truncate mb-1">Testing Worksheet</h5>
-                                    <small class="badge badge-soft-success font-13">Active</small>
-                                </div>
-
-                                <div class="ms-2">
-                                    <i class="fa fa-unlock text-muted"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </asp:LinkButton>
-                </div>
+            <div class="grid-container">
+                <asp:LinkButton runat="server" CssClass="btn grid-button" ID="bwstesting" OnClick="bwstesting_Click">
+                    <i class="fas fa-file-signature fa-2x text-muted"></i>
+                    <div>Testing Worksheet</div>
+                </asp:LinkButton>
             </div>
 
         </div>
@@ -209,105 +129,25 @@
                 <h6 class="mb-2 text-decoration-underline">5S Module</h6>
             </div>
 
-            <div class="card mb-1">
-                <div class="card-body p-2">
-                    <asp:LinkButton runat="server" CssClass="text-body" ID="fivesummary" OnClick="fivesummary_Click">
-                        <div class="p-2">
-                            <div class="d-flex">
-                                <div class="avatar-sm align-self-center me-2">
-                                    <div class="avatar-title rounded bg-transparent text-secondary font-size-18">
-                                        <i class="fas fa-atlas"></i>
-                                    </div>
-                                </div>
-    
-                                <div class="overflow-hidden me-auto">
-                                    <h5 class="font-size-13 text-truncate mb-1">5S Summary</h5>
-                                    <small class="badge badge-soft-success font-13">Active</small>
-                                </div>
-
-                                <div class="ms-2">
-                                    <i class="fa fa-unlock text-muted"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </asp:LinkButton>
-                </div>
+            <div class="grid-container">
+                <asp:LinkButton runat="server" CssClass="btn grid-button" ID="fivesummary" OnClick="fivesummary_Click">
+                    <i class="fas fa-atlas fa-2x text-muted"></i>
+                    <div>5S Summary</div>
+                </asp:LinkButton>
+                <asp:LinkButton runat="server" CssClass="btn grid-button" ID="b5sapv" OnClick="b5sapv_Click">
+                    <i class="fas fa-user fa-2x text-muted"></i>
+                    <div>My Outstanding Approval</div>
+                </asp:LinkButton>
+                <asp:LinkButton runat="server" CssClass="btn grid-button" ID="fivesreg" OnClick="fivesreg_Click">
+                    <i class="fas fa-search fa-2x text-muted"></i>
+                    <div>5S Register</div>
+                </asp:LinkButton>
+                <asp:LinkButton runat="server" CssClass="btn grid-button" ID="fivesloc" OnClick="fivesloc_Click">
+                    <i class="fas fa-location-arrow fa-2x text-muted"></i>
+                    <div>Location Register</div>
+                </asp:LinkButton>
             </div>
 
-            <div class="card mb-1">
-                <div class="card-body p-2">
-                    <asp:LinkButton runat="server" CssClass="text-body" ID="b5sapv" OnClick="b5sapv_Click">
-                        <div class="p-2">
-                            <div class="d-flex">
-                                <div class="avatar-sm align-self-center me-2">
-                                    <div class="avatar-title rounded bg-transparent text-secondary font-size-18">
-                                        <i class="fas fa-user"></i>
-                                    </div>
-                                </div>
-    
-                                <div class="overflow-hidden me-auto">
-                                    <h5 class="font-size-13 text-truncate mb-1">My Outstanding Approval</h5>
-                                    <small class="badge badge-soft-success font-13">Active</small>
-                                </div>
-
-                                <div class="ms-2">
-                                    <i class="fa fa-unlock text-muted"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </asp:LinkButton>
-                </div>
-            </div>
-             
-            <div class="card mb-1">
-                <div class="card-body p-2">
-                    <asp:LinkButton runat="server" CssClass="text-body" ID="fivesreg" OnClick="fivesreg_Click">
-                        <div class="p-2">
-                            <div class="d-flex">
-                                <div class="avatar-sm align-self-center me-2">
-                                    <div class="avatar-title rounded bg-transparent text-secondary font-size-18">
-                                        <i class="fas fa-search"></i>
-                                    </div>
-                                </div>
-    
-                                <div class="overflow-hidden me-auto">
-                                    <h5 class="font-size-13 text-truncate mb-1">5S Register</h5>
-                                    <small class="badge badge-soft-success font-13">Active</small>
-                                </div>
-
-                                <div class="ms-2">
-                                    <i class="fa fa-unlock text-muted"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </asp:LinkButton>
-                </div>
-            </div>
-
-            <div class="card mb-1">
-                <div class="card-body p-2">
-                    <asp:LinkButton runat="server" CssClass="text-body" ID="fivesloc" OnClick="fivesloc_Click">
-                        <div class="p-2">
-                            <div class="d-flex">
-                                <div class="avatar-sm align-self-center me-2">
-                                    <div class="avatar-title rounded bg-transparent text-secondary font-size-18">
-                                        <i class="fas fa-location-arrow"></i>
-                                    </div>
-                                </div>
-    
-                                <div class="overflow-hidden me-auto">
-                                    <h5 class="font-size-13 text-truncate mb-1">Location Register</h5>
-                                    <small class="badge badge-soft-success font-13">Active</small>
-                                </div>
-
-                                <div class="ms-2">
-                                    <i class="fa fa-unlock text-muted"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </asp:LinkButton>
-                </div>
-            </div>
         </div>
 
         
@@ -317,29 +157,12 @@
             <div class="">
                 <h6 class="mb-2 text-decoration-underline">Other Module</h6>
             </div>
-            <div class="card">
-                <div class="card-body p-2">
-                    <asp:LinkButton runat="server" CssClass="text-body bg-white" ID="bCompRelease" OnClick="bCompRelease_Click">
-                        <div class="p-2">
-                            <div class="d-flex">
-                                <div class="avatar-sm align-self-center me-2">
-                                    <div class="avatar-title rounded bg-transparent text-secondary font-size-18">
-                                        <i class="fas fa-truck-loading"></i>
-                                    </div>
-                                </div>
-    
-                                <div class="overflow-hidden me-auto">
-                                    <h5 class="font-size-13 text-truncate mb-1">Component Release</h5>
-                                    <small class="badge badge-soft-success font-13">Active</small>
-                                </div>
 
-                                <div class="ms-2">
-                                    <i class="fa fa-unlock text-muted"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </asp:LinkButton>
-                </div>
+            <div class="grid-container">
+                <asp:LinkButton runat="server" CssClass="btn grid-button" ID="bCompRelease" OnClick="bCompRelease_Click">
+                    <i class="fas fa-truck-loading fa-2x text-muted"></i>
+                    <div>Component Release</div>
+                </asp:LinkButton>
             </div>
         </div>
     </div>

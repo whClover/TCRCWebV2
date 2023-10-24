@@ -23,6 +23,24 @@ Partial Public Class FiveSList
     Protected WithEvents MenuTCRC As Global.TCRCWebV2.MenuTCRC1
 
     '''<summary>
+    '''FiveSAssignArea control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents FiveSAssignArea As Global.TCRCWebV2.FiveSAssignArea
+
+    '''<summary>
+    '''badd control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents badd As Global.System.Web.UI.WebControls.LinkButton
+
+    '''<summary>
     '''tStart control.
     '''</summary>
     '''<remarks>
@@ -84,24 +102,6 @@ Partial Public Class FiveSList
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents bsearch As Global.System.Web.UI.WebControls.LinkButton
-
-    '''<summary>
-    '''FiveSAssignArea control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents FiveSAssignArea As Global.TCRCWebV2.FiveSAssignArea
-
-    '''<summary>
-    '''badd control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents badd As Global.System.Web.UI.WebControls.LinkButton
 
     '''<summary>
     '''gv5SList control.

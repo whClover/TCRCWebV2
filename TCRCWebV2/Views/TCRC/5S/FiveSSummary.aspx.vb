@@ -67,7 +67,7 @@ Public Class FiveSSummary
 
     Protected Sub bgenPT_Click(sender As Object, e As EventArgs)
 
-        Dim eidloc, estart, eend As String
+        Dim eidloc, estart, eend, einsp As String
         If ddLoc.Text = String.Empty Then
             showAlertV2("info", "Please select at least 1 Location")
             Exit Sub
@@ -90,6 +90,10 @@ Public Class FiveSSummary
             eend = tEnd.Value
         End If
 
+        If ddInspector.Text <> String.Empty Then
+            einsp = ddInspector.SelectedValue
+        End If
+
         'Response.Redirect(Rpt5S & "?idloc=" & eidloc & "&start=" & estart & "&end=" & eend)
         'Exit Sub
 
@@ -106,7 +110,7 @@ Public Class FiveSSummary
         Dim p As Process = New Process()
         p.StartInfo.FileName = "C:\webroot\TCRC Web\Rotativa\wkhtmltopdf.exe"
         'p.StartInfo.FileName = "C:\Rotativa\wkhtmltopdf.exe" 'local indra
-        p.StartInfo.Arguments = "--orientation Landscape http://bpnaps07:88/Views/TCRC/Reports/FiveS.aspx?idloc=" & eidloc & "&start=" & estart & "&end=" & eend & " " & namafile
+        p.StartInfo.Arguments = "--orientation Landscape http://bpnaps07:88/Views/TCRC/Reports/FiveS.aspx?idloc=" & eidloc & "&start=" & estart & "&end=" & eend & "&insp=" & einsp & " " & namafile
         p.Start()
         p.WaitForExit()
 

@@ -19,6 +19,7 @@
     <link href="~/assets/costume/summernote/summernote-bs4.min.css" rel="stylesheet" runat="server" />
     <link href="~/assets/libs/sweetalert2/sweetalert2.min.css" rel="stylesheet" runat="server" />
     <script src="/assets/costume/colorbox/jquery.colorbox-min.js"></script>
+    <script src="/assets/libs/sweetalert2/sweetalert2.min.js"></script>
 
     <!-- quill css -->
     <link href="~/assets/libs/quill/quill.core.css" rel="stylesheet" type="text/css" runat="server" />
@@ -52,12 +53,15 @@
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="mb-3">
+                                            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                                Your username is not match. Please input your JDE Number and click update
+                                            </div>
                                             <h6>JDE No</h6>
                                             <asp:TextBox runat="server" CssClass="form-control form-control-sm" ID="tjdeno" AutoCompleteType="Disabled"></asp:TextBox>
                                         </div>
                                         <div class="mb-3">
                                             <asp:LinkButton runat="server" CssClass="btn btn-sm btn-soft-primary" ID="bfix" OnClick="bfix_Click">
-                                                <i class="fa fa-wrench"></i> Fix Username
+                                                <i class="fa fa-wrench"></i> Update
                                             </asp:LinkButton>
                                         </div>
                                     </div>

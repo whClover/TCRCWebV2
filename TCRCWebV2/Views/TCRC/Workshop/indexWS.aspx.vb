@@ -66,4 +66,8 @@ Public Class IndexWS
     Protected Sub basmtemplate_Click(sender As Object, e As EventArgs)
         Response.Redirect(urlAssemblyTemplate)
     End Sub
+
+    Protected Sub bprelimtemplate_Click(sender As Object, e As EventArgs)
+        Response.Redirect(urlPreliminaryTemplateList)
+    End Sub
 End Class

@@ -11,7 +11,7 @@ Public Class FiveSLocationForm
 
     Protected Sub bsave_Click(sender As Object, e As EventArgs)
         Dim elocation As String
-        If tLocation.Text <> String.Empty Then elocation = evar(tLocation.Text, 1) Else elocation = "NULL"
+        If tLocation.Text <> String.Empty Then elocation = evar(tLocation.Text, 1) Else Exit Sub
 
         Dim query As String
         If hidlocation.Value = String.Empty Then

@@ -1,12 +1,16 @@
 ﻿Imports TCRCWebV2.SQLFunction
 Imports TCRCWebV2.Utility
 Imports TCRCWebV2.GlobalString
+Imports DocumentFormat.OpenXml.Spreadsheet
 
 Public Class FiveS
     Inherits System.Web.UI.Page
 
+    Dim tempfilter As String
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-        bindingdata()
+        If IsPostBack = False Then
+            bindingdata()
+        End If
     End Sub
 
     Sub bindingdata()
@@ -14,9 +18,17 @@ Public Class FiveS
         Dim elocation As String = Request.QueryString("idloc")
         Dim estart As String = Request.QueryString("start")
         Dim eend As String = Request.QueryString("end")
+        Dim einspector As String = Request.QueryString("insp")
+
+        If elocation <> String.Empty Then tempfilter = " and IDLocation=" & evar(elocation, 0) & tempfilter
+        If estart <> String.Empty Then tempfilter = " and convert(date,RegisterDate,103) >=" & evar(estart, 2) & tempfilter
+        If eend <> String.Empty Then tempfilter = " and convert(date,RegisterDate,103) <=" & evar(eend, 2) & tempfilter
+        If einspector <> String.Empty Then tempfilter = " and RegisterBy=" & evar(einspector, 1) & tempfilter
+
+        tempfilter = varfilter(tempfilter)
 
         Dim ecolumn As String = "RegisterBy,convert(varchar,RegisterDate,103) as RegisterDate,FindingDesc,FindingAct,AreaDesc,AssignTo,InspectStatus,dbo.RemapPict5S(PicturePath) as rmPict"
-        Dim query As String = "select " & ecolumn & " from v_5SSummary where IDLocation=" & elocation & " and RegisterDate>=" & evar(estart, 2) & " and RegisterDate <=" & evar(eend, 2)
+        Dim query As String = "select " & ecolumn & " from v_5SSummary" & tempfilter & " order by RegisterDate"
         dt = GetDataTable(query)
 
         rpt_5s.DataSource = dt

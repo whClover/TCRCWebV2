@@ -88,7 +88,7 @@ Public Class AssemblyLinerProj
 			& "case when LPMinUnitMetric is null then '' else LPMinUnitMetric end as LPMinUnitMetric," _
 			& "case when LPMaxMetric is null then 0 else convert(float,LPMaxMetric) end as LPMaxMetric," _
 			& "case when LPMaxUnitMetric is null then '' else LPMaxUnitMetric end as LPMaxUnitMetric from" _
-			& " v_AssemblyLinerProj where wono=" & evar(ewo, 1)
+			& " v_AssemblyLinerProj where wono=" & evar(ewo, 1) & " order by CylinderNo"
 		dt = GetDataTable(query)
 		If dt.Rows.Count > 0 Then
 			rpt_liner.DataSource = dt
@@ -418,5 +418,31 @@ Public Class AssemblyLinerProj
 		Dim script As String
 		script = "Swal.fire('','" & msg & "','" & type & "')"
 		ScriptManager.RegisterStartupScript(Me, Me.GetType(), "Swal", script, True)
+	End Sub
+
+	Protected Sub bprint_Click(sender As Object, e As EventArgs)
+		Dim ewo As String = Request.QueryString("wo")
+		Dim namafile As String
+		Dim namafile2 As String
+		Dim fs = CreateObject("Scripting.FileSystemObject")
+		Dim savePath As String = Server.MapPath("~/") & "temp/"
+		If Not System.IO.Directory.Exists(savePath) Then
+			System.IO.Directory.CreateDirectory(savePath)
+		End If
+		namafile = savePath & ewo & "_dc.pdf"
+		Dim p As Process = New Process()
+		p.StartInfo.FileName = "C:\webroot\TCRC Web\Rotativa\wkhtmltopdf.exe"
+		'p.StartInfo.FileName = "C:\Rotativa\wkhtmltopdf.exe" 'local indra
+		p.StartInfo.Arguments = "--margin-bottom 10mm" & " " & "http://bpnaps07:88/Views/TCRC/Reports/AssemblyLinerProjection.aspx?WO=" & ewo & " --footer-html ""http://bpnaps07:88/Views/TCRC/Reports/footer.html"" --footer-right ""Page [page] of [topage]"" --footer-font-size 6 --footer-spacing -3" & " " & namafile
+		p.Start()
+		p.WaitForExit()
+
+		namafile2 = Server.MapPath("~/") & "temp/" & ewo & "_dc.pdf"
+		Response.Clear()
+		Response.ContentType = "application/pdf"
+		Response.AddHeader("Content-Disposition", "inline;filename=" & namafile2)
+		Response.TransmitFile(namafile2)
+		Response.Flush()
+		Response.End()
 	End Sub
 End Class

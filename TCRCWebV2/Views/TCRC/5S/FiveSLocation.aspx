@@ -9,7 +9,7 @@
 
 <asp:Content runat="server" ContentPlaceHolderID="MainContent">
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-6">
             <div class="card">
                 <uc1:FiveSLocationForm runat="server" id="FiveSLocationForm" />
                 <div class="card-header">
@@ -17,21 +17,23 @@
                 </div>
                 <div class="card-body">
                     <div class="mb-3">
-                        <asp:LinkButton runat="server" CssClass="btn btn-soft-primary" ID="badd" OnClick="badd_Click">
+                        <asp:LinkButton runat="server" CssClass="btn btn-soft-light btn-sm" ID="badd" OnClick="badd_Click">
                             <i class="fa fa-plus"></i> Add Location
                         </asp:LinkButton>
                     </div>
-                    <asp:GridView ID="gv5SLocation" AutoGenerateColumns="false" runat="server" CssClass="table table-bordered">
+                    <asp:GridView ID="gv5SLocation" AutoGenerateColumns="false" runat="server" CssClass="table table-bordered table-sm">
                         <Columns>
-                            <asp:BoundField HeaderText="ID" DataField="IDLocation" ItemStyle-CssClass="text-center" HeaderStyle-CssClass="text-center bg-soft-primary" />
-                            <asp:BoundField HeaderText="Location Descriptions" DataField="LocationDesc" HeaderStyle-CssClass="text-center bg-soft-primary" />
-                            <asp:TemplateField HeaderStyle-CssClass="text-center bg-soft-primary" ItemStyle-CssClass="text-center">
+                            <asp:TemplateField HeaderStyle-CssClass="text-center bg-light" ItemStyle-CssClass="text-center">
                                 <ItemTemplate>
-                                    <asp:LinkButton runat="server" CssClass="btn btn-soft-light" ID="bedit" OnClick="bedit_Click" CommandArgument='<%# Eval("IDLocation") %>'>
-                                        <i class="fa fa-edit"></i>
-                                    </asp:LinkButton>
                                     <asp:LinkButton runat="server" CssClass="btn btn-soft-light" CommandArgument='<%# Eval("IDLocation") %>' ID="bdetails" OnClick="bdetails_Click">
                                         <i class="fa fa-eye"></i>
+                                    </asp:LinkButton>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                            <asp:TemplateField HeaderText="Location Descriptions" HeaderStyle-CssClass="bg-light">
+                                <ItemTemplate>
+                                    <asp:LinkButton runat="server" CssClass="btn btn-link" ID="bedit" OnClick="bedit_Click" CommandArgument='<%# Eval("IDLocation") %>'>
+                                        <%# Eval("LocationDesc").ToString() %>
                                     </asp:LinkButton>
                                 </ItemTemplate>
                             </asp:TemplateField>

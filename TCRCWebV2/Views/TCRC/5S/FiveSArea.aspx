@@ -17,32 +17,32 @@
                 </div>
                 <div class="card-body">
                     <div class="mb-3">
-                        <asp:LinkButton runat="server" CssClass="btn btn-soft-primary" ID="badd" OnClick="badd_Click">
+                        <asp:LinkButton runat="server" CssClass="btn btn-light btn-sm" ID="badd" OnClick="badd_Click">
                             <i class="fa fa-plus"></i> Add Area
                         </asp:LinkButton>
-                        <asp:LinkButton runat="server" CssClass="btn btn-soft-secondary" ID="bback" OnClick="bback_Click">
-                            Back
+                        <asp:LinkButton runat="server" CssClass="btn btn-light btn-sm" ID="bback" OnClick="bback_Click">
+                            <i class="fa fa-reply"></i> Back
                         </asp:LinkButton>
                     </div>
-                    <asp:GridView runat="server" ID="gv5SArea" AutoGenerateColumns="false" CssClass="table table-bordered" OnRowDataBound="gv5SArea_RowDataBound">
+                    <asp:GridView runat="server" ID="gv5SArea" AutoGenerateColumns="false" CssClass="table table-bordered table-sm" OnRowDataBound="gv5SArea_RowDataBound">
                         <Columns>
-                            <asp:TemplateField HeaderText="No" HeaderStyle-CssClass="text-center bg-soft-primary" ItemStyle-CssClass="text-center">
+                            <asp:TemplateField HeaderStyle-CssClass="text-center bg-light" ItemStyle-CssClass="text-center">
+                                <ItemTemplate>
+                                    <asp:LinkButton runat="server" CssClass="btn btn-soft-light btn-sm" ID="bedit" OnClick="bedit_Click" CommandArgument='<%# Eval("IDArea") %>'>
+                                        <i class="fa fa-edit"></i>
+                                    </asp:LinkButton>
+                                    <%--<asp:LinkButton runat="server" CssClass="btn btn-soft-light" ID="bdeactive" OnClick="bdeactive_Click" CommandArgument='<%# Eval("IDArea") %>' OnClientClick="return confirm('Are you sure?')">
+                                        <i class="fa fa-trash"></i>
+                                    </asp:LinkButton>--%>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                            <asp:TemplateField HeaderText="No" HeaderStyle-CssClass="text-center bg-light" ItemStyle-CssClass="text-center">
                                 <ItemTemplate>
                                     <asp:Label runat="server" ID="lblNo" CssClass="text-center" />
                                 </ItemTemplate>
                             </asp:TemplateField>
-                            <asp:BoundField HeaderText="Sequence" DataField="Seq" ItemStyle-CssClass="text-center" HeaderStyle-CssClass="text-center bg-soft-primary" />
-                            <asp:BoundField HeaderText="Area Desc" DataField="AreaDesc" HeaderStyle-CssClass="bg-soft-primary" />
-                            <asp:TemplateField HeaderStyle-CssClass="text-center bg-soft-primary" ItemStyle-CssClass="text-center">
-                                <ItemTemplate>
-                                    <asp:LinkButton runat="server" CssClass="btn btn-soft-light" ID="bedit" OnClick="bedit_Click" CommandArgument='<%# Eval("IDArea") %>'>
-                                        <i class="fa fa-edit"></i>
-                                    </asp:LinkButton>
-                                    <asp:LinkButton runat="server" CssClass="btn btn-soft-light" ID="bdeactive" OnClick="bdeactive_Click" CommandArgument='<%# Eval("IDArea") %>' OnClientClick="return confirm('Are you sure?')">
-                                        <i class="fa fa-trash"></i>
-                                    </asp:LinkButton>
-                                </ItemTemplate>
-                            </asp:TemplateField>
+                            <asp:BoundField HeaderText="Sequence" DataField="Seq" ItemStyle-CssClass="text-center" HeaderStyle-CssClass="text-center bg-light" />
+                            <asp:BoundField HeaderText="Area Desc" DataField="AreaDesc" HeaderStyle-CssClass="bg-light" />
                         </Columns>
                     </asp:GridView>
                 </div>

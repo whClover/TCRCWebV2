@@ -43,8 +43,8 @@
                 <div class="d-flex flex-column min-vh-100 px-3 pt-4">
                     <div class="row justify-content-center my-auto">
                         <div class="col-md-10 col-lg-8 col-xl-6">
-                            <div class="mb-3">
-                                <h5 runat="server" id="hwelcome">Hallo !</h5>
+                            <div class="mb-2">
+                                <h4 runat="server" id="hwelcome" class="text-primary fw-bold">JDE No. 663456</h4>
                             </div>
                             <div class="card">
                                 <div class="card-body">
@@ -122,8 +122,8 @@
                                     <asp:GridView CssClass="table align-middle table-check table-sm" runat="server" AutoGenerateColumns="false" EmptyDataText="No Records Founds..." ID="gvTS" ShowHeaderWhenEmpty="true">
                                         <Columns>
                                             <asp:BoundField HeaderText="Job Name" DataField="Job" HeaderStyle-CssClass="bg-soft-primary" ItemStyle-CssClass="text-primary" />
-                                            <asp:BoundField HeaderText="Job Name" DataField="StartTime" HeaderStyle-CssClass="bg-soft-primary" />
-                                            <asp:BoundField HeaderText="Job Name" DataField="StopTime" HeaderStyle-CssClass="bg-soft-primary" />
+                                            <asp:BoundField HeaderText="Start Time" DataField="StartTime" HeaderStyle-CssClass="bg-soft-primary" />
+                                            <asp:BoundField HeaderText="Stop Time" DataField="StopTime" HeaderStyle-CssClass="bg-soft-primary" />
                                         </Columns>
                                     </asp:GridView>
                                 </div>

@@ -11,59 +11,41 @@ Option Strict On
 Option Explicit On
 
 
-Partial Public Class AssemblyMeaRev
+Partial Public Class TimesheetIndex
 
     '''<summary>
-    '''lwono control.
+    '''MenuTCRC control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents lwono As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents MenuTCRC As Global.TCRCWebV2.MenuTCRC1
 
     '''<summary>
-    '''lunitno control.
+    '''tStart control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents lunitno As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents tStart As Global.System.Web.UI.HtmlControls.HtmlInputText
 
     '''<summary>
-    '''lwodesc control.
+    '''tEnd control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents lwodesc As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents tEnd As Global.System.Web.UI.HtmlControls.HtmlInputText
 
     '''<summary>
-    '''lunitdesc control.
+    '''rpt_TS control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents lunitdesc As Global.System.Web.UI.WebControls.Label
-
-    '''<summary>
-    '''lcomp control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents lcomp As Global.System.Web.UI.WebControls.Label
-
-    '''<summary>
-    '''rpt_section control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents rpt_section As Global.System.Web.UI.WebControls.Repeater
+    Protected WithEvents rpt_TS As Global.System.Web.UI.WebControls.Repeater
 End Class

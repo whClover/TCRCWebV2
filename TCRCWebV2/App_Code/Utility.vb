@@ -4,6 +4,7 @@ Imports System.IO
 Imports System.Security.Policy
 Imports ClosedXML.Excel
 Imports DocumentFormat.OpenXml.Math
+Imports DocumentFormat.OpenXml.VariantTypes
 Imports Microsoft.Reporting.Map.WebForms.BingMaps
 Imports Microsoft.Reporting.WebForms
 Imports TCRCWebV2.GlobalString
@@ -81,7 +82,11 @@ Public Class Utility
             ObjName.DataSource = dt
             ObjName.DataTextField = ObjText
             ObjName.DataValueField = ObjVal
-            ObjName.DataBind()
+            Try
+                ObjName.DataBind()
+            Catch ex As Exception
+                ObjName.Items.Insert(0, New ListItem(ObjText))
+            End Try
             ObjName.Items.Insert(0, New ListItem(""))
         End If
     End Sub

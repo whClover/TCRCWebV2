@@ -84,8 +84,14 @@ Public Class ComponentRel
     End Sub
 
     Protected Sub bEdit_Click(sender As Object, e As EventArgs)
+        'Dim ewo As String = CType(sender, LinkButton).CommandArgument
+        'Response.Redirect(urlComponentReleaseEdit & "?wo=" & ewo)
+        'Exit Sub
+
         Dim ewo As String = CType(sender, LinkButton).CommandArgument
-        Response.Redirect(urlComponentReleaseEdit & "?wo=" & ewo)
+        Response.Write("<script>")
+        Response.Write("window.open('../../../../Views/TCRC/Workshop/Other/ComponenRelEdit.aspx?wo=" & ewo & "', '_blank')")
+        Response.Write("</script>")
         Exit Sub
 
         'check already add or not ?

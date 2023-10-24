@@ -21,6 +21,11 @@ Public Class RevisedUsername
 
         Dim query As String = "select * from tbl_user where userid=" & evar(ejdeno, 1)
         dt = GetDataTable(query)
+        If dt.Rows.Count = 0 Then
+            genSwalAlert("warning", "JDE Number is not registered, Please contact Admin", Me)
+            Exit Sub
+        End If
+
         db_username = GetDataFromColumn(dt, "Username")
         If db_username <> system_username Then
             Dim qryupdate As String = "update tbl_user set username=" & evar(system_username, 1) & " where userid=" & evar(ejdeno, 1)

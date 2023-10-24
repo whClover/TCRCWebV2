@@ -150,7 +150,8 @@ Public Class AssemblyList
         Dim p As Process = New Process()
         p.StartInfo.FileName = "C:\webroot\TCRC Web\Rotativa\wkhtmltopdf.exe"
         'p.StartInfo.FileName = "C:\Rotativa\wkhtmltopdf.exe" 'local indra
-        p.StartInfo.Arguments = "http://bpnaps07:88/Views/TCRC/Reports/AssemblyMea.aspx?WO=" & ewo & " " & namafile
+        'p.StartInfo.Arguments = "http://bpnaps07:88/Views/TCRC/Reports/AssemblyMeaRev.aspx?WO=" & ewo & " " & namafile
+        p.StartInfo.Arguments = "--margin-bottom 10mm" & " " & "http://bpnaps07:88/Views/TCRC/Reports/AssemblyMeaRev.aspx?WO=" & ewo & " --footer-html ""http://bpnaps07:88/Views/TCRC/Reports/footer.html"" --footer-right ""Page [page] of [topage]"" --footer-font-size 6 --footer-spacing -3" & " " & namafile
         p.Start()
         p.WaitForExit()
 

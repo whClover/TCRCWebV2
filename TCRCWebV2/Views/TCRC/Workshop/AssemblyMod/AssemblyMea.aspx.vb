@@ -512,7 +512,8 @@ Public Class AssemblyMea
         Dim p As Process = New Process()
         p.StartInfo.FileName = "C:\webroot\TCRC Web\Rotativa\wkhtmltopdf.exe"
         'p.StartInfo.FileName = "C:\Rotativa\wkhtmltopdf.exe"
-        p.StartInfo.Arguments = "http://bpnaps07:9191/Views/TCRC/Reports/AssemblyMea.aspx?wo=" & ewo & " " & namafile & ""
+        'p.StartInfo.Arguments = "http://bpnaps07:88/Views/TCRC/Reports/AssemblyMeaRev.aspx?wo=" & ewo & " " & namafile & ""
+        p.StartInfo.Arguments = "--margin-bottom 10mm" & " " & "http://bpnaps07:88/Views/TCRC/Reports/AssemblyMeaRev.aspx?WO=" & ewo & " --footer-html ""http://bpnaps07:88/Views/TCRC/Reports/footer.html"" --footer-right ""Page [page] of [topage]"" --footer-font-size 6 --footer-spacing -3" & " " & namafile
         p.Start()
         p.WaitForExit()
 

@@ -12,6 +12,10 @@
     <link href="assets/costume/css/mycss.css" rel="stylesheet" />
 
     <style>
+        body {
+          font-family: Consolas, monospace !important;
+        }
+
         @page {
               size:auto;
         }
@@ -48,7 +52,7 @@
     </style>
 </head>
 <body>
-    <form id="form1" runat="server" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">
+    <form id="form1" runat="server">
         <div>
             <asp:ContentPlaceHolder ID="ReportDyn" runat="server">
             </asp:ContentPlaceHolder>

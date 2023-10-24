@@ -25,6 +25,7 @@ Public Class TimesheetModule
             Response.Redirect(urlTMRP_Revisuname)
             Exit Sub
         Else
+            hwelcome.InnerText = "JDE No. " & GetDataFromColumn(dt, "UserID")
             sJDENo.InnerText = GetDataFromColumn(dt, "UserID")
             sUsername.InnerText = GetDataFromColumn(dt, "Username")
             ssFullName.InnerText = GetDataFromColumn(dt, "FullName")
@@ -47,6 +48,8 @@ Public Class TimesheetModule
     End Sub
 
     Protected Sub btoolbox_Click(sender As Object, e As EventArgs)
+        checkusername(sJDENo.InnerText)
+
         Dim eshift As String = ddshift.Text
         Dim ejobno As String = tJobCost.InnerText
         Dim ejdeno As String = sJDENo.InnerText
@@ -59,6 +62,8 @@ Public Class TimesheetModule
     End Sub
 
     Protected Sub boffschedule_Click(sender As Object, e As EventArgs)
+        checkusername(sJDENo.InnerText)
+
         Dim eshift As String = ddshift.Text
         Dim ejobno As String = tJobCost.InnerText
         Dim ejdeno As String = sJDENo.InnerText
@@ -68,5 +73,18 @@ Public Class TimesheetModule
         genSwalAlert("success", "Clockin Off Schedule Success", Me)
 
         BindingData()
+    End Sub
+
+    Sub checkusername(ByVal euserid As String)
+        Dim euname_sys As String = eusername()
+        Dim dt As New DataTable
+        Dim query As String = "select * from tbl_user where userid=" & evar(euserid, 1)
+        dt = GetDataTable(query)
+
+        Dim euname_db As String = GetDataFromColumn(dt, "username")
+        If euname_sys <> euname_db Then
+            Response.Redirect(urlTMRP_Revisuname)
+            Exit Sub
+        End If
     End Sub
 End Class
